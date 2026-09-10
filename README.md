@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Upstairs Techno — Enterprise Website
 
 A full-stack implementation of the Upstairs Techno marketing site: Next.js
@@ -113,3 +114,6 @@ functional full-stack architecture and can be added incrementally.
 # Upstairs-Techno-Portfolio-Frontend
 UpStairs Techno is a technology-driven company delivering software, web and mobile applications, AI solutions, IT consulting, digital transformation, and business automation. We also provide technology education, coding competitions, workshops, and internships, helping businesses grow and individuals develop future-ready skills.
 >>>>>>> e41ac8c228c718833070697f2a41e62d371cbc99
+=======
+# Upstairs_Techno_Portfolio_Frontend
+>>>>>>> c5c24fd512383238d2178bf765d069df9e65618e
