@@ -1,0 +1,231 @@
+@import "tailwindcss";
+
+/*
+  Design language: "Working Drawing"
+  Upstairs Techno's name is about ascension — moving a level up. We lean into
+  architectural/engineering drafting: blueprint linework, elevation markers,
+  registration corners, and a persistent "ascent gauge" that fills as the
+  visitor scrolls, tying the brand name directly to the core interaction.
+
+  Palette
+    --ink        #0E1524  deep navy-black, drafting-table dark
+    --paper      #F2F4F1  cool off-white, not the generic AI cream
+    --blueline   #2557FF  electric blueprint blue — the signature accent
+    --brass      #C98A3E  brass hardware amber — secondary / CTA warmth
+    --slate      #5B6B76  muted ink for body copy on paper
+    --grid       #C7D0D6  hairline grid / rule color
+*/
+
+:root {
+  --ink: #0e1524;
+  --ink-soft: #161f33;
+  --paper: #f2f4f1;
+  --paper-dim: #e7eae5;
+  --blueline: #2557ff;
+  --blueline-soft: #5c7dff;
+  --brass: #c98a3e;
+  --slate: #5b6b76;
+  --grid: #c7d0d6;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-display: var(--font-sans);
+  --font-body: var(--font-sans);
+  --font-mono: var(--font-sans);
+
+  --text-ink: #0e1524;
+  --text-slate: #5b6b76;
+  --text-muted: #6b7280;
+
+  --line-height-body: 1.65;
+  --line-height-heading: 1.05;
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-paper: var(--paper);
+  --color-paper-dim: var(--paper-dim);
+  --color-blueline: var(--blueline);
+  --color-blueline-soft: var(--blueline-soft);
+  --color-brass: var(--brass);
+  --color-slate: var(--slate);
+  --color-grid: var(--grid);
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  line-height: var(--line-height-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button,
+label,
+input,
+textarea,
+select {
+  font-family: var(--font-sans);
+}
+
+h1 {
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+}
+
+h2,
+h3 {
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+h4,
+h5,
+h6 {
+  font-weight: 600;
+}
+
+p,
+span,
+li,
+label,
+input,
+textarea,
+select {
+  font-weight: 400;
+}
+
+/* Fluid responsive typography utilities with increased font sizes & clear hierarchy */
+.text-hero-heading {
+  font-size: clamp(2.875rem, 5vw + 1.25rem, 5.75rem);
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+}
+
+.text-hero-paragraph {
+  font-size: clamp(1.125rem, 0.5vw + 1rem, 1.375rem);
+  line-height: 1.7;
+}
+
+.text-section-heading {
+  font-size: clamp(2.25rem, 3.5vw + 1rem, 3.75rem);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+}
+
+.text-subheading {
+  font-size: clamp(1.25rem, 1vw + 1rem, 1.75rem);
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+}
+
+button,
+input[type="button"],
+input[type="submit"],
+button[type="button"],
+button[type="submit"] {
+  font-weight: 600;
+}
+
+small,
+.caption,
+.text-xs,
+.text-sm,
+label {
+  font-weight: 500;
+}
+
+.text-slate {
+  color: var(--text-slate);
+}
+
+::selection {
+  background: var(--blueline);
+  color: var(--paper);
+}
+
+:focus-visible {
+  outline: 2px solid var(--blueline);
+  outline-offset: 3px;
+}
+
+/* Blueprint hairline grid, used as a quiet background texture */
+.blueprint-grid {
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 48px 48px;
+  opacity: 0.35;
+}
+
+.blueprint-grid-dark {
+  background-image:
+    linear-gradient(rgba(92, 125, 255, 0.14) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(92, 125, 255, 0.14) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Registration corner marks, echoing drafting-sheet framing */
+.reg-corners {
+  position: relative;
+}
+.reg-corners::before,
+.reg-corners::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: currentColor;
+  opacity: 0.5;
+}
+.reg-corners::before {
+  top: 0;
+  left: 0;
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+.reg-corners::after {
+  bottom: 0;
+  right: 0;
+  border-bottom: 1px solid;
+  border-right: 1px solid;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
