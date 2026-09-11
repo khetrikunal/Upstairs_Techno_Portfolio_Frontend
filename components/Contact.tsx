@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { Check, MapPin, Phone, Mail } from "lucide-react";
+import { MapPin, Phone, Mail } from "lucide-react";
 
 const CONTACT_EMAIL = "contact@upstairstechno.com";
+const CONTACT_PHONE = "9370465576";
+const CONTACT_PHONE_DISPLAY = "+91 93704 65576";
 
 function InstagramIcon({ className }: { className?: string }) {
   return (
@@ -26,52 +27,16 @@ function InstagramIcon({ className }: { className?: string }) {
   );
 }
 
-function FloatingField({
-  name,
-  label,
-  type = "text",
-  textarea = false,
-  required = true,
-}: {
-  name: string;
-  label: string;
-  type?: string;
-  textarea?: boolean;
-  required?: boolean;
-}) {
-  const Tag = textarea ? "textarea" : "input";
-  return (
-    <div className="relative">
-      <Tag
-        id={name}
-        name={name}
-        type={textarea ? undefined : type}
-        required={required}
-        placeholder=" "
-        rows={textarea ? 4 : undefined}
-        className="peer w-full rounded-xl border border-grid bg-paper px-4 pt-5 pb-2 text-base outline-none transition-colors duration-300 focus:border-blueline resize-none min-h-[52px]"
-      />
-      <label
-        htmlFor={name}
-        className="absolute left-4 top-3.5 text-base text-slate transition-all duration-200 peer-placeholder-shown:top-3.5 peer-placeholder-shown:text-base peer-focus:top-1.5 peer-focus:text-xs peer-focus:text-blueline peer-focus:font-medium peer-[:not(:placeholder-shown)]:top-1.5 peer-[:not(:placeholder-shown)]:text-xs peer-[:not(:placeholder-shown)]:font-medium"
-      >
-        {label}
-      </label>
-    </div>
-  );
-}
-
 export default function Contact() {
-  const [sent, setSent] = useState(false);
-
   return (
     <section id="contact" className="py-16 sm:py-20 md:py-28 lg:py-32 bg-paper">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 md:px-8 grid md:grid-cols-2 gap-10 md:gap-16 items-start">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 md:px-8">
         <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
+          className="text-center mb-12 sm:mb-16"
         >
           <p className="font-mono text-xs sm:text-sm tracking-[0.3em] uppercase text-blueline mb-3 font-medium">
             Get In Touch
@@ -79,128 +44,127 @@ export default function Contact() {
           <h2 className="font-display text-section-heading font-bold text-ink text-balance">
             Tell us what you&apos;re building.
           </h2>
-          <p className="mt-5 text-base sm:text-lg text-slate leading-relaxed max-w-md">
-            We reply within one business day. If it&apos;s urgent, mention it in your
-            message or message us on WhatsApp and we&apos;ll prioritize accordingly.
+          <p className="mt-5 text-base sm:text-lg text-slate leading-relaxed max-w-xl mx-auto">
+            We reply within one business day. Reach out via WhatsApp, phone, or
+            email and we&apos;ll get back to you promptly.
           </p>
+        </motion.div>
 
-          <div className="mt-8 sm:mt-10 space-y-4 text-base sm:text-lg text-slate">
-            <a
-              href="https://wa.me/919370465576?text=Hello%20Upstairs%20Techno!%20I%20would%20like%20to%20inquire%20about%20your%20services."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 transition-colors hover:text-[#25D366] group w-fit"
-            >
-              <div className="w-8 h-8 rounded-lg bg-[#25D366]/10 text-[#25D366] flex items-center justify-center group-hover:bg-[#25D366] group-hover:text-white transition-colors shrink-0">
-                <span className="font-bold text-sm">WA</span>
-              </div>
-              <div>
-                <span className="block text-xs font-mono text-slate uppercase tracking-wider">WhatsApp Chat</span>
-                <span className="font-bold text-ink group-hover:text-[#25D366] transition-colors">+91 93704 65576</span>
-              </div>
-            </a>
-
-            <a
-              href="tel:9156996309"
-              className="flex items-center gap-3 transition-colors hover:text-blueline group w-fit"
-            >
-              <div className="w-8 h-8 rounded-lg bg-blueline/10 text-blueline flex items-center justify-center group-hover:bg-blueline group-hover:text-white transition-colors shrink-0">
-                <Phone className="w-4 h-4" />
-              </div>
-              <div>
-                <span className="block text-xs font-mono text-slate uppercase tracking-wider">Phone Support</span>
-                <span className="font-bold text-ink group-hover:text-blueline transition-colors">+91 91569 96309</span>
-              </div>
-            </a>
-
-            <a
-              href={`mailto:${CONTACT_EMAIL}`}
-              className="flex items-center gap-3 transition-colors hover:text-blueline group w-fit"
-            >
-              <div className="w-8 h-8 rounded-lg bg-blueline/10 text-blueline flex items-center justify-center group-hover:bg-blueline group-hover:text-white transition-colors shrink-0">
-                <Mail className="w-4 h-4" />
-              </div>
-              <div>
-                <span className="block text-xs font-mono text-slate uppercase tracking-wider">Email Inquiry</span>
-                <span className="font-semibold text-ink group-hover:text-blueline transition-colors">{CONTACT_EMAIL}</span>
-              </div>
-            </a>
-
-            <div className="flex items-start gap-3 pt-2 text-sm text-slate">
-              <MapPin className="w-5 h-5 mt-0.5 text-blueline shrink-0" />
-              <span>440 Ascent Avenue, Suite 1200, Chicago, IL 60601</span>
+        {/* Contact method cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+          {/* WhatsApp */}
+          <motion.a
+            href={`https://wa.me/91${CONTACT_PHONE}?text=Hello%20Upstairs%20Techno!%20I%20would%20like%20to%20inquire%20about%20your%20services.`}
+            target="_blank"
+            rel="noopener noreferrer"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.45, delay: 0 }}
+            className="group flex flex-col rounded-2xl border border-grid bg-white p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-20px_rgba(14,21,36,0.25)] hover:border-[#25D366]/40"
+          >
+            <div className="w-10 h-10 rounded-xl bg-[#25D366]/10 text-[#25D366] flex items-center justify-center group-hover:bg-[#25D366] group-hover:text-white transition-colors shrink-0 mb-4">
+              <span className="font-bold text-sm">WA</span>
             </div>
-          </div>
+            <span className="block text-xs font-mono text-slate uppercase tracking-wider mb-1">
+              WhatsApp Chat
+            </span>
+            <span className="font-bold text-ink group-hover:text-[#25D366] transition-colors text-base">
+              {CONTACT_PHONE_DISPLAY}
+            </span>
+            <span className="mt-2 text-xs text-slate leading-relaxed">
+              Quick responses via WhatsApp
+            </span>
+          </motion.a>
 
-          <div className="mt-6 flex items-center gap-3.5">
-            <a
-              href="https://www.instagram.com/upstairstechno"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram @upstairstechno"
-              data-cursor="Instagram"
-              className="rounded-full border border-grid p-3 text-slate transition-all duration-300 hover:border-blueline hover:text-blueline hover:-translate-y-0.5 min-w-[44px] min-h-[44px] flex items-center justify-center group"
-            >
-              <InstagramIcon className="w-5 h-5 group-hover:scale-110 transition-transform" />
-            </a>
-            <a
-              href="https://www.instagram.com/upstairstechno"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-base font-semibold text-slate hover:text-blueline transition-colors"
-            >
-              @upstairstechno
-            </a>
-          </div>
-        </motion.div>
+          {/* Phone */}
+          <motion.a
+            href={`tel:${CONTACT_PHONE}`}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.45, delay: 0.08 }}
+            className="group flex flex-col rounded-2xl border border-grid bg-white p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-20px_rgba(14,21,36,0.25)] hover:border-blueline/40"
+          >
+            <div className="w-10 h-10 rounded-xl bg-blueline/10 text-blueline flex items-center justify-center group-hover:bg-blueline group-hover:text-white transition-colors shrink-0 mb-4">
+              <Phone className="w-4 h-4" />
+            </div>
+            <span className="block text-xs font-mono text-slate uppercase tracking-wider mb-1">
+              Phone Inquiry
+            </span>
+            <span className="font-bold text-ink group-hover:text-blueline transition-colors text-base">
+              {CONTACT_PHONE_DISPLAY}
+            </span>
+            <span className="mt-2 text-xs text-slate leading-relaxed">
+              Call us directly
+            </span>
+          </motion.a>
 
-        <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-        >
-          {sent ? (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="flex flex-col items-center justify-center text-center gap-3 rounded-2xl border border-grid bg-white p-8 sm:p-12 h-full"
-            >
-              <span className="flex items-center justify-center w-14 h-14 rounded-full bg-blueline/10 text-blueline">
-                <Check className="w-7 h-7" />
-              </span>
-              <p className="font-display text-2xl font-bold text-ink">Message sent</p>
-              <p className="text-base sm:text-lg text-slate">
-                Thanks for reaching out — we&apos;ll follow up within one business day.
-              </p>
-            </motion.div>
-          ) : (
-            <form
-              action={`mailto:${CONTACT_EMAIL}`}
-              method="post"
-              encType="text/plain"
-              onSubmit={() => setSent(true)}
-              className="space-y-4 rounded-2xl border border-grid bg-white p-6 sm:p-8 md:p-10 shadow-sm"
-            >
-              <div className="grid sm:grid-cols-2 gap-4">
-                <FloatingField name="name" label="Full name" />
-                <FloatingField name="email" label="Work email" type="email" />
-              </div>
-              <div className="grid sm:grid-cols-2 gap-4">
-                <FloatingField name="company" label="Company" required={false} />
-                <FloatingField name="budget" label="Budget range" required={false} />
-              </div>
-              <FloatingField name="message" label="What are you building?" textarea />
+          {/* Email */}
+          <motion.a
+            href={`mailto:${CONTACT_EMAIL}`}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.45, delay: 0.16 }}
+            className="group flex flex-col rounded-2xl border border-grid bg-white p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-20px_rgba(14,21,36,0.25)] hover:border-blueline/40"
+          >
+            <div className="w-10 h-10 rounded-xl bg-blueline/10 text-blueline flex items-center justify-center group-hover:bg-blueline group-hover:text-white transition-colors shrink-0 mb-4">
+              <Mail className="w-4 h-4" />
+            </div>
+            <span className="block text-xs font-mono text-slate uppercase tracking-wider mb-1">
+              Email Inquiry
+            </span>
+            <span className="font-semibold text-ink group-hover:text-blueline transition-colors text-sm break-all">
+              {CONTACT_EMAIL}
+            </span>
+            <span className="mt-2 text-xs text-slate leading-relaxed">
+              We reply within one business day
+            </span>
+          </motion.a>
 
-              <button
-                type="submit"
-                className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-ink text-paper px-7 py-4 text-base sm:text-lg font-bold transition-all duration-300 hover:bg-blueline min-h-[52px] shadow-md cursor-pointer"
+          {/* Location & Social */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.45, delay: 0.24 }}
+            className="flex flex-col rounded-2xl border border-grid bg-white p-6 sm:p-7"
+          >
+            <div className="w-10 h-10 rounded-xl bg-blueline/10 text-blueline flex items-center justify-center shrink-0 mb-4">
+              <MapPin className="w-4 h-4" />
+            </div>
+            <span className="block text-xs font-mono text-slate uppercase tracking-wider mb-1">
+              Location
+            </span>
+            <span className="font-semibold text-ink text-sm">
+              Baramati, Pune
+            </span>
+            <span className="text-xs text-slate">Maharashtra, India</span>
+
+            {/* Instagram */}
+            <div className="mt-auto pt-5 flex items-center gap-3">
+              <a
+                href="https://www.instagram.com/upstairstechno"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram @upstairstechno"
+                data-cursor="Instagram"
+                className="rounded-full border border-grid p-2.5 text-slate transition-all duration-300 hover:border-blueline hover:text-blueline flex items-center justify-center"
               >
-                Send Message
-              </button>
-            </form>
-          )}
-        </motion.div>
+                <InstagramIcon className="w-4 h-4" />
+              </a>
+              <a
+                href="https://www.instagram.com/upstairstechno"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-semibold text-slate hover:text-blueline transition-colors"
+              >
+                @upstairstechno
+              </a>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

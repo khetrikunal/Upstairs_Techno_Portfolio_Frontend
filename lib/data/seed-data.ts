@@ -11,7 +11,7 @@ export const seedBlogPosts: BlogPost[] = [
       "Most platforms don't fail at launch — they fail at their second growth curve. We walk through the review cadence we run with every enterprise client: load modelling before feature freeze, a quarterly capacity audit, and a rollback plan that's rehearsed, not just written down.",
     category: "Engineering",
     readingTime: 6,
-    coverImage: "/Upstairs Logo.jpeg",
+    coverImage: "/Upstairs_Logo.jpeg",
     publishedAt: "2026-06-12",
     author: "Priya Nadkarni",
   },

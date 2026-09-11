@@ -1,4 +1,4 @@
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ServiceDetailContent from "@/components/ServiceDetailContent";
@@ -9,7 +9,7 @@ interface ServiceDetailPageProps {
 }
 
 export function generateStaticParams() {
-  return Array.from(new Set([...services.map((service) => service.slug), "education", "freelancer-it"])).map((slug) => ({ slug }));
+  return services.map((service) => ({ slug: service.slug }));
 }
 
 export async function generateMetadata({ params }: ServiceDetailPageProps) {
@@ -32,14 +32,6 @@ export async function generateMetadata({ params }: ServiceDetailPageProps) {
 
 export default async function ServiceDetailPage({ params }: ServiceDetailPageProps) {
   const { slug } = await params;
-
-  if (slug?.toLowerCase() === "education") {
-    redirect("/what-we-do/services/education");
-  }
-
-  if (slug?.toLowerCase() === "freelancer-it") {
-    redirect("/services/freelancer-it");
-  }
 
   const service = getService(slug);
 

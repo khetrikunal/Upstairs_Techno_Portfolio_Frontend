@@ -894,7 +894,7 @@ const btdsBusinessBenefits = [
 export default function ServiceDetailContent({ service, sectionLabel, sectionHref }: ServiceDetailContentProps) {
   const isItConsulting = service.slug === "it-consulting";
   const isSoftwareDevelopment = service.slug === "software-development";
-  const isBtds = service.slug === "btds" || service.slug === "education";
+  const isBtds = service.slug === "btds";
   const isAiAutomation = service.slug === "ai-automation";
   const isManagedIt = service.slug === "managed-it";
   const isCloudServices = service.slug === "cloud-services";

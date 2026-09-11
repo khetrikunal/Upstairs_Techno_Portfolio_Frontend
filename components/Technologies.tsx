@@ -27,6 +27,13 @@ const TECHS = [
     expertise: "Engineered high-concurrency REST & GraphQL APIs, websockets, streaming services, and serverless microservices.",
   },
   {
+    name: ".NET",
+    description: "Building enterprise-grade applications, APIs, and cross-platform software solutions.",
+    why: ".NET delivers high-performance, scalable, and secure applications for enterprise environments with a unified development platform across web, desktop, and cloud.",
+    benefit: "High performance, cross-platform support, rich ecosystem (ASP.NET Core, Blazor, EF Core), strong typing, and enterprise-grade reliability.",
+    expertise: "Delivered enterprise web applications, RESTful APIs, and database-driven systems using ASP.NET Core, Entity Framework, and Azure integration.",
+  },
+  {
     name: "Python",
     description: "Powering AI, automation, data processing and backend solutions.",
     why: "Python is the industry standard for Artificial Intelligence, machine learning models, automation, and analytics pipelines.",

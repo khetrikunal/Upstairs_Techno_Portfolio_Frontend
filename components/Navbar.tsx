@@ -11,7 +11,6 @@ const LINKS = [
   { name: "What We Do", href: "/what-we-do" },
   { name: "About Us", href: "/about" },
   { name: "Our Products", href: "/projects" },
-  { name: "Partners", href: "/partners" },
   { name: "Code Nova", href: "/education/coding-competition" },
   { name: "Career", href: "/career" },
 ];
@@ -21,7 +20,6 @@ const MOBILE_LINKS = [
   { name: "What We Do", href: "/what-we-do" },
   { name: "About Us", href: "/about" },
   { name: "Our Products", href: "/projects" },
-  { name: "Partners", href: "/partners" },
   { name: "Code Nova", href: "/education/coding-competition" },
   { name: "Career", href: "/career" },
   { name: "Contact Us", href: "/#contact" },
@@ -51,11 +49,10 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-        scrolled
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled
           ? "bg-paper/95 backdrop-blur-md border-b border-grid shadow-sm py-3.5"
           : "bg-transparent py-4 md:py-6"
-      }`}
+        }`}
     >
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Logo & Company Name */}
@@ -65,14 +62,13 @@ export default function Navbar() {
           data-cursor="Home"
         >
           <img
-            src="/Upstairs logo.jpeg"
+            src="/Upstairs_Logo.jpeg"
             alt="Upstairs Techno logo"
             className="h-10 w-10 sm:h-11 sm:w-11 md:h-12 md:w-12 lg:h-13 lg:w-13 rounded-full object-cover border border-paper/20 bg-paper shadow-md transition-transform duration-300 group-hover:scale-105"
           />
           <span
-            className={`font-display font-extrabold text-xl sm:text-2xl md:text-[23px] lg:text-[26px] tracking-tight transition-colors duration-300 ${
-              scrolled || mobileMenuOpen ? "text-ink" : "text-paper"
-            }`}
+            className={`font-display font-extrabold text-xl sm:text-2xl md:text-[23px] lg:text-[26px] tracking-tight transition-colors duration-300 ${scrolled || mobileMenuOpen ? "text-ink" : "text-paper"
+              }`}
           >
             Upstairs Techno
           </span>
@@ -91,27 +87,25 @@ export default function Navbar() {
             >
               <a
                 href={link.href}
-                className={`relative text-[13px] lg:text-[14.5px] font-semibold py-1.5 transition-colors duration-300 group ${
-                  (link.href === "/"
+                className={`relative text-[13px] lg:text-[14.5px] font-semibold py-1.5 transition-colors duration-300 group ${(link.href === "/"
                     ? pathname === "/"
                     : pathname.startsWith(link.href.split("#")[0]) &&
-                      link.href.split("#")[0] !== "/")
+                    link.href.split("#")[0] !== "/")
                     ? "text-blueline"
                     : scrolled
-                    ? "text-ink/90 hover:text-blueline"
-                    : "text-paper/90 hover:text-white"
-                }`}
+                      ? "text-ink/90 hover:text-blueline"
+                      : "text-paper/90 hover:text-white"
+                  }`}
               >
                 {link.name}
                 <span
-                  className={`absolute left-0 -bottom-0.5 h-[2px] bg-blueline transition-all duration-300 ${
-                    (link.href === "/"
+                  className={`absolute left-0 -bottom-0.5 h-[2px] bg-blueline transition-all duration-300 ${(link.href === "/"
                       ? pathname === "/"
                       : pathname.startsWith(link.href.split("#")[0]) &&
-                        link.href.split("#")[0] !== "/")
+                      link.href.split("#")[0] !== "/")
                       ? "w-full"
                       : "w-0 group-hover:w-full"
-                  }`}
+                    }`}
                 />
               </a>
 
@@ -179,11 +173,10 @@ export default function Navbar() {
           type="button"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
-          className={`md:hidden relative z-50 p-2.5 rounded-full transition-colors cursor-pointer ${
-            scrolled || mobileMenuOpen
+          className={`md:hidden relative z-50 p-2.5 rounded-full transition-colors cursor-pointer ${scrolled || mobileMenuOpen
               ? "text-ink hover:bg-paper-dim"
               : "text-paper hover:bg-paper/10"
-          }`}
+            }`}
         >
           {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
@@ -211,14 +204,13 @@ export default function Navbar() {
                   initial={{ opacity: 0, x: -16 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.05 * idx, duration: 0.25 }}
-                  className={`flex items-center justify-between py-3.5 border-b border-grid text-xl sm:text-2xl font-display font-bold transition-colors active:bg-paper-dim rounded-lg px-2 min-h-[50px] ${
-                    (link.href === "/"
+                  className={`flex items-center justify-between py-3.5 border-b border-grid text-xl sm:text-2xl font-display font-bold transition-colors active:bg-paper-dim rounded-lg px-2 min-h-[50px] ${(link.href === "/"
                       ? pathname === "/"
                       : pathname.startsWith(link.href.split("#")[0]) &&
-                        link.href.split("#")[0] !== "/")
+                      link.href.split("#")[0] !== "/")
                       ? "text-blueline"
                       : "text-ink hover:text-blueline"
-                  }`}
+                    }`}
                 >
                   <span>{link.name}</span>
                   <ArrowUpRight className="w-5 h-5 text-blueline" />

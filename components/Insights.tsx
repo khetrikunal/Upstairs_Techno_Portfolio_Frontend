@@ -8,8 +8,8 @@ const BLOG_IMAGES: Record<string, string> = {
   "the-real-cost-of-technical-debt": "/The Real Cost of Technical Debt.png",
   "shipping-ai-features-enterprises-can-trust": "/Shipping AI Features Enterprises Can Trust.png",
   "a-field-guide-to-vendor-migrations": "/A Field Guide to Vendor Migrations.png",
-  "designing-for-scale-without-losing-speed": "/Upstairs Logo.jpeg",
-  "bp-1": "/Upstairs Logo.jpeg",
+  "designing-for-scale-without-losing-speed": "/Upstairs_Logo.jpeg",
+  "bp-1": "/Upstairs_Logo.jpeg",
   "bp-2": "/The Real Cost of Technical Debt.png",
   "bp-3": "/Shipping AI Features Enterprises Can Trust.png",
   "bp-4": "/A Field Guide to Vendor Migrations.png",
@@ -34,7 +34,7 @@ function getPostImage(post: BlogPost): string {
   if (lowerSlug.includes("debt") || lowerTitle.includes("debt") || lowerSlug.includes("cost") || lowerTitle.includes("cost")) {
     return "/The Real Cost of Technical Debt.png";
   }
-  return "/Upstairs Logo.jpeg";
+  return "/Upstairs_Logo.jpeg";
 }
 
 export default function Insights({ posts }: { posts: BlogPost[] }) {

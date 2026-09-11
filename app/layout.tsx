@@ -17,9 +17,9 @@ export const metadata: Metadata = {
   description:
     "Upstairs Techno designs and builds enterprise platforms for companies that can't afford to get it wrong: financial services, logistics, and healthcare systems at scale.",
   icons: {
-    icon: "/Upstairs Logo.jpeg",
-    shortcut: "/Upstairs Logo.jpeg",
-    apple: "/Upstairs Logo.jpeg",
+    icon: "/Upstairs_Logo.jpeg",
+    shortcut: "/Upstairs_Logo.jpeg",
+    apple: "/Upstairs_Logo.jpeg",
   },
   openGraph: {
     title: "Upstairs Techno — Enterprise Engineering",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className="h-full antialiased">
-      <body className={`${inter.variable} min-h-full flex flex-col bg-paper text-ink font-sans`}> 
+      <body className={`${inter.variable} min-h-full flex flex-col bg-paper text-ink font-sans`}>
         <AscentGauge />
         <CustomCursor />
         {children}

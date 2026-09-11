@@ -22,12 +22,12 @@ export default function WhatWeDoPage() {
             </p>
           </div>
 
-          <div className="mt-12 sm:mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 sm:mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => (
               <ServiceCard
                 key={service.slug}
                 service={service}
-                href={`/services/${service.slug}`}
+                href={service.slug === "education" ? "/what-we-do/services/education" : `/services/${service.slug}`}
               />
             ))}
           </div>

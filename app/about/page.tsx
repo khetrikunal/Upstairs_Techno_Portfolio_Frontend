@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import {
@@ -55,14 +54,9 @@ const ecosystem = [
   { title: "Education", description: "Technology Education & Training", icon: Globe },
 ];
 
-const founders = [
-  { name: "Avinash Narute", title: "Founder", image: "/Founder.jpeg", priority: 1 },
-  { name: "Ganesh Kokare", title: "Co-Founder", image: "/Co-Founder.jpeg", priority: 2 },
-];
-
 const leadership = [
-  { name: "Kunal Khetri", title: "Chief Executive Officer", image: "/CEO.jpeg", priority: 3, objectPosition: "object-top" },
-  { name: "Shreyash Chilweri", title: "Chief Technology Officer", image: "/CTO.jpeg", priority: 4, objectPosition: "object-center" },
+  { name: "Kunal Gururaj Khetri", role: "CEO", title: "Chief Executive Officer" },
+  { name: "Shreyash Chilweri", role: "CTO", title: "Chief Technology Officer" },
 ];
 
 const journeySteps = ["Foundation", "Growth", "Technology Expansion", "Talent Development", "Global Vision"];
@@ -259,78 +253,24 @@ export default function AboutPage() {
               </p>
             </div>
 
-            {/* ── Founders Tier ── */}
-            <div className="mt-12">
-              <p className="text-center font-mono text-[10px] sm:text-xs uppercase tracking-[0.4em] text-blueline/70 font-medium">Founders</p>
-              <div className="mt-8 flex flex-col items-center gap-10 sm:gap-12 md:flex-row md:justify-center md:items-start md:gap-16 lg:gap-24">
-                {/* Founder */}
-                <div className="group flex flex-col items-center text-center max-w-xs">
-                  <div className="relative h-40 w-40 sm:h-44 sm:w-44 md:h-48 md:w-48 shrink-0 overflow-hidden rounded-full border-[3px] border-grid shadow-[0_8px_32px_-8px_rgba(14,21,36,0.20)] ring-4 ring-white transition-all duration-500 group-hover:border-blueline group-hover:ring-blueline/15 group-hover:shadow-[0_12px_48px_-12px_rgba(37,87,255,0.30)]">
-                    <Image
-                      src={founders[0].image}
-                      alt={`${founders[0].name} – ${founders[0].title}`}
-                      fill
-                      sizes="(max-width: 640px) 160px, (max-width: 768px) 176px, 192px"
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      priority
-                    />
-                  </div>
-                  <div className="mt-5 sm:mt-6">
-                    <span className="inline-block rounded-full bg-blueline/10 px-3.5 py-1.5 font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.3em] text-blueline font-semibold">
-                      {founders[0].title}
-                    </span>
-                    <h3 className="mt-3 font-display text-xl sm:text-2xl font-bold text-ink">{founders[0].name}</h3>
-                  </div>
+            {/* ── Leadership: CEO & CTO (Text-only) ── */}
+            <div className="mt-12 flex flex-col items-center gap-8 sm:flex-row sm:justify-center sm:gap-10 lg:gap-14">
+              {leadership.map((leader) => (
+                <div
+                  key={leader.name}
+                  className="group flex flex-col items-center rounded-[2rem] border border-grid bg-paper p-8 sm:p-10 text-center transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_16px_40px_-10px_rgba(37,87,255,0.14)] w-full max-w-sm"
+                >
+                  <span className="inline-block rounded-full bg-blueline/10 px-4 py-1.5 font-mono text-xs uppercase tracking-[0.3em] text-blueline font-bold">
+                    {leader.role}
+                  </span>
+                  <h3 className="mt-5 font-display text-2xl sm:text-3xl font-bold text-ink tracking-tight">
+                    {leader.name}
+                  </h3>
+                  <p className="mt-2 font-mono text-xs uppercase tracking-[0.25em] text-slate font-medium">
+                    {leader.title}
+                  </p>
                 </div>
-
-                {/* Co-Founder */}
-                <div className="group flex flex-col items-center text-center max-w-xs">
-                  <div className="relative h-40 w-40 sm:h-44 sm:w-44 md:h-48 md:w-48 shrink-0 overflow-hidden rounded-full border-[3px] border-grid shadow-[0_8px_32px_-8px_rgba(14,21,36,0.20)] ring-4 ring-white transition-all duration-500 group-hover:border-blueline group-hover:ring-blueline/15 group-hover:shadow-[0_12px_48px_-12px_rgba(37,87,255,0.30)]">
-                    <Image
-                      src={founders[1].image}
-                      alt={`${founders[1].name} – ${founders[1].title}`}
-                      fill
-                      sizes="(max-width: 640px) 160px, (max-width: 768px) 176px, 192px"
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      priority
-                    />
-                  </div>
-                  <div className="mt-5 sm:mt-6">
-                    <span className="inline-block rounded-full bg-blueline/10 px-3.5 py-1.5 font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.3em] text-blueline font-semibold">
-                      {founders[1].title}
-                    </span>
-                    <h3 className="mt-3 font-display text-xl sm:text-2xl font-bold text-ink">{founders[1].name}</h3>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Divider */}
-            <div className="mx-auto mt-14 mb-12 h-px w-full max-w-md bg-gradient-to-r from-transparent via-grid to-transparent" />
-
-            {/* ── Leadership Team Tier ── */}
-            <div>
-              <p className="text-center font-mono text-[10px] sm:text-xs uppercase tracking-[0.4em] text-blueline/70 font-medium">Leadership Team</p>
-              <div className="mt-8 flex flex-col items-center gap-6 sm:flex-row sm:justify-center sm:gap-8">
-                {leadership.map((leader) => (
-                  <div
-                    key={leader.name}
-                    className="group flex flex-col items-center rounded-[1.75rem] border border-grid bg-paper p-6 sm:p-8 text-center transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_16px_40px_-10px_rgba(37,87,255,0.14)] w-full max-w-xs"
-                  >
-                    <div className="relative h-28 w-28 sm:h-32 sm:w-32 shrink-0 overflow-hidden rounded-full border-2 border-grid shadow-[0_4px_20px_-4px_rgba(14,21,36,0.16)] ring-2 ring-white transition-all duration-300 group-hover:border-blueline group-hover:ring-blueline/15 group-hover:shadow-[0_8px_28px_-6px_rgba(37,87,255,0.22)]">
-                      <Image
-                        src={leader.image}
-                        alt={`${leader.name} – ${leader.title}`}
-                        fill
-                        sizes="128px"
-                        className={`object-cover ${leader.objectPosition || "object-center"} transition-transform duration-500 group-hover:scale-110`}
-                      />
-                    </div>
-                    <h3 className="mt-5 font-display text-lg sm:text-xl font-semibold text-ink">{leader.name}</h3>
-                    <p className="mt-1.5 font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.3em] text-blueline">{leader.title}</p>
-                  </div>
-                ))}
-              </div>
+              ))}
             </div>
           </div>
         </section>
@@ -361,19 +301,19 @@ export default function AboutPage() {
                 <h3 className="mt-4 font-display text-lg font-semibold text-ink">Website</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate">upstairstechno.com</p>
               </a>
-              <a href="mailto:info@upstairstechno.com" className="rounded-[1.75rem] border border-grid bg-paper p-6 transition duration-300 hover:-translate-y-1">
+              <a href="mailto:contact@upstairstechno.com" className="rounded-[1.75rem] border border-grid bg-paper p-6 transition duration-300 hover:-translate-y-1">
                 <div className="flex h-11 w-11 items-center justify-center rounded-full bg-blueline/10 text-blueline">
                   <Mail className="h-5 w-5" />
                 </div>
                 <h3 className="mt-4 font-display text-lg font-semibold text-ink">Email</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate">info@upstairstechno.com</p>
+                <p className="mt-2 text-sm leading-relaxed text-slate">contact@upstairstechno.com</p>
               </a>
-              <a href="tel:9156996309" className="rounded-[1.75rem] border border-grid bg-paper p-6 transition duration-300 hover:-translate-y-1">
+              <a href="tel:9370465576" className="rounded-[1.75rem] border border-grid bg-paper p-6 transition duration-300 hover:-translate-y-1">
                 <div className="flex h-11 w-11 items-center justify-center rounded-full bg-blueline/10 text-blueline">
                   <Phone className="h-5 w-5" />
                 </div>
                 <h3 className="mt-4 font-display text-lg font-semibold text-ink">Phone</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate">+91 91569 96309</p>
+                <p className="mt-2 text-sm leading-relaxed text-slate">+91 93704 65576</p>
               </a>
               <div className="rounded-[1.75rem] border border-grid bg-paper p-6">
                 <div className="flex h-11 w-11 items-center justify-center rounded-full bg-blueline/10 text-blueline">

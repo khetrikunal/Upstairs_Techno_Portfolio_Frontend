@@ -20,7 +20,7 @@ export default function BTDSApplicationForm() {
           </div>
           <h3 className="mt-4 font-display text-2xl font-semibold text-ink">Application Submitted Successfully</h3>
           <p className="mt-3 text-base leading-relaxed text-slate max-w-lg mx-auto">
-            Thank you for applying to BTDS – The Talent Development Division (TDD). Our team will review your application and contact you regarding the next steps.
+            Thank you for applying to BTDS The Talent Development Division (TDD). Our team will review your application and contact you regarding the next steps.
           </p>
         </div>
       ) : (

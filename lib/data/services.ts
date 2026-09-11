@@ -8,7 +8,8 @@ import {
   LayoutGrid,
   ShieldCheck,
   Sparkles,
-  Users,
+  TrendingUp,
+  Bot,
 } from "lucide-react";
 
 export interface Service {
@@ -124,7 +125,7 @@ export const services: Service[] = [
       },
     ],
     results: [
-      "Software shaped around the client’s real operational needs.",
+      "Software shaped around the client's real operational needs.",
       "More efficient workflows through automation and better integration.",
       "Long-term partnerships through maintenance, support, and modernization engagements.",
     ],
@@ -195,20 +196,17 @@ export const services: Service[] = [
     slug: "education",
     title: "Education",
     shortDescription:
-      "Empowering students and professionals with future-ready technology skills through AI courses, monthly coding competitions, internships, workshops, and corporate training.",
+      "Empowering students with future-ready technology skills through practical AI courses and monthly coding competitions.",
     intro:
-      "Empowering Students and Professionals With Future-Ready Technology Skills — The Education Division of Upstairs Techno.",
+      "Empowering Students With Future-Ready Technology Skills — The Education Division of Upstairs Techno.",
     about: [
-      "The Education Division of Upstairs Techno provides practical technology education for students, freshers, professionals, schools, colleges, and enterprise organizations.",
-      "From school AI initiatives and college ML curricula to monthly coding competitions, hands-on internships, specialized workshops, and corporate tech training — we build the next generation of software pioneers.",
+      "The Education Division of Upstairs Techno provides practical technology education for students, freshers, and aspiring developers.",
+      "From AI-focused learning paths for school and college students to monthly coding competitions that test problem-solving and programming skills — we build the next generation of software professionals.",
     ],
     icon: GraduationCap,
     subServices: [
-      { title: "AI Courses", description: "Structured AI, ML, Data Science & Generative AI courses for School & College students." },
-      { title: "Monthly Coding Competition", description: "3-round monthly competitive programming challenges (Aptitude, Basic Coding, Advanced Coding) with rewards." },
-      { title: "Internship", description: "Real enterprise projects, hands-on mentorship, skill development, and experience letters." },
-      { title: "Workshops", description: "Short-term practical masterclasses on AI, Web Dev, DevOps, Cloud, and emerging technologies." },
-      { title: "Corporate Training", description: "Customized technical training programs for companies in AI, Cloud, Software Architecture & Security." },
+      { title: "AI Courses", description: "Structured AI, ML, Data Science & Generative AI courses for School & College students with hands-on practical learning." },
+      { title: "Coding Competition", description: "Monthly 3-round competitive programming challenges (Aptitude, Basic Coding, Advanced Coding) testing problem solving and programming ability." },
     ],
     process: ["Assess Requirements", "Curate Curriculum", "Hands-on Training", "Real Projects", "Evaluate & Certify"],
     technologies: ["Python", "Generative AI", "PyTorch", "C++", "Java", "Next.js", "Docker", "Cloud & DevOps"],
@@ -229,7 +227,7 @@ export const services: Service[] = [
     results: [
       "Industry-recognized technical certifications and skill verification.",
       "Monthly rewards, cash prizes, and direct fast-track interview PPOs for competition winners.",
-      "Practical production project experience for interns and corporate trainees.",
+      "Practical AI knowledge for students and aspiring developers.",
     ],
     differentiators: [
       { title: "3-Round Monthly Competition", description: "Structured aptitude and coding challenges every month with verified rewards.", icon: Sparkles },
@@ -237,61 +235,115 @@ export const services: Service[] = [
       { title: "Direct Enterprise Pathway", description: "Top performers get direct entry to internships and full-time hiring pools.", icon: LayoutGrid },
     ],
     faqs: [
-      { question: "What offerings are included in the Education division?", answer: "The Education division includes AI Courses, Monthly Coding Competitions, Internships, Workshops, and Corporate Training." },
+      { question: "What offerings are included in the Education division?", answer: "The Education division includes AI Courses and Monthly Coding Competitions designed to build practical technology skills." },
       { question: "How often is the Coding Competition conducted?", answer: "The Coding Competition is conducted every month in 3 distinct rounds (Aptitude, Basic Coding, Advanced Coding)." },
-      { question: "How can my company request Corporate Training?", answer: "You can request custom corporate training for your organization through our Corporate Training portal or contact us directly." },
+      { question: "Who can join the AI courses?", answer: "Our AI courses are designed for school students, college students, and freshers who want to learn practical AI concepts, tools, and applications." },
     ],
   },
   {
-    slug: "freelancer-it",
-    title: "Freelancer & IT Services",
+    slug: "digital-marketing",
+    title: "Digital Marketing",
     shortDescription:
-      "Get your IT projects delivered by skilled freelancers and technology professionals from our verified network, with Upstairs Techno managing project coordination, quality, and final delivery.",
+      "Grow your brand online through data-driven digital marketing strategy, social media marketing, SEO, content marketing, and performance campaigns.",
     intro:
-      "Upstairs Techno connects businesses with skilled freelancers, developers, designers, testers, IT professionals, and technology partners to help execute projects efficiently and cost-effectively.",
+      "Upstairs Techno's Digital Marketing division helps businesses build a powerful online presence, attract qualified leads, and grow revenue through strategic digital channels.",
     about: [
-      "We match businesses with the right IT talent from our network of freelancers, developers, designers, testers, and technology professionals — with Upstairs Techno coordinating the project, monitoring quality, and managing final delivery.",
-      "Whether you need a single specialist or an entire project team, we provide flexible engagement models tailored to your requirements and budget.",
+      "We design and execute comprehensive digital marketing strategies that align with your business goals — from building brand awareness to driving measurable conversions and customer retention.",
+      "Our approach combines SEO, social media marketing, content marketing, and performance marketing into a unified strategy focused on online brand growth and sustainable business results.",
     ],
-    icon: Users,
+    icon: TrendingUp,
     subServices: [
-      { title: "Freelance Developers", description: "Frontend, backend, full-stack, mobile, and specialized developers." },
-      { title: "UI/UX Designers", description: "Web, mobile, SaaS, dashboard, and product design professionals." },
-      { title: "AI & Automation Experts", description: "AI developers, automation specialists, chatbot developers, and integration professionals." },
-      { title: "QA & Testing", description: "Manual, automation, API, and performance testing professionals." },
-      { title: "Cloud & DevOps", description: "AWS, Azure, deployment, CI/CD, and infrastructure professionals." },
-      { title: "Dedicated Developers", description: "Hire skilled IT professionals for short-term or long-term requirements." },
+      { title: "Digital Marketing Strategy", description: "Comprehensive strategy covering brand positioning, target audience, channels, and measurable KPIs." },
+      { title: "Social Media Marketing", description: "Managing and growing your social media presence across Instagram, LinkedIn, Facebook, and YouTube." },
+      { title: "Search Engine Optimization", description: "Technical SEO, on-page optimization, keyword research, and link building to improve organic visibility." },
+      { title: "Content Marketing", description: "Creating blogs, videos, reels, and educational content to attract and engage your target audience." },
+      { title: "Performance Marketing", description: "Measurable campaigns on Google Ads and Meta Ads focused on leads, conversions, and ROI." },
     ],
-    process: ["Submit Project", "Talent Matching", "Project Development", "Quality Check & Delivery"],
-    technologies: ["React", "Node.js", "Python", "AWS", "Azure", "Flutter", "Figma", "Docker", "CI/CD"],
+    process: ["Strategy & Audit", "Target Audience Research", "Channel Planning", "Content Creation", "Campaign Launch", "Optimization", "Reporting"],
+    technologies: ["Google Ads", "Meta Ads", "Google Analytics", "SEO Tools", "Email Automation", "CRM Platforms", "Content Tools"],
     projects: [
       {
-        title: "Dedicated Dev Team for SaaS Startup",
-        industry: "SaaS",
-        description: "Matched a startup with a full-stack team of 4 developers and 1 QA, delivered MVP in 3 months.",
-        technologies: ["React", "Node.js", "PostgreSQL", "AWS"],
+        title: "Brand Growth Campaign",
+        industry: "E-Commerce",
+        description:
+          "Full-funnel digital marketing strategy that increased organic traffic by 60% and improved social media engagement significantly.",
+        technologies: ["SEO", "Social Media", "Google Ads"],
       },
       {
-        title: "UI/UX Redesign via Freelancer Network",
-        industry: "E-Commerce",
-        description: "Connected an e-commerce brand with a senior UI/UX designer, completing a full design overhaul in 6 weeks.",
-        technologies: ["Figma", "Design System"],
+        title: "Lead Generation System",
+        industry: "B2B Services",
+        description:
+          "Built a performance marketing system with landing pages, Meta Ads, and CRM follow-up automation to generate qualified leads consistently.",
+        technologies: ["Meta Ads", "Email Automation", "CRM"],
       },
     ],
     results: [
-      "Faster project execution through pre-vetted IT talent matching.",
-      "Reduced hiring overhead with flexible project-based engagement models.",
-      "Upstairs Techno-coordinated quality monitoring and final delivery.",
+      "Increased online visibility and qualified organic traffic.",
+      "More measurable leads and inquiries through performance campaigns.",
+      "Stronger brand presence across social media and search engines.",
     ],
     differentiators: [
-      { title: "One point of contact", description: "The client communicates with Upstairs Techno rather than managing multiple freelancers.", icon: ShieldCheck },
-      { title: "Project coordination", description: "We manage milestones, communication, quality checks, and final delivery end-to-end.", icon: Sparkles },
-      { title: "Flexible engagement", description: "From a single developer to a full dedicated team — scaled to your exact requirements.", icon: LayoutGrid },
+      { title: "Strategy-first approach", description: "Every campaign starts with a clear strategy aligned to your specific business goals and target audience.", icon: Sparkles },
+      { title: "Data-driven optimization", description: "Campaigns are continuously monitored and optimized based on real performance data.", icon: ShieldCheck },
+      { title: "End-to-end execution", description: "From strategy and content creation to campaign management and reporting — all under one team.", icon: ArrowRight },
     ],
     faqs: [
-      { question: "Can I hire a single freelancer?", answer: "Yes. Businesses can request individual professionals based on their project requirements." },
-      { question: "Does Upstairs Techno manage the project?", answer: "Yes. Upstairs Techno coordinates the project, communication, milestones, quality checks, and final delivery." },
-      { question: "Can freelancers join the network?", answer: "Yes. Freelancers and IT professionals can submit their profiles for consideration through our network registration form." },
+      { question: "What digital marketing services do you offer?", answer: "We offer digital marketing strategy, social media marketing, SEO, content marketing, performance marketing (Google & Meta Ads), and online brand growth management." },
+      { question: "How long before we see results from SEO?", answer: "SEO results typically build over 3–6 months. Performance marketing campaigns can show measurable results much faster, often within the first month." },
+      { question: "Do you work with small businesses?", answer: "Yes. We work with startups, SMEs, and growing businesses to create digital marketing strategies appropriate for their budget and goals." },
+    ],
+  },
+  {
+    slug: "ai-automation",
+    title: "AI & Automation",
+    shortDescription:
+      "Transform your business with AI-powered solutions, intelligent workflow automation, and custom AI integrations that increase productivity and reduce manual effort.",
+    intro:
+      "Upstairs Techno's AI & Automation division builds intelligent, AI-powered solutions that automate business processes, streamline workflows, and deliver measurable productivity gains.",
+    about: [
+      "We design and develop custom AI solutions tailored to your specific business problems — from intelligent chatbots and AI agents to full business process automation and AI-powered data pipelines.",
+      "Our focus is on practical AI adoption: building AI tools that integrate seamlessly into your existing workflows, reduce manual effort, and create clear, measurable business value.",
+    ],
+    icon: Bot,
+    subServices: [
+      { title: "AI-Powered Solutions", description: "Custom AI applications including chatbots, AI agents, recommendation systems, and intelligent data processing." },
+      { title: "Business Process Automation", description: "Automating repetitive manual workflows and operational tasks to increase efficiency and reduce errors." },
+      { title: "Intelligent Workflows", description: "Building smart, condition-based workflow systems that adapt and respond to business events automatically." },
+      { title: "AI Integrations", description: "Integrating AI capabilities (OpenAI, Google AI, LangChain) into your existing software and business tools." },
+      { title: "Custom AI Solutions", description: "Tailored AI model development, fine-tuning, and deployment for specific business use cases." },
+    ],
+    process: ["Discovery & Use Case Definition", "AI Strategy & Architecture", "Data Preparation", "Model/Solution Development", "Integration & Testing", "Deployment", "Monitoring & Optimization"],
+    technologies: ["Python", "OpenAI", "LangChain", "Google AI", "n8n", "Zapier", "Node.js", "FastAPI", "React", "PostgreSQL", "AWS", "Azure"],
+    projects: [
+      {
+        title: "AI Customer Support Automation",
+        industry: "E-Commerce",
+        description:
+          "Built an AI-powered customer support chatbot that handled 70% of common inquiries automatically, reducing support workload significantly.",
+        technologies: ["OpenAI", "LangChain", "Node.js", "React"],
+      },
+      {
+        title: "Business Process Automation Suite",
+        industry: "Professional Services",
+        description:
+          "Automated key business workflows including document processing, email routing, and reporting — saving multiple hours of manual work daily.",
+        technologies: ["Python", "n8n", "OpenAI", "PostgreSQL"],
+      },
+    ],
+    results: [
+      "Significant reduction in manual, repetitive operational tasks.",
+      "Faster business processes with AI-powered decision support.",
+      "Improved productivity through intelligent workflow automation.",
+    ],
+    differentiators: [
+      { title: "Practical AI focus", description: "We build AI solutions that solve real business problems with clear, measurable outcomes — not experimental technology demos.", icon: Sparkles },
+      { title: "Custom-built for your business", description: "Every AI solution is tailored to your specific workflows, data, and business requirements.", icon: ShieldCheck },
+      { title: "Safe and responsible adoption", description: "AI solutions are built with appropriate oversight, governance, and human-in-the-loop controls.", icon: LayoutGrid },
+    ],
+    faqs: [
+      { question: "What kinds of AI solutions do you build?", answer: "We build AI chatbots, AI agents, business process automation, intelligent workflows, AI integrations, and custom AI-powered applications for specific business use cases." },
+      { question: "Do I need to have my own data for AI solutions?", answer: "Not always. Many AI solutions use pre-trained models (like OpenAI) that can be integrated without training on your own data. For specialized use cases, we can work with your existing data." },
+      { question: "How long does it take to build an AI solution?", answer: "Simple AI integrations and chatbots can be built in 2–4 weeks. More complex AI systems with custom workflows or model development typically take 6–12 weeks." },
     ],
   },
 ];

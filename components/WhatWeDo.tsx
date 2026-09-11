@@ -20,11 +20,11 @@ export default function WhatWeDo() {
             What We Do
           </p>
           <h2 className="font-display text-section-heading font-bold text-ink text-balance">
-            Four disciplines, one delivery team.
+            End-to-end disciplines, one delivery team.
           </h2>
         </motion.div>
 
-        <div className="mt-12 sm:mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 sm:mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service, i) => (
             <motion.div
               key={service.slug}
@@ -34,7 +34,7 @@ export default function WhatWeDo() {
               transition={{ duration: 0.55, delay: i * 0.08, ease: "easeOut" }}
             >
               <Link
-                href={`/services/${service.slug}`}
+                href={service.slug === "education" ? "/what-we-do/services/education" : `/services/${service.slug}`}
                 className="group relative block overflow-hidden rounded-2xl border border-grid bg-white p-7 sm:p-8 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-20px_rgba(14,21,36,0.25)] min-h-[260px] flex flex-col justify-between"
                 data-cursor="Learn more"
               >

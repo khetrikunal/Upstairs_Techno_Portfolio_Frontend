@@ -27,11 +27,11 @@ export default function ServicesPage() {
             </p>
           </div>
 
-          <div className="mt-12 sm:mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 sm:mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => (
               <Link
                 key={service.slug}
-                href={`/services/${service.slug}`}
+                href={service.slug === "education" ? "/what-we-do/services/education" : `/services/${service.slug}`}
                 className="group block rounded-[2rem] border border-grid bg-white p-7 sm:p-8 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-20px_rgba(14,21,36,0.25)] min-h-[260px] flex flex-col justify-between"
               >
                 <div>
