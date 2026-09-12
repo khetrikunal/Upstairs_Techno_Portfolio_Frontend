@@ -7,7 +7,6 @@ import FeaturedProjects from "@/components/FeaturedProjects";
 import Partners from "@/components/Partners";
 import ProcessTimeline from "@/components/ProcessTimeline";
 import Technologies from "@/components/Technologies";
-import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -23,9 +22,9 @@ export default function Home() {
         <Partners />
         <ProcessTimeline />
         <Technologies />
-        <Contact />
       </main>
       <Footer />
     </>
   );
 }
+

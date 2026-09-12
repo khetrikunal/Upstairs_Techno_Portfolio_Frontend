@@ -79,13 +79,21 @@ export default function Footer() {
             {/* Social */}
             <div className="flex items-center gap-3">
               <a
-                href="https://www.instagram.com/upstairstechno"
+                href="https://www.instagram.com/upstairstechno/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram @upstairstechno"
                 className="flex h-9 w-9 items-center justify-center rounded-full border border-paper/15 text-paper/50 hover:border-blueline hover:text-blueline transition-all duration-200"
               >
                 <InstagramIcon className="w-4 h-4" />
+              </a>
+              <a
+                href="https://www.instagram.com/upstairstechno/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-paper/50 hover:text-blueline-soft transition-colors duration-200 font-mono"
+              >
+                @upstairstechno
               </a>
             </div>
           </div>
@@ -135,6 +143,15 @@ export default function Footer() {
                 >
                   <Mail className="w-4 h-4 mt-0.5 shrink-0 text-blueline/60 group-hover:text-blueline" />
                   <span>contact@upstairstechno.com</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="mailto:info@upstairstechno.com"
+                  className="flex items-start gap-2.5 text-sm text-paper/60 hover:text-blueline-soft transition-colors duration-200 group"
+                >
+                  <Mail className="w-4 h-4 mt-0.5 shrink-0 text-blueline/60 group-hover:text-blueline" />
+                  <span>info@upstairstechno.com</span>
                 </a>
               </li>
               <li>

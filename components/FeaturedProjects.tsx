@@ -1,73 +1,66 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
-import { FEATURED_PROJECTS, getCategoryMeta } from "@/lib/data/projects";
-import ProjectDetailModal from "./ProjectDetailModal";
-import type { Project } from "@/lib/data/projects";
+import Link from "next/link";
+import { FEATURED_PROJECTS, ALL_PROJECTS, getCategoryMeta } from "@/lib/data/projects";
 
 export default function FeaturedProjects() {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-
   return (
-    <>
-      <section
-        id="featured-projects"
-        className="relative py-20 sm:py-28 bg-paper overflow-hidden"
-      >
-        {/* Subtle blueprint grid background */}
-        <div className="absolute inset-0 blueprint-grid opacity-40 pointer-events-none" />
+    <section
+      id="featured-projects"
+      className="relative py-20 sm:py-28 bg-paper overflow-hidden"
+    >
+      {/* Subtle blueprint grid background */}
+      <div className="absolute inset-0 blueprint-grid opacity-40 pointer-events-none" />
 
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
-          {/* Section header */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12 sm:mb-16"
-          >
-            <div>
-              <div className="inline-flex items-center gap-2 rounded-full border border-blueline/30 bg-blueline/5 px-4 py-1.5 text-xs sm:text-sm font-mono tracking-widest text-blueline uppercase mb-3 font-bold">
-                🗂 Featured Products
-              </div>
-              <h2 className="font-display text-section-heading font-bold text-ink tracking-tight text-balance">
-                Enterprise Solutions{" "}
-                <span className="text-blueline">We&apos;ve Built</span>
-              </h2>
-              <p className="mt-3 text-base sm:text-lg text-slate leading-relaxed max-w-xl">
-                A curated selection of our enterprise products across different industries and technology domains.
-              </p>
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        {/* Section header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12 sm:mb-16"
+        >
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full border border-blueline/30 bg-blueline/5 px-4 py-1.5 text-xs sm:text-sm font-mono tracking-widest text-blueline uppercase mb-3 font-bold">
+              🗂 Featured Products
             </div>
+            <h2 className="font-display text-section-heading font-bold text-ink tracking-tight text-balance">
+              Enterprise Solutions{" "}
+              <span className="text-blueline">We&apos;ve Built</span>
+            </h2>
+            <p className="mt-3 text-base sm:text-lg text-slate leading-relaxed max-w-xl">
+              A curated selection of our enterprise products across different industries and technology domains.
+            </p>
+          </div>
 
-            <a
-              href="/projects"
-              className="group shrink-0 inline-flex items-center gap-2.5 rounded-full border border-grid bg-ink text-paper px-6 py-3.5 text-base font-bold transition-all duration-300 hover:bg-blueline hover:border-blueline hover:-translate-y-0.5 whitespace-nowrap self-start sm:self-auto"
-            >
-              View All Products
-              <ArrowUpRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </a>
-          </motion.div>
+          <Link
+            href="/projects"
+            className="group shrink-0 inline-flex items-center gap-2.5 rounded-full border border-grid bg-ink text-paper px-6 py-3.5 text-base font-bold transition-all duration-300 hover:bg-blueline hover:border-blueline hover:-translate-y-0.5 whitespace-nowrap self-start sm:self-auto"
+          >
+            View All Products
+            <ArrowUpRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </Link>
+        </motion.div>
 
-          {/* Featured project grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-            {FEATURED_PROJECTS.map((project, i) => {
-              const meta = getCategoryMeta(project.category);
+        {/* Featured project grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+          {FEATURED_PROJECTS.map((project, i) => {
+            const meta = getCategoryMeta(project.category);
 
-              return (
-                <motion.article
-                  key={project.id}
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-60px" }}
-                  transition={{ duration: 0.45, delay: i * 0.07, ease: "easeOut" }}
-                  onClick={() => setSelectedProject(project)}
-                  role="button"
-                  tabIndex={0}
-                  onKeyDown={(e) => e.key === "Enter" && setSelectedProject(project)}
-                  aria-label={`View details for ${project.name}`}
-                  className="group relative flex flex-col rounded-2xl border border-grid bg-white shadow-sm hover:shadow-xl hover:border-blueline/40 transition-all duration-300 overflow-hidden cursor-pointer"
+            return (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.45, delay: i * 0.07, ease: "easeOut" }}
+              >
+                <Link
+                  href={`/projects/${project.slug}`}
+                  className="group relative flex flex-col rounded-2xl border border-grid bg-white shadow-sm hover:shadow-xl hover:border-blueline/40 transition-all duration-300 overflow-hidden h-full"
                 >
                   {/* Accent top bar */}
                   <div className="h-1.5 shrink-0" style={{ backgroundColor: meta.color }} />
@@ -149,32 +142,30 @@ export default function FeaturedProjects() {
                       </span>
                     </div>
                   </div>
-                </motion.article>
-              );
-            })}
-          </div>
-
-          {/* Bottom CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="mt-12 text-center"
-          >
-            <a
-              href="/projects"
-              className="group inline-flex items-center gap-2.5 rounded-full bg-blueline px-8 py-4 text-base sm:text-lg font-bold text-paper shadow-lg shadow-blueline/25 transition-all duration-300 hover:bg-blueline-soft hover:shadow-xl hover:shadow-blueline/35 hover:-translate-y-0.5"
-            >
-              Explore All {FEATURED_PROJECTS.length > 0 ? `${FEATURED_PROJECTS.length > 5 ? "50+" : FEATURED_PROJECTS.length}` : ""} Products
-              <ArrowUpRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </a>
-          </motion.div>
+                </Link>
+              </motion.div>
+            );
+          })}
         </div>
-      </section>
 
-      {/* Detail modal */}
-      <ProjectDetailModal project={selectedProject} onClose={() => setSelectedProject(null)} />
-    </>
+        {/* Bottom CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="mt-12 text-center"
+        >
+          <Link
+            href="/projects"
+            className="group inline-flex items-center gap-2.5 rounded-full bg-blueline px-8 py-4 text-base sm:text-lg font-bold text-paper shadow-lg shadow-blueline/25 transition-all duration-300 hover:bg-blueline-soft hover:shadow-xl hover:shadow-blueline/35 hover:-translate-y-0.5"
+          >
+            Explore All {ALL_PROJECTS.length} Products
+            <ArrowUpRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </Link>
+        </motion.div>
+      </div>
+    </section>
   );
 }
+
