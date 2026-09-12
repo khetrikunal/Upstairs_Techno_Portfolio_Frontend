@@ -89,14 +89,6 @@ export default function Hero() {
             Register for Coding Competition
             <ArrowUpRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
-          <a
-            href="/#contact"
-            data-cursor="Book"
-            className="group inline-flex items-center justify-center gap-2.5 rounded-full border border-paper/30 bg-paper/10 backdrop-blur-sm px-8 py-4 text-base sm:text-lg font-bold text-paper transition-all duration-300 hover:scale-[1.02] hover:border-paper/70 hover:bg-paper/20 min-h-[52px]"
-          >
-            Schedule Consultation
-            <ArrowUpRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </a>
         </motion.div>
       </div>
 
