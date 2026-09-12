@@ -31,6 +31,11 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const isHome = pathname === "/";
+  // On the home page top, the background is dark (video hero).
+  // Everywhere else (subpages or when scrolled), the background is light.
+  const isDarkHero = isHome && !scrolled;
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
@@ -49,26 +54,28 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled
-          ? "bg-paper/95 backdrop-blur-md border-b border-grid shadow-sm py-3.5"
-          : "bg-transparent py-4 md:py-6"
-        }`}
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
+        isDarkHero
+          ? "bg-transparent py-4 md:py-6"
+          : "bg-paper/95 backdrop-blur-md border-b border-grid shadow-sm py-3.5"
+      }`}
     >
-      <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+      <nav className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8 flex items-center justify-between">
         {/* Logo & Company Name */}
         <a
           href="/"
-          className="flex items-center gap-3 sm:gap-3.5 group shrink-0"
+          className="flex items-center gap-2.5 sm:gap-3.5 group shrink-0"
           data-cursor="Home"
         >
           <img
             src="/Upstairs_Logo.jpeg"
             alt="Upstairs Techno logo"
-            className="h-10 w-10 sm:h-11 sm:w-11 md:h-12 md:w-12 lg:h-13 lg:w-13 rounded-full object-cover border border-paper/20 bg-paper shadow-md transition-transform duration-300 group-hover:scale-105"
+            className="h-9 w-9 sm:h-10 sm:w-10 md:h-11 md:w-11 lg:h-12 lg:w-12 rounded-full object-cover border border-paper/20 bg-paper shadow-md transition-transform duration-300 group-hover:scale-105"
           />
           <span
-            className={`font-display font-extrabold text-xl sm:text-2xl md:text-[23px] lg:text-[26px] tracking-tight transition-colors duration-300 ${scrolled || mobileMenuOpen ? "text-ink" : "text-paper"
-              }`}
+            className={`font-display font-extrabold text-lg sm:text-xl md:text-2xl lg:text-[25px] tracking-tight transition-colors duration-300 ${
+              isDarkHero ? "text-paper" : "text-ink"
+            }`}
           >
             Upstairs Techno
           </span>
@@ -76,7 +83,7 @@ export default function Navbar() {
 
         {/* Desktop Navigation Links */}
         <div
-          className="hidden md:flex items-center gap-5 lg:gap-7 xl:gap-8 ml-8 lg:ml-12"
+          className="hidden lg:flex items-center gap-5 xl:gap-7 ml-6 xl:ml-10"
           onMouseLeave={() => setMenuOpen(false)}
         >
           {LINKS.map((link) => (
@@ -87,25 +94,27 @@ export default function Navbar() {
             >
               <a
                 href={link.href}
-                className={`relative text-[13px] lg:text-[14.5px] font-semibold py-1.5 transition-colors duration-300 group ${(link.href === "/"
+                className={`relative text-[13px] xl:text-[14px] font-semibold py-1.5 transition-colors duration-300 group ${
+                  (link.href === "/"
                     ? pathname === "/"
                     : pathname.startsWith(link.href.split("#")[0]) &&
-                    link.href.split("#")[0] !== "/")
+                      link.href.split("#")[0] !== "/")
                     ? "text-blueline"
-                    : scrolled
-                      ? "text-ink/90 hover:text-blueline"
-                      : "text-paper/90 hover:text-white"
-                  }`}
+                    : isDarkHero
+                      ? "text-paper/90 hover:text-white"
+                      : "text-ink/80 hover:text-blueline"
+                }`}
               >
                 {link.name}
                 <span
-                  className={`absolute left-0 -bottom-0.5 h-[2px] bg-blueline transition-all duration-300 ${(link.href === "/"
+                  className={`absolute left-0 -bottom-0.5 h-[2px] bg-blueline transition-all duration-300 ${
+                    (link.href === "/"
                       ? pathname === "/"
                       : pathname.startsWith(link.href.split("#")[0]) &&
-                      link.href.split("#")[0] !== "/")
+                        link.href.split("#")[0] !== "/")
                       ? "w-full"
                       : "w-0 group-hover:w-full"
-                    }`}
+                  }`}
                 />
               </a>
 
@@ -157,7 +166,7 @@ export default function Navbar() {
         </div>
 
         {/* Desktop CTA Button */}
-        <div className="hidden md:flex items-center shrink-0">
+        <div className="hidden lg:flex items-center shrink-0">
           <a
             href="/career#open-positions"
             data-cursor="Apply for Job"
@@ -173,10 +182,11 @@ export default function Navbar() {
           type="button"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
-          className={`md:hidden relative z-50 p-2.5 rounded-full transition-colors cursor-pointer ${scrolled || mobileMenuOpen
-              ? "text-ink hover:bg-paper-dim"
-              : "text-paper hover:bg-paper/10"
-            }`}
+          className={`lg:hidden relative z-50 p-2.5 rounded-full transition-colors cursor-pointer ${
+            isDarkHero && !mobileMenuOpen
+              ? "text-paper hover:bg-paper/10"
+              : "text-ink hover:bg-paper-dim"
+          }`}
         >
           {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>

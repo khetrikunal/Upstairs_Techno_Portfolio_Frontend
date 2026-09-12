@@ -111,7 +111,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="mx-auto mt-12 max-w-7xl px-6">
+        <section className="mx-auto mt-12 max-w-7xl px-4 sm:px-6 md:px-8">
           <div className="rounded-[2rem] border border-grid bg-white p-8 sm:p-10">
             <p className="font-mono text-xs uppercase tracking-[0.35em] text-blueline">Who We Are</p>
             <h2 className="mt-3 font-display text-3xl font-semibold text-ink">A technology company built to connect business innovation with practical talent growth.</h2>
@@ -126,7 +126,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="mx-auto mt-12 max-w-7xl px-6">
+        <section className="mx-auto mt-12 max-w-7xl px-4 sm:px-6 md:px-8">
           <div className="grid gap-6 lg:grid-cols-2">
             {pillars.map((pillar) => (
               <div key={pillar.title} className="rounded-[2rem] border border-grid bg-white p-8 sm:p-10">
@@ -147,7 +147,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="mx-auto mt-12 max-w-7xl px-6">
+        <section className="mx-auto mt-12 max-w-7xl px-4 sm:px-6 md:px-8">
           <div className="rounded-[2rem] border border-grid bg-white p-8 sm:p-10">
             <p className="font-mono text-xs uppercase tracking-[0.35em] text-blueline">Why We Started</p>
             <h2 className="mt-3 font-display text-3xl font-semibold text-ink">Bridging the gap between business needs and modern technology.</h2>
@@ -167,14 +167,14 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="mx-auto mt-12 max-w-7xl px-6">
+        <section className="mx-auto mt-12 max-w-7xl px-4 sm:px-6 md:px-8">
           <div className="rounded-[2rem] border border-grid bg-ink p-8 text-paper sm:p-10">
             <p className="font-mono text-xs uppercase tracking-[0.35em] text-blueline">Our Vision</p>
             <h2 className="mt-3 font-display text-3xl font-semibold">To become a globally recognized technology company that empowers businesses through innovation, delivers world-class digital solutions, and develops the next generation of technology professionals by bridging the gap between education and industry.</h2>
           </div>
         </section>
 
-        <section className="mx-auto mt-12 max-w-7xl px-6">
+        <section className="mx-auto mt-12 max-w-7xl px-4 sm:px-6 md:px-8">
           <div className="rounded-[2rem] border border-grid bg-white p-8 sm:p-10">
             <p className="font-mono text-xs uppercase tracking-[0.35em] text-blueline">Our Mission</p>
             <h2 className="mt-3 font-display text-3xl font-semibold text-ink">To help businesses innovate, grow, and succeed through high-quality IT consulting and custom software development — while empowering students and fresh graduates through training, internships, and real-world project experience.</h2>
@@ -184,7 +184,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="mx-auto mt-12 max-w-7xl px-6">
+        <section className="mx-auto mt-12 max-w-7xl px-4 sm:px-6 md:px-8">
           <div className="rounded-[2rem] border border-grid bg-white p-8 sm:p-10">
             <p className="font-mono text-xs uppercase tracking-[0.35em] text-blueline">Our Core Values</p>
             <h2 className="mt-3 font-display text-3xl font-semibold text-ink">The principles that guide every engagement and every relationship.</h2>
@@ -202,7 +202,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="mx-auto mt-12 max-w-7xl px-6">
+        <section className="mx-auto mt-12 max-w-7xl px-4 sm:px-6 md:px-8">
           <div className="rounded-[2rem] border border-grid bg-white p-8 sm:p-10">
             <p className="font-mono text-xs uppercase tracking-[0.35em] text-blueline">Why Choose Upstairs Techno?</p>
             <h2 className="mt-3 font-display text-3xl font-semibold text-ink">A reliable partner for business growth and future-ready talent.</h2>
@@ -224,7 +224,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="mx-auto mt-12 max-w-7xl px-6">
+        <section className="mx-auto mt-12 max-w-7xl px-4 sm:px-6 md:px-8">
           <div className="rounded-[2rem] border border-grid bg-white p-8 sm:p-10">
             <p className="font-mono text-xs uppercase tracking-[0.35em] text-blueline">Our Technology &amp; Service Ecosystem</p>
             <h2 className="mt-3 font-display text-3xl font-semibold text-ink">An end-to-end ecosystem for business transformation and talent development.</h2>
@@ -275,7 +275,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="mx-auto mt-12 max-w-7xl px-6">
+        <section className="mx-auto mt-12 max-w-7xl px-4 sm:px-6 md:px-8">
           <div className="rounded-[2rem] border border-grid bg-white p-8 sm:p-10">
             <p className="font-mono text-xs uppercase tracking-[0.35em] text-blueline">Our Journey</p>
             <h2 className="mt-3 font-display text-3xl font-semibold text-ink">A conceptual path from foundation to future-ready impact.</h2>
@@ -289,7 +289,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="mx-auto mt-12 max-w-7xl px-6">
+        <section className="mx-auto mt-12 max-w-7xl px-4 sm:px-6 md:px-8">
           <div className="rounded-[2rem] border border-grid bg-white p-8 sm:p-10">
             <p className="font-mono text-xs uppercase tracking-[0.35em] text-blueline">Get in Touch</p>
             <h2 className="mt-3 font-display text-3xl font-semibold text-ink">Let&apos;s start a conversation about your next technology or talent-development opportunity.</h2>
@@ -326,7 +326,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="mx-auto mt-12 max-w-7xl px-6">
+        <section className="mx-auto mt-12 max-w-7xl px-4 sm:px-6 md:px-8">
           <div className="rounded-[2rem] border border-grid bg-white p-8 text-center sm:p-10">
             <p className="font-mono text-xs uppercase tracking-[0.35em] text-blueline">Let&apos;s Build the Future Together</p>
             <h2 className="mt-3 font-display text-3xl font-semibold text-ink">Whether you&apos;re looking to transform your business with technology or build the next generation of technology talent, Upstairs Techno is ready to work with you.</h2>

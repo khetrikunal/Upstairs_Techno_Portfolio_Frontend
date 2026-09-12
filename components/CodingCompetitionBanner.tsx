@@ -4,24 +4,25 @@ import { ArrowRight, Trophy, Code2, BrainCircuit, Sparkles, CheckCircle2 } from 
 
 export default function CodingCompetitionBanner() {
   return (
-    <section className="relative bg-ink text-paper py-20 sm:py-28 overflow-hidden my-12 rounded-3xl mx-4 sm:mx-6 lg:mx-8 shadow-2xl border border-blueline/30">
-      {/* Responsive Background Image with Dark Contrast Overlay */}
-      <div className="absolute inset-0 z-0">
-        <img
-          src="/coding.jpeg"
-          alt="Coding Competition"
-          className="w-full h-full object-cover object-center opacity-25 filter brightness-75 contrast-125"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-ink/95 via-ink/80 to-ink/95" />
-      </div>
+    <section className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8 my-10 sm:my-14">
+      <div className="relative bg-ink text-paper py-16 sm:py-20 md:py-24 overflow-hidden rounded-3xl shadow-2xl border border-blueline/30">
+        {/* Responsive Background Image with Dark Contrast Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/coding.jpeg"
+            alt="Coding Competition"
+            className="w-full h-full object-cover object-center opacity-25 filter brightness-75 contrast-125"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-ink/95 via-ink/80 to-ink/95" />
+        </div>
 
-      <div className="absolute inset-0 blueprint-grid-dark opacity-50 z-0" />
+        <div className="absolute inset-0 blueprint-grid-dark opacity-50 z-0" />
 
-      {/* Decorative gradient glow */}
-      <div className="absolute -top-24 -right-24 w-96 h-96 bg-blueline/20 rounded-full blur-3xl pointer-events-none z-0" />
-      <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blueline/15 rounded-full blur-3xl pointer-events-none z-0" />
+        {/* Decorative gradient glow */}
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-blueline/20 rounded-full blur-3xl pointer-events-none z-0" />
+        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blueline/15 rounded-full blur-3xl pointer-events-none z-0" />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        <div className="relative z-10 px-4 sm:px-8 md:px-12">
         <div className="text-center max-w-3xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 rounded-full border border-blueline/40 bg-blueline/10 px-5 py-2 text-xs sm:text-sm font-mono tracking-widest text-blueline-soft uppercase mb-4 shadow-sm font-semibold">
             <Trophy className="w-4 h-4 text-blueline-soft" />
@@ -131,6 +132,7 @@ export default function CodingCompetitionBanner() {
           </a>
         </div>
       </div>
-    </section>
-  );
+    </div>
+  </section>
+);
 }

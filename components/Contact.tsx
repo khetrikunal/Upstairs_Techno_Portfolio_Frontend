@@ -30,7 +30,7 @@ function InstagramIcon({ className }: { className?: string }) {
 export default function Contact() {
   return (
     <section id="contact" className="py-16 sm:py-20 md:py-28 lg:py-32 bg-paper">
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 md:px-8">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
