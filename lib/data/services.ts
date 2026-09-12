@@ -196,17 +196,17 @@ export const services: Service[] = [
     slug: "education",
     title: "Education",
     shortDescription:
-      "Empowering students with future-ready technology skills through practical AI courses and monthly coding competitions.",
+      "Empowering students with future-ready technology skills through Code Nova monthly coding competitions and practical AI courses (Course Upcoming Soon).",
     intro:
       "Empowering Students With Future-Ready Technology Skills — The Education Division of Upstairs Techno.",
     about: [
       "The Education Division of Upstairs Techno provides practical technology education for students, freshers, and aspiring developers.",
-      "From AI-focused learning paths for school and college students to monthly coding competitions that test problem-solving and programming skills — we build the next generation of software professionals.",
+      "From Code Nova monthly skill competitions testing aptitude and programming ability to practical AI learning paths (Course Upcoming Soon on edu.upstairstechno.com) — we build the next generation of software professionals.",
     ],
     icon: GraduationCap,
     subServices: [
-      { title: "AI Courses", description: "Structured AI, ML, Data Science & Generative AI courses for School & College students with hands-on practical learning." },
-      { title: "Coding Competition", description: "Monthly 3-round competitive programming challenges (Aptitude, Basic Coding, Advanced Coding) testing problem solving and programming ability." },
+      { title: "Code Nova (Monthly Coding Competition)", description: "India's monthly 3-round online skill championship (Aptitude, Basic Coding, Advanced Coding) with medals, kits, and paid internship opportunities." },
+      { title: "AI Course (Course Upcoming Soon)", description: "Practical AI, Machine Learning, and Generative AI curriculum for School and College student cohorts launching soon on edu.upstairstechno.com." },
     ],
     process: ["Assess Requirements", "Curate Curriculum", "Hands-on Training", "Real Projects", "Evaluate & Certify"],
     technologies: ["Python", "Generative AI", "PyTorch", "C++", "Java", "Next.js", "Docker", "Cloud & DevOps"],

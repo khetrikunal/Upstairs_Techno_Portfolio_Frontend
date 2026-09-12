@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { ArrowRight, CheckCircle2, Cpu, Sparkles, BookOpen, GraduationCap, Code } from "lucide-react";
+import { ArrowRight, CheckCircle2, Cpu, Sparkles, BookOpen, GraduationCap, Code, Clock } from "lucide-react";
 
 export const metadata = {
   title: "AI Courses | Upstairs Techno Education",
@@ -38,16 +38,17 @@ export default function AICoursesPage() {
               <Sparkles className="w-10 h-10 text-blueline animate-pulse" />
             </div>
 
-            <span className="inline-block rounded-full bg-blueline/10 px-4 py-1.5 font-mono text-xs uppercase tracking-[0.25em] text-blueline font-bold mb-4">
-              Coming Soon
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-700 px-4 py-1.5 font-mono text-xs uppercase tracking-[0.25em] font-bold mb-4">
+              <Clock className="w-3.5 h-3.5 text-amber-600" />
+              Course Upcoming Soon
             </span>
 
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-ink tracking-tight mb-4">
-              Uploading Soon
+              Course Upcoming Soon
             </h2>
 
             <p className="text-slate text-base sm:text-lg md:text-xl max-w-xl mx-auto leading-relaxed mb-8">
-              AI Course content is currently being prepared. Please check back soon.
+              AI Course content and interactive cohorts are currently being prepared for edu.upstairstechno.com.
             </p>
 
             <div className="max-w-md mx-auto rounded-2xl border border-grid bg-paper p-6 mb-8 text-left">
@@ -56,7 +57,7 @@ export default function AICoursesPage() {
                 <div>
                   <p className="font-display font-semibold text-ink text-sm sm:text-base">Cohort Curriculum Under Preparation</p>
                   <p className="text-xs sm:text-sm text-slate mt-1 leading-relaxed">
-                    We are building comprehensive, hands-on modules designed for School and College student cohorts. Details will be announced soon.
+                    We are building comprehensive, hands-on modules designed for School and College student cohorts. Follow updates on our official portal.
                   </p>
                 </div>
               </div>
@@ -64,17 +65,19 @@ export default function AICoursesPage() {
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
-                href="/career#career-services"
+                href="https://edu.upstairstechno.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-full bg-blueline px-8 py-4 text-base font-bold text-paper shadow-lg shadow-blueline/25 hover:bg-blueline-soft hover:shadow-xl transition-all"
               >
-                <span>Explore Other Programs</span>
+                <span>Visit edu.upstairstechno.com</span>
                 <ArrowRight className="w-5 h-5" />
               </a>
               <a
-                href="/#contact"
+                href="/education/coding-competition"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-grid bg-paper px-7 py-4 text-base font-semibold text-ink hover:border-blueline hover:text-blueline transition-colors"
               >
-                Contact Us
+                Explore Code Nova
               </a>
             </div>
           </section>

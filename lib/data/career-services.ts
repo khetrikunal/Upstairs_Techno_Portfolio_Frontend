@@ -169,6 +169,92 @@ export const careerServices: CareerService[] = [
     ctaLink: "/career/services/internship/apply",
   },
   {
+    id: "ojt",
+    title: "OJT (On - Job Training)",
+    category: "Hands-on Industry Training & Direct Hiring",
+    headline: "Real-World Experience with On-the-Job Training & Live Enterprise Systems",
+    shortDescription:
+      "Immersive on-the-job training (OJT) program bridging the gap between theory and industry demands with live projects, dedicated mentorship, and immediate hiring pathways.",
+    overview:
+      "Upstairs Techno's On-Job Training (OJT) program immerses aspiring software engineers directly into live enterprise production environments. Work alongside senior architects, build commercial applications, and acquire industry-standard workflows from day one.",
+    description:
+      "Unlike passive courses, our OJT program bridges the gap between theoretical knowledge and enterprise execution. You are assigned to real engineering pods, shipping production code, attending daily standups, and solving actual client challenges.",
+    highlights: [
+      "Live enterprise production codebase contribution",
+      "1-on-1 mentorship by Senior Staff Architects & Tech Leads",
+      "Hands-on full-stack development, cloud architectures & DevOps",
+      "Daily agile standups, code reviews, and sprint planning",
+      "Verifiable Experience Certificate & Senior Recommendation Letter",
+      "Direct hiring and full-time placement opportunities upon completion",
+    ],
+    benefits: [
+      "Real workplace exposure with industry-standard development workflows",
+      "Daily mentorship and rigorous code reviews from senior engineers",
+      "Stipend during project execution and competitive placement package",
+      "Official Experience Letter and Verified Industry Credentials",
+      "High conversion rate to full-time Associate Software Engineer roles",
+    ],
+    whatYouWillGain: [
+      "Mastery of modern production tech stacks: Next.js, React, Node.js, Python, Cloud",
+      "Deep understanding of CI/CD pipelines, Git workflows, and automated testing",
+      "Practical client communication and agile sprint delivery experience",
+      "A proven portfolio of enterprise software shipped to production",
+    ],
+    eligibility: [
+      "Graduates and final-year students (B.Tech, B.E., MCA, BCA, B.Sc CS/IT)",
+      "Career switchers and early-career developers seeking enterprise experience",
+      "Basic foundation in programming logic and web technologies",
+    ],
+    requirements: [
+      "Strong willingness to learn and commit to structured daily sprint tasks",
+      "Personal laptop/computer with reliable high-speed internet",
+      "Minimum availability of 3 to 6 months for the on-the-job training tenure",
+    ],
+    duration: "3 to 6 Months (Hands-on Production Training & Project Deployment)",
+    importantInfo: [
+      "Applications are reviewed on a rolling basis with regular cohort admissions.",
+      "Selected candidates join active development pods immediately.",
+      "Top performers are offered direct full-time employment.",
+    ],
+    processSteps: [
+      {
+        title: "1. Online Application",
+        description: "Submit your application through career.upstairstechno.com.",
+      },
+      {
+        title: "2. Technical Screening",
+        description: "Complete a short practical assessment and technical discussion.",
+      },
+      {
+        title: "3. Live Sprint Execution",
+        description: "Work on live client features, APIs, and modern frontends in daily agile sprints.",
+      },
+      {
+        title: "4. Certification & Placement",
+        description: "Receive your verified experience credential and transition directly to full-time engineering roles.",
+      },
+    ],
+    faqs: [
+      {
+        question: "What is OJT (On - Job Training)?",
+        answer:
+          "OJT is practical, hands-on training conducted directly on real company projects rather than theoretical classroom lectures. You learn by doing real enterprise work.",
+      },
+      {
+        question: "How do I apply for OJT?",
+        answer:
+          "You can apply directly by clicking Apply Now, which takes you to our official portal at career.upstairstechno.com.",
+      },
+      {
+        question: "Is there placement assistance after OJT?",
+        answer:
+          "Yes! High-performing OJT candidates receive direct full-time job offers at Upstairs Techno and referral placements with our enterprise partner network.",
+      },
+    ],
+    ctaText: "Apply Now",
+    ctaLink: "https://career.upstairstechno.com",
+  },
+  {
     id: "coding-competition",
     title: "Coding Competition",
     category: "Contest & Skill Showcase",

@@ -80,7 +80,9 @@ export default function Hero() {
             <ArrowUpRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
           <a
-            href="/education/coding-competition/register"
+            href="https://codenova.upstairstechno.com"
+            target="_blank"
+            rel="noopener noreferrer"
             data-cursor="Compete"
             aria-label="Register for Coding Competition"
             className="group inline-flex items-center justify-center gap-2.5 rounded-full border-2 border-blueline-soft/60 bg-blueline/15 backdrop-blur-sm px-8 py-4 text-base sm:text-lg font-bold text-paper transition-all duration-300 hover:scale-[1.02] hover:border-blueline-soft hover:bg-blueline/25 min-h-[52px]"

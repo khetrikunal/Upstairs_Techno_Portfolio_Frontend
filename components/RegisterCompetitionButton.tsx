@@ -34,7 +34,9 @@ export default function RegisterCompetitionButton({
 
   return (
     <a
-      href="/education/coding-competition/register"
+      href="https://codenova.upstairstechno.com"
+      target="_blank"
+      rel="noopener noreferrer"
       aria-label="Register for Coding Competition"
       className={`group relative inline-flex items-center rounded-full font-bold transition-all duration-300 ${sizeClasses[size]} ${variantClasses[variant]} ${className}`}
     >

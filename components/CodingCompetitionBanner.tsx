@@ -116,7 +116,9 @@ export default function CodingCompetitionBanner() {
         {/* CTA Buttons */}
         <div className="flex flex-wrap items-center justify-center gap-4">
           <a
-            href="/education/coding-competition/register"
+            href="https://codenova.upstairstechno.com"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2.5 rounded-full bg-blueline px-8 py-4 text-base sm:text-lg font-extrabold text-paper shadow-xl shadow-blueline/30 transition-all duration-300 hover:bg-blueline-soft hover:shadow-2xl hover:-translate-y-0.5"
           >
             <span>Register Now</span>

@@ -8,17 +8,15 @@ import type { Job } from "@/lib/data/types";
 const CONTACT_EMAIL = "contact@upstairstechno.com";
 
 function ApplyButton({ job }: { job: Job }) {
-  const subject = encodeURIComponent(`Job Application: ${job.title}`);
-  const body = encodeURIComponent(
-    `Hi Upstairs Techno,\n\nI would like to apply for the ${job.title} position (${job.department} · ${job.type}).\n\nMy details:\nName: \nLinkedIn: \nPortfolio/GitHub: \n\nCover note:\n`
-  );
   return (
     <a
-      href={`mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`}
-      aria-label={`Apply for ${job.title} via email`}
-      className="inline-flex items-center gap-2 rounded-lg bg-ink text-paper px-6 py-3.5 text-base font-semibold transition-colors hover:bg-blueline min-h-[48px]"
+      href="https://career.upstairstechno.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`Apply Now for ${job.title}`}
+      className="inline-flex items-center gap-2 rounded-lg bg-blueline text-paper px-6 py-3.5 text-base font-semibold transition-colors hover:bg-blueline-soft min-h-[48px]"
     >
-      Apply via Email
+      Apply Now
       <ArrowUpRight className="w-5 h-5" />
     </a>
   );
@@ -26,10 +24,11 @@ function ApplyButton({ job }: { job: Job }) {
 
 export default function Careers({ jobs }: { jobs: Job[] }) {
   const [openSlug, setOpenSlug] = useState<string | null>(null);
-  const [activeCategory, setActiveCategory] = useState<"All" | "Internships" | "BTDS" | "Full-time">("All");
+  const [activeCategory, setActiveCategory] = useState<"All" | "OJT" | "Internships" | "BTDS" | "Full-time">("All");
 
   const filteredJobs = jobs.filter((job) => {
     if (activeCategory === "All") return true;
+    if (activeCategory === "OJT") return job.type.toLowerCase().includes("ojt") || job.slug.includes("ojt");
     if (activeCategory === "Internships") return job.type.toLowerCase().includes("internship");
     if (activeCategory === "BTDS") return job.slug.includes("btds") || job.department.includes("BTDS");
     if (activeCategory === "Full-time") return job.type.toLowerCase().includes("full-time");
@@ -54,12 +53,12 @@ export default function Careers({ jobs }: { jobs: Job[] }) {
             Build the systems that don&apos;t make headlines for breaking.
           </h2>
           <p className="mt-4 text-base sm:text-lg md:text-xl text-paper/80 leading-relaxed">
-            Explore engineering roles, BTDS talent pipeline opportunities, and high-impact internships with direct mentorship.
+            Explore engineering roles, OJT (On-Job Training), BTDS talent pipeline opportunities, and high-impact internships with direct mentorship.
           </p>
 
           {/* Quick Filter Tabs */}
           <div className="mt-8 flex flex-wrap gap-2.5">
-            {(["All", "Internships", "BTDS", "Full-time"] as const).map((cat) => (
+            {(["All", "OJT", "Internships", "BTDS", "Full-time"] as const).map((cat) => (
               <button
                 key={cat}
                 type="button"
@@ -73,7 +72,7 @@ export default function Careers({ jobs }: { jobs: Job[] }) {
                     : "border border-paper/20 bg-paper/5 text-paper/70 hover:bg-paper/10 hover:text-white"
                 }`}
               >
-                {cat === "Internships" ? "🎓 Internships" : cat === "BTDS" ? "⚡ BTDS Trainee" : cat}
+                {cat === "OJT" ? "💼 OJT (On-Job Training)" : cat === "Internships" ? "🎓 Internships" : cat === "BTDS" ? "⚡ BTDS Trainee" : cat}
               </button>
             ))}
           </div>
@@ -82,6 +81,7 @@ export default function Careers({ jobs }: { jobs: Job[] }) {
         <div className="space-y-4">
           {filteredJobs.map((job, i) => {
             const open = openSlug === job.slug;
+            const isOjt = job.type.toLowerCase().includes("ojt") || job.slug.includes("ojt");
             const isInternship = job.type.toLowerCase().includes("internship");
             const isBtds = job.slug.includes("btds") || job.department.includes("BTDS");
 
@@ -106,6 +106,11 @@ export default function Careers({ jobs }: { jobs: Job[] }) {
                       <span className="font-display text-xl sm:text-2xl font-bold text-paper group-hover:text-blueline-soft transition-colors">
                         {job.title}
                       </span>
+                      {isOjt && (
+                        <span className="rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 px-2.5 py-0.5 text-xs font-mono font-bold">
+                          OJT (On-Job Training)
+                        </span>
+                      )}
                       {isInternship && (
                         <span className="rounded-full bg-blueline/20 border border-blueline/40 text-blueline-soft px-2.5 py-0.5 text-xs font-mono font-bold">
                           Internship
@@ -168,23 +173,41 @@ export default function Careers({ jobs }: { jobs: Job[] }) {
                         {isInternship && (
                           <div className="mt-6 p-4 rounded-xl border border-blueline/30 bg-blueline/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                             <p className="text-sm sm:text-base text-paper/90">
-                              Looking for the multi-step internship application form with resume upload?
+                              Looking for our official career application portal?
                             </p>
                             <a
-                              href="/career/services/internship/apply"
+                              href="https://career.upstairstechno.com"
+                              target="_blank"
+                              rel="noopener noreferrer"
                               className="inline-flex items-center gap-1.5 font-mono text-xs sm:text-sm font-bold text-blueline-soft hover:underline shrink-0"
                             >
-                              Direct Internship Form →
+                              Apply Now →
+                            </a>
+                          </div>
+                        )}
+
+                        {isOjt && (
+                          <div className="mt-6 p-4 rounded-xl border border-emerald-500/30 bg-emerald-500/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                            <p className="text-sm sm:text-base text-paper/90">
+                              Ready to join the OJT (On - Job Training) cohort?
+                            </p>
+                            <a
+                              href="https://career.upstairstechno.com"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1.5 font-mono text-xs sm:text-sm font-bold text-emerald-300 hover:underline shrink-0"
+                            >
+                              Apply Now →
                             </a>
                           </div>
                         )}
 
                         <div className="mt-8 rounded-2xl bg-paper text-ink p-6 sm:p-8 shadow-xl">
-                          <h4 className="font-display text-xl font-bold text-ink mb-4">
+                          <h4 className="font-display text-xl font-bold text-ink mb-2">
                             Apply for {job.title}
                           </h4>
                           <p className="text-sm sm:text-base text-slate mb-4 leading-relaxed">
-                            Send us your details via email and we&apos;ll get back to you within one business day.
+                            Submit your application directly through our official career portal at career.upstairstechno.com.
                           </p>
                           <ApplyButton job={job} />
                         </div>

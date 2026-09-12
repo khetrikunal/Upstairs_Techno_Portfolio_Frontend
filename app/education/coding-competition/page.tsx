@@ -1092,7 +1092,9 @@ function StickyMobileCTA() {
           className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-ink/95 backdrop-blur-md border-t border-paper/10 px-4 py-3 safe-area-bottom"
         >
           <a
-            href="/education/coding-competition/register"
+            href="https://codenova.upstairstechno.com"
+            target="_blank"
+            rel="noopener noreferrer"
             className="w-full flex items-center justify-center gap-2.5 rounded-full bg-blueline px-6 py-4 text-base font-extrabold text-paper shadow-xl shadow-blueline/40 hover:bg-blueline-soft transition-colors min-h-[52px]"
           >
             <Trophy className="w-5 h-5" />
@@ -1206,7 +1208,9 @@ export default function CodeNovaPage() {
               className="flex flex-col sm:flex-row items-center justify-center gap-4"
             >
               <a
-                href="/education/coding-competition/register"
+                href="https://codenova.upstairstechno.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2.5 rounded-full bg-blueline px-8 py-4.5 text-lg font-extrabold text-paper shadow-2xl shadow-blueline/40 transition-all duration-300 hover:bg-blueline-soft hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(37,87,255,0.5)]"
               >
                 <Trophy className="w-5 h-5" />
@@ -1366,7 +1370,9 @@ export default function CodeNovaPage() {
               </div>
 
               <a
-                href="/education/coding-competition/register"
+                href="https://codenova.upstairstechno.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group inline-flex items-center gap-3 rounded-full bg-blueline px-10 py-5 text-xl font-extrabold text-paper shadow-2xl shadow-blueline/40 transition-all duration-300 hover:bg-blueline-soft hover:-translate-y-1 hover:shadow-[0_0_50px_rgba(37,87,255,0.5)]"
               >
                 <Trophy className="w-6 h-6" />
@@ -1501,7 +1507,9 @@ export default function CodeNovaPage() {
             </p>
 
             <a
-              href="/education/coding-competition/register"
+              href="https://codenova.upstairstechno.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="group inline-flex items-center gap-3 rounded-full bg-blueline px-10 py-5 text-xl font-extrabold text-paper shadow-2xl shadow-blueline/40 transition-all duration-300 hover:bg-blueline-soft hover:-translate-y-1 hover:shadow-[0_0_60px_rgba(37,87,255,0.55)]"
             >
               <Trophy className="w-6 h-6" />

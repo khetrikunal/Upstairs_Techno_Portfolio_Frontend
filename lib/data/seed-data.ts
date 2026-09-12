@@ -213,6 +213,29 @@ export const seedJobs: Job[] = [
     "postedAt": "2026-07-22",
   },
   {
+    "id": "job-ojt-1",
+    "slug": "ojt-trainee-software-engineer",
+    "title": "OJT Trainee (On - Job Training)",
+    "department": "Engineering (OJT Program)",
+    "location": "Remote / Hybrid (India)",
+    "type": "OJT (On - Job Training)",
+    "summary":
+      "Join our immersive On-Job Training (OJT) program. Ship features to live production systems, gain 1-on-1 mentorship from senior architects, and accelerate directly into a full-time engineering career.",
+    "responsibilities": [
+      "Work directly on live client codebases using Next.js, React, Node.js, Python, or Cloud services",
+      "Collaborate in daily agile sprints, code reviews, and architecture discussions with senior leads",
+      "Write clean, test-driven, production-ready code with automated CI/CD deployment",
+      "Fast-track your transition into a full-time Associate Software Engineer role",
+    ],
+    "requirements": [
+      "B.Tech, B.E., MCA, BCA, B.Sc (CS/IT) or equivalent technical background (Freshers & graduates welcome)",
+      "Good foundational understanding of modern web technologies, databases, and programming logic",
+      "Commitment to 3 to 6 months of hands-on daily production sprints",
+      "Strong problem-solving curiosity and enthusiasm for real-world software engineering",
+    ],
+    "postedAt": "2026-08-01",
+  },
+  {
     "id": "job-2",
     "slug": "product-designer-enterprise",
     "title": "Product Designer, Enterprise Experience",

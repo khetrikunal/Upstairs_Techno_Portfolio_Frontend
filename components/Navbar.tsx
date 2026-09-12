@@ -168,7 +168,9 @@ export default function Navbar() {
         {/* Desktop CTA Button */}
         <div className="hidden lg:flex items-center shrink-0">
           <a
-            href="/career#open-positions"
+            href="https://job.upstairstechno.com"
+            target="_blank"
+            rel="noopener noreferrer"
             data-cursor="Apply for Job"
             className="group relative inline-flex items-center gap-1.5 rounded-full bg-blueline px-4.5 py-2 lg:px-5 lg:py-2.5 text-xs lg:text-sm font-bold text-paper shadow-md shadow-blueline/20 transition-all duration-300 hover:bg-blueline-soft hover:shadow-lg hover:shadow-blueline/30 hover:-translate-y-0.5 active:translate-y-0"
           >
@@ -231,7 +233,9 @@ export default function Navbar() {
             <div className="mt-8 pt-6 border-t border-grid flex flex-col gap-3">
               {/* Apply for Job */}
               <a
-                href="/career#open-positions"
+                href="https://job.upstairstechno.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
                 className="w-full flex items-center justify-center gap-2 rounded-full bg-blueline px-6 py-3.5 text-base font-bold text-paper shadow-lg hover:bg-blueline-soft transition-colors min-h-[48px]"
               >

@@ -85,11 +85,13 @@ export default function HiringBanner() {
             {/* Right: CTA */}
             <div className="flex flex-col items-center md:items-start gap-3 shrink-0 w-full md:w-auto">
               <a
-                href="/career#open-positions"
-                aria-label="View 100+ job vacancies for freshers"
+                href="https://job.upstairstechno.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Apply for Job - 100+ job vacancies for freshers"
                 className="group w-full md:w-auto inline-flex items-center justify-center gap-2.5 rounded-full bg-blueline px-7 py-4 text-base font-bold text-paper shadow-lg shadow-blueline/30 transition-all duration-300 hover:bg-blueline-soft hover:shadow-xl hover:shadow-blueline/40 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap"
               >
-                View Job Vacancies
+                Apply for Job
                 <ArrowUpRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
               <a

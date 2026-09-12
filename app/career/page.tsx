@@ -28,6 +28,7 @@ const serviceIcons: Record<string, typeof Code2> = {
   "coding-competition": Code2,
   "ai-course": Cpu,
   internship: Layers,
+  ojt: Briefcase,
 };
 
 export default async function CareerPage() {
@@ -51,16 +52,24 @@ export default async function CareerPage() {
                 Build Your Future With Us
               </h1>
               <p className="mt-6 text-lg sm:text-xl md:text-2xl text-paper/85 leading-relaxed max-w-3xl">
-                Unlock career-defining opportunities at Upstairs Techno. Whether you are aiming to join our <strong className="text-white">BTDS talent development pipeline</strong>, gain enterprise experience through our <strong className="text-white">Internship program</strong>, or build mission-critical enterprise systems — your growth starts here.
+                Unlock career-defining opportunities at Upstairs Techno. Whether you are aiming to join our <strong className="text-white">BTDS talent development pipeline</strong>, gain enterprise experience through our <strong className="text-white">Internship program</strong>, accelerate with <strong className="text-white">OJT (On - Job Training)</strong>, or build mission-critical enterprise systems — your growth starts here.
               </p>
 
               <div className="mt-10 flex flex-wrap items-center gap-4">
                 <a
-                  href="#career-services"
+                  href="https://career.upstairstechno.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2.5 rounded-full bg-blueline px-8 py-4 text-base sm:text-lg font-bold text-paper shadow-xl shadow-blueline/30 transition-all duration-300 hover:bg-blueline-soft hover:-translate-y-0.5"
                 >
-                  Explore Career Programs
+                  Apply Now
                   <ArrowRight className="w-5 h-5" />
+                </a>
+                <a
+                  href="#ojt-program"
+                  className="inline-flex items-center gap-2.5 rounded-full border border-emerald-500/40 bg-emerald-500/10 px-7 py-4 text-base sm:text-lg font-bold text-paper hover:bg-emerald-500/20 transition-all"
+                >
+                  💼 OJT (On - Job Training)
                 </a>
                 <a
                   href="#internship-opportunities"
@@ -118,18 +127,26 @@ export default async function CareerPage() {
               const IconComponent = serviceIcons[service.id] || Award;
               const isInternship = service.id === "internship";
               const isBtds = service.id === "btds";
+              const isOjt = service.id === "ojt";
 
               return (
                 <div
                   key={service.id}
                   className={`flex flex-col justify-between rounded-3xl border transition-all duration-300 p-8 sm:p-10 relative group ${
-                    isInternship
+                    isOjt
+                      ? "border-emerald-500/50 bg-gradient-to-b from-emerald-500/[0.04] to-white shadow-xl shadow-emerald-500/5 hover:border-emerald-500"
+                      : isInternship
                       ? "border-blueline/50 bg-gradient-to-b from-blueline/[0.04] to-white shadow-xl shadow-blueline/5 hover:border-blueline"
                       : isBtds
                       ? "border-[#C98A3E]/50 bg-gradient-to-b from-[#C98A3E]/[0.04] to-white shadow-xl shadow-[#C98A3E]/5 hover:border-[#C98A3E]"
                       : "border-grid bg-white shadow-md hover:shadow-xl hover:border-blueline/50"
                   }`}
                 >
+                  {isOjt && (
+                    <span className="absolute -top-3.5 right-8 bg-emerald-600 text-paper font-mono text-xs font-bold uppercase tracking-wider px-4 py-1.5 rounded-full shadow-sm">
+                      On - Job Training
+                    </span>
+                  )}
                   {isInternship && (
                     <span className="absolute -top-3.5 right-8 bg-blueline text-paper font-mono text-xs font-bold uppercase tracking-wider px-4 py-1.5 rounded-full shadow-sm">
                       Active Opportunities
@@ -143,7 +160,9 @@ export default async function CareerPage() {
 
                   <div>
                     <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-colors duration-300 ${
-                      isBtds
+                      isOjt
+                        ? "bg-emerald-500/10 text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white"
+                        : isBtds
                         ? "bg-[#C98A3E]/10 text-[#C98A3E] group-hover:bg-[#C98A3E] group-hover:text-white"
                         : "bg-blueline/10 text-blueline group-hover:bg-blueline group-hover:text-paper"
                     }`}>
@@ -151,7 +170,7 @@ export default async function CareerPage() {
                     </div>
 
                     <span className={`font-mono text-xs sm:text-sm uppercase tracking-widest font-bold block mb-2 ${
-                      isBtds ? "text-[#C98A3E]" : "text-blueline"
+                      isOjt ? "text-emerald-600" : isBtds ? "text-[#C98A3E]" : "text-blueline"
                     }`}>
                       {service.category}
                     </span>
@@ -164,7 +183,7 @@ export default async function CareerPage() {
                     <div className="space-y-3 mb-8 border-t border-grid/60 pt-6">
                       {service.highlights.slice(0, 5).map((item, idx) => (
                         <div key={idx} className="flex items-start gap-3 text-sm sm:text-base text-ink/85">
-                          <CheckCircle2 className={`w-5 h-5 shrink-0 mt-0.5 ${isBtds ? "text-[#C98A3E]" : "text-blueline"}`} />
+                          <CheckCircle2 className={`w-5 h-5 shrink-0 mt-0.5 ${isOjt ? "text-emerald-500" : isBtds ? "text-[#C98A3E]" : "text-blueline"}`} />
                           <span>{item}</span>
                         </div>
                       ))}
@@ -173,9 +192,13 @@ export default async function CareerPage() {
 
                   <div className="pt-4 border-t border-grid">
                     <a
-                      href={isBtds ? "/services/btds" : `/career/services/${service.id}`}
+                      href={isOjt || isInternship ? "https://career.upstairstechno.com" : isBtds ? "/services/btds" : `/career/services/${service.id}`}
+                      target={isOjt || isInternship ? "_blank" : undefined}
+                      rel={isOjt || isInternship ? "noopener noreferrer" : undefined}
                       className={`w-full inline-flex items-center justify-center gap-2 rounded-2xl px-6 py-4.5 text-base sm:text-lg font-bold transition-all duration-300 ${
-                        isInternship
+                        isOjt
+                          ? "bg-emerald-600 text-paper shadow-lg hover:bg-emerald-500 hover:shadow-xl hover:shadow-emerald-500/20"
+                          : isInternship
                           ? "bg-blueline text-paper shadow-lg hover:bg-blueline-soft hover:shadow-xl hover:shadow-blueline/20"
                           : isBtds
                           ? "bg-[#C98A3E] text-paper shadow-lg hover:bg-[#a9702b]"
@@ -183,7 +206,7 @@ export default async function CareerPage() {
                       }`}
                     >
                       <span>
-                        {isInternship ? "Apply for Internship" : isBtds ? "Explore BTDS Program" : service.ctaText}
+                        {isOjt ? "Apply Now" : isInternship ? "Apply Now" : isBtds ? "Explore BTDS Program" : service.ctaText}
                       </span>
                       <ArrowRight className="w-5 h-5" />
                     </a>
@@ -191,6 +214,87 @@ export default async function CareerPage() {
                 </div>
               );
             })}
+          </div>
+        </section>
+
+        {/* Dedicated OJT (On - Job Training) Section */}
+        <section id="ojt-program" className="py-20 sm:py-28 bg-ink text-paper relative overflow-hidden my-12 mx-4 sm:mx-6 lg:mx-8 rounded-3xl border border-emerald-500/40 shadow-2xl">
+          <div className="absolute inset-0 blueprint-grid-dark opacity-60 pointer-events-none" />
+          <div className="relative mx-auto max-w-6xl px-4 sm:px-6 md:px-8">
+            <div className="text-center max-w-3xl mx-auto mb-14">
+              <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/40 bg-emerald-500/10 px-5 py-2 text-xs sm:text-sm font-mono tracking-widest text-emerald-300 uppercase mb-4 shadow-sm font-semibold">
+                <Briefcase className="w-4 h-4 text-emerald-400" />
+                <span>On - Job Training (OJT) · Applications Open</span>
+              </div>
+              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-paper tracking-tight">
+                OJT (On - Job Training) Program
+              </h2>
+              <p className="mt-4 text-lg sm:text-xl text-paper/85 leading-relaxed">
+                Step directly into real enterprise engineering. Our intensive On-Job Training (OJT) program pairs you with senior architects on live production systems — transforming your skills with real client code, industry practices, and direct placement opportunities.
+              </p>
+            </div>
+
+            {/* OJT Feature Highlights */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+              <div className="rounded-2xl border border-paper/15 bg-paper/[0.04] p-6 backdrop-blur-sm">
+                <div className="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-300 flex items-center justify-center mb-4">
+                  <Laptop className="w-6 h-6" />
+                </div>
+                <h3 className="font-display text-xl font-bold text-paper mb-2">Live Production Systems</h3>
+                <p className="text-sm text-paper/75 leading-relaxed">
+                  Work on commercial client platforms, cloud infrastructure, and live databases from week one.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-paper/15 bg-paper/[0.04] p-6 backdrop-blur-sm">
+                <div className="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-300 flex items-center justify-center mb-4">
+                  <Users className="w-6 h-6" />
+                </div>
+                <h3 className="font-display text-xl font-bold text-paper mb-2">1:1 Senior Mentorship</h3>
+                <p className="text-sm text-paper/75 leading-relaxed">
+                  Daily standups, architecture guidance, and code reviews led directly by Senior Staff Engineers.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-paper/15 bg-paper/[0.04] p-6 backdrop-blur-sm">
+                <div className="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-300 flex items-center justify-center mb-4">
+                  <Clock className="w-6 h-6" />
+                </div>
+                <h3 className="font-display text-xl font-bold text-paper mb-2">3 to 6 Months Tenure</h3>
+                <p className="text-sm text-paper/75 leading-relaxed">
+                  Structured sprint roadmap with real milestone deliveries, stipend, and performance rewards.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-paper/15 bg-paper/[0.04] p-6 backdrop-blur-sm">
+                <div className="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-300 flex items-center justify-center mb-4">
+                  <Award className="w-6 h-6" />
+                </div>
+                <h3 className="font-display text-xl font-bold text-paper mb-2">Direct Placement</h3>
+                <p className="text-sm text-paper/75 leading-relaxed">
+                  Verifiable experience credentials and direct conversion to full-time Associate Software Engineer.
+                </p>
+              </div>
+            </div>
+
+            {/* OJT CTA Actions */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
+              <a
+                href="https://career.upstairstechno.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-full bg-emerald-600 px-9 py-4.5 text-lg font-extrabold text-paper shadow-2xl shadow-emerald-600/40 hover:bg-emerald-500 hover:scale-105 transition-all"
+              >
+                <span>Apply Now</span>
+                <ArrowRight className="w-5 h-5" />
+              </a>
+              <a
+                href="/career/services/ojt"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-paper/20 bg-paper/5 px-8 py-4.5 text-base sm:text-lg font-bold text-paper hover:bg-paper/10 transition-colors"
+              >
+                View OJT Curriculum &amp; Details
+              </a>
+            </div>
           </div>
         </section>
 
@@ -257,10 +361,12 @@ export default async function CareerPage() {
             {/* Internship CTA Actions */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
               <a
-                href="/career/services/internship/apply"
+                href="https://career.upstairstechno.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-full bg-blueline px-9 py-4.5 text-lg font-extrabold text-paper shadow-2xl shadow-blueline/40 hover:bg-blueline-soft hover:scale-105 transition-all"
               >
-                <span>Apply for Internship</span>
+                <span>Apply Now</span>
                 <ArrowRight className="w-5 h-5" />
               </a>
               <a
