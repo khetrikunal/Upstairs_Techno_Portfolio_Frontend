@@ -6,21 +6,16 @@ import {
   Briefcase,
   Building2,
   Check,
-  Cloud,
   Code2,
-  Cpu,
   GraduationCap,
   Globe,
   Handshake,
   Lightbulb,
-  Mail,
   Monitor,
-  Phone,
   ShieldCheck,
   Sparkles,
   TrendingUp,
   Users,
-  Wrench,
 } from "lucide-react";
 
 export const metadata = {
@@ -57,6 +52,11 @@ const ecosystem = [
 const leadership = [
   { name: "Kunal Gururaj Khetri", role: "CEO", title: "Chief Executive Officer" },
   { name: "Shreyash Chilweri", role: "CTO", title: "Chief Technology Officer" },
+];
+
+const founders = [
+  { name: "Avinash Narute", role: "Founder", image: "/Founder.jpeg" },
+  { name: "Ganesh Kokare", role: "Co-Founder", image: "/Co-Founder.jpeg" },
 ];
 
 const journeySteps = ["Foundation", "Growth", "Technology Expansion", "Talent Development", "Global Vision"];
@@ -253,24 +253,54 @@ export default function AboutPage() {
               </p>
             </div>
 
+            {/* ── Founders: Avinash Narute & Ganesh Kokare (Photo cards) ── */}
+            <div className="mt-12">
+              <p className="text-center font-mono text-[10px] uppercase tracking-[0.35em] text-slate/60 mb-6">Founders</p>
+              <div className="flex flex-col items-center gap-8 sm:flex-row sm:justify-center sm:gap-10 lg:gap-14">
+                {founders.map((founder) => (
+                  <div
+                    key={founder.name}
+                    className="group flex flex-col items-center rounded-[2rem] border border-grid bg-paper p-7 sm:p-8 text-center transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_16px_40px_-10px_rgba(37,87,255,0.14)] w-full max-w-xs"
+                  >
+                    <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden border-2 border-grid shadow-md">
+                      <img
+                        src={founder.image}
+                        alt={`${founder.name} - ${founder.role}`}
+                        className="w-full h-full object-cover object-top"
+                      />
+                    </div>
+                    <span className="mt-5 inline-block rounded-full bg-blueline/10 px-4 py-1.5 font-mono text-xs uppercase tracking-[0.3em] text-blueline font-bold">
+                      {founder.role}
+                    </span>
+                    <h3 className="mt-3 font-display text-xl sm:text-2xl font-bold text-ink tracking-tight">
+                      {founder.name}
+                    </h3>
+                  </div>
+                ))}
+              </div>
+            </div>
+
             {/* ── Leadership: CEO & CTO (Text-only) ── */}
-            <div className="mt-12 flex flex-col items-center gap-8 sm:flex-row sm:justify-center sm:gap-10 lg:gap-14">
-              {leadership.map((leader) => (
-                <div
-                  key={leader.name}
-                  className="group flex flex-col items-center rounded-[2rem] border border-grid bg-paper p-8 sm:p-10 text-center transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_16px_40px_-10px_rgba(37,87,255,0.14)] w-full max-w-sm"
-                >
-                  <span className="inline-block rounded-full bg-blueline/10 px-4 py-1.5 font-mono text-xs uppercase tracking-[0.3em] text-blueline font-bold">
-                    {leader.role}
-                  </span>
-                  <h3 className="mt-5 font-display text-2xl sm:text-3xl font-bold text-ink tracking-tight">
-                    {leader.name}
-                  </h3>
-                  <p className="mt-2 font-mono text-xs uppercase tracking-[0.25em] text-slate font-medium">
-                    {leader.title}
-                  </p>
-                </div>
-              ))}
+            <div className="mt-10 pt-10 border-t border-grid">
+              <p className="text-center font-mono text-[10px] uppercase tracking-[0.35em] text-slate/60 mb-6">Executive Leadership</p>
+              <div className="flex flex-col items-center gap-8 sm:flex-row sm:justify-center sm:gap-10 lg:gap-14">
+                {leadership.map((leader) => (
+                  <div
+                    key={leader.name}
+                    className="group flex flex-col items-center rounded-[2rem] border border-grid bg-paper p-8 sm:p-10 text-center transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_16px_40px_-10px_rgba(37,87,255,0.14)] w-full max-w-sm"
+                  >
+                    <span className="inline-block rounded-full bg-blueline/10 px-4 py-1.5 font-mono text-xs uppercase tracking-[0.3em] text-blueline font-bold">
+                      {leader.role}
+                    </span>
+                    <h3 className="mt-5 font-display text-2xl sm:text-3xl font-bold text-ink tracking-tight">
+                      {leader.name}
+                    </h3>
+                    <p className="mt-2 font-mono text-xs uppercase tracking-[0.25em] text-slate font-medium">
+                      {leader.title}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -289,42 +319,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="mx-auto mt-12 max-w-7xl px-4 sm:px-6 md:px-8">
-          <div className="rounded-[2rem] border border-grid bg-white p-8 sm:p-10">
-            <p className="font-mono text-xs uppercase tracking-[0.35em] text-blueline">Get in Touch</p>
-            <h2 className="mt-3 font-display text-3xl font-semibold text-ink">Let&apos;s start a conversation about your next technology or talent-development opportunity.</h2>
-            <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-              <a href="https://upstairstechno.com" target="_blank" rel="noreferrer" className="rounded-[1.75rem] border border-grid bg-paper p-6 transition duration-300 hover:-translate-y-1">
-                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-blueline/10 text-blueline">
-                  <Globe className="h-5 w-5" />
-                </div>
-                <h3 className="mt-4 font-display text-lg font-semibold text-ink">Website</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate">upstairstechno.com</p>
-              </a>
-              <a href="mailto:contact@upstairstechno.com" className="rounded-[1.75rem] border border-grid bg-paper p-6 transition duration-300 hover:-translate-y-1">
-                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-blueline/10 text-blueline">
-                  <Mail className="h-5 w-5" />
-                </div>
-                <h3 className="mt-4 font-display text-lg font-semibold text-ink">Email</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate">contact@upstairstechno.com</p>
-              </a>
-              <a href="tel:9370465576" className="rounded-[1.75rem] border border-grid bg-paper p-6 transition duration-300 hover:-translate-y-1">
-                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-blueline/10 text-blueline">
-                  <Phone className="h-5 w-5" />
-                </div>
-                <h3 className="mt-4 font-display text-lg font-semibold text-ink">Phone</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate">+91 93704 65576</p>
-              </a>
-              <div className="rounded-[1.75rem] border border-grid bg-paper p-6">
-                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-blueline/10 text-blueline">
-                  <Building2 className="h-5 w-5" />
-                </div>
-                <h3 className="mt-4 font-display text-lg font-semibold text-ink">Headquarters</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate">Baramati, Pune, Maharashtra, India</p>
-              </div>
-            </div>
-          </div>
-        </section>
+
 
         <section className="mx-auto mt-12 max-w-7xl px-4 sm:px-6 md:px-8">
           <div className="rounded-[2rem] border border-grid bg-white p-8 text-center sm:p-10">

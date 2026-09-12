@@ -24,7 +24,7 @@ export default function WhatWeDo() {
           </h2>
         </motion.div>
 
-        <div className="mt-12 sm:mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 sm:mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 items-stretch">
           {services.map((service, i) => (
             <motion.div
               key={service.slug}
@@ -32,13 +32,14 @@ export default function WhatWeDo() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.55, delay: i * 0.08, ease: "easeOut" }}
+              className="h-full"
             >
               <Link
                 href={service.slug === "education" ? "/what-we-do/services/education" : `/services/${service.slug}`}
-                className="group relative block overflow-hidden rounded-2xl border border-grid bg-white p-7 sm:p-8 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-20px_rgba(14,21,36,0.25)] min-h-[260px] flex flex-col justify-between"
+                className="group relative overflow-hidden rounded-2xl border border-grid bg-white p-7 sm:p-8 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-20px_rgba(14,21,36,0.25)] h-full flex flex-col"
                 data-cursor="Learn more"
               >
-                <div>
+                <div className="flex-1">
                   <span className="absolute top-0 left-0 h-[2px] w-0 bg-blueline transition-all duration-500 group-hover:w-full" />
 
                   <service.icon className="w-8 h-8 text-blueline transition-transform duration-500 group-hover:rotate-12" />
@@ -51,7 +52,7 @@ export default function WhatWeDo() {
                   </p>
                 </div>
 
-                <span className="mt-6 inline-flex items-center gap-1.5 text-base font-semibold text-ink group-hover:text-blueline transition-colors">
+                <span className="mt-8 inline-flex items-center gap-1.5 text-base font-semibold text-ink group-hover:text-blueline transition-colors shrink-0">
                   Learn more
                   <ArrowUpRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
                 </span>

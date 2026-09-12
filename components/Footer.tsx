@@ -61,7 +61,7 @@ export default function Footer() {
             <Link href="/" className="inline-flex items-center gap-2.5 mb-5">
               <div className="relative w-8 h-8">
                 <Image
-                  src="/logo.png"
+                  src="/Upstairs_Logo.jpeg"
                   alt="Upstairs Techno logo"
                   fill
                   className="object-contain"

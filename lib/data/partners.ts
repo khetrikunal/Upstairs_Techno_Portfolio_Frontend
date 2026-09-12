@@ -51,7 +51,7 @@ export const PARTNERS: Partner[] = [
   {
     slug: "1824-vituraya-ventures",
     name: "1824 Vituraya Ventures",
-    logo: "/partners/vittho.jpeg",
+    logo: "/Partners/vittho.jpeg",
     shortDescription: "Projects delivered by Upstairs Techno",
     projects: [
       {
@@ -86,7 +86,7 @@ export const PARTNERS: Partner[] = [
   {
     slug: "pk-corporate",
     name: "PK Corporate",
-    logo: "/partners/Pk Corporate.jpeg",
+    logo: "/Partners/Pk Corporate.jpeg",
     industry: "T-Shirt Manufacturing",
     shortDescription: "T-Shirt Manufacturing",
     projects: [
