@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import type { Service } from "@/lib/data/services";
 
 interface ServiceCardProps {
@@ -15,9 +15,9 @@ export default function ServiceCard({ service, href }: ServiceCardProps) {
         <h3 className="mt-6 font-display text-2xl sm:text-[26px] font-bold text-ink">{service.title}</h3>
         <p className="mt-3.5 text-base sm:text-[17px] text-slate leading-relaxed">{service.shortDescription}</p>
       </div>
-      <div className="mt-6 flex items-center gap-2 text-base font-bold text-ink group-hover:text-blueline transition-colors">
-        <span>Learn More</span>
-        <ArrowUpRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
+      <div className="mt-6 flex items-center gap-2 text-lg font-bold text-ink group-hover:text-blueline transition-colors">
+        <span>Learn more</span>
+        <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
       </div>
     </div>
   );

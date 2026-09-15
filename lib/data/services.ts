@@ -3,6 +3,7 @@ import {
   ArrowRight,
   BookOpen,
   Briefcase,
+  BriefcaseBusiness,
   Code2,
   GraduationCap,
   LayoutGrid,

@@ -83,7 +83,7 @@ export default function CodingCompetitionBanner() {
                 <CheckCircle2 className="w-4 h-4 text-blueline-soft" /> Loops, Functions & Arrays
               </li>
               <li className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-blueline-soft" /> Automated Testcases
+                <CheckCircle2 className="w-4 h-4 text-blueline-soft" /> Timed Coding Challenges
               </li>
             </ul>
           </div>

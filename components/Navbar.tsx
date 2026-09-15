@@ -65,7 +65,6 @@ export default function Navbar() {
         <a
           href="/"
           className="flex items-center gap-2.5 sm:gap-3.5 group shrink-0"
-          data-cursor="Home"
         >
           <img
             src="/Upstairs_Logo.jpeg"
@@ -171,7 +170,6 @@ export default function Navbar() {
             href="https://job.upstairstechno.com"
             target="_blank"
             rel="noopener noreferrer"
-            data-cursor="Apply for Job"
             className="group relative inline-flex items-center gap-1.5 rounded-full bg-blueline px-4.5 py-2 lg:px-5 lg:py-2.5 text-xs lg:text-sm font-bold text-paper shadow-md shadow-blueline/20 transition-all duration-300 hover:bg-blueline-soft hover:shadow-lg hover:shadow-blueline/30 hover:-translate-y-0.5 active:translate-y-0"
           >
             Apply for Job

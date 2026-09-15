@@ -1,0 +1,2 @@
+import SubdomainComingSoon from "@/components/SubdomainComingSoon";
+export default function JobPlatformComingSoonPage() { return <SubdomainComingSoon title="Job Platform" description="Our career platform is being prepared to connect candidates with meaningful IT opportunities and the teams building the future." accent="bg-brass" />; }

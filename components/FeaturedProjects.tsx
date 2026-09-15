@@ -36,13 +36,6 @@ export default function FeaturedProjects() {
             </p>
           </div>
 
-          <Link
-            href="/projects"
-            className="group shrink-0 inline-flex items-center gap-2.5 rounded-full border border-grid bg-ink text-paper px-6 py-3.5 text-base font-bold transition-all duration-300 hover:bg-blueline hover:border-blueline hover:-translate-y-0.5 whitespace-nowrap self-start sm:self-auto"
-          >
-            View All Products
-            <ArrowUpRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </Link>
         </motion.div>
 
         {/* Featured project grid */}
@@ -93,21 +86,6 @@ export default function FeaturedProjects() {
                       {meta.emoji} {meta.label}
                     </div>
 
-                    {/* Status */}
-                    <div
-                      className={`absolute top-3 right-3 inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-mono font-bold ${
-                        project.status === "Live"
-                          ? "bg-green-500/10 text-green-600 border-green-500/30"
-                          : "bg-blueline/10 text-blueline border-blueline/30"
-                      }`}
-                    >
-                      <span
-                        className={`w-1.5 h-1.5 rounded-full ${
-                          project.status === "Live" ? "bg-green-500 animate-pulse" : "bg-blueline"
-                        }`}
-                      />
-                      {project.status}
-                    </div>
                   </div>
 
                   {/* Content */}
@@ -154,7 +132,7 @@ export default function FeaturedProjects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-12 text-center"
+          className="mt-10 text-center"
         >
           <Link
             href="/projects"

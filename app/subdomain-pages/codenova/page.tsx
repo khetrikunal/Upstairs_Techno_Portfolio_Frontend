@@ -1,0 +1,2 @@
+import SubdomainComingSoon from "@/components/SubdomainComingSoon";
+export default function CodeNovaComingSoonPage() { return <SubdomainComingSoon title="CodeNova" description="Something exciting is currently being prepared. We are working on bringing CodeNova to you soon." accent="bg-blueline" />; }

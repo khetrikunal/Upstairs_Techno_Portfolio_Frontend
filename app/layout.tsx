@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import AscentGauge from "@/components/AscentGauge";
 import CustomCursor from "@/components/CustomCursor";
-import WhatsAppButton from "@/components/WhatsAppButton";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -35,7 +34,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <AscentGauge />
         <CustomCursor />
         {children}
-        <WhatsAppButton />
       </body>
     </html>
   );

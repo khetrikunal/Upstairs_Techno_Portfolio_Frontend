@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 
 const NAV_LINKS = [
   { name: "Home", href: "/" },
@@ -11,6 +11,7 @@ const NAV_LINKS = [
   { name: "Our Products", href: "/projects" },
   { name: "Code Nova", href: "/education/coding-competition" },
   { name: "Career", href: "/career" },
+  { name: "Contact Us", href: "/contact-us" },
 ];
 
 const SERVICE_LINKS = [
@@ -19,7 +20,16 @@ const SERVICE_LINKS = [
   { name: "Digital Marketing", href: "/services/digital-marketing" },
   { name: "AI & Automation", href: "/services/ai-automation" },
   { name: "Education", href: "/what-we-do/services/education" },
-  { name: "BTDS", href: "/services/btds" },
+  { name: "Talent Development", href: "/services/btds" },
+];
+
+const LEGAL_LINKS = [
+  { name: "Privacy Policy", href: "/privacy-policy" },
+  { name: "Terms & Conditions", href: "/terms-and-conditions" },
+  { name: "Refund Policy", href: "/refund-policy" },
+  { name: "Internship Terms", href: "/internship-terms" },
+  { name: "Cookie Policy", href: "/cookie-policy" },
+  { name: "Disclaimer", href: "/disclaimer" },
 ];
 
 function InstagramIcon({ className }: { className?: string }) {
@@ -55,7 +65,7 @@ export default function Footer() {
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8 pt-16 pb-8">
         {/* Top grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-paper/10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-paper/10">
           {/* Brand column */}
           <div className="sm:col-span-2 lg:col-span-1">
             <Link href="/" className="inline-flex items-center gap-2.5 mb-5">
@@ -77,25 +87,18 @@ export default function Footer() {
             </p>
 
             {/* Social */}
-            <div className="flex items-center gap-3">
-              <a
-                href="https://www.instagram.com/upstairstechno/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram @upstairstechno"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-paper/15 text-paper/50 hover:border-blueline hover:text-blueline transition-all duration-200"
-              >
+            <a
+              href="https://www.instagram.com/upstairstechno/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram @upstairstechno"
+              className="inline-flex items-center gap-3 rounded-full border border-paper/15 px-3 py-2 text-sm text-paper/60 hover:border-blueline hover:text-blueline-soft transition-all duration-200 font-mono"
+            >
+              <span className="flex h-8 w-8 items-center justify-center rounded-full border border-paper/15 text-paper/50">
                 <InstagramIcon className="w-4 h-4" />
-              </a>
-              <a
-                href="https://www.instagram.com/upstairstechno/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm text-paper/50 hover:text-blueline-soft transition-colors duration-200 font-mono"
-              >
-                @upstairstechno
-              </a>
-            </div>
+              </span>
+              <span>@upstairstechno</span>
+            </a>
           </div>
 
           {/* Navigation column */}
@@ -132,6 +135,19 @@ export default function Footer() {
             </ul>
           </div>
 
+          <div>
+            <h3 className="text-xs font-mono uppercase tracking-[0.3em] text-paper/40 mb-4">Legal</h3>
+            <ul className="space-y-2.5">
+              {LEGAL_LINKS.map((link) => (
+                <li key={link.name}>
+                  <Link href={link.href} className="text-sm text-paper/60 hover:text-blueline-soft transition-colors duration-200">
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
           {/* Contact column */}
           <div>
             <h3 className="text-xs font-mono uppercase tracking-[0.3em] text-paper/40 mb-4">Contact</h3>
@@ -156,18 +172,14 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="tel:9370465576"
+                  href="https://maps.google.com/?q=Baramati+Pune+Maharashtra+India"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-start gap-2.5 text-sm text-paper/60 hover:text-blueline-soft transition-colors duration-200 group"
                 >
-                  <Phone className="w-4 h-4 mt-0.5 shrink-0 text-blueline/60 group-hover:text-blueline" />
-                  <span>+91 93704 65576</span>
-                </a>
-              </li>
-              <li>
-                <div className="flex items-start gap-2.5 text-sm text-paper/60">
-                  <MapPin className="w-4 h-4 mt-0.5 shrink-0 text-blueline/60" />
+                  <MapPin className="w-4 h-4 mt-0.5 shrink-0 text-blueline/60 group-hover:text-blueline" />
                   <span>Baramati, Pune<br />Maharashtra, India</span>
-                </div>
+                </a>
               </li>
             </ul>
           </div>
@@ -176,7 +188,6 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-paper/30">
           <p>&copy; {currentYear} Upstairs Techno. All rights reserved.</p>
-          <p className="font-mono tracking-wide">Baramati · Pune · Maharashtra · India</p>
         </div>
       </div>
     </footer>

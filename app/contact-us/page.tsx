@@ -1,0 +1,11 @@
+import type { Metadata } from "next";
+import { ExternalLink, MapPin } from "lucide-react";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import ContactEnquiryForm from "@/components/ContactEnquiryForm";
+
+export const metadata: Metadata = { title: "Contact Us | Upstairs Techno", description: "Send an enquiry to Upstairs Techno about technology services, talent development, or partnerships." };
+
+export default function ContactUsPage() {
+  return <><Navbar /><main className="flex-1 bg-paper pt-28 sm:pt-36 pb-16 sm:pb-24"><section className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8"><div className="max-w-3xl"><p className="font-mono text-xs uppercase tracking-[0.35em] text-blueline">Contact Us</p><h1 className="mt-3 font-display text-4xl sm:text-5xl font-bold tracking-tight text-ink">Tell us what you&apos;re building.</h1><p className="mt-5 text-lg leading-relaxed text-slate">Share your requirement and our team will help you identify the right next step.</p></div><div className="mt-10 grid gap-8 lg:grid-cols-[1.05fr_0.95fr]"><div className="rounded-[2rem] border border-grid bg-white p-6 sm:p-9"><ContactEnquiryForm /></div><div className="space-y-6"><div className="overflow-hidden rounded-[2rem] border border-grid bg-white"><iframe title="Upstairs Techno business location" src="https://www.google.com/maps?q=Baramati%2C%20Pune%2C%20Maharashtra%2C%20India&output=embed" className="h-72 w-full border-0 sm:h-80" loading="lazy" referrerPolicy="no-referrer-when-downgrade" /></div><div className="rounded-[2rem] border border-grid bg-white p-7"><MapPin className="h-7 w-7 text-blueline" /><h2 className="mt-4 font-display text-2xl font-semibold text-ink">Upstairs Techno</h2><p className="mt-2 text-slate">Baramati, Pune<br />Maharashtra, India</p><a href="https://www.google.com/maps/search/?api=1&query=Baramati%2C%20Pune%2C%20Maharashtra%2C%20India" target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-blueline hover:underline">Open in Google Maps <ExternalLink className="h-4 w-4" /></a></div></div></div></section></main><Footer /></>;
+}

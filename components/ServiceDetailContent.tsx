@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { ArrowRight, BadgeCheck, Briefcase, Building2, Check, Cloud, Cpu, Globe, GraduationCap, HardDrive, Monitor, Network, Server, ShieldCheck, Sparkles, Users, Wrench } from "lucide-react";
-import BTDSApplicationForm from "@/components/BTDSApplicationForm";
 import type { LucideIcon } from "lucide-react";
 import type { Service } from "@/lib/data/services";
 
@@ -944,8 +943,8 @@ export default function ServiceDetailContent({ service, sectionLabel, sectionHre
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
-              <Link href={isBtds ? "#apply-btds" : "/#contact"} className="inline-flex items-center justify-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-medium text-paper transition duration-300 hover:bg-blueline">
-                {isBtds ? "Apply Now" : isItConsulting ? "Talk to Our Experts" : isSoftwareDevelopment ? "Start Your Project" : "Get Started"}
+              <Link href={isBtds ? "/contact-us?subject=BTDS%20assessment" : "/#contact"} className="inline-flex items-center justify-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-medium text-paper transition duration-300 hover:bg-blueline">
+                {isBtds ? "Enquire About Assessment" : isItConsulting ? "Talk to Our Experts" : isSoftwareDevelopment ? "Start Your Project" : "Get Started"}
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link href={isBtds ? "#partner-btds" : "/#contact"} className="inline-flex items-center justify-center gap-2 rounded-full border border-grid bg-paper px-6 py-3 text-sm font-medium text-ink transition duration-300 hover:border-blueline hover:text-blueline">
@@ -1148,15 +1147,18 @@ export default function ServiceDetailContent({ service, sectionLabel, sectionHre
               </div>
             </section>
 
-            <section id="apply-btds" className="mt-12 rounded-[2rem] border border-grid bg-white p-8 sm:p-10">
+            <section className="mt-12 rounded-[2rem] border border-grid bg-white p-8 sm:p-10">
               <div className="max-w-3xl">
                 <p className="font-mono text-xs uppercase tracking-[0.35em] text-blueline">Apply for BTDS</p>
                 <h2 className="mt-3 font-display text-3xl font-semibold text-ink">Ready to build your engineering career with practical training, mentoring, and real project experience?</h2>
                 <p className="mt-6 text-lg leading-relaxed text-slate">
-                  Apply to the BTDS – Talent Development Division and take the next step toward becoming an industry-ready software professional.
+                  BTDS admission begins with an assessment. Contact our team to understand the eligibility requirements and assessment process before progressing to the program.
                 </p>
+                <Link href="/contact-us?subject=BTDS%20assessment" className="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-medium text-paper transition duration-300 hover:bg-blueline">
+                  Enquire About the Assessment
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
               </div>
-              <BTDSApplicationForm />
             </section>
           </>
         ) : isItConsulting ? (

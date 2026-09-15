@@ -1,0 +1,2 @@
+import SubdomainComingSoon from "@/components/SubdomainComingSoon";
+export default function CareerComingSoonPage() { return <SubdomainComingSoon title="Upstairs Techno Careers" description="We are preparing a dedicated careers experience for people who want to learn, build, and grow with Upstairs Techno." accent="bg-emerald-400" />; }

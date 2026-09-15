@@ -38,14 +38,14 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-ink/80 via-ink/65 to-ink/90" />
 
       {/* Hero Content */}
-      <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6 md:px-8 text-left">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 md:px-8 text-left">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <span className="inline-block font-mono text-sm sm:text-[15px] uppercase tracking-[0.3em] text-blueline-soft mb-4 sm:mb-6 font-semibold">
-            Next-Gen Software Architecture
+          <span className="inline-block font-mono text-sm sm:text-[15px] tracking-[0.2em] text-blueline-soft mb-4 sm:mb-6 font-semibold">
+            Next-gen software architecture
           </span>
 
           <h1 className="font-display font-bold text-hero-heading text-paper tracking-tight max-w-4xl text-balance">
@@ -73,7 +73,6 @@ export default function Hero() {
         >
           <a
             href="/what-we-do"
-            data-cursor="View"
             className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-blueline px-8 py-4 text-base sm:text-lg font-bold text-paper shadow-lg transition-all duration-300 hover:bg-blueline-soft hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(37,87,255,0.5)] min-h-[52px]"
           >
             Explore Services
@@ -83,13 +82,11 @@ export default function Hero() {
             href="https://codenova.upstairstechno.com"
             target="_blank"
             rel="noopener noreferrer"
-            data-cursor="Compete"
             aria-label="Register for Coding Competition"
-            className="group inline-flex items-center justify-center gap-2.5 rounded-full border-2 border-blueline-soft/60 bg-blueline/15 backdrop-blur-sm px-8 py-4 text-base sm:text-lg font-bold text-paper transition-all duration-300 hover:scale-[1.02] hover:border-blueline-soft hover:bg-blueline/25 min-h-[52px]"
+            className="group inline-flex items-center justify-center gap-2 rounded-full border border-blueline-soft/60 bg-blueline/10 px-5 py-3 text-sm sm:text-base font-bold text-paper transition-all duration-300 hover:scale-[1.01] hover:border-blueline-soft hover:bg-blueline/20 min-h-[48px]"
           >
-            <span>🏆</span>
             Register for Coding Competition
-            <ArrowUpRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
         </motion.div>
       </div>

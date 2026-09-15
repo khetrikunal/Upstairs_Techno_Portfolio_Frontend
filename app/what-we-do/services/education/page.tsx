@@ -141,7 +141,7 @@ export default function EducationDivisionPage() {
                     <h3 className="font-display text-xl font-bold text-paper">Basic Coding</h3>
                   </div>
                   <p className="text-sm text-paper/70 mb-4 leading-relaxed">
-                    Tests fundamental programming syntax, conditions, loops, functions, and arrays with automated testcases.
+                    Tests fundamental programming syntax, conditions, loops, functions, and arrays through timed coding challenges.
                   </p>
                   <ul className="text-xs font-mono text-paper/60 space-y-1.5 border-t border-paper/10 pt-3">
                     <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-blueline-soft" /> Python, Java, C++, JS/TS</li>

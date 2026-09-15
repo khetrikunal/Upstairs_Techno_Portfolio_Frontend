@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { services } from "@/lib/data/services";
 
 export default function WhatWeDo() {
@@ -37,7 +37,6 @@ export default function WhatWeDo() {
               <Link
                 href={service.slug === "education" ? "/what-we-do/services/education" : `/services/${service.slug}`}
                 className="group relative overflow-hidden rounded-2xl border border-grid bg-white p-7 sm:p-8 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-20px_rgba(14,21,36,0.25)] h-full flex flex-col"
-                data-cursor="Learn more"
               >
                 <div className="flex-1">
                   <span className="absolute top-0 left-0 h-[2px] w-0 bg-blueline transition-all duration-500 group-hover:w-full" />
@@ -52,9 +51,9 @@ export default function WhatWeDo() {
                   </p>
                 </div>
 
-                <span className="mt-8 inline-flex items-center gap-1.5 text-base font-semibold text-ink group-hover:text-blueline transition-colors shrink-0">
+                <span className="mt-8 inline-flex items-center gap-2 text-lg font-bold text-ink group-hover:text-blueline transition-colors shrink-0">
                   Learn more
-                  <ArrowUpRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                  <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
                 </span>
 
                 <div className="absolute -bottom-16 -right-16 w-40 h-40 rounded-full bg-blueline/0 blur-2xl transition-all duration-500 group-hover:bg-blueline/10" />

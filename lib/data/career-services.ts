@@ -78,11 +78,11 @@ export const careerServices: CareerService[] = [
       },
       {
         question: "How can I apply?",
-        answer: "You can apply directly via our online BTDS application form or through our campus partnership drives.",
+        answer: "BTDS admission begins with an assessment. Contact our team to understand the eligibility requirements and assessment process.",
       },
     ],
-    ctaText: "Apply for BTDS Program",
-    ctaLink: "/services/btds#apply-btds",
+    ctaText: "Explore BTDS Assessment",
+    ctaLink: "/contact-us?subject=BTDS%20assessment",
   },
   {
     id: "internship",

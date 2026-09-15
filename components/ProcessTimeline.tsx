@@ -35,8 +35,11 @@ export default function ProcessTimeline() {
             How We Work
           </p>
           <h2 className="font-display text-section-heading font-bold text-ink">
-            Seven stages. Same team, start to finish.
+            A clear path from first conversation to long-term support.
           </h2>
+          <p className="mt-4 max-w-2xl text-base sm:text-lg leading-relaxed text-slate">
+            We listen to your goals, shape a practical plan, build with steady communication, and stay involved through launch and ongoing support.
+          </p>
         </motion.div>
 
         <div ref={ref} className="relative pl-8 sm:pl-12 md:pl-16">
