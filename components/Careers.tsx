@@ -10,7 +10,7 @@ const CONTACT_EMAIL = "contact@upstairstechno.com";
 function ApplyButton({ job }: { job: Job }) {
   return (
     <a
-      href="https://career.upstairstechno.com"
+      href="https://careers.upstairstechno.com"
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`Apply Now for ${job.title}`}
@@ -176,7 +176,7 @@ export default function Careers({ jobs }: { jobs: Job[] }) {
                               Looking for our official career application portal?
                             </p>
                             <a
-                              href="https://career.upstairstechno.com"
+                              href="https://careers.upstairstechno.com"
                               target="_blank"
                               rel="noopener noreferrer"
                               className="inline-flex items-center gap-1.5 font-mono text-xs sm:text-sm font-bold text-blueline-soft hover:underline shrink-0"
@@ -192,7 +192,7 @@ export default function Careers({ jobs }: { jobs: Job[] }) {
                               Ready to join the OJT (On - Job Training) cohort?
                             </p>
                             <a
-                              href="https://career.upstairstechno.com"
+                              href="https://careers.upstairstechno.com"
                               target="_blank"
                               rel="noopener noreferrer"
                               className="inline-flex items-center gap-1.5 font-mono text-xs sm:text-sm font-bold text-emerald-300 hover:underline shrink-0"
@@ -207,7 +207,7 @@ export default function Careers({ jobs }: { jobs: Job[] }) {
                             Apply for {job.title}
                           </h4>
                           <p className="text-sm sm:text-base text-slate mb-4 leading-relaxed">
-                            Submit your application directly through our official career portal at career.upstairstechno.com.
+                            Submit your application directly through our official career portal at careers.upstairstechno.com.
                           </p>
                           <ApplyButton job={job} />
                         </div>

@@ -26,7 +26,7 @@ const SERVICE_LINKS = [
 const LEGAL_LINKS = [
   { name: "Privacy Policy", href: "/privacy-policy" },
   { name: "Terms & Conditions", href: "/terms-and-conditions" },
-  { name: "Refund Policy", href: "/refund-policy" },
+  { name: "Refund & Cancellation Policy", href: "/refund-policy" },
   { name: "Internship Terms", href: "/internship-terms" },
   { name: "Cookie Policy", href: "/cookie-policy" },
   { name: "Disclaimer", href: "/disclaimer" },

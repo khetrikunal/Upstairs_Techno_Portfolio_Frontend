@@ -8,7 +8,7 @@ export function proxy(request: NextRequest) {
   const destinations: Record<string, string> = {
     "codenova.upstairstechno.com": "/subdomain-pages/codenova",
     "job.upstairstechno.com": "/subdomain-pages/job-platform",
-    "career.upstairstechno.com": "/subdomain-pages/career",
+    "careers.upstairstechno.com": "/subdomain-pages/career",
   };
   const destination = destinations[hostname];
   if (!destination) return NextResponse.next();

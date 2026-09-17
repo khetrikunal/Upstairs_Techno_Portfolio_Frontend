@@ -219,7 +219,7 @@ export const careerServices: CareerService[] = [
     processSteps: [
       {
         title: "1. Online Application",
-        description: "Submit your application through career.upstairstechno.com.",
+        description: "Submit your application through careers.upstairstechno.com.",
       },
       {
         title: "2. Technical Screening",
@@ -243,7 +243,7 @@ export const careerServices: CareerService[] = [
       {
         question: "How do I apply for OJT?",
         answer:
-          "You can apply directly by clicking Apply Now, which takes you to our official portal at career.upstairstechno.com.",
+          "You can apply directly by clicking Apply Now, which takes you to our official portal at careers.upstairstechno.com.",
       },
       {
         question: "Is there placement assistance after OJT?",
@@ -252,7 +252,7 @@ export const careerServices: CareerService[] = [
       },
     ],
     ctaText: "Apply Now",
-    ctaLink: "https://career.upstairstechno.com",
+    ctaLink: "https://careers.upstairstechno.com",
   },
   {
     id: "coding-competition",

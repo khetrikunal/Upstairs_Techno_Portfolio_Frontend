@@ -57,7 +57,7 @@ export default async function CareerPage() {
 
               <div className="mt-10 flex flex-wrap items-center gap-4">
                 <a
-                  href="https://career.upstairstechno.com"
+                  href="https://careers.upstairstechno.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2.5 rounded-full bg-blueline px-8 py-4 text-base sm:text-lg font-bold text-paper shadow-xl shadow-blueline/30 transition-all duration-300 hover:bg-blueline-soft hover:-translate-y-0.5"
@@ -192,7 +192,7 @@ export default async function CareerPage() {
 
                   <div className="pt-4 border-t border-grid">
                     <a
-                      href={isOjt || isInternship ? "https://career.upstairstechno.com" : isBtds ? "/services/btds" : `/career/services/${service.id}`}
+                      href={isOjt || isInternship ? "https://careers.upstairstechno.com" : isBtds ? "/services/btds" : `/career/services/${service.id}`}
                       target={isOjt || isInternship ? "_blank" : undefined}
                       rel={isOjt || isInternship ? "noopener noreferrer" : undefined}
                       className={`w-full inline-flex items-center justify-center gap-2 rounded-2xl px-6 py-4.5 text-base sm:text-lg font-bold transition-all duration-300 ${
@@ -280,7 +280,7 @@ export default async function CareerPage() {
             {/* OJT CTA Actions */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
               <a
-                href="https://career.upstairstechno.com"
+                href="https://careers.upstairstechno.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-full bg-emerald-600 px-9 py-4.5 text-lg font-extrabold text-paper shadow-2xl shadow-emerald-600/40 hover:bg-emerald-500 hover:scale-105 transition-all"
@@ -361,7 +361,7 @@ export default async function CareerPage() {
             {/* Internship CTA Actions */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
               <a
-                href="https://career.upstairstechno.com"
+                href="https://careers.upstairstechno.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-full bg-blueline px-9 py-4.5 text-lg font-extrabold text-paper shadow-2xl shadow-blueline/40 hover:bg-blueline-soft hover:scale-105 transition-all"

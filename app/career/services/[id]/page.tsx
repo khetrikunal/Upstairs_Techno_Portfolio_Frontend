@@ -162,7 +162,7 @@ export default async function CareerServiceDetailsPage({
             <div className="mt-10 flex flex-wrap items-center gap-4">
               {isInternship || service.id === "ojt" ? (
                 <a
-                  href="https://career.upstairstechno.com"
+                  href="https://careers.upstairstechno.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2.5 rounded-full bg-blueline px-8 py-4 text-lg font-extrabold text-paper shadow-xl shadow-blueline/30 transition-all duration-300 hover:bg-blueline-soft hover:shadow-2xl hover:-translate-y-0.5"
@@ -345,7 +345,7 @@ export default async function CareerServiceDetailsPage({
 
               {isInternship || service.id === "ojt" ? (
                 <a
-                  href="https://career.upstairstechno.com"
+                  href="https://careers.upstairstechno.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2.5 rounded-full bg-blueline px-9 py-4.5 text-lg font-extrabold text-paper shadow-2xl shadow-blueline/40 transition-all duration-300 hover:bg-blueline-soft hover:scale-105"
