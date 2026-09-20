@@ -16,9 +16,12 @@ export const metadata: Metadata = {
   description:
     "Upstairs Techno designs and builds enterprise platforms for companies that can't afford to get it wrong: financial services, logistics, and healthcare systems at scale.",
   icons: {
-    icon: "/Upstairs_Logo.jpeg",
-    shortcut: "/Upstairs_Logo.jpeg",
-    apple: "/Upstairs_Logo.jpeg",
+    icon: [
+      { url: "/icon.png", type: "image/png", sizes: "32x32" },
+      { url: "/icon-48.png", type: "image/png", sizes: "48x48" },
+    ],
+    shortcut: "/icon.png",
+    apple: "/apple-icon.png",
   },
   openGraph: {
     title: "Upstairs Techno — Enterprise Engineering",
