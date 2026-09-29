@@ -50,10 +50,10 @@ export default function Careers({ jobs }: { jobs: Job[] }) {
             Open Positions & Programs
           </div>
           <h2 className="font-display text-section-heading font-bold text-balance text-paper">
-            Build the systems that don&apos;t make headlines for breaking.
+            Build real-world software with us.
           </h2>
           <p className="mt-4 text-base sm:text-lg md:text-xl text-paper/80 leading-relaxed">
-            Explore engineering roles, OJT (On-Job Training), BTDS talent pipeline opportunities, and high-impact internships with direct mentorship.
+            Explore full-time jobs, internships, and on-job training (OJT) programs with friendly mentorship and real client projects.
           </p>
 
           {/* Quick Filter Tabs */}

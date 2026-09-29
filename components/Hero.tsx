@@ -45,12 +45,12 @@ export default function Hero() {
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <span className="inline-block font-mono text-sm sm:text-[15px] tracking-[0.2em] text-blueline-soft mb-4 sm:mb-6 font-semibold">
-            Next-gen software architecture
+            Software · AI · Education · Talent
           </span>
 
           <h1 className="font-display font-bold text-hero-heading text-paper tracking-tight max-w-4xl text-balance">
-            Enterprise Engineering,{" "}
-            <span className="block sm:inline text-white">one level up.</span>
+            We Build Software.{" "}
+            <span className="block sm:inline text-white">We Build Careers.</span>
           </h1>
         </motion.div>
 
@@ -60,9 +60,9 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.35, ease: "easeOut" }}
           className="mt-6 sm:mt-8 text-hero-paragraph text-paper/90 max-w-3xl leading-relaxed"
         >
-          We design and build the platforms that financial services, logistics, and
-          healthcare companies stake their operations on — modernized without the
-          downtime, and instrumented so nothing breaks quietly.
+          Upstairs Techno helps businesses grow with custom software, IT consulting,
+          and digital marketing — while also helping students and freshers start
+          their tech careers through internships, training, and job opportunities.
         </motion.p>
 
         <motion.div

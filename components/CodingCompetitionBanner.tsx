@@ -4,7 +4,9 @@ import { ArrowRight, Trophy, Code2, BrainCircuit, Sparkles, CheckCircle2 } from 
 
 export default function CodingCompetitionBanner() {
   return (
-    <section className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8 my-10 sm:my-14">
+    <section id="coding-competition" className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8 my-10 sm:my-14 scroll-mt-24 sm:scroll-mt-28">
+      {/* Anchor for Code Nova */}
+      <div id="code-nova" className="absolute -top-24 pointer-events-none" aria-hidden="true" />
       <div className="relative bg-ink text-paper py-16 sm:py-20 md:py-24 overflow-hidden rounded-3xl shadow-2xl border border-blueline/30">
         {/* Responsive Background Image with Dark Contrast Overlay */}
         <div className="absolute inset-0 z-0">

@@ -29,15 +29,13 @@ export default function Partners() {
         >
           <div className="inline-flex items-center gap-2 rounded-full border border-blueline/40 bg-blueline/10 px-4 py-1.5 text-xs sm:text-sm font-mono tracking-[0.2em] text-blueline-soft mb-4 font-bold">
             <Building2 className="w-3.5 h-3.5" />
-            Our Partners
+            Partners
           </div>
           <h2 className="font-display text-section-heading font-bold text-paper tracking-tight text-balance">
-            Trusted{" "}
-            <span className="text-blueline-soft">Partners</span>
+            Companies We <span className="text-blueline-soft">Work With</span>
           </h2>
           <p className="mt-3 text-base sm:text-lg text-paper/70 leading-relaxed max-w-xl mx-auto">
-            Businesses that trust Upstairs Techno to design and deliver
-            enterprise software that drives real results.
+            Businesses and organizations that rely on Upstairs Techno to build reliable software and digital tools.
           </p>
         </motion.div>
 

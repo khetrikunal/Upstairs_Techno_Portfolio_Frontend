@@ -1,162 +1,89 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { X } from "lucide-react";
+import Image from "next/image";
+import { motion } from "framer-motion";
 
-const TECHS = [
-  {
-    name: "React",
-    description: "Building scalable, responsive and component-driven web applications.",
-    why: "React allows us to build fast, scalable and maintainable interfaces using reusable components.",
-    benefit: "Reusable component architecture, high rendering performance, expansive ecosystem, and strong cross-platform flexibility.",
-    expertise: "Extensive track record building production-grade dashboards, enterprise web applications, and custom design systems.",
-  },
-  {
-    name: "Spring Boot",
-    description: "Developing secure, scalable and production-ready backend systems.",
-    why: "Spring Boot delivers robust enterprise-level architectures, built-in security protocols, and dependable microservices.",
-    benefit: "Battle-tested reliability, automated configuration, seamless cloud integration, and enterprise-grade performance.",
-    expertise: "Architected high-throughput transactional backends, banking-grade microservices, and secure API gateways.",
-  },
-  {
-    name: "Node.js",
-    description: "Building fast APIs, real-time applications and scalable services.",
-    why: "Node.js powers lightweight, asynchronous, and event-driven backends ideal for high concurrency and real-time data.",
-    benefit: "Non-blocking I/O, unified full-stack JavaScript/TypeScript workflows, fast execution, and huge npm library ecosystem.",
-    expertise: "Engineered high-concurrency REST & GraphQL APIs, websockets, streaming services, and serverless microservices.",
-  },
-  {
-    name: ".NET",
-    description: "Building enterprise-grade applications, APIs, and cross-platform software solutions.",
-    why: ".NET delivers high-performance, scalable, and secure applications for enterprise environments with a unified development platform across web, desktop, and cloud.",
-    benefit: "High performance, cross-platform support, rich ecosystem (ASP.NET Core, Blazor, EF Core), strong typing, and enterprise-grade reliability.",
-    expertise: "Delivered enterprise web applications, RESTful APIs, and database-driven systems using ASP.NET Core, Entity Framework, and Azure integration.",
-  },
-  {
-    name: "Python",
-    description: "Powering AI, automation, data processing and backend solutions.",
-    why: "Python is the industry standard for Artificial Intelligence, machine learning models, automation, and analytics pipelines.",
-    benefit: "Unrivaled AI/ML framework ecosystem (PyTorch, TensorFlow, LangChain), rapid development, and rich scientific libraries.",
-    expertise: "Delivered Generative AI integrations, intelligent document automation, custom ML models, and scalable data backends.",
-  },
-  {
-    name: "PostgreSQL",
-    description: "Reliable and scalable data storage for business-critical applications.",
-    why: "PostgreSQL is the most dependable, feature-rich relational database for mission-critical and ACID-compliant data storage.",
-    benefit: "Rock-solid data integrity, advanced indexing, native JSON support, high extensibility, and horizontal scaling capabilities.",
-    expertise: "Designed complex schema structures, enterprise database migrations with zero downtime, and high-availability clusters.",
-  },
-  {
-    name: "AWS",
-    description: "Scalable cloud infrastructure, deployment and managed services.",
-    why: "AWS provides world-class cloud infrastructure, reliability, and security to run enterprise platforms at global scale.",
-    benefit: "Global cloud footprint, managed infrastructure, elastic scalability, automated DevOps pipelines, and strict compliance standards.",
-    expertise: "Certified cloud engineers configuring resilient serverless architectures, Kubernetes deployments, and automated CI/CD pipelines.",
-  },
+type ToolkitItem = {
+  name: string;
+  src: string;
+};
+
+const TOOLKIT: ToolkitItem[] = [
+  { name: "React", src: "/Toolkit/react.png" },
+  { name: "Node.js", src: "/Toolkit/Node.js_logo.svg.webp" },
+  { name: "Python", src: "/Toolkit/python.jpg" },
+  { name: "Spring Boot", src: "/Toolkit/Springboot.jpg" },
+  { name: "dotnet", src: "/Toolkit/dotnet.png" },
+  { name: "PostgreSQL", src: "/Toolkit/PostgresSQL.png" },
+  { name: "AWS", src: "/Toolkit/AWS.jpg" },
 ];
 
-export default function Technologies() {
-  const [active, setActive] = useState<(typeof TECHS)[number] | null>(null);
+// Double the items so each repeating half is long enough for any screen width
+const MARQUEE_SET = [...TOOLKIT, ...TOOLKIT];
 
+function ToolkitCard({ tool }: { tool: ToolkitItem }) {
   return (
-    <section id="technologies" className="py-16 sm:py-20 md:py-28 lg:py-32 bg-paper-dim/60">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+    <div className="group flex items-center gap-3.5 sm:gap-4 rounded-2xl border border-grid/80 bg-white px-5 sm:px-6 py-3.5 sm:py-4 shadow-sm hover:border-blueline/50 hover:shadow-md transition-all duration-300 shrink-0 select-none">
+      <div className="relative flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center shrink-0">
+        <Image
+          src={tool.src}
+          alt={`${tool.name} logo`}
+          width={48}
+          height={48}
+          className="max-h-full max-w-full object-contain transition-transform duration-300 group-hover:scale-110"
+        />
+      </div>
+      <span className="font-display text-base sm:text-lg font-bold text-ink whitespace-nowrap tracking-tight">
+        {tool.name}
+      </span>
+    </div>
+  );
+}
+
+export default function Technologies() {
+  return (
+    <section id="technologies" className="py-16 sm:py-20 md:py-24 bg-paper-dim/60 overflow-hidden">
+      {/* Section Header */}
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8 mb-10 sm:mb-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="max-w-2xl mb-12 sm:mb-16"
+          className="text-center max-w-2xl mx-auto"
         >
-          <p className="font-mono text-xs sm:text-sm tracking-[0.3em] uppercase text-blueline mb-3 font-medium">
+          <p className="font-mono text-xs sm:text-sm tracking-[0.3em] uppercase text-blueline mb-3 font-semibold">
             THE TOOLKIT
           </p>
-          <h2 className="font-display text-section-heading font-bold text-ink">
-            The technology behind what we build.
+          <h2 className="font-display text-section-heading font-bold text-ink text-balance">
+            The tools we use to build your product.
           </h2>
         </motion.div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6">
-          {TECHS.map((tech, i) => (
-            <motion.button
-              type="button"
-              key={tech.name}
-              onClick={() => setActive(tech)}
-              data-cursor="Details"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.4, delay: i * 0.05 }}
-              className="group flex flex-col items-start justify-between rounded-2xl border border-grid bg-white p-6 sm:p-7 text-left transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-blueline/40 min-h-[160px] cursor-pointer"
-            >
-              <div>
-                <span className="font-display text-xl sm:text-2xl font-bold text-ink transition-transform duration-300 group-hover:scale-105 origin-left block">
-                  {tech.name}
-                </span>
-                <p className="mt-2.5 text-sm sm:text-base text-slate leading-relaxed">
-                  {tech.description}
-                </p>
-              </div>
-              <span className="mt-4 text-sm sm:text-[15px] text-slate group-hover:text-blueline transition-colors font-semibold">
-                View why we use it →
-              </span>
-            </motion.button>
-          ))}
-        </div>
       </div>
 
-      <AnimatePresence initial={false}>
-        {active && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[70] flex items-center justify-center bg-ink/60 backdrop-blur-sm p-4 sm:p-6"
-            onClick={() => setActive(null)}
-          >
-            <motion.div
-              initial={{ opacity: 0, y: 24, scale: 0.98 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 12, scale: 0.98 }}
-              transition={{ duration: 0.25, ease: "easeOut" }}
-              onClick={(e) => e.stopPropagation()}
-              className="reg-corners text-ink relative w-full max-w-lg rounded-2xl bg-white p-6 sm:p-8 shadow-2xl max-h-[90vh] overflow-y-auto"
-            >
-              <button
-                type="button"
-                onClick={() => setActive(null)}
-                className="absolute top-5 right-5 text-slate hover:text-ink transition-colors p-2 cursor-pointer"
-                aria-label="Close"
-              >
-                <X className="w-5 h-5" />
-              </button>
-              <h3 className="font-display text-2xl sm:text-3xl font-bold text-ink">{active.name}</h3>
+      {/* Continuous Infinite Scrolling Row */}
+      <div className="relative w-full overflow-hidden py-3">
+        {/* Left & Right gradient fade masks for smooth transition */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 sm:w-28 bg-gradient-to-r from-paper-dim via-paper-dim/40 to-transparent z-10" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-16 sm:w-28 bg-gradient-to-l from-paper-dim via-paper-dim/40 to-transparent z-10" />
 
-              <div className="mt-6 space-y-5">
-                <div>
-                  <p className="font-mono text-xs sm:text-sm tracking-widest uppercase text-blueline mb-1.5 font-semibold">
-                    Why we use it
-                  </p>
-                  <p className="text-base text-slate leading-relaxed">{active.why}</p>
-                </div>
-                <div>
-                  <p className="font-mono text-xs sm:text-sm tracking-widest uppercase text-blueline mb-1.5 font-semibold">
-                    Benefits
-                  </p>
-                  <p className="text-base text-slate leading-relaxed">{active.benefit}</p>
-                </div>
-                <div>
-                  <p className="font-mono text-xs sm:text-sm tracking-widest uppercase text-blueline mb-1.5 font-semibold">
-                    Our expertise
-                  </p>
-                  <p className="text-base text-slate leading-relaxed">{active.expertise}</p>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+        {/* Marquee Track: Two identical halves moving seamlessly from right to left */}
+        <div className="animate-toolkit-loop">
+          {/* Half 1 */}
+          <div className="flex shrink-0 items-center gap-4 sm:gap-6 pr-4 sm:pr-6">
+            {MARQUEE_SET.map((tool, idx) => (
+              <ToolkitCard key={`set1-${tool.name}-${idx}`} tool={tool} />
+            ))}
+          </div>
+
+          {/* Half 2 (identical duplicate for seamless infinite loop) */}
+          <div className="flex shrink-0 items-center gap-4 sm:gap-6 pr-4 sm:pr-6" aria-hidden="true">
+            {MARQUEE_SET.map((tool, idx) => (
+              <ToolkitCard key={`set2-${tool.name}-${idx}`} tool={tool} />
+            ))}
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

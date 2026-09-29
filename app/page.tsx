@@ -3,7 +3,7 @@ import Hero from "@/components/Hero";
 import HiringBanner from "@/components/HiringBanner";
 import WhatWeDo from "@/components/WhatWeDo";
 import CodingCompetitionBanner from "@/components/CodingCompetitionBanner";
-import FeaturedProjects from "@/components/FeaturedProjects";
+import Domains from "@/components/Domains";
 import Partners from "@/components/Partners";
 import ProcessTimeline from "@/components/ProcessTimeline";
 import Technologies from "@/components/Technologies";
@@ -18,7 +18,7 @@ export default function Home() {
         <HiringBanner />
         <WhatWeDo />
         <CodingCompetitionBanner />
-        <FeaturedProjects />
+        <Domains />
         <Partners />
         <ProcessTimeline />
         <Technologies />

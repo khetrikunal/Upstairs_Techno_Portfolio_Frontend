@@ -7,7 +7,9 @@ import { services } from "@/lib/data/services";
 
 export default function WhatWeDo() {
   return (
-    <section id="what-we-do" className="relative py-16 sm:py-20 md:py-28 lg:py-32 bg-paper">
+    <section id="services" className="relative py-16 sm:py-20 md:py-28 lg:py-32 bg-paper scroll-mt-24 sm:scroll-mt-28">
+      {/* Anchor for backward compatibility */}
+      <div id="what-we-do" className="absolute -top-24 pointer-events-none" aria-hidden="true" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -16,11 +18,11 @@ export default function WhatWeDo() {
           transition={{ duration: 0.6 }}
           className="max-w-2xl"
         >
-          <p className="font-mono text-xs sm:text-sm tracking-[0.3em] uppercase text-blueline mb-3 font-medium">
-            What We Do
+          <p className="font-mono text-xs sm:text-sm tracking-[0.3em] uppercase text-blueline mb-3 font-semibold">
+            Services
           </p>
           <h2 className="font-display text-section-heading font-bold text-ink text-balance">
-            End-to-end disciplines, one delivery team.
+            Our services, all in one place.
           </h2>
         </motion.div>
 
@@ -28,11 +30,12 @@ export default function WhatWeDo() {
           {services.map((service, i) => (
             <motion.div
               key={service.slug}
+              id={service.slug}
               initial={{ opacity: 0, y: 32 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.55, delay: i * 0.08, ease: "easeOut" }}
-              className="h-full"
+              className="h-full scroll-mt-28 sm:scroll-mt-32"
             >
               <Link
                 href={service.slug === "education" ? "/what-we-do/services/education" : `/services/${service.slug}`}

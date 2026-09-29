@@ -6,13 +6,15 @@ import { ArrowUpRight, Sparkles, Users } from "lucide-react";
 export default function HiringBanner() {
   return (
     <motion.section
-      id="hiring-banner"
+      id="career"
       initial={{ opacity: 0, y: 32 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.9, ease: "easeOut" }}
       aria-label="Hiring announcement: 100+ job vacancies for freshers"
-      className="relative bg-paper overflow-hidden"
+      className="relative bg-paper overflow-hidden scroll-mt-24 sm:scroll-mt-28"
     >
+      {/* Anchor for backward compatibility */}
+      <div id="hiring-banner" className="absolute -top-24 pointer-events-none" aria-hidden="true" />
       {/* Blueprint grid texture */}
       <div className="absolute inset-0 blueprint-grid opacity-30 pointer-events-none" />
 

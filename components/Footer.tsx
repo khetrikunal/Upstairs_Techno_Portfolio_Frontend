@@ -1,26 +1,27 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, MapPin } from "lucide-react";
+import { Mail, MapPin, ArrowUp } from "lucide-react";
 
 const NAV_LINKS = [
   { name: "Home", href: "/" },
-  { name: "What We Do", href: "/what-we-do" },
+  { name: "Services", href: "/#services" },
   { name: "About Us", href: "/about" },
-  { name: "Our Products", href: "/projects" },
-  { name: "Code Nova", href: "/education/coding-competition" },
-  { name: "Career", href: "/career" },
-  { name: "Contact Us", href: "/contact-us" },
+  { name: "Domains", href: "/#domains" },
+  { name: "Code Nova", href: "/#coding-competition" },
+  { name: "Career", href: "/#career" },
+  { name: "Contact Us", href: "/#contact" },
 ];
 
 const SERVICE_LINKS = [
-  { name: "IT Consulting", href: "/services/it-consulting" },
-  { name: "Software Development", href: "/services/software-development" },
-  { name: "Digital Marketing", href: "/services/digital-marketing" },
-  { name: "AI & Automation", href: "/services/ai-automation" },
-  { name: "Education", href: "/what-we-do/services/education" },
-  { name: "Talent Development", href: "/services/btds" },
+  { name: "IT Consulting", href: "/#it-consulting" },
+  { name: "Software Development", href: "/#software-development" },
+  { name: "Digital Marketing", href: "/#digital-marketing" },
+  { name: "AI & Automation", href: "/#ai-automation" },
+  { name: "Education", href: "/#education" },
+  { name: "Talent Development", href: "/#btds" },
 ];
 
 const LEGAL_LINKS = [
@@ -54,6 +55,23 @@ function InstagramIcon({ className }: { className?: string }) {
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 300);
+    };
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <footer className="bg-ink text-paper/70 relative overflow-hidden">
@@ -85,20 +103,6 @@ export default function Footer() {
             <p className="text-sm leading-relaxed text-paper/60 mb-6 max-w-xs">
               Enterprise software, AI solutions, digital marketing, and technology education from Baramati, India.
             </p>
-
-            {/* Social */}
-            <a
-              href="https://www.instagram.com/upstairstechno/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Instagram @upstairstechno"
-              className="inline-flex items-center gap-3 rounded-full border border-paper/15 px-3 py-2 text-sm text-paper/60 hover:border-blueline hover:text-blueline-soft transition-all duration-200 font-mono"
-            >
-              <span className="flex h-8 w-8 items-center justify-center rounded-full border border-paper/15 text-paper/50">
-                <InstagramIcon className="w-4 h-4" />
-              </span>
-              <span>@upstairstechno</span>
-            </a>
           </div>
 
           {/* Navigation column */}
@@ -172,24 +176,51 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="https://maps.google.com/?q=Baramati+Pune+Maharashtra+India"
+                  href="https://maps.google.com/?q=Rajeamarsinha+Colony+Malegaon+Bk+Baramati+Pune+413115"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-start gap-2.5 text-sm text-paper/60 hover:text-blueline-soft transition-colors duration-200 group"
                 >
                   <MapPin className="w-4 h-4 mt-0.5 shrink-0 text-blueline/60 group-hover:text-blueline" />
-                  <span>Baramati, Pune<br />Maharashtra, India</span>
+                  <span>Rajeamarsinha Colony, Malegaon Bk, Baramati, Pune 413115</span>
                 </a>
               </li>
             </ul>
+
+            {/* Instagram Icon below Contact */}
+            <div className="mt-5 pt-1">
+              <a
+                href="https://www.instagram.com/upstairstechno/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-paper/15 text-paper/60 hover:border-blueline hover:text-blueline-soft hover:bg-blueline/10 transition-all duration-200"
+              >
+                <InstagramIcon className="w-4 h-4" />
+              </a>
+            </div>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-paper/30">
+        <div className="pt-6 flex items-center justify-center text-center text-xs text-paper/30">
           <p>&copy; {currentYear} Upstairs Techno. All rights reserved.</p>
         </div>
       </div>
+
+      {/* Back to Top Button */}
+      <button
+        type="button"
+        onClick={scrollToTop}
+        aria-label="Back to top"
+        className={`fixed bottom-6 right-6 z-50 flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-blueline text-paper shadow-xl shadow-blueline/30 border border-white/10 transition-all duration-300 hover:bg-blueline-soft hover:scale-105 active:scale-95 cursor-pointer ${
+          showScrollTop
+            ? "opacity-100 translate-y-0 pointer-events-auto"
+            : "opacity-0 translate-y-4 pointer-events-none"
+        }`}
+      >
+        <ArrowUp className="w-5 h-5 text-paper stroke-[2.5]" />
+      </button>
     </footer>
   );
 }

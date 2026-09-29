@@ -52,7 +52,7 @@ export default async function CareerPage() {
                 Build Your Future With Us
               </h1>
               <p className="mt-6 text-lg sm:text-xl md:text-2xl text-paper/85 leading-relaxed max-w-3xl">
-                Unlock career-defining opportunities at Upstairs Techno. Whether you are aiming to join our <strong className="text-white">BTDS talent development pipeline</strong>, gain enterprise experience through our <strong className="text-white">Internship program</strong>, accelerate with <strong className="text-white">OJT (On - Job Training)</strong>, or build mission-critical enterprise systems — your growth starts here.
+                Start your tech career with real project experience. Explore our on-job training (OJT), internships, talent programs, and full-time software engineering roles.
               </p>
 
               <div className="mt-10 flex flex-wrap items-center gap-4">
@@ -62,20 +62,14 @@ export default async function CareerPage() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2.5 rounded-full bg-blueline px-8 py-4 text-base sm:text-lg font-bold text-paper shadow-xl shadow-blueline/30 transition-all duration-300 hover:bg-blueline-soft hover:-translate-y-0.5"
                 >
-                  Apply Now
+                  Apply on Careers Portal
                   <ArrowRight className="w-5 h-5" />
                 </a>
                 <a
-                  href="#ojt-program"
-                  className="inline-flex items-center gap-2.5 rounded-full border border-emerald-500/40 bg-emerald-500/10 px-7 py-4 text-base sm:text-lg font-bold text-paper hover:bg-emerald-500/20 transition-all"
+                  href="#career-services"
+                  className="inline-flex items-center gap-2 rounded-full border border-paper/30 bg-paper/10 px-7 py-4 text-base sm:text-lg font-bold text-paper hover:bg-paper/20 transition-all"
                 >
-                  💼 OJT (On - Job Training)
-                </a>
-                <a
-                  href="#internship-opportunities"
-                  className="inline-flex items-center gap-2.5 rounded-full border border-paper/30 bg-paper/10 px-7 py-4 text-base sm:text-lg font-bold text-paper hover:bg-paper/20 transition-all"
-                >
-                  🎓 View Internships
+                  Our Programs
                 </a>
                 <a
                   href="#open-positions"
@@ -217,113 +211,32 @@ export default async function CareerPage() {
           </div>
         </section>
 
-        {/* Dedicated OJT (On - Job Training) Section */}
-        <section id="ojt-program" className="py-20 sm:py-28 bg-ink text-paper relative overflow-hidden my-12 mx-4 sm:mx-6 lg:mx-8 rounded-3xl border border-emerald-500/40 shadow-2xl">
-          <div className="absolute inset-0 blueprint-grid-dark opacity-60 pointer-events-none" />
-          <div className="relative mx-auto max-w-6xl px-4 sm:px-6 md:px-8">
-            <div className="text-center max-w-3xl mx-auto mb-14">
-              <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/40 bg-emerald-500/10 px-5 py-2 text-xs sm:text-sm font-mono tracking-widest text-emerald-300 uppercase mb-4 shadow-sm font-semibold">
-                <Briefcase className="w-4 h-4 text-emerald-400" />
-                <span>On - Job Training (OJT) · Applications Open</span>
-              </div>
-              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-paper tracking-tight">
-                OJT (On - Job Training) Program
-              </h2>
-              <p className="mt-4 text-lg sm:text-xl text-paper/85 leading-relaxed">
-                Step directly into real enterprise engineering. Our intensive On-Job Training (OJT) program pairs you with senior architects on live production systems — transforming your skills with real client code, industry practices, and direct placement opportunities.
-              </p>
-            </div>
-
-            {/* OJT Feature Highlights */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-              <div className="rounded-2xl border border-paper/15 bg-paper/[0.04] p-6 backdrop-blur-sm">
-                <div className="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-300 flex items-center justify-center mb-4">
-                  <Laptop className="w-6 h-6" />
-                </div>
-                <h3 className="font-display text-xl font-bold text-paper mb-2">Live Production Systems</h3>
-                <p className="text-sm text-paper/75 leading-relaxed">
-                  Work on commercial client platforms, cloud infrastructure, and live databases from week one.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-paper/15 bg-paper/[0.04] p-6 backdrop-blur-sm">
-                <div className="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-300 flex items-center justify-center mb-4">
-                  <Users className="w-6 h-6" />
-                </div>
-                <h3 className="font-display text-xl font-bold text-paper mb-2">1:1 Senior Mentorship</h3>
-                <p className="text-sm text-paper/75 leading-relaxed">
-                  Daily standups, architecture guidance, and code reviews led directly by Senior Staff Engineers.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-paper/15 bg-paper/[0.04] p-6 backdrop-blur-sm">
-                <div className="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-300 flex items-center justify-center mb-4">
-                  <Clock className="w-6 h-6" />
-                </div>
-                <h3 className="font-display text-xl font-bold text-paper mb-2">3 to 6 Months Tenure</h3>
-                <p className="text-sm text-paper/75 leading-relaxed">
-                  Structured sprint roadmap with real milestone deliveries, stipend, and performance rewards.
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-paper/15 bg-paper/[0.04] p-6 backdrop-blur-sm">
-                <div className="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-300 flex items-center justify-center mb-4">
-                  <Award className="w-6 h-6" />
-                </div>
-                <h3 className="font-display text-xl font-bold text-paper mb-2">Direct Placement</h3>
-                <p className="text-sm text-paper/75 leading-relaxed">
-                  Verifiable experience credentials and direct conversion to full-time Associate Software Engineer.
-                </p>
-              </div>
-            </div>
-
-            {/* OJT CTA Actions */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
-              <a
-                href="https://careers.upstairstechno.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-full bg-emerald-600 px-9 py-4.5 text-lg font-extrabold text-paper shadow-2xl shadow-emerald-600/40 hover:bg-emerald-500 hover:scale-105 transition-all"
-              >
-                <span>Apply Now</span>
-                <ArrowRight className="w-5 h-5" />
-              </a>
-              <a
-                href="/career/services/ojt"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-paper/20 bg-paper/5 px-8 py-4.5 text-base sm:text-lg font-bold text-paper hover:bg-paper/10 transition-colors"
-              >
-                View OJT Curriculum &amp; Details
-              </a>
-            </div>
-          </div>
-        </section>
-
-        {/* Dedicated Internship Section */}
-        <section id="internship-opportunities" className="py-20 sm:py-28 bg-ink text-paper relative overflow-hidden my-12 mx-4 sm:mx-6 lg:mx-8 rounded-3xl border border-blueline/30 shadow-2xl">
+        {/* What You Gain Section — Consolidated and clean without duplicate cards */}
+        <section className="py-20 sm:py-28 bg-ink text-paper relative overflow-hidden my-12 mx-4 sm:mx-6 lg:mx-8 rounded-3xl border border-blueline/30 shadow-2xl">
           <div className="absolute inset-0 blueprint-grid-dark opacity-60 pointer-events-none" />
           <div className="relative mx-auto max-w-6xl px-4 sm:px-6 md:px-8">
             <div className="text-center max-w-3xl mx-auto mb-14">
               <div className="inline-flex items-center gap-2 rounded-full border border-blueline/40 bg-blueline/10 px-5 py-2 text-xs sm:text-sm font-mono tracking-widest text-blueline-soft uppercase mb-4 shadow-sm font-semibold">
-                <GraduationCap className="w-4 h-4 text-blueline-soft" />
-                <span>Internships Available · Apply Now</span>
+                <Sparkles className="w-4 h-4 text-blueline-soft" />
+                <span>Why Join Us</span>
               </div>
               <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-paper tracking-tight">
-                Engineering Internship Program
+                What You Get With Our Programs
               </h2>
               <p className="mt-4 text-lg sm:text-xl text-paper/85 leading-relaxed">
-                We are actively offering high-impact internships across Full-Stack Engineering, Cloud, DevOps, and Applied AI. Gain hands-on production experience, work under direct senior mentorship, and fast-track your path to a full-time engineering career.
+                Whether you join our OJT program or an internship, here is what you can expect from day one:
               </p>
             </div>
 
-            {/* Internship Feature Highlights */}
+            {/* Feature Highlights */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
               <div className="rounded-2xl border border-paper/15 bg-paper/[0.04] p-6 backdrop-blur-sm">
                 <div className="w-12 h-12 rounded-xl bg-blueline/20 text-blueline-soft flex items-center justify-center mb-4">
                   <Laptop className="w-6 h-6" />
                 </div>
-                <h3 className="font-display text-xl font-bold text-paper mb-2">Live Production Code</h3>
+                <h3 className="font-display text-xl font-bold text-paper mb-2">Real Client Projects</h3>
                 <p className="text-sm text-paper/75 leading-relaxed">
-                  Write and deploy code for real enterprise client applications. No shadow projects.
+                  Write and ship real code for live commercial applications, not just demo exercises.
                 </p>
               </div>
 
@@ -331,9 +244,9 @@ export default async function CareerPage() {
                 <div className="w-12 h-12 rounded-xl bg-blueline/20 text-blueline-soft flex items-center justify-center mb-4">
                   <Users className="w-6 h-6" />
                 </div>
-                <h3 className="font-display text-xl font-bold text-paper mb-2">1:1 Senior Mentorship</h3>
+                <h3 className="font-display text-xl font-bold text-paper mb-2">1:1 Mentorship</h3>
                 <p className="text-sm text-paper/75 leading-relaxed">
-                  Paired with a dedicated Staff Engineer from Day 1 for daily guidance and weekly reviews.
+                  Get daily guidance, code reviews, and personal feedback from experienced senior engineers.
                 </p>
               </div>
 
@@ -341,9 +254,9 @@ export default async function CareerPage() {
                 <div className="w-12 h-12 rounded-xl bg-blueline/20 text-blueline-soft flex items-center justify-center mb-4">
                   <Clock className="w-6 h-6" />
                 </div>
-                <h3 className="font-display text-xl font-bold text-paper mb-2">3 to 6 Months Tenure</h3>
+                <h3 className="font-display text-xl font-bold text-paper mb-2">3 to 6 Months</h3>
                 <p className="text-sm text-paper/75 leading-relaxed">
-                  Flexible Remote, Hybrid, or On-site arrangements with monthly stipend and performance bonus.
+                  Flexible options with a monthly stipend, practical milestones, and performance rewards.
                 </p>
               </div>
 
@@ -351,14 +264,14 @@ export default async function CareerPage() {
                 <div className="w-12 h-12 rounded-xl bg-blueline/20 text-blueline-soft flex items-center justify-center mb-4">
                   <Award className="w-6 h-6" />
                 </div>
-                <h3 className="font-display text-xl font-bold text-paper mb-2">PPO Fast-Track</h3>
+                <h3 className="font-display text-xl font-bold text-paper mb-2">Job Opportunities</h3>
                 <p className="text-sm text-paper/75 leading-relaxed">
-                  70%+ of interns receive Pre-Placement Offers (PPOs) for full-time Associate Software Engineer roles.
+                  Top performers get verified experience certificates and direct offers for full-time roles.
                 </p>
               </div>
             </div>
 
-            {/* Internship CTA Actions */}
+            {/* CTA Actions */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
               <a
                 href="https://careers.upstairstechno.com"
@@ -366,14 +279,20 @@ export default async function CareerPage() {
                 rel="noopener noreferrer"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-full bg-blueline px-9 py-4.5 text-lg font-extrabold text-paper shadow-2xl shadow-blueline/40 hover:bg-blueline-soft hover:scale-105 transition-all"
               >
-                <span>Apply Now</span>
+                <span>Apply on Careers Portal</span>
                 <ArrowRight className="w-5 h-5" />
+              </a>
+              <a
+                href="/career/services/ojt"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-paper/20 bg-paper/5 px-8 py-4.5 text-base sm:text-lg font-bold text-paper hover:bg-paper/10 transition-colors"
+              >
+                Explore OJT Program
               </a>
               <a
                 href="/career/services/internship"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-paper/20 bg-paper/5 px-8 py-4.5 text-base sm:text-lg font-bold text-paper hover:bg-paper/10 transition-colors"
               >
-                Read Internship Details &amp; FAQs
+                Explore Internships
               </a>
             </div>
           </div>

@@ -4,13 +4,13 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
 const STEPS = [
-  { label: "Discovery", detail: "We map the system as it actually runs, not as the docs say it does." },
-  { label: "Planning", detail: "Scope, sequencing, and the rollback plan — written before the build plan." },
-  { label: "Design", detail: "Interfaces and architecture reviewed together, not handed off in sequence." },
-  { label: "Development", detail: "Shipped in increments a client can see and react to every two weeks." },
-  { label: "Testing", detail: "Load, security, and failure-mode testing — rehearsed, not just documented." },
-  { label: "Deployment", detail: "Shadowed traffic, staged cutover, and a rollback that's actually been run." },
-  { label: "Support", detail: "On-call alongside your team until the system is boring again." },
+  { label: "Discovery", detail: "We talk to you, understand your business, and learn exactly what you need." },
+  { label: "Planning", detail: "We create a clear plan — what we'll build, how long it will take, and how much it will cost." },
+  { label: "Design", detail: "We design how the product looks and works, and share it with you before building." },
+  { label: "Development", detail: "We build the product step by step and show you updates regularly so you stay in the loop." },
+  { label: "Testing", detail: "We test everything carefully to make sure it works properly and is safe to use." },
+  { label: "Deployment", detail: "We launch your product smoothly, with proper checks to avoid any downtime." },
+  { label: "Support", detail: "We stay with you after launch to fix issues and keep everything running well." },
 ];
 
 export default function ProcessTimeline() {
@@ -35,10 +35,10 @@ export default function ProcessTimeline() {
             How We Work
           </p>
           <h2 className="font-display text-section-heading font-bold text-ink">
-            A clear path from first conversation to long-term support.
+            How we work with you, step by step.
           </h2>
           <p className="mt-4 max-w-2xl text-base sm:text-lg leading-relaxed text-slate">
-            We listen to your goals, shape a practical plan, build with steady communication, and stay involved through launch and ongoing support.
+            From our first conversation to post-launch support — here's exactly how we handle your project.
           </p>
         </motion.div>
 

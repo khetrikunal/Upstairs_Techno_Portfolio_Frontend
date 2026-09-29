@@ -9,8 +9,11 @@ export default function FeaturedProjects() {
   return (
     <section
       id="featured-projects"
-      className="relative py-20 sm:py-28 bg-paper overflow-hidden"
+      className="relative py-20 sm:py-28 bg-paper overflow-hidden scroll-mt-24 sm:scroll-mt-28"
     >
+      {/* Anchor for products */}
+      <div id="products" className="absolute -top-24 pointer-events-none" aria-hidden="true" />
+      <div id="our-products" className="absolute -top-24 pointer-events-none" aria-hidden="true" />
       {/* Subtle blueprint grid background */}
       <div className="absolute inset-0 blueprint-grid opacity-40 pointer-events-none" />
 

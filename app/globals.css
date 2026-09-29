@@ -229,3 +229,25 @@ label {
     scroll-behavior: auto !important;
   }
 }
+
+/* Continuous infinite toolkit marquee */
+@keyframes toolkitMarquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-toolkit-loop {
+  display: flex;
+  width: max-content;
+  animation: toolkitMarquee 35s linear infinite;
+  will-change: transform;
+}
+
+.animate-toolkit-loop:hover {
+  animation-play-state: paused;
+}
+
