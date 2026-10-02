@@ -72,10 +72,10 @@ export default function AboutPage() {
               <div className="max-w-3xl">
                 <p className="font-mono text-xs sm:text-sm uppercase tracking-[0.35em] text-blueline font-medium">About Upstairs Techno</p>
                 <h1 className="mt-3 sm:mt-4 font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-ink tracking-tight">
-                  Building Tomorrow&apos;s Technology, Empowering Tomorrow&apos;s Talent.
+                  Building tomorrow&apos;s technology and empowering tomorrow&apos;s talent.
                 </h1>
                 <p className="mt-5 sm:mt-6 text-base sm:text-lg md:text-xl leading-relaxed text-slate">
-                  Upstairs Techno is a technology-driven consulting and digital solutions company helping startups, SMEs, and enterprises turn ideas into scalable, secure, and innovative digital products.
+                  Upstairs Techno is a technology-driven company delivering innovative, scalable, and secure digital solutions that help businesses grow and transform.
                 </p>
                 <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-3.5">
                   <Link href="/services" className="inline-flex items-center justify-center gap-2 rounded-full bg-ink px-7 py-3.5 text-base font-semibold text-paper transition duration-300 hover:bg-blueline min-h-[48px]">
@@ -114,15 +114,7 @@ export default function AboutPage() {
         <section className="mx-auto mt-12 max-w-7xl px-4 sm:px-6 md:px-8">
           <div className="rounded-[2rem] border border-grid bg-white p-8 sm:p-10">
             <p className="font-mono text-xs uppercase tracking-[0.35em] text-blueline">Who We Are</p>
-            <h2 className="mt-3 font-display text-3xl font-semibold text-ink">A technology company built to connect business innovation with practical talent growth.</h2>
-            <div className="mt-6 grid gap-6 lg:grid-cols-2">
-              <p className="text-lg leading-relaxed text-slate">
-                Upstairs Techno is a technology-driven consulting and digital solutions company helping startups, SMEs, and enterprises turn ideas into scalable, secure, innovative digital products. We bring IT consulting, custom software engineering, practical talent development, and technology education together under one roof.
-              </p>
-              <p className="text-lg leading-relaxed text-slate">
-                We&apos;re a team of technology consultants, software engineers, mentors, trainers, and innovators united by a belief that technology should simplify business, improve productivity, and create new opportunities. Beyond client work, we&apos;re committed to developing future technology professionals through practical training, internships, certification courses, and coding competitions.
-              </p>
-            </div>
+            <h2 className="mt-3 font-display text-3xl font-semibold text-ink">A technology company delivering innovative digital solutions while developing the next generation of tech talent.</h2>
           </div>
         </section>
 
@@ -150,18 +142,15 @@ export default function AboutPage() {
         <section className="mx-auto mt-12 max-w-7xl px-4 sm:px-6 md:px-8">
           <div className="rounded-[2rem] border border-grid bg-white p-8 sm:p-10">
             <p className="font-mono text-xs uppercase tracking-[0.35em] text-blueline">Why We Started</p>
-            <h2 className="mt-3 font-display text-3xl font-semibold text-ink">Bridging the gap between business needs and modern technology.</h2>
-            <p className="mt-6 text-lg leading-relaxed text-slate">
-              Upstairs Techno was founded to bridge the gap between business needs and modern technology. Many growing businesses struggle to find one reliable partner for strategy, software development, and ongoing engineering support. We set out to build exactly that — while also creating a pipeline for students and fresh graduates to gain real industry experience.
-            </p>
+            <h2 className="mt-3 font-display text-3xl font-semibold text-ink">Bridging business needs with modern technology while creating real opportunities for future talent.</h2>
             <div className="mt-8 grid gap-6 md:grid-cols-2">
               <div className="rounded-[2rem] border border-grid bg-paper p-6">
                 <p className="font-mono text-[10px] uppercase tracking-[0.35em] text-blueline">For Businesses</p>
-                <h3 className="mt-3 font-display text-xl font-semibold text-ink">Finding a reliable technology partner capable of supporting the complete digital journey.</h3>
+                <h3 className="mt-3 font-display text-xl font-semibold text-ink">Reliable technology solutions for growth.</h3>
               </div>
               <div className="rounded-[2rem] border border-grid bg-paper p-6">
-                <p className="font-mono text-[10px] uppercase tracking-[0.35em] text-blueline">For Students &amp; Fresh Graduates</p>
-                <h3 className="mt-3 font-display text-xl font-semibold text-ink">Getting practical industry experience and a genuine pathway into technology careers.</h3>
+                <p className="font-mono text-[10px] uppercase tracking-[0.35em] text-blueline">For Students</p>
+                <h3 className="mt-3 font-display text-xl font-semibold text-ink">Practical experience and career opportunities.</h3>
               </div>
             </div>
           </div>
@@ -170,14 +159,14 @@ export default function AboutPage() {
         <section className="mx-auto mt-12 max-w-7xl px-4 sm:px-6 md:px-8">
           <div className="rounded-[2rem] border border-grid bg-ink p-8 text-paper sm:p-10">
             <p className="font-mono text-xs uppercase tracking-[0.35em] text-blueline">Our Vision</p>
-            <h2 className="mt-3 font-display text-3xl font-semibold">To become a globally recognized technology company that empowers businesses through innovation, delivers world-class digital solutions, and develops the next generation of technology professionals by bridging the gap between education and industry.</h2>
+            <h2 className="mt-3 font-display text-3xl font-semibold">To build innovative technology solutions that empower businesses, create opportunities, and shape a smarter digital future.</h2>
           </div>
         </section>
 
         <section className="mx-auto mt-12 max-w-7xl px-4 sm:px-6 md:px-8">
           <div className="rounded-[2rem] border border-grid bg-white p-8 sm:p-10">
             <p className="font-mono text-xs uppercase tracking-[0.35em] text-blueline">Our Mission</p>
-            <h2 className="mt-3 font-display text-3xl font-semibold text-ink">To help businesses innovate, grow, and succeed through high-quality IT consulting and custom software development — while empowering students and fresh graduates through training, internships, and real-world project experience.</h2>
+            <h2 className="mt-3 font-display text-3xl font-semibold text-ink">To deliver reliable, innovative, and accessible technology solutions that help businesses grow, transform, and succeed in the digital world.</h2>
             <div className="mt-6 rounded-[2rem] border border-grid bg-paper p-6 text-center">
               <p className="font-mono text-[10px] uppercase tracking-[0.35em] text-blueline">Business Growth + Talent Development</p>
             </div>
@@ -324,7 +313,7 @@ export default function AboutPage() {
         <section className="mx-auto mt-12 max-w-7xl px-4 sm:px-6 md:px-8">
           <div className="rounded-[2rem] border border-grid bg-white p-8 text-center sm:p-10">
             <p className="font-mono text-xs uppercase tracking-[0.35em] text-blueline">Let&apos;s Build the Future Together</p>
-            <h2 className="mt-3 font-display text-3xl font-semibold text-ink">Whether you&apos;re looking to transform your business with technology or build the next generation of technology talent, Upstairs Techno is ready to work with you.</h2>
+            <h2 className="mt-3 font-display text-3xl font-semibold text-ink">Building the Future Together Through Technology.</h2>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <Link href="/services" className="inline-flex items-center justify-center gap-2 rounded-full bg-ink px-6 py-3 text-sm font-medium text-paper transition duration-300 hover:bg-blueline">
                 Explore Our Services

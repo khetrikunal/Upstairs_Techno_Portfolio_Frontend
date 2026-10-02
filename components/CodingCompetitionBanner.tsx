@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Trophy, Code2, BrainCircuit, Sparkles, CheckCircle2 } from "lucide-react";
+import { Trophy, Code2, BrainCircuit, CheckCircle2 } from "lucide-react";
 
 export default function CodingCompetitionBanner() {
   return (
@@ -115,26 +115,6 @@ export default function CodingCompetitionBanner() {
           </div>
         </div>
 
-        {/* CTA Buttons */}
-        <div className="flex flex-wrap items-center justify-center gap-4">
-          <a
-            href="https://codenova.upstairstechno.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 rounded-full bg-blueline px-8 py-4 text-base sm:text-lg font-extrabold text-paper shadow-xl shadow-blueline/30 transition-all duration-300 hover:bg-blueline-soft hover:shadow-2xl hover:-translate-y-0.5"
-          >
-            <span>Register Now</span>
-            <Sparkles className="w-5 h-5" />
-          </a>
-
-          <a
-            href="/education/coding-competition"
-            className="inline-flex items-center gap-2 rounded-full border border-paper/25 bg-paper/10 px-7 py-4 text-base font-bold text-paper hover:bg-paper/20 transition-all"
-          >
-            <span>Apply Now / Learn More</span>
-            <ArrowRight className="w-5 h-5" />
-          </a>
-        </div>
       </div>
     </div>
   </section>

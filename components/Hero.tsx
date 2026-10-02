@@ -54,17 +54,6 @@ export default function Hero() {
           </h1>
         </motion.div>
 
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.35, ease: "easeOut" }}
-          className="mt-6 sm:mt-8 text-hero-paragraph text-paper/90 max-w-3xl leading-relaxed"
-        >
-          Upstairs Techno helps businesses grow with custom software, IT consulting,
-          and digital marketing — while also helping students and freshers start
-          their tech careers through internships, training, and job opportunities.
-        </motion.p>
-
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}

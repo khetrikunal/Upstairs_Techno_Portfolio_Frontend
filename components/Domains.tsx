@@ -1,6 +1,5 @@
-"use client";
+﻿"use client";
 
-import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import {
   HeartPulse,
@@ -9,8 +8,14 @@ import {
   Building2,
   Hotel,
   Sparkles,
-  CheckCircle2,
-  ArrowRight,
+  Landmark,
+  Home,
+  Factory,
+  Truck,
+  Leaf,
+  Globe,
+  ShoppingCart,
+  Tv,
 } from "lucide-react";
 
 export interface DomainItem {
@@ -19,7 +24,6 @@ export interface DomainItem {
   tagline: string;
   icon: typeof HeartPulse;
   color: string;
-  borderColor: string;
   bgLight: string;
   solutions: string[];
 }
@@ -31,7 +35,6 @@ export const DOMAINS: DomainItem[] = [
     tagline: "Clinical workflows, hospital administration, and telemedicine platforms.",
     icon: HeartPulse,
     color: "#EF4444",
-    borderColor: "border-rose-500/30",
     bgLight: "bg-rose-500/10 text-rose-600",
     solutions: [
       "Hospital Management System (HMS)",
@@ -49,7 +52,6 @@ export const DOMAINS: DomainItem[] = [
     tagline: "Academic administration, learning portals, and student lifecycle systems.",
     icon: GraduationCap,
     color: "#D97706",
-    borderColor: "border-amber-500/30",
     bgLight: "bg-amber-500/10 text-amber-600",
     solutions: [
       "School ERP",
@@ -68,7 +70,6 @@ export const DOMAINS: DomainItem[] = [
     tagline: "Digital storefronts, marketplace platforms, and omnichannel point-of-sale.",
     icon: ShoppingBag,
     color: "#10B981",
-    borderColor: "border-emerald-500/30",
     bgLight: "bg-emerald-500/10 text-emerald-600",
     solutions: [
       "E-commerce Website",
@@ -86,11 +87,10 @@ export const DOMAINS: DomainItem[] = [
   },
   {
     id: "business-enterprise",
-    name: "Business & Enterprise Software",
+    name: "Business & Enterprise",
     tagline: "Mission-critical operations, resource planning, and corporate intelligence.",
     icon: Building2,
     color: "#2557FF",
-    borderColor: "border-blueline/30",
     bgLight: "bg-blueline/10 text-blueline",
     solutions: [
       "ERP — Enterprise Resource Planning",
@@ -116,7 +116,6 @@ export const DOMAINS: DomainItem[] = [
     tagline: "Reservation engines, guest services, and travel management platforms.",
     icon: Hotel,
     color: "#8B5CF6",
-    borderColor: "border-purple-500/30",
     bgLight: "bg-purple-500/10 text-purple-600",
     solutions: [
       "Hotel Management System",
@@ -128,15 +127,132 @@ export const DOMAINS: DomainItem[] = [
       "Event Management System",
     ],
   },
+  {
+    id: "finance-fintech",
+    name: "Finance & FinTech",
+    tagline: "Banking systems, payment platforms, and financial analytics solutions.",
+    icon: Landmark,
+    color: "#0EA5E9",
+    bgLight: "bg-sky-500/10 text-sky-600",
+    solutions: [
+      "Banking Software",
+      "Payment Gateway Integration",
+      "Loan Management System",
+      "Accounting & Finance Software",
+      "Digital Wallet",
+      "Insurance Management System",
+      "Financial Analytics Dashboard",
+    ],
+  },
+  {
+    id: "real-estate",
+    name: "Real Estate",
+    tagline: "Property listing, transaction management, and CRM for real estate businesses.",
+    icon: Home,
+    color: "#F59E0B",
+    bgLight: "bg-yellow-500/10 text-yellow-600",
+    solutions: [
+      "Property Management System",
+      "Real Estate CRM",
+      "Property Listing Portal",
+      "Rental Management System",
+      "Construction Project Management",
+    ],
+  },
+  {
+    id: "manufacturing",
+    name: "Manufacturing",
+    tagline: "Production planning, quality control, and supply chain for manufacturers.",
+    icon: Factory,
+    color: "#64748B",
+    bgLight: "bg-slate-500/10 text-slate-600",
+    solutions: [
+      "Manufacturing ERP",
+      "Production Planning System",
+      "Quality Management System",
+      "Inventory & Warehouse Management",
+      "Supply Chain Management",
+    ],
+  },
+  {
+    id: "logistics-transportation",
+    name: "Logistics & Transportation",
+    tagline: "Fleet management, route optimization, and delivery tracking platforms.",
+    icon: Truck,
+    color: "#F97316",
+    bgLight: "bg-orange-500/10 text-orange-600",
+    solutions: [
+      "Fleet Management System",
+      "Route Optimization Platform",
+      "Delivery Tracking System",
+      "Warehouse Management System",
+      "Freight Management Software",
+    ],
+  },
+  {
+    id: "agriculture",
+    name: "Agriculture & AgriTech",
+    tagline: "Farm management, supply chain, and precision agriculture platforms.",
+    icon: Leaf,
+    color: "#22C55E",
+    bgLight: "bg-green-500/10 text-green-600",
+    solutions: [
+      "Farm Management System",
+      "Crop Monitoring Platform",
+      "Agricultural Supply Chain",
+      "Livestock Management",
+      "AgriTech Marketplace",
+    ],
+  },
+  {
+    id: "government",
+    name: "Government & Public Services",
+    tagline: "Citizen portals, e-governance platforms, and public service management.",
+    icon: Globe,
+    color: "#6366F1",
+    bgLight: "bg-indigo-500/10 text-indigo-600",
+    solutions: [
+      "e-Governance Portal",
+      "Citizen Service Platform",
+      "Public Records Management",
+      "Government ERP",
+      "Digital Identity System",
+    ],
+  },
+  {
+    id: "retail",
+    name: "Retail",
+    tagline: "Omnichannel retail, inventory automation, and customer loyalty platforms.",
+    icon: ShoppingCart,
+    color: "#EC4899",
+    bgLight: "bg-pink-500/10 text-pink-600",
+    solutions: [
+      "Retail POS System",
+      "Inventory Management",
+      "Customer Loyalty Platform",
+      "Omnichannel Retail Solution",
+      "Retail Analytics Dashboard",
+    ],
+  },
+  {
+    id: "media-entertainment",
+    name: "Media & Entertainment",
+    tagline: "Streaming platforms, content management, and digital publishing solutions.",
+    icon: Tv,
+    color: "#A855F7",
+    bgLight: "bg-purple-500/10 text-purple-600",
+    solutions: [
+      "OTT / Streaming Platform",
+      "Content Management System",
+      "Digital Publishing Platform",
+      "Event Ticketing System",
+      "Media Analytics Dashboard",
+    ],
+  },
 ];
 
 export default function Domains() {
-  const [selectedDomain, setSelectedDomain] = useState<string | null>(null);
   const shouldReduceMotion = useReducedMotion();
-
-  const displayedDomains = selectedDomain
-    ? DOMAINS.filter((d) => d.id === selectedDomain)
-    : DOMAINS;
 
   return (
     <section
@@ -167,228 +283,60 @@ export default function Domains() {
             What Domains We Work In
           </h2>
           <p className="mt-4 text-base sm:text-lg md:text-xl text-slate leading-relaxed text-balance">
-            We architect and deliver tailored software solutions across key industries — engineered to streamline operations and accelerate digital growth.
+            Tailored software solutions across key industries — built to streamline operations and accelerate digital growth.
           </p>
         </motion.div>
 
-        {/* Continuous Vertical Bouncing / Up-Down Animated Domain Display */}
-        <div className="mb-12 sm:mb-16">
-          <p className="text-center font-mono text-xs uppercase tracking-widest text-slate mb-5 font-semibold">
-            Explore By Domain
-          </p>
-
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 max-w-5xl mx-auto px-2">
-            {/* View All Button */}
-            <motion.button
-              type="button"
-              onClick={() => setSelectedDomain(null)}
-              animate={
-                shouldReduceMotion
-                  ? { y: 0 }
-                  : {
-                      y: [0, -6, 0],
-                    }
-              }
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className={`rounded-full px-5 py-2.5 text-xs sm:text-sm font-display font-bold transition-all shadow-sm cursor-pointer ${
-                selectedDomain === null
-                  ? "bg-ink text-paper shadow-md shadow-ink/20"
-                  : "bg-white text-ink/80 border border-grid hover:border-ink/40"
-              }`}
-            >
-              All Domains (5)
-            </motion.button>
-
-            {DOMAINS.map((domain, index) => {
-              const Icon = domain.icon;
-              const isSelected = selectedDomain === domain.id;
-              // Staggered bounce animation parameters for natural dynamic wave
-              const bounceDuration = 2.8 + (index % 3) * 0.4;
-              const bounceDelay = index * 0.35;
-
-              return (
-                <motion.button
-                  key={domain.id}
-                  type="button"
-                  onClick={() =>
-                    setSelectedDomain(isSelected ? null : domain.id)
-                  }
-                  animate={
-                    shouldReduceMotion
-                      ? { y: 0 }
-                      : {
-                          y: [0, -8, 0],
-                        }
-                  }
-                  transition={{
-                    duration: bounceDuration,
-                    delay: bounceDelay,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                  className={`group inline-flex items-center gap-2.5 rounded-full px-4 sm:px-5 py-2.5 text-xs sm:text-sm font-display font-bold transition-all shadow-sm cursor-pointer ${
-                    isSelected
-                      ? "bg-blueline text-paper shadow-lg shadow-blueline/30 scale-105"
-                      : "bg-white border border-grid hover:border-blueline/40 hover:shadow-md text-ink"
-                  }`}
-                >
-                  <span
-                    className={`w-6 h-6 rounded-full flex items-center justify-center shrink-0 transition-colors ${
-                      isSelected
-                        ? "bg-white/20 text-white"
-                        : domain.bgLight
-                    }`}
-                  >
-                    <Icon className="w-3.5 h-3.5" />
-                  </span>
-                  <span>{domain.name}</span>
-                  <span
-                    className={`text-[10px] font-mono px-2 py-0.5 rounded-full ${
-                      isSelected
-                        ? "bg-white/25 text-white"
-                        : "bg-paper-dim text-slate"
-                    }`}
-                  >
-                    {domain.solutions.length}
-                  </span>
-                </motion.button>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Domain Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-start">
-          {displayedDomains.map((domain, idx) => {
+        {/* Domain Tags Grid — names only, no subcategories */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4">
+          {DOMAINS.map((domain, idx) => {
             const Icon = domain.icon;
-            const isLarge = domain.id === "business-enterprise";
-
             return (
               <motion.div
                 key={domain.id}
                 id={domain.id}
-                initial={{ opacity: 0, y: 24 }}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.5, delay: idx * 0.08 }}
-                className={`relative flex flex-col rounded-3xl border border-grid/80 bg-white p-6 sm:p-8 shadow-sm hover:shadow-xl hover:border-blueline/40 transition-all duration-300 overflow-hidden ${
-                  isLarge && displayedDomains.length > 1
-                    ? "lg:col-span-2"
-                    : "col-span-1"
-                }`}
-              >
-                {/* Top accent line */}
-                <div
-                  className="absolute top-0 inset-x-0 h-1"
-                  style={{ backgroundColor: domain.color }}
-                />
-
-                {/* Card Header with Floating Animated Icon Badge */}
-                <div className="flex items-start justify-between gap-4 mb-4">
-                  <div className="flex items-center gap-3.5">
-                    {/* Animated vertical bouncing icon container */}
-                    <motion.div
-                      animate={
-                        shouldReduceMotion
-                          ? { y: 0 }
-                          : {
-                              y: [0, -5, 0],
-                            }
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.4, delay: idx * 0.05 }}
+                className="group flex flex-col items-center gap-3 rounded-2xl border border-grid/70 bg-white p-4 sm:p-5 text-center shadow-sm hover:shadow-md hover:border-blueline/30 transition-all duration-300 cursor-default"
+                style={
+                  shouldReduceMotion
+                    ? {}
+                    : {
+                        animation: `domainFloat ${2.8 + (idx % 4) * 0.35}s ${idx * 0.18}s ease-in-out infinite`,
                       }
-                      transition={{
-                        duration: 3 + (idx % 2) * 0.5,
-                        delay: idx * 0.25,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                      }}
-                      className="w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 shadow-sm"
-                      style={{
-                        backgroundColor: `${domain.color}15`,
-                        color: domain.color,
-                        border: `1.5px solid ${domain.color}35`,
-                      }}
-                    >
-                      <Icon className="w-6 h-6" />
-                    </motion.div>
-
-                    <div>
-                      <h3 className="font-display text-xl sm:text-2xl font-bold text-ink leading-tight">
-                        {domain.name}
-                      </h3>
-                      <p className="text-xs sm:text-sm font-mono text-slate mt-0.5">
-                        {domain.solutions.length} Software Solutions
-                      </p>
-                    </div>
-                  </div>
-
-                  <span
-                    className="hidden sm:inline-flex text-[11px] font-mono font-bold px-3 py-1 rounded-full uppercase tracking-wider shrink-0"
-                    style={{
-                      backgroundColor: `${domain.color}15`,
-                      color: domain.color,
-                    }}
-                  >
-                    Domain
-                  </span>
+                }
+              >
+                {/* Icon badge */}
+                <div
+                  className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110"
+                  style={{
+                    backgroundColor: `${domain.color}14`,
+                    color: domain.color,
+                    border: `1.5px solid ${domain.color}30`,
+                  }}
+                >
+                  <Icon className="w-5 h-5" />
                 </div>
 
-                {/* Domain Tagline */}
-                <p className="text-sm sm:text-base text-slate leading-relaxed mb-6">
-                  {domain.tagline}
+                {/* Domain name only */}
+                <p className="font-display text-sm sm:text-base font-bold text-ink leading-snug">
+                  {domain.name}
                 </p>
-
-                {/* Solutions List */}
-                <div className="mt-auto pt-5 border-t border-grid/60">
-                  <p className="font-mono text-xs uppercase tracking-widest text-slate mb-3.5 font-bold">
-                    Solutions We Build
-                  </p>
-
-                  <div
-                    className={`grid gap-2 ${
-                      isLarge && displayedDomains.length > 1
-                        ? "grid-cols-1 sm:grid-cols-2"
-                        : "grid-cols-1"
-                    }`}
-                  >
-                    {domain.solutions.map((solution) => (
-                      <div
-                        key={solution}
-                        className="group/item flex items-start gap-2.5 rounded-xl border border-grid/60 bg-paper/60 hover:bg-paper hover:border-blueline/30 p-2.5 sm:p-3 transition-colors"
-                      >
-                        <CheckCircle2
-                          className="w-4 h-4 shrink-0 mt-0.5 transition-colors group-hover/item:scale-110"
-                          style={{ color: domain.color }}
-                        />
-                        <span className="text-xs sm:text-[13px] font-semibold text-ink/90 leading-snug group-hover/item:text-ink">
-                          {solution}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Footer CTA */}
-                <div className="mt-6 pt-4 flex items-center justify-between">
-                  <a
-                    href="/#contact"
-                    className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-blueline hover:text-blueline-soft transition-colors"
-                  >
-                    <span>Build for {domain.name}</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </a>
-                  <span className="text-[11px] font-mono text-slate">
-                    Custom Architecture
-                  </span>
-                </div>
               </motion.div>
             );
           })}
         </div>
       </div>
+
+      {/* Float keyframe */}
+      <style>{`
+        @keyframes domainFloat {
+          0%, 100% { transform: translateY(0px); }
+          50%       { transform: translateY(-5px); }
+        }
+      `}</style>
     </section>
   );
 }

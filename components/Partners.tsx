@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Building2 } from "lucide-react";
 import Image from "next/image";
 import { PARTNERS } from "@/lib/data/partners";
@@ -20,13 +19,7 @@ export default function Partners() {
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
         {/* Section header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12 sm:mb-16"
-        >
+        <div className="text-center mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 rounded-full border border-blueline/40 bg-blueline/10 px-4 py-1.5 text-xs sm:text-sm font-mono tracking-[0.2em] text-blueline-soft mb-4 font-bold">
             <Building2 className="w-3.5 h-3.5" />
             Partners
@@ -37,46 +30,64 @@ export default function Partners() {
           <p className="mt-3 text-base sm:text-lg text-paper/70 leading-relaxed max-w-xl mx-auto">
             Businesses and organizations that rely on Upstairs Techno to build reliable software and digital tools.
           </p>
-        </motion.div>
+        </div>
+      </div>
 
-        {/* Partner name cards grid */}
-        <div className="flex flex-wrap justify-center gap-5 sm:gap-6 max-w-5xl mx-auto">
-          {PARTNERS.map((partner, i) => (
-            <motion.div
-              key={partner.slug}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.45, delay: i * 0.1, ease: "easeOut" }}
-              className="group flex flex-col items-center rounded-2xl border border-paper/10 bg-paper/5 backdrop-blur-sm hover:bg-paper/10 hover:border-blueline/40 hover:shadow-xl hover:shadow-blueline/10 transition-all duration-300 overflow-hidden p-6 sm:p-8 w-full max-w-[280px] min-w-[200px] flex-1"
-            >
-              {/* Logo */}
-              <div className="flex items-center justify-center w-28 h-24 rounded-xl bg-white border border-paper/20 shadow-lg mb-4 overflow-hidden shrink-0 transition-transform duration-300 group-hover:scale-105">
-                <div className="relative w-24 h-20">
-                  <Image
-                    src={partner.logo}
-                    alt={`${partner.name} logo`}
-                    fill
-                    className="object-contain"
-                    sizes="96px"
-                  />
-                </div>
-              </div>
+      {/* ── Infinite marquee strip ── */}
+      {/* Full-width — intentionally breaks out of the max-w container */}
+      <div
+        className="relative w-full overflow-hidden"
+        aria-label="Partner logos"
+      >
+        {/* Left fade mask */}
+        <div className="pointer-events-none absolute left-0 top-0 h-full w-24 sm:w-36 z-10"
+          style={{ background: "linear-gradient(to right, #0e1524 0%, transparent 100%)" }}
+        />
+        {/* Right fade mask */}
+        <div className="pointer-events-none absolute right-0 top-0 h-full w-24 sm:w-36 z-10"
+          style={{ background: "linear-gradient(to left, #0e1524 0%, transparent 100%)" }}
+        />
 
-              {/* Company Name only */}
-              <h3 className="font-display text-lg font-bold text-paper text-center leading-snug group-hover:text-blueline-soft transition-colors duration-200">
-                {partner.name}
-              </h3>
-
-              {partner.industry && (
-                <p className="mt-1.5 text-sm font-medium text-blueline-soft text-center">
-                  {partner.industry}
-                </p>
-              )}
-            </motion.div>
+        {/*
+          The inner track is rendered TWICE side-by-side so its total width = 2×
+          one logo set. The CSS animation translates -50% (= one set width),
+          making the loop perfectly seamless with no jump.
+        */}
+        <div className="animate-partner-loop py-4">
+          {/* Set 1 */}
+          {PARTNERS.map((partner) => (
+            <LogoCard key={`a-${partner.slug}`} partner={partner} />
+          ))}
+          {/* Set 2 — identical clone to fill the loop */}
+          {PARTNERS.map((partner) => (
+            <LogoCard key={`b-${partner.slug}`} partner={partner} />
           ))}
         </div>
       </div>
     </section>
+  );
+}
+
+// ── Internal logo card — no border box, just logo + name ──────────────────────
+function LogoCard({ partner }: { partner: (typeof PARTNERS)[number] }) {
+  return (
+    <div className="flex flex-col items-center gap-3 mx-6 sm:mx-8 shrink-0">
+      {/* Logo container */}
+      <div className="flex items-center justify-center w-24 h-16 sm:w-28 sm:h-20 rounded-xl bg-white/95 shadow-sm overflow-hidden">
+        <div className="relative w-20 h-12 sm:w-24 sm:h-16">
+          <Image
+            src={partner.logo}
+            alt={`${partner.name} logo`}
+            fill
+            className="object-contain"
+            sizes="96px"
+          />
+        </div>
+      </div>
+      {/* Partner name */}
+      <p className="font-display text-xs sm:text-sm font-semibold text-paper/80 text-center whitespace-nowrap">
+        {partner.name}
+      </p>
+    </div>
   );
 }

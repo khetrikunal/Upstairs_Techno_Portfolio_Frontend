@@ -251,3 +251,26 @@ label {
   animation-play-state: paused;
 }
 
+/* Partner logo infinite marquee (right → left) */
+@keyframes partnerMarquee {
+  0%   { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+.animate-partner-loop {
+  display: flex;
+  width: max-content;
+  animation: partnerMarquee 30s linear infinite;
+  will-change: transform;
+}
+
+.animate-partner-loop:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-partner-loop {
+    animation: none;
+  }
+}
+

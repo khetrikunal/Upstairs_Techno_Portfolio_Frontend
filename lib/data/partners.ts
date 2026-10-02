@@ -123,6 +123,51 @@ export const PARTNERS: Partner[] = [
       },
     ],
   },
+
+  {
+    slug: "sawai-ghee",
+    name: "Sawai Ghee",
+    logo: "/Partners/Sawai Ghee.png",
+    industry: "Food & Dairy",
+    shortDescription: "Projects delivered by Upstairs Techno",
+    projects: [
+      {
+        id: "sg-project-1",
+        title: "Project 1",
+        shortDescription: "Details will be provided soon.",
+      },
+    ],
+  },
+
+  {
+    slug: "the-royal-mukhwas",
+    name: "The Royal Mukhwas",
+    logo: "/Partners/The Royal Mukhwas.png",
+    industry: "Food & Beverages",
+    shortDescription: "Projects delivered by Upstairs Techno",
+    projects: [
+      {
+        id: "trm-project-1",
+        title: "Project 1",
+        shortDescription: "Details will be provided soon.",
+      },
+    ],
+  },
+
+  {
+    slug: "vidya-sethu",
+    name: "Vidya Sethu",
+    logo: "/Partners/Vidya Sethu.png",
+    industry: "Education",
+    shortDescription: "Projects delivered by Upstairs Techno",
+    projects: [
+      {
+        id: "vs-project-1",
+        title: "Project 1",
+        shortDescription: "Details will be provided soon.",
+      },
+    ],
+  },
 ];
 
 // ---------------------------------------------------------------------------
