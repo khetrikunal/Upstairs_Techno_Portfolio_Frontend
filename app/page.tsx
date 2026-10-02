@@ -7,6 +7,7 @@ import Domains from "@/components/Domains";
 import Partners from "@/components/Partners";
 import ProcessTimeline from "@/components/ProcessTimeline";
 import Technologies from "@/components/Technologies";
+import OfficeCollage from "@/components/OfficeCollage";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -20,6 +21,7 @@ export default function Home() {
         <CodingCompetitionBanner />
         <Domains />
         <Partners />
+        <OfficeCollage />
         <ProcessTimeline />
         <Technologies />
       </main>

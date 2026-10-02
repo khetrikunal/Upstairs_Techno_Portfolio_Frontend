@@ -12,7 +12,12 @@ const LINKS = [
   { name: "About Us", href: "/about" },
   { name: "Domains", href: "/#domains" },
   { name: "Code Nova", href: "/#coding-competition" },
-  { name: "Career", href: "/#career" },
+  {
+    name: "Career",
+    href: "https://careers.upstairstechno.com/",
+    target: "_blank",
+    rel: "noopener noreferrer",
+  },
 ];
 
 const MOBILE_LINKS = [
@@ -21,7 +26,12 @@ const MOBILE_LINKS = [
   { name: "About Us", href: "/about" },
   { name: "Domains", href: "/#domains" },
   { name: "Code Nova", href: "/#coding-competition" },
-  { name: "Career", href: "/#career" },
+  {
+    name: "Career",
+    href: "https://careers.upstairstechno.com/",
+    target: "_blank",
+    rel: "noopener noreferrer",
+  },
   { name: "Contact Us", href: "/#contact" },
 ];
 
@@ -77,6 +87,13 @@ export default function Navbar() {
 
   // Smooth scroll handler for anchor links
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith("http://") || href.startsWith("https://")) {
+      // External link: close mobile menu and allow normal browser navigation
+      setMenuOpen(false);
+      setMobileMenuOpen(false);
+      return;
+    }
+
     if (href.startsWith("/#") || href === "/") {
       const hash = href.includes("#") ? href.split("#")[1] : "";
 
@@ -109,6 +126,9 @@ export default function Navbar() {
   };
 
   const isLinkActive = (href: string) => {
+    if (href.startsWith("http://") || href.startsWith("https://")) {
+      return false;
+    }
     if (href === "/") {
       return pathname === "/" && (!currentHash || currentHash === "#");
     }
@@ -164,6 +184,8 @@ export default function Navbar() {
                 <a
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
+                  target={link.target}
+                  rel={link.rel}
                   className={`relative text-[13px] xl:text-[14px] font-semibold py-1.5 transition-colors duration-300 group ${
                     active
                       ? "text-blueline"
@@ -288,6 +310,8 @@ export default function Navbar() {
                       <a
                         href={link.href}
                         onClick={(e) => handleNavClick(e, link.href)}
+                        target={link.target}
+                        rel={link.rel}
                         className={`flex-1 py-3.5 text-xl sm:text-2xl font-display font-bold transition-colors active:bg-paper-dim rounded-lg px-2 min-h-[50px] ${
                           active ? "text-blueline" : "text-ink hover:text-blueline"
                         }`}

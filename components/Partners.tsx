@@ -71,9 +71,9 @@ export default function Partners() {
 // ── Internal logo card — no border box, just logo + name ──────────────────────
 function LogoCard({ partner }: { partner: (typeof PARTNERS)[number] }) {
   return (
-    <div className="flex flex-col items-center gap-3 mx-6 sm:mx-8 shrink-0">
+    <div className="flex flex-col items-center gap-2.5 mx-6 sm:mx-8 shrink-0">
       {/* Logo container */}
-      <div className="flex items-center justify-center w-24 h-16 sm:w-28 sm:h-20 rounded-xl bg-white/95 shadow-sm overflow-hidden">
+      <div className="flex items-center justify-center w-24 h-16 sm:w-28 sm:h-20 rounded-xl bg-white/95 shadow-sm overflow-hidden p-1.5">
         <div className="relative w-20 h-12 sm:w-24 sm:h-16">
           <Image
             src={partner.logo}
@@ -85,9 +85,16 @@ function LogoCard({ partner }: { partner: (typeof PARTNERS)[number] }) {
         </div>
       </div>
       {/* Partner name */}
-      <p className="font-display text-xs sm:text-sm font-semibold text-paper/80 text-center whitespace-nowrap">
-        {partner.name}
-      </p>
+      <div className="text-center min-h-[36px] flex flex-col items-center justify-start">
+        {partner.prefix && (
+          <span className="text-[11px] font-mono tracking-wider text-paper/50 font-normal leading-tight">
+            {partner.prefix}
+          </span>
+        )}
+        <p className="font-display text-xs sm:text-sm font-semibold text-paper/85 text-center whitespace-nowrap">
+          {partner.name}
+        </p>
+      </div>
     </div>
   );
 }

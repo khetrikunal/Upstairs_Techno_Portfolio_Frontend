@@ -1,6 +1,6 @@
 "use client";
 
-import { Trophy, Code2, BrainCircuit, CheckCircle2 } from "lucide-react";
+import { Trophy, Code2, BrainCircuit, CheckCircle2, Calendar } from "lucide-react";
 
 export default function CodingCompetitionBanner() {
   return (
@@ -32,10 +32,22 @@ export default function CodingCompetitionBanner() {
           </div>
 
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-paper tracking-tight">
-            Monthly Coding Competition
+            CodeNova
           </h2>
 
-          <p className="mt-4 text-lg sm:text-xl md:text-2xl font-semibold text-blueline-soft text-balance">
+          <p className="mt-2 text-base sm:text-lg md:text-xl font-medium text-paper/85 italic">
+            Competitive Coding &amp; Career Development Program
+          </p>
+
+          {/* Prominent Starting Date Announcement */}
+          <div className="mt-5 inline-flex items-center gap-2.5 rounded-full border border-brass/50 bg-gradient-to-r from-brass/20 via-brass/10 to-brass/20 px-5 sm:px-7 py-2 sm:py-2.5 shadow-lg shadow-brass/15 backdrop-blur-md">
+            <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-brass animate-pulse shrink-0" />
+            <span className="font-display text-base sm:text-lg md:text-xl font-bold tracking-tight text-paper">
+              Starting 1st November 2026
+            </span>
+          </div>
+
+          <p className="mt-6 text-base sm:text-lg md:text-xl font-semibold text-blueline-soft text-balance">
             Test Your Aptitude. Master Coding. Solve Advanced Challenges. Win Rewards.
           </p>
         </div>

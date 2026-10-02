@@ -68,13 +68,19 @@ export default function Hero() {
             <ArrowUpRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
           <a
-            href="https://codenova.upstairstechno.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Register for Coding Competition"
+            href="#our-workspace"
+            onClick={(e) => {
+              e.preventDefault();
+              const el = document.getElementById("our-workspace") || document.getElementById("workplace");
+              if (el) {
+                el.scrollIntoView({ behavior: "smooth" });
+                window.history.pushState(null, "", "#our-workspace");
+              }
+            }}
+            aria-label="Explore Our Workspace"
             className="group inline-flex items-center justify-center gap-2 rounded-full border border-blueline-soft/60 bg-blueline/10 px-5 py-3 text-sm sm:text-base font-bold text-paper transition-all duration-300 hover:scale-[1.01] hover:border-blueline-soft hover:bg-blueline/20 min-h-[48px]"
           >
-            Register for Coding Competition
+            Explore Our Workspace
             <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
         </motion.div>

@@ -6,7 +6,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PartnerProjectCard from "@/components/PartnerProjectCard";
 import {
-  PARTNERS,
   getPartnerBySlug,
   getAllPartnerSlugs,
 } from "@/lib/data/partners";
@@ -99,6 +98,11 @@ export default async function PartnerDetailPage({
                   Partner Company
                 </div>
 
+                {partner.prefix && (
+                  <span className="block text-sm font-mono text-paper/60 tracking-wider font-medium mb-1">
+                    {partner.prefix}
+                  </span>
+                )}
                 <h1 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-paper leading-tight text-balance">
                   {partner.name}
                 </h1>

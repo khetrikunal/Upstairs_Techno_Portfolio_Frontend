@@ -100,6 +100,11 @@ export default function PartnersPage() {
                   </div>
 
                   {/* Info */}
+                  {partner.prefix && (
+                    <span className="block text-xs font-mono font-medium text-slate tracking-wider mb-0.5">
+                      {partner.prefix}
+                    </span>
+                  )}
                   <h2 className="font-display text-xl font-bold text-ink leading-snug group-hover:text-blueline transition-colors duration-200 mb-1">
                     {partner.name}
                   </h2>

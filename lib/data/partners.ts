@@ -33,6 +33,8 @@ export type Partner = {
   slug: string;
   /** Full company name */
   name: string;
+  /** Optional prefix shown above main partner name (e.g., "1824") */
+  prefix?: string;
   /** Path to logo image (relative to /public), e.g. "/partners/vittho.jpeg" */
   logo: string;
   /** Optional: industry or business type, shown on cards & detail page */
@@ -49,8 +51,9 @@ export type Partner = {
 
 export const PARTNERS: Partner[] = [
   {
-    slug: "1824-vituraya-ventures",
-    name: "1824 Vituraya Ventures",
+    slug: "1824-vithuraya-ventures",
+    prefix: "1824",
+    name: "Vithuraya Ventures",
     logo: "/Partners/vittho.jpeg",
     shortDescription: "Projects delivered by Upstairs Techno",
     projects: [
@@ -168,6 +171,36 @@ export const PARTNERS: Partner[] = [
       },
     ],
   },
+
+  {
+    slug: "malegaon-municipal-corporation",
+    name: "Malegaon Municipal Corporation (MMC)",
+    logo: "/Partners/Malegaon Municipal Corporation (MMC).png",
+    industry: "Government & Civic Administration",
+    shortDescription: "Civic administration and municipal public digital services for Malegaon city.",
+    projects: [
+      {
+        id: "mmc-project-1",
+        title: "Municipal Digital Services & Public Portal",
+        shortDescription: "Digital solutions and IT services developed for Malegaon Municipal Corporation.",
+      },
+    ],
+  },
+
+  {
+    slug: "rahuls-creativity",
+    name: "Rahul's Creativity",
+    logo: "/Partners/Rahul's Creativity.jpeg",
+    industry: "Creative & Design Agency",
+    shortDescription: "Projects delivered by Upstairs Techno",
+    projects: [
+      {
+        id: "rc-project-1",
+        title: "Project 1",
+        shortDescription: "Details will be provided soon.",
+      },
+    ],
+  },
 ];
 
 // ---------------------------------------------------------------------------
@@ -176,7 +209,11 @@ export const PARTNERS: Partner[] = [
 
 /** Look up a partner by slug. Returns undefined if not found. */
 export function getPartnerBySlug(slug: string): Partner | undefined {
-  return PARTNERS.find((p) => p.slug === slug);
+  return PARTNERS.find(
+    (p) =>
+      p.slug === slug ||
+      (slug === "1824-vituraya-ventures" && p.slug === "1824-vithuraya-ventures")
+  );
 }
 
 /** All slugs — used for generateStaticParams in dynamic routes. */
