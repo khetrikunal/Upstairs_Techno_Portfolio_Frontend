@@ -138,11 +138,11 @@ export default function OfficeCollage() {
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 rounded-full border border-blueline/30 bg-blueline/10 px-4 py-1.5 text-xs sm:text-sm font-mono tracking-[0.2em] text-blueline mb-4 font-bold">
+          <div className="clay-pill clay-pill-accent mb-4">
             <Building2 className="w-3.5 h-3.5" />
             Inside Upstairs Techno
           </div>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-ink">
+          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-ink">
             Our <span className="text-blueline">Workspace</span>
           </h2>
           <p className="mt-3 text-base sm:text-lg text-slate leading-relaxed max-w-2xl mx-auto">
@@ -157,7 +157,7 @@ export default function OfficeCollage() {
             {/* 1. Large Tall Exterior Building */}
             <div
               onClick={() => setActivePhotoIndex(0)}
-              className="lg:col-span-5 relative group overflow-hidden rounded-2xl sm:rounded-3xl border border-grid/80 bg-paper-dim shadow-sm hover:shadow-xl hover:border-blueline/50 transition-all duration-300 cursor-pointer h-80 sm:h-96 lg:h-[530px]"
+              className="lg:col-span-5 relative group overflow-hidden rounded-2xl sm:rounded-3xl clay-card clay-card-hover p-0 cursor-pointer h-80 sm:h-96 lg:h-[530px]"
             >
               <Image
                 src={OFFICE_PHOTOS[0].src}
@@ -175,7 +175,7 @@ export default function OfficeCollage() {
               {/* 2. Conference Room Strategy */}
               <div
                 onClick={() => setActivePhotoIndex(1)}
-                className="relative group overflow-hidden rounded-2xl sm:rounded-3xl border border-grid/80 bg-paper-dim shadow-sm hover:shadow-xl hover:border-blueline/50 transition-all duration-300 cursor-pointer h-64 sm:h-[253px]"
+                className="relative group overflow-hidden rounded-2xl sm:rounded-3xl clay-card clay-card-hover p-0 cursor-pointer h-64 sm:h-[253px]"
               >
                 <Image
                   src={OFFICE_PHOTOS[1].src}

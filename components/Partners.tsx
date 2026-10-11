@@ -20,11 +20,11 @@ export default function Partners() {
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
         {/* Section header */}
         <div className="text-center mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 rounded-full border border-blueline/40 bg-blueline/10 px-4 py-1.5 text-xs sm:text-sm font-mono tracking-[0.2em] text-blueline-soft mb-4 font-bold">
+          <div className="clay-pill clay-pill-accent mb-4">
             <Building2 className="w-3.5 h-3.5" />
             Partners
           </div>
-          <h2 className="font-display text-section-heading font-bold text-paper tracking-tight text-balance">
+          <h2 className="font-display text-section-heading font-black text-paper tracking-tight text-balance">
             Companies We <span className="text-blueline-soft">Work With</span>
           </h2>
           <p className="mt-3 text-base sm:text-lg text-paper/70 leading-relaxed max-w-xl mx-auto">
@@ -73,7 +73,7 @@ function LogoCard({ partner }: { partner: (typeof PARTNERS)[number] }) {
   return (
     <div className="flex flex-col items-center gap-2.5 mx-6 sm:mx-8 shrink-0">
       {/* Logo container */}
-      <div className="flex items-center justify-center w-24 h-16 sm:w-28 sm:h-20 rounded-xl bg-white/95 shadow-sm overflow-hidden p-1.5">
+      <div className="flex items-center justify-center w-24 h-16 sm:w-28 sm:h-20 rounded-xl bg-white shadow-[0_6px_16px_rgba(0,0,0,0.25),inset_0_1px_2px_rgba(255,255,255,0.9)] overflow-hidden p-1.5 transition-transform duration-300 hover:scale-105">
         <div className="relative w-20 h-12 sm:w-24 sm:h-16">
           <Image
             src={partner.logo}

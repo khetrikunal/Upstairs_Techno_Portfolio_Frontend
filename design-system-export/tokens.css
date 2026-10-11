@@ -1,0 +1,95 @@
+/**
+ * tokens.css
+ * Upstairs Techno Design Language — Claymorphism System Adapted to Brand Identity
+ *
+ * Design Tokens / CSS Custom Properties
+ * Brand: Upstairs Techno (Drafting Blueprint & Elevation)
+ * Theme: Paper (#F2F4F1), Ink (#0E1524), Blueline (#2557FF), Brass (#C98A3E), Slate (#5B6B76)
+ */
+
+:root {
+  /* ── Background & Surfaces (Preserving Upstairs Techno Brand) ── */
+  --color-clay-bg: var(--paper);              /* #F2F4F1 Cool off-white drafting paper */
+  --color-clay-surface: #FFFFFF;              /* Crisp white card surface */
+  --color-clay-surface-dim: var(--paper-dim); /* #E7EAE5 Soft paper layer */
+  --color-clay-surface-dark: var(--ink-soft); /* #161F33 Dark navy surface */
+  --color-clay-line: var(--grid);             /* #C7D0D6 Hairline blueprint rule */
+
+  /* ── Text Hierarchy ── */
+  --color-clay-text: var(--ink);              /* #0E1524 Deep navy-black */
+  --color-clay-muted: var(--slate);           /* #5B6B76 Architectural slate */
+  --color-clay-text-inverse: var(--paper);    /* Off-white text on dark */
+
+  /* ── Brand Accents (Preserving Upstairs Techno Colors) ── */
+  --color-accent: var(--blueline);            /* #2557FF Signature Electric Blueprint */
+  --color-accent-bright: var(--blueline-soft);/* #5C7DFF Bright electric blue hover */
+  --color-accent-light: #EBF0FF;              /* Pale blue tint fill */
+  --color-accent-secondary: var(--brass);     /* #C98A3E Brass hardware warmth */
+
+  /* ── State & Status ── */
+  --color-clay-success: #10B981;              /* Emerald */
+  --color-clay-warning: var(--brass);         /* Brass amber */
+  --color-clay-danger: #E11D48;               /* Crimson */
+
+  /* ── Typography Scale ── */
+  --font-heading: 'Nunito', var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'DM Sans', var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace;
+
+  /* ── Clay Radii ── */
+  --radius-sm: 0.5rem;    /* 8px */
+  --radius-md: 0.75rem;   /* 12px */
+  --radius-lg: 1rem;      /* 16px */
+  --radius-xl: 1.25rem;   /* 20px - signature clay card radius */
+  --radius-2xl: 1.5rem;   /* 24px */
+  --radius-full: 9999px;
+
+  /* ── Volumetric Clay Shadows (Adapted to Paper & Dark surfaces) ── */
+  --shadow-clay-card:
+    0 8px 24px rgba(14, 21, 36, 0.08),
+    inset 0 2px 4px rgba(255, 255, 255, 0.95),
+    inset 0 -4px 8px rgba(14, 21, 36, 0.04);
+
+  --shadow-clay-card-hover:
+    0 16px 36px rgba(14, 21, 36, 0.13),
+    inset 0 2px 4px rgba(255, 255, 255, 0.95),
+    inset 0 -4px 8px rgba(14, 21, 36, 0.04);
+
+  --shadow-clay-card-dark:
+    0 12px 32px rgba(0, 0, 0, 0.35),
+    inset 0 1px 2px rgba(255, 255, 255, 0.12),
+    inset 0 -2px 6px rgba(0, 0, 0, 0.4);
+
+  --shadow-clay-btn-primary:
+    0 6px 18px rgba(37, 87, 255, 0.32),
+    inset 0 2px 3px rgba(255, 255, 255, 0.4),
+    inset 0 -3px 6px rgba(14, 21, 36, 0.2);
+
+  --shadow-clay-btn-primary-hover:
+    0 10px 24px rgba(37, 87, 255, 0.45),
+    inset 0 2px 3px rgba(255, 255, 255, 0.5),
+    inset 0 -3px 6px rgba(14, 21, 36, 0.2);
+
+  --shadow-clay-btn-secondary:
+    0 6px 18px rgba(201, 138, 62, 0.32),
+    inset 0 2px 3px rgba(255, 255, 255, 0.4),
+    inset 0 -3px 6px rgba(14, 21, 36, 0.2);
+
+  --shadow-clay-pill:
+    0 3px 8px rgba(14, 21, 36, 0.06),
+    inset 0 1px 2px rgba(255, 255, 255, 0.85);
+
+  --shadow-clay-input:
+    inset 0 2px 5px rgba(14, 21, 36, 0.07),
+    0 1px 2px rgba(255, 255, 255, 0.8);
+
+  --shadow-clay-input-focus:
+    inset 0 2px 4px rgba(14, 21, 36, 0.05),
+    0 0 0 3px rgba(37, 87, 255, 0.22);
+
+  /* ── Motion & Timing ── */
+  --ease-clay: cubic-bezier(0.22, 1, 0.36, 1);
+  --transition-fast: 150ms var(--ease-clay);
+  --transition-normal: 220ms var(--ease-clay);
+  --transition-slow: 380ms var(--ease-clay);
+}

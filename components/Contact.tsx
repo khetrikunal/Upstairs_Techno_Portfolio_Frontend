@@ -36,10 +36,10 @@ export default function Contact() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12 sm:mb-16"
         >
-          <p className="font-mono text-xs sm:text-sm tracking-[0.3em] uppercase text-blueline mb-3 font-medium">
+          <div className="clay-pill clay-pill-accent mb-3">
             Get In Touch
-          </p>
-          <h2 className="font-display text-section-heading font-bold text-ink text-balance">
+          </div>
+          <h2 className="font-display text-section-heading font-black text-ink text-balance">
             Tell us what you&apos;re building.
           </h2>
           <p className="mt-5 text-base sm:text-lg text-slate leading-relaxed max-w-xl mx-auto">
@@ -57,9 +57,9 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45, delay: 0.16 }}
-            className="group flex flex-col rounded-2xl border border-grid bg-white p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-20px_rgba(14,21,36,0.25)] hover:border-blueline/40"
+            className="group flex flex-col clay-card clay-card-hover p-6 sm:p-7"
           >
-            <div className="w-10 h-10 rounded-xl bg-blueline/10 text-blueline flex items-center justify-center group-hover:bg-blueline group-hover:text-white transition-colors shrink-0 mb-4">
+            <div className="w-10 h-10 rounded-xl bg-blueline/10 text-blueline flex items-center justify-center group-hover:bg-blueline group-hover:text-white transition-colors shrink-0 mb-4 shadow-sm">
               <Mail className="w-4 h-4" />
             </div>
             <span className="block text-xs font-mono text-slate uppercase tracking-wider mb-1">
@@ -79,9 +79,9 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.45, delay: 0.24 }}
-            className="flex flex-col rounded-2xl border border-grid bg-white p-6 sm:p-7"
+            className="flex flex-col clay-card p-6 sm:p-7"
           >
-            <div className="w-10 h-10 rounded-xl bg-blueline/10 text-blueline flex items-center justify-center shrink-0 mb-4">
+            <div className="w-10 h-10 rounded-xl bg-blueline/10 text-blueline flex items-center justify-center shrink-0 mb-4 shadow-sm">
               <MapPin className="w-4 h-4" />
             </div>
             <span className="block text-xs font-mono text-slate uppercase tracking-wider mb-1">

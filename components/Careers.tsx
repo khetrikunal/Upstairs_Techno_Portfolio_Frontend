@@ -14,7 +14,7 @@ function ApplyButton({ job }: { job: Job }) {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`Apply Now for ${job.title}`}
-      className="inline-flex items-center gap-2 rounded-lg bg-blueline text-paper px-6 py-3.5 text-base font-semibold transition-colors hover:bg-blueline-soft min-h-[48px]"
+      className="clay-btn clay-btn-primary px-6 py-3.5 text-base font-bold min-h-[48px]"
     >
       Apply Now
       <ArrowUpRight className="w-5 h-5" />
@@ -46,10 +46,10 @@ export default function Careers({ jobs }: { jobs: Job[] }) {
           transition={{ duration: 0.5 }}
           className="mb-10 sm:mb-14"
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-blueline/40 bg-blueline/10 px-4 py-1.5 text-xs sm:text-sm font-mono tracking-widest text-blueline-soft uppercase mb-3 font-semibold">
+          <div className="clay-pill clay-pill-accent mb-3">
             Open Positions & Programs
           </div>
-          <h2 className="font-display text-section-heading font-bold text-balance text-paper">
+          <h2 className="font-display text-section-heading font-black text-balance text-paper">
             Build real-world software with us.
           </h2>
           <p className="mt-4 text-base sm:text-lg md:text-xl text-paper/80 leading-relaxed">
@@ -66,10 +66,10 @@ export default function Careers({ jobs }: { jobs: Job[] }) {
                   setActiveCategory(cat);
                   setOpenSlug(null);
                 }}
-                className={`rounded-full px-5 py-2.5 text-sm sm:text-base font-mono font-bold transition-all cursor-pointer ${
+                className={`rounded-full px-5 py-2.5 text-sm sm:text-base font-heading font-bold transition-all cursor-pointer ${
                   activeCategory === cat
-                    ? "bg-blueline text-paper shadow-lg shadow-blueline/30"
-                    : "border border-paper/20 bg-paper/5 text-paper/70 hover:bg-paper/10 hover:text-white"
+                    ? "clay-btn-primary text-white shadow-lg shadow-blueline/30"
+                    : "clay-pill border-paper/20 bg-paper/10 text-paper/80 hover:bg-paper/20 hover:text-white"
                 }`}
               >
                 {cat === "OJT" ? "💼 OJT (On-Job Training)" : cat === "Internships" ? "🎓 Internships" : cat === "BTDS" ? "⚡ BTDS Trainee" : cat}
@@ -92,8 +92,8 @@ export default function Careers({ jobs }: { jobs: Job[] }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.4, delay: i * 0.06 }}
-                className={`rounded-2xl border bg-paper/[0.03] overflow-hidden transition-all duration-300 ${
-                  open ? "border-blueline/50 shadow-xl shadow-blueline/5" : "border-paper/15 hover:border-paper/30"
+                className={`clay-card-dark overflow-hidden transition-all duration-300 ${
+                  open ? "border-blueline/60 shadow-xl shadow-blueline/10" : "border-blueline/20 hover:border-blueline/40"
                 }`}
               >
                 <button
@@ -107,17 +107,17 @@ export default function Careers({ jobs }: { jobs: Job[] }) {
                         {job.title}
                       </span>
                       {isOjt && (
-                        <span className="rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 px-2.5 py-0.5 text-xs font-mono font-bold">
+                        <span className="clay-pill bg-emerald-500/20 border-emerald-500/40 text-emerald-300 text-xs">
                           OJT (On-Job Training)
                         </span>
                       )}
                       {isInternship && (
-                        <span className="rounded-full bg-blueline/20 border border-blueline/40 text-blueline-soft px-2.5 py-0.5 text-xs font-mono font-bold">
+                        <span className="clay-pill clay-pill-accent text-xs">
                           Internship
                         </span>
                       )}
                       {isBtds && (
-                        <span className="rounded-full bg-[#C98A3E]/20 border border-[#C98A3E]/40 text-[#EBB778] px-2.5 py-0.5 text-xs font-mono font-bold">
+                        <span className="clay-pill clay-pill-brass text-xs">
                           BTDS Program
                         </span>
                       )}

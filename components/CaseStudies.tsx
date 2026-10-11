@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import type { CaseStudy } from "@/lib/data/types";
+import { EASE } from "@/components/ui/motion";
 
 const CASE_STUDY_IMAGES: Record<string, string> = {
   "meridian-bank-core-modernization": "/median Banking.png",
@@ -24,13 +25,13 @@ export default function CaseStudies({ studies }: { studies: CaseStudy[] }) {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.5, ease: EASE }}
           className="max-w-2xl mb-12 sm:mb-16"
         >
-          <p className="font-mono text-xs sm:text-sm tracking-[0.3em] uppercase text-blueline mb-3 font-medium">
+          <div className="clay-pill clay-pill-accent mb-3">
             Case Studies
-          </p>
-          <h2 className="font-display text-section-heading font-bold text-ink">
+          </div>
+          <h2 className="font-display text-section-heading font-black text-ink">
             Proof, not promises.
           </h2>
         </motion.div>
@@ -53,8 +54,8 @@ export default function CaseStudies({ studies }: { studies: CaseStudy[] }) {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.55, delay: i * 0.08 }}
-                className="group relative grid md:grid-cols-5 gap-0 overflow-hidden rounded-2xl border border-grid bg-white transition-all duration-300 hover:shadow-2xl"
+                transition={{ duration: 0.55, delay: i * 0.08, ease: EASE }}
+                className="group relative grid md:grid-cols-5 gap-0 overflow-hidden clay-card clay-card-hover p-0"
               >
                 <div className="relative md:col-span-2 h-64 sm:h-72 md:h-auto min-h-[220px] bg-ink overflow-hidden">
                   <img
@@ -80,7 +81,7 @@ export default function CaseStudies({ studies }: { studies: CaseStudy[] }) {
                     {study.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="rounded-full border border-grid px-3.5 py-1.5 text-xs sm:text-sm font-mono text-slate bg-paper/60 font-medium"
+                        className="clay-pill text-xs sm:text-sm font-mono text-slate bg-paper/60"
                       >
                         {tech}
                       </span>

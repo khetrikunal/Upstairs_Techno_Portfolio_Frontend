@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { EASE } from "@/components/ui/motion";
 
 const TESTIMONIALS = [
   {
@@ -41,26 +42,26 @@ export default function Testimonials() {
   return (
     <section className="py-16 sm:py-20 md:py-28 lg:py-32 bg-paper">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 md:px-8 text-center">
-        <p className="font-mono text-xs sm:text-sm tracking-[0.3em] uppercase text-blueline mb-8 sm:mb-10 font-medium">
+        <div className="clay-pill clay-pill-accent mb-8">
           What Clients Say
-        </p>
+        </div>
 
-        <div className="relative min-h-[200px] sm:min-h-[220px] flex items-center justify-center">
+        <div className="relative min-h-[220px] sm:min-h-[240px] flex items-center justify-center">
           <AnimatePresence initial={false} mode="wait">
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 16, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -16, scale: 0.98 }}
-              transition={{ duration: 0.4, ease: "easeOut" }}
-              className="max-w-3xl"
+              transition={{ duration: 0.45, ease: EASE }}
+              className="max-w-3xl clay-card p-8 sm:p-10"
             >
-              <div className="mx-auto mb-6 w-14 h-14 rounded-full bg-gradient-to-br from-blueline to-ink ring-2 ring-blueline/30 ring-offset-4 ring-offset-paper shadow-md" />
-              <p className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-ink leading-snug text-balance">
+              <div className="mx-auto mb-6 w-14 h-14 rounded-full bg-gradient-to-br from-blueline to-ink ring-2 ring-blueline/30 ring-offset-4 ring-offset-white shadow-md animate-pulse-soft" />
+              <p className="font-display text-xl sm:text-2xl md:text-3xl font-bold text-ink leading-snug text-balance">
                 &ldquo;{t.quote}&rdquo;
               </p>
               <p className="mt-6 text-sm sm:text-base text-slate">
-                <span className="text-ink font-semibold">{t.name}</span> — {t.role}
+                <span className="text-ink font-bold">{t.name}</span> — {t.role}
               </p>
             </motion.div>
           </AnimatePresence>
@@ -71,7 +72,7 @@ export default function Testimonials() {
             type="button"
             onClick={prev}
             aria-label="Previous testimonial"
-            className="rounded-full border border-grid p-3 text-slate transition-all duration-300 hover:border-blueline hover:text-blueline hover:scale-110 min-w-[44px] min-h-[44px] flex items-center justify-center cursor-pointer"
+            className="clay-pill p-3 text-slate hover:text-blueline hover:border-blueline min-w-[44px] min-h-[44px] flex items-center justify-center cursor-pointer transition-transform hover:scale-110"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
@@ -83,7 +84,7 @@ export default function Testimonials() {
                 onClick={() => setIndex(i)}
                 aria-label={`Go to testimonial ${i + 1}`}
                 className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                  i === index ? "w-7 bg-blueline" : "w-2 bg-grid"
+                  i === index ? "w-7 bg-blueline shadow-sm" : "w-2 bg-grid"
                 }`}
               />
             ))}
@@ -92,7 +93,7 @@ export default function Testimonials() {
             type="button"
             onClick={next}
             aria-label="Next testimonial"
-            className="rounded-full border border-grid p-3 text-slate transition-all duration-300 hover:border-blueline hover:text-blueline hover:scale-110 min-w-[44px] min-h-[44px] flex items-center justify-center cursor-pointer"
+            className="clay-pill p-3 text-slate hover:text-blueline hover:border-blueline min-w-[44px] min-h-[44px] flex items-center justify-center cursor-pointer transition-transform hover:scale-110"
           >
             <ChevronRight className="w-5 h-5" />
           </button>

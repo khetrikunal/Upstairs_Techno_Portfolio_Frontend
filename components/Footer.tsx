@@ -213,7 +213,7 @@ export default function Footer() {
         type="button"
         onClick={scrollToTop}
         aria-label="Back to top"
-        className={`fixed bottom-6 right-6 z-50 flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-full bg-blueline text-paper shadow-xl shadow-blueline/30 border border-white/10 transition-all duration-300 hover:bg-blueline-soft hover:scale-105 active:scale-95 cursor-pointer ${
+        className={`fixed bottom-6 right-6 z-50 flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-full clay-btn-primary border border-white/10 transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer ${
           showScrollTop
             ? "opacity-100 translate-y-0 pointer-events-auto"
             : "opacity-0 translate-y-4 pointer-events-none"

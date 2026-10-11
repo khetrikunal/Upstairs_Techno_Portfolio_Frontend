@@ -9,7 +9,7 @@ interface ServiceCardProps {
 
 export default function ServiceCard({ service, href }: ServiceCardProps) {
   const card = (
-    <div className="group relative overflow-hidden rounded-3xl border border-grid bg-white p-7 sm:p-8 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-20px_rgba(14,21,36,0.25)] min-h-[260px] flex flex-col justify-between">
+    <div className="group relative overflow-hidden clay-card clay-card-hover p-7 sm:p-8 min-h-[260px] flex flex-col justify-between">
       <div>
         <service.icon className="h-10 w-10 text-blueline transition-transform duration-300 group-hover:rotate-12" />
         <h3 className="mt-6 font-display text-2xl sm:text-[26px] font-bold text-ink">{service.title}</h3>

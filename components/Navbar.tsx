@@ -209,8 +209,8 @@ export default function Navbar() {
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 8 }}
-                      transition={{ duration: 0.2, ease: "easeOut" }}
-                      className="absolute left-1/2 -translate-x-1/2 top-full mt-3.5 w-[680px] rounded-2xl border border-grid bg-paper shadow-2xl p-6 grid grid-cols-2 gap-2.5"
+                      transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+                      className="absolute left-1/2 -translate-x-1/2 top-full mt-3.5 w-[680px] clay-card bg-paper shadow-2xl p-6 grid grid-cols-2 gap-2.5"
                     >
                       {services.map((s) => (
                         <a
@@ -233,7 +233,7 @@ export default function Navbar() {
                       <a
                         href="/#domains"
                         onClick={(e) => handleNavClick(e, "/#domains")}
-                        className="col-span-2 mt-1 flex items-center justify-between rounded-xl bg-ink text-paper p-4 hover:bg-blueline transition-colors"
+                        className="col-span-2 mt-1 flex items-center justify-between rounded-xl bg-ink text-paper p-4 hover:bg-blueline transition-colors shadow-md"
                       >
                         <span>
                           <span className="block font-display text-base font-semibold">
@@ -259,7 +259,7 @@ export default function Navbar() {
             href="https://job.upstairstechno.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative inline-flex items-center gap-1.5 rounded-full bg-blueline px-4.5 py-2 lg:px-5 lg:py-2.5 text-xs lg:text-sm font-bold text-paper shadow-md shadow-blueline/20 transition-all duration-300 hover:bg-blueline-soft hover:shadow-lg hover:shadow-blueline/30 hover:-translate-y-0.5 active:translate-y-0"
+            className="clay-btn clay-btn-primary px-5 py-2.5 text-xs lg:text-sm font-bold"
           >
             Apply for Job
             <ArrowUpRight className="w-3.5 h-3.5 lg:w-4 lg:h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

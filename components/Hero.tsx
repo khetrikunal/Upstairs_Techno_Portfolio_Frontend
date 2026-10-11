@@ -1,26 +1,18 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight, ChevronDown } from "lucide-react";
+import { EASE } from "@/components/ui/motion";
 
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null);
-  const [tilt, setTilt] = useState({ x: 0, y: 0 });
-
-  const onMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = ref.current?.getBoundingClientRect();
-    if (!rect) return;
-    const x = (e.clientX - rect.left) / rect.width - 0.5;
-    const y = (e.clientY - rect.top) / rect.height - 0.5;
-    setTilt({ x, y });
-  };
 
   return (
     <section
       id="top"
       ref={ref}
-      onMouseMove={onMouseMove}
       className="relative min-h-[90vh] sm:min-h-screen flex flex-col justify-center pt-28 pb-16 sm:pt-36 sm:pb-24 overflow-hidden bg-ink text-paper"
     >
       {/* Background video with scaling */}
@@ -40,33 +32,33 @@ export default function Hero() {
       {/* Hero Content */}
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 md:px-8 text-left">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          transition={{ duration: 0.65, ease: EASE }}
         >
-          <span className="inline-block font-mono text-sm sm:text-[15px] tracking-[0.2em] text-blueline-soft mb-4 sm:mb-6 font-semibold">
+          <span className="inline-flex items-center gap-2 font-mono text-xs sm:text-sm tracking-[0.18em] text-blueline-soft mb-4 sm:mb-6 font-semibold uppercase px-4 py-1.5 rounded-full bg-blueline/15 border border-blueline-soft/30 shadow-[inset_0_1px_2px_rgba(255,255,255,0.15)] animate-float">
             Software · AI · Education · Talent
           </span>
 
-          <h1 className="font-display font-bold text-hero-heading text-paper tracking-tight max-w-4xl text-balance">
+          <h1 className="font-display font-black text-hero-heading text-paper tracking-tight max-w-4xl text-balance">
             We Build Software.{" "}
             <span className="block sm:inline text-white">We Build Careers.</span>
           </h1>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.55, ease: "easeOut" }}
+          transition={{ duration: 0.65, delay: 0.25, ease: EASE }}
           className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-5 w-full sm:w-auto"
         >
-          <a
+          <Link
             href="/what-we-do"
-            className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-blueline px-8 py-4 text-base sm:text-lg font-bold text-paper shadow-lg transition-all duration-300 hover:bg-blueline-soft hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(37,87,255,0.5)] min-h-[52px]"
+            className="group clay-btn clay-btn-primary px-8 py-4 text-base sm:text-lg min-h-[52px]"
           >
             Explore Services
             <ArrowUpRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </a>
+          </Link>
           <a
             href="#our-workspace"
             onClick={(e) => {
@@ -78,7 +70,7 @@ export default function Hero() {
               }
             }}
             aria-label="Explore Our Workspace"
-            className="group inline-flex items-center justify-center gap-2 rounded-full border border-blueline-soft/60 bg-blueline/10 px-5 py-3 text-sm sm:text-base font-bold text-paper transition-all duration-300 hover:scale-[1.01] hover:border-blueline-soft hover:bg-blueline/20 min-h-[48px]"
+            className="group clay-btn clay-btn-ghost-dark px-6 py-3.5 text-sm sm:text-base min-h-[48px]"
           >
             Explore Our Workspace
             <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

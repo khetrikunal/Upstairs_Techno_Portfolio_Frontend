@@ -45,9 +45,9 @@ export default function ContactEnquiryForm() {
 
   if (submitted) {
     return (
-      <div className="rounded-2xl border border-emerald-500/30 bg-emerald-500/5 p-8 text-center">
+      <div className="clay-card border-emerald-500/30 bg-emerald-500/5 p-8 text-center">
         <CheckCircle2 className="mx-auto h-10 w-10 text-emerald-600" />
-        <h2 className="mt-4 font-display text-2xl font-semibold text-ink">Your enquiry is ready to send</h2>
+        <h2 className="mt-4 font-display text-2xl font-bold text-ink">Your enquiry is ready to send</h2>
         <p className="mt-2 text-slate">Your email app should open with the enquiry details. Our team will respond as soon as possible.</p>
       </div>
     );
@@ -55,22 +55,22 @@ export default function ContactEnquiryForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
-      {error && <p role="alert" className="rounded-xl border border-red-500/30 bg-red-500/5 p-3 text-sm text-red-700">{error}</p>}
+      {error && <p role="alert" className="clay-card border-red-500/30 bg-red-500/5 p-3 text-sm text-red-700">{error}</p>}
       <div className="grid gap-5 sm:grid-cols-2">
         <Field label="Full Name" name="fullName" required />
         <Field label="Email Address" name="email" type="email" required />
         <Field label="Phone Number" name="phone" type="tel" required />
         <Field label="Company / Organization" name="company" />
         <label className="sm:col-span-2 text-sm font-semibold text-ink">Subject / Service
-          <select name="service" className="mt-2 w-full rounded-xl border border-grid bg-paper px-4 py-3 font-normal outline-none focus:border-blueline">
+          <select name="service" className="mt-2 clay-input">
             <option>General enquiry</option><option>IT Consulting</option><option>Software Development</option><option>AI & Automation</option><option>BTDS assessment</option><option>Internship</option>
           </select>
         </label>
         <label className="sm:col-span-2 text-sm font-semibold text-ink">Message / Requirement
-          <textarea name="message" required minLength={10} rows={6} className="mt-2 w-full resize-none rounded-xl border border-grid bg-paper px-4 py-3 font-normal outline-none focus:border-blueline" />
+          <textarea name="message" required minLength={10} rows={6} className="mt-2 clay-input resize-none" />
         </label>
       </div>
-      <button type="submit" disabled={isSubmitting} className="inline-flex min-h-[50px] items-center justify-center gap-2 rounded-full bg-ink px-7 py-3.5 text-base font-semibold text-paper transition hover:bg-blueline disabled:cursor-wait disabled:opacity-70">
+      <button type="submit" disabled={isSubmitting} className="clay-btn clay-btn-primary min-h-[50px] px-8 py-3.5 text-base">
         {isSubmitting ? <><Loader2 className="h-4 w-4 animate-spin" /> Preparing enquiry</> : <><Send className="h-4 w-4" /> Submit Enquiry</>}
       </button>
     </form>
@@ -79,6 +79,6 @@ export default function ContactEnquiryForm() {
 
 function Field({ label, name, type = "text", required = false }: { label: string; name: string; type?: string; required?: boolean }) {
   return <label className="text-sm font-semibold text-ink">{label}{required && <span className="ml-1 text-red-600">*</span>}
-    <input name={name} type={type} required={required} className="mt-2 w-full rounded-xl border border-grid bg-paper px-4 py-3 font-normal outline-none focus:border-blueline" />
+    <input name={name} type={type} required={required} className="mt-2 clay-input" />
   </label>;
 }

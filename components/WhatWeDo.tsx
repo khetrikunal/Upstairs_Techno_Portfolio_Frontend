@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { services } from "@/lib/data/services";
+import { EASE } from "@/components/ui/motion";
 
 export default function WhatWeDo() {
   return (
@@ -15,13 +16,13 @@ export default function WhatWeDo() {
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.6, ease: EASE }}
           className="max-w-2xl"
         >
-          <p className="font-mono text-xs sm:text-sm tracking-[0.3em] uppercase text-blueline mb-3 font-semibold">
+          <span className="inline-block font-mono text-xs sm:text-sm tracking-[0.25em] uppercase text-blueline mb-3 font-bold px-3 py-1 rounded-full bg-blueline/10 border border-blueline/20">
             Services
-          </p>
-          <h2 className="font-display text-section-heading font-bold text-ink text-balance">
+          </span>
+          <h2 className="font-display text-section-heading font-black text-ink text-balance">
             Our services, all in one place.
           </h2>
         </motion.div>
@@ -31,15 +32,15 @@ export default function WhatWeDo() {
             <motion.div
               key={service.slug}
               id={service.slug}
-              initial={{ opacity: 0, y: 32 }}
+              initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.55, delay: i * 0.08, ease: "easeOut" }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.55, delay: i * 0.08, ease: EASE }}
               className="h-full scroll-mt-28 sm:scroll-mt-32"
             >
               <Link
                 href={service.slug === "education" ? "/what-we-do/services/education" : `/services/${service.slug}`}
-                className="group relative overflow-hidden rounded-2xl border border-grid bg-white p-7 sm:p-8 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_20px_40px_-20px_rgba(14,21,36,0.25)] h-full flex flex-col"
+                className="group relative overflow-hidden clay-card clay-card-hover p-7 sm:p-8 h-full flex flex-col"
               >
                 <div className="flex-1">
                   <span className="absolute top-0 left-0 h-[2px] w-0 bg-blueline transition-all duration-500 group-hover:w-full" />

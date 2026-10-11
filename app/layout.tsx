@@ -1,8 +1,22 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Nunito, DM_Sans, Inter } from "next/font/google";
 import "./globals.css";
 import AscentGauge from "@/components/AscentGauge";
 import CustomCursor from "@/components/CustomCursor";
+
+const nunito = Nunito({
+  subsets: ["latin"],
+  variable: "--font-heading",
+  display: "swap",
+  weight: ["600", "700", "800", "900"],
+});
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-body",
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
+});
 
 const inter = Inter({
   subsets: ["latin"],
@@ -33,7 +47,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className="h-full antialiased">
-      <body className={`${inter.variable} min-h-full flex flex-col bg-paper text-ink font-sans overflow-x-hidden`}>
+      <body className={`${nunito.variable} ${dmSans.variable} ${inter.variable} min-h-full flex flex-col bg-paper text-ink font-body overflow-x-hidden`}>
         <AscentGauge />
         <CustomCursor />
         {children}

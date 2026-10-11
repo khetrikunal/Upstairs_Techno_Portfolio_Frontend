@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import type { BlogPost } from "@/lib/data/types";
+import { EASE } from "@/components/ui/motion";
 
 const BLOG_IMAGES: Record<string, string> = {
   "the-real-cost-of-technical-debt": "/The Real Cost of Technical Debt.png",
@@ -45,14 +46,14 @@ export default function Insights({ posts }: { posts: BlogPost[] }) {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.5, ease: EASE }}
           className="flex items-end justify-between mb-12 sm:mb-16 flex-wrap gap-6"
         >
           <div className="max-w-xl">
-            <p className="font-mono text-xs sm:text-sm tracking-[0.3em] uppercase text-blueline mb-3 font-medium">
+            <div className="clay-pill clay-pill-accent mb-3">
               What We Think
-            </p>
-            <h2 className="font-display text-section-heading font-bold text-ink">
+            </div>
+            <h2 className="font-display text-section-heading font-black text-ink">
               Notes from the build.
             </h2>
           </div>
@@ -70,8 +71,8 @@ export default function Insights({ posts }: { posts: BlogPost[] }) {
                 initial={{ opacity: 0, y: 28 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="group flex flex-col rounded-2xl border border-grid bg-white overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl"
+                transition={{ duration: 0.5, delay: i * 0.08, ease: EASE }}
+                className="group flex flex-col clay-card clay-card-hover p-0 overflow-hidden"
               >
                 <div className="relative h-44 bg-ink overflow-hidden">
                   <img
@@ -80,7 +81,7 @@ export default function Insights({ posts }: { posts: BlogPost[] }) {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-ink/10 transition-colors duration-300 group-hover:bg-ink/20 pointer-events-none" />
-                  <span className="absolute top-3.5 left-3.5 z-10 rounded-full bg-white/90 backdrop-blur-sm px-3 py-1 text-[11px] font-mono uppercase tracking-wide text-ink font-semibold shadow-sm">
+                  <span className="absolute top-3.5 left-3.5 z-10 clay-pill text-[11px] font-mono uppercase tracking-wide">
                     {post.category}
                   </span>
                 </div>

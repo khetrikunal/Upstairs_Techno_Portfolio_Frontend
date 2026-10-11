@@ -23,7 +23,7 @@ const MARQUEE_SET = [...TOOLKIT, ...TOOLKIT];
 
 function ToolkitCard({ tool }: { tool: ToolkitItem }) {
   return (
-    <div className="group flex items-center gap-3.5 sm:gap-4 rounded-2xl border border-grid/80 bg-white px-5 sm:px-6 py-3.5 sm:py-4 shadow-sm hover:border-blueline/50 hover:shadow-md transition-all duration-300 shrink-0 select-none">
+    <div className="group flex items-center gap-3.5 sm:gap-4 rounded-2xl clay-card clay-card-hover px-5 sm:px-6 py-3.5 sm:py-4 shrink-0 select-none cursor-default">
       <div className="relative flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center shrink-0">
         <Image
           src={tool.src}
@@ -52,10 +52,10 @@ export default function Technologies() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-2xl mx-auto"
         >
-          <p className="font-mono text-xs sm:text-sm tracking-[0.3em] uppercase text-blueline mb-3 font-semibold">
+          <div className="clay-pill clay-pill-accent mb-3">
             THE TOOLKIT
-          </p>
-          <h2 className="font-display text-section-heading font-bold text-ink text-balance">
+          </div>
+          <h2 className="font-display text-section-heading font-black text-ink text-balance">
             The tools we use to build your product.
           </h2>
         </motion.div>

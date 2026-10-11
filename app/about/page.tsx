@@ -112,24 +112,24 @@ export default function AboutPage() {
         </section>
 
         <section className="mx-auto mt-12 max-w-7xl px-4 sm:px-6 md:px-8">
-          <div className="rounded-[2rem] border border-grid bg-white p-8 sm:p-10">
-            <p className="font-mono text-xs uppercase tracking-[0.35em] text-blueline">Who We Are</p>
-            <h2 className="mt-3 font-display text-3xl font-semibold text-ink">A technology company delivering innovative digital solutions while developing the next generation of tech talent.</h2>
+          <div className="clay-card p-8 sm:p-10">
+            <div className="clay-pill clay-pill-accent mb-3">Who We Are</div>
+            <h2 className="mt-3 font-display text-3xl font-bold text-ink">A technology company delivering innovative digital solutions while developing the next generation of tech talent.</h2>
           </div>
         </section>
 
         <section className="mx-auto mt-12 max-w-7xl px-4 sm:px-6 md:px-8">
           <div className="grid gap-6 lg:grid-cols-2">
             {pillars.map((pillar) => (
-              <div key={pillar.title} className="rounded-[2rem] border border-grid bg-white p-8 sm:p-10">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-blueline/10 text-blueline">
+              <div key={pillar.title} className="clay-card clay-card-hover p-8 sm:p-10">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blueline/10 text-blueline shadow-sm">
                   <pillar.icon className="h-6 w-6" />
                 </div>
-                <h3 className="mt-5 font-display text-2xl font-semibold text-ink">{pillar.title}</h3>
+                <h3 className="mt-5 font-display text-2xl font-bold text-ink">{pillar.title}</h3>
                 <p className="mt-4 text-base leading-relaxed text-slate">{pillar.description}</p>
                 <div className="mt-6 flex flex-wrap gap-2">
                   {pillar.points.map((point) => (
-                    <span key={point} className="rounded-full border border-grid bg-paper px-3 py-2 text-sm text-slate">
+                    <span key={point} className="clay-pill">
                       {point}
                     </span>
                   ))}
@@ -140,50 +140,50 @@ export default function AboutPage() {
         </section>
 
         <section className="mx-auto mt-12 max-w-7xl px-4 sm:px-6 md:px-8">
-          <div className="rounded-[2rem] border border-grid bg-white p-8 sm:p-10">
-            <p className="font-mono text-xs uppercase tracking-[0.35em] text-blueline">Why We Started</p>
-            <h2 className="mt-3 font-display text-3xl font-semibold text-ink">Bridging business needs with modern technology while creating real opportunities for future talent.</h2>
+          <div className="clay-card p-8 sm:p-10">
+            <div className="clay-pill clay-pill-accent mb-3">Why We Started</div>
+            <h2 className="mt-3 font-display text-3xl font-bold text-ink">Bridging business needs with modern technology while creating real opportunities for future talent.</h2>
             <div className="mt-8 grid gap-6 md:grid-cols-2">
-              <div className="rounded-[2rem] border border-grid bg-paper p-6">
-                <p className="font-mono text-[10px] uppercase tracking-[0.35em] text-blueline">For Businesses</p>
-                <h3 className="mt-3 font-display text-xl font-semibold text-ink">Reliable technology solutions for growth.</h3>
+              <div className="clay-card p-6 bg-paper">
+                <p className="font-mono text-[10px] uppercase tracking-[0.35em] text-blueline font-bold">For Businesses</p>
+                <h3 className="mt-3 font-display text-xl font-bold text-ink">Reliable technology solutions for growth.</h3>
               </div>
-              <div className="rounded-[2rem] border border-grid bg-paper p-6">
-                <p className="font-mono text-[10px] uppercase tracking-[0.35em] text-blueline">For Students</p>
-                <h3 className="mt-3 font-display text-xl font-semibold text-ink">Practical experience and career opportunities.</h3>
+              <div className="clay-card p-6 bg-paper">
+                <p className="font-mono text-[10px] uppercase tracking-[0.35em] text-blueline font-bold">For Students</p>
+                <h3 className="mt-3 font-display text-xl font-bold text-ink">Practical experience and career opportunities.</h3>
               </div>
             </div>
           </div>
         </section>
 
         <section className="mx-auto mt-12 max-w-7xl px-4 sm:px-6 md:px-8">
-          <div className="rounded-[2rem] border border-grid bg-ink p-8 text-paper sm:p-10">
-            <p className="font-mono text-xs uppercase tracking-[0.35em] text-blueline">Our Vision</p>
-            <h2 className="mt-3 font-display text-3xl font-semibold">To build innovative technology solutions that empower businesses, create opportunities, and shape a smarter digital future.</h2>
+          <div className="clay-card-dark p-8 text-paper sm:p-10">
+            <div className="clay-pill clay-pill-accent mb-3">Our Vision</div>
+            <h2 className="mt-3 font-display text-3xl font-bold">To build innovative technology solutions that empower businesses, create opportunities, and shape a smarter digital future.</h2>
           </div>
         </section>
 
         <section className="mx-auto mt-12 max-w-7xl px-4 sm:px-6 md:px-8">
-          <div className="rounded-[2rem] border border-grid bg-white p-8 sm:p-10">
-            <p className="font-mono text-xs uppercase tracking-[0.35em] text-blueline">Our Mission</p>
-            <h2 className="mt-3 font-display text-3xl font-semibold text-ink">To deliver reliable, innovative, and accessible technology solutions that help businesses grow, transform, and succeed in the digital world.</h2>
-            <div className="mt-6 rounded-[2rem] border border-grid bg-paper p-6 text-center">
-              <p className="font-mono text-[10px] uppercase tracking-[0.35em] text-blueline">Business Growth + Talent Development</p>
+          <div className="clay-card p-8 sm:p-10">
+            <div className="clay-pill clay-pill-accent mb-3">Our Mission</div>
+            <h2 className="mt-3 font-display text-3xl font-bold text-ink">To deliver reliable, innovative, and accessible technology solutions that help businesses grow, transform, and succeed in the digital world.</h2>
+            <div className="mt-6 clay-card p-6 text-center bg-paper">
+              <p className="font-mono text-xs uppercase tracking-[0.25em] text-blueline font-bold">Business Growth + Talent Development</p>
             </div>
           </div>
         </section>
 
         <section className="mx-auto mt-12 max-w-7xl px-4 sm:px-6 md:px-8">
-          <div className="rounded-[2rem] border border-grid bg-white p-8 sm:p-10">
-            <p className="font-mono text-xs uppercase tracking-[0.35em] text-blueline">Our Core Values</p>
-            <h2 className="mt-3 font-display text-3xl font-semibold text-ink">The principles that guide every engagement and every relationship.</h2>
+          <div className="clay-card p-8 sm:p-10">
+            <div className="clay-pill clay-pill-accent mb-3">Our Core Values</div>
+            <h2 className="mt-3 font-display text-3xl font-bold text-ink">The principles that guide every engagement and every relationship.</h2>
             <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
               {values.map((value) => (
-                <div key={value.title} className="rounded-[1.75rem] border border-grid bg-paper p-6">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-full bg-blueline/10 text-blueline">
+                <div key={value.title} className="clay-card clay-card-hover p-6 bg-paper">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-blueline/10 text-blueline shadow-sm">
                     <value.icon className="h-5 w-5" />
                   </div>
-                  <h3 className="mt-4 font-display text-lg font-semibold text-ink">{value.title}</h3>
+                  <h3 className="mt-4 font-display text-lg font-bold text-ink">{value.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-slate">{value.description}</p>
                 </div>
               ))}
@@ -192,9 +192,9 @@ export default function AboutPage() {
         </section>
 
         <section className="mx-auto mt-12 max-w-7xl px-4 sm:px-6 md:px-8">
-          <div className="rounded-[2rem] border border-grid bg-white p-8 sm:p-10">
-            <p className="font-mono text-xs uppercase tracking-[0.35em] text-blueline">Why Choose Upstairs Techno?</p>
-            <h2 className="mt-3 font-display text-3xl font-semibold text-ink">A reliable partner for business growth and future-ready talent.</h2>
+          <div className="clay-card p-8 sm:p-10">
+            <div className="clay-pill clay-pill-accent mb-3">Why Choose Upstairs Techno?</div>
+            <h2 className="mt-3 font-display text-3xl font-bold text-ink">A reliable partner for business growth and future-ready talent.</h2>
             <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
               {[
                 { title: "End-to-End Capability", description: "Consulting, engineering, talent development, and technical education under one roof." },
@@ -204,8 +204,8 @@ export default function AboutPage() {
                 { title: "Technology + Talent", description: "A dual commitment to growing businesses and nurturing tomorrow's technology professionals." },
                 { title: "Transparent Engagement", description: "Clear communication, accountability, and transparency throughout every stage of engagement." },
               ].map((item) => (
-                <div key={item.title} className="rounded-[1.75rem] border border-grid bg-paper p-6">
-                  <h3 className="font-display text-lg font-semibold text-ink">{item.title}</h3>
+                <div key={item.title} className="clay-card clay-card-hover p-6 bg-paper">
+                  <h3 className="font-display text-lg font-bold text-ink">{item.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-slate">{item.description}</p>
                 </div>
               ))}
@@ -214,16 +214,16 @@ export default function AboutPage() {
         </section>
 
         <section className="mx-auto mt-12 max-w-7xl px-4 sm:px-6 md:px-8">
-          <div className="rounded-[2rem] border border-grid bg-white p-8 sm:p-10">
-            <p className="font-mono text-xs uppercase tracking-[0.35em] text-blueline">Our Technology &amp; Service Ecosystem</p>
-            <h2 className="mt-3 font-display text-3xl font-semibold text-ink">An end-to-end ecosystem for business transformation and talent development.</h2>
+          <div className="clay-card p-8 sm:p-10">
+            <div className="clay-pill clay-pill-accent mb-3">Our Technology &amp; Service Ecosystem</div>
+            <h2 className="mt-3 font-display text-3xl font-bold text-ink">An end-to-end ecosystem for business transformation and talent development.</h2>
             <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
               {ecosystem.map((item) => (
-                <div key={item.title} className="rounded-[1.75rem] border border-grid bg-paper p-6 text-center">
-                  <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-blueline/10 text-blueline">
+                <div key={item.title} className="clay-card clay-card-hover p-6 text-center bg-paper">
+                  <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-blueline/10 text-blueline shadow-sm">
                     <item.icon className="h-5 w-5" />
                   </div>
-                  <h3 className="mt-4 font-display text-lg font-semibold text-ink">{item.title}</h3>
+                  <h3 className="mt-4 font-display text-lg font-bold text-ink">{item.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-slate">{item.description}</p>
                 </div>
               ))}
@@ -232,11 +232,11 @@ export default function AboutPage() {
         </section>
 
         <section id="leadership" className="mx-auto mt-12 max-w-7xl px-4 sm:px-6 md:px-8">
-          <div className="rounded-[2rem] border border-grid bg-white p-6 sm:p-10 lg:p-12">
+          <div className="clay-card p-6 sm:p-10 lg:p-12">
             {/* Section header */}
             <div className="text-center">
-              <p className="font-mono text-xs sm:text-sm uppercase tracking-[0.35em] text-blueline font-medium">Meet Our Leadership</p>
-              <h2 className="mt-3 font-display text-2xl sm:text-3xl md:text-4xl font-bold text-ink tracking-tight">The people driving Upstairs Techno forward.</h2>
+              <div className="clay-pill clay-pill-accent mb-3">Meet Our Leadership</div>
+              <h2 className="mt-3 font-display text-2xl sm:text-3xl md:text-4xl font-black text-ink tracking-tight">The people driving Upstairs Techno forward.</h2>
               <p className="mx-auto mt-4 max-w-2xl text-[15px] sm:text-base leading-relaxed text-slate">
                 Experienced leaders united by a shared vision — empowering businesses through technology and developing the next generation of tech professionals.
               </p>
@@ -249,7 +249,7 @@ export default function AboutPage() {
                 {founders.map((founder) => (
                   <div
                     key={founder.name}
-                    className="group flex flex-col items-center rounded-[2rem] border border-grid bg-paper p-7 sm:p-8 text-center transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_16px_40px_-10px_rgba(37,87,255,0.14)] w-full max-w-xs"
+                    className="group flex flex-col items-center clay-card clay-card-hover p-7 sm:p-8 text-center w-full max-w-xs"
                   >
                     <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden border-2 border-grid shadow-md">
                       <img

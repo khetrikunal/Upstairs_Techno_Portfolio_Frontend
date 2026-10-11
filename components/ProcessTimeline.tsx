@@ -31,14 +31,14 @@ export default function ProcessTimeline() {
           transition={{ duration: 0.5 }}
           className="mb-12 sm:mb-16"
         >
-          <p className="font-mono text-xs sm:text-sm tracking-[0.3em] uppercase text-blueline mb-3 font-medium">
+          <div className="clay-pill clay-pill-accent mb-3">
             How We Work
-          </p>
-          <h2 className="font-display text-section-heading font-bold text-ink">
+          </div>
+          <h2 className="font-display text-section-heading font-black text-ink">
             How we work with you, step by step.
           </h2>
           <p className="mt-4 max-w-2xl text-base sm:text-lg leading-relaxed text-slate">
-            From our first conversation to post-launch support — here's exactly how we handle your project.
+            From our first conversation to post-launch support — here&apos;s exactly how we handle your project.
           </p>
         </motion.div>
 
@@ -56,16 +56,18 @@ export default function ProcessTimeline() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.5, delay: 0.05 }}
-              className="relative pb-10 sm:pb-12 last:pb-0"
+              className="relative pb-6 sm:pb-8 last:pb-0"
             >
-              <span className="absolute -left-8 sm:-left-12 md:-left-16 top-1 w-[8px] h-[8px] rounded-full bg-blueline ring-4 ring-paper" />
-              <div className="flex items-baseline gap-3.5">
-                <span className="font-mono text-sm sm:text-base font-bold text-blueline">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="font-display text-2xl sm:text-[26px] font-bold text-ink">{step.label}</h3>
+              <span className="absolute -left-8 sm:-left-12 md:-left-16 top-5 w-[10px] h-[10px] rounded-full bg-blueline ring-4 ring-paper shadow-sm" />
+              <div className="clay-card p-5 sm:p-6 transition-all hover:border-blueline/35 hover:-translate-y-0.5">
+                <div className="flex items-center gap-3">
+                  <span className="clay-pill clay-pill-accent font-mono text-xs sm:text-sm font-bold">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="font-display text-xl sm:text-2xl font-bold text-ink">{step.label}</h3>
+                </div>
+                <p className="mt-2.5 text-base sm:text-lg text-slate leading-relaxed">{step.detail}</p>
               </div>
-              <p className="mt-2.5 text-base sm:text-lg text-slate max-w-xl leading-relaxed">{step.detail}</p>
             </motion.div>
           ))}
         </div>

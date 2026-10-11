@@ -47,7 +47,7 @@ export default function HiringBanner() {
         <div className="absolute inset-0 blueprint-grid opacity-30 pointer-events-none" />
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8 py-10 sm:py-14">
-          <div className="rounded-2xl sm:rounded-3xl border border-blueline/25 bg-gradient-to-br from-ink via-ink-soft to-[#0d1d40] shadow-2xl shadow-ink/30 overflow-hidden">
+          <div className="clay-card-dark rounded-2xl sm:rounded-3xl border border-blueline/30 overflow-hidden relative">
             {/* Blueprint grid overlay inside card */}
             <div className="absolute inset-0 blueprint-grid-dark opacity-60 pointer-events-none" />
 
@@ -60,17 +60,15 @@ export default function HiringBanner() {
               <div className="flex flex-col items-center md:items-start gap-4 shrink-0">
                 {/* Animated icon circle */}
                 <div className="relative">
-                  <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-blueline/15 border border-blueline/30 flex items-center justify-center shadow-xl">
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-blueline/20 border border-blueline/40 flex items-center justify-center shadow-xl animate-pulse-soft">
                     <Users className="w-9 h-9 sm:w-11 sm:h-11 text-blueline-soft" />
                   </div>
-                  {/* Pulse ring */}
-                  <span className="absolute inset-0 rounded-full border border-blueline/40 animate-ping opacity-30" />
                 </div>
 
                 {/* Count badge */}
                 <div className="text-center md:text-left">
                   <p
-                    className="font-display font-extrabold text-5xl sm:text-6xl leading-none tracking-tight text-paper"
+                    className="font-display font-black text-5xl sm:text-6xl leading-none tracking-tight text-paper"
                     aria-label="125 plus job vacancies"
                   >
                     125<span className="text-blueline-soft">+</span>
@@ -87,7 +85,7 @@ export default function HiringBanner() {
               {/* Center: main message */}
               <div className="flex-1 text-center md:text-left">
                 {/* Label pill */}
-                <div className="inline-flex items-center gap-2 rounded-full border border-blueline/40 bg-blueline/10 px-4 py-1.5 text-xs font-mono tracking-widest text-blueline-soft uppercase mb-4 font-bold">
+                <div className="clay-pill clay-pill-accent mb-4">
                   <Sparkles className="w-3.5 h-3.5" />
                   We&apos;re Hiring — Open Now
                 </div>
@@ -98,9 +96,9 @@ export default function HiringBanner() {
                 </h2>
 
                 {/* FOR FRESHERS ONLY badge */}
-                <div className="mt-3 inline-flex items-center gap-2 rounded-lg bg-brass/15 border border-brass/30 px-4 py-2">
-                  <span className="text-lg">🎓</span>
-                  <span className="font-display font-bold text-sm sm:text-base text-brass tracking-wide">
+                <div className="mt-3 inline-flex items-center gap-2 rounded-full bg-brass/20 border border-brass/35 px-4 py-1.5 shadow-[inset_0_1px_2px_rgba(255,255,255,0.2)]">
+                  <span className="text-base">🎓</span>
+                  <span className="font-display font-black text-xs sm:text-sm text-brass tracking-wider uppercase">
                     FOR FRESHERS ONLY
                   </span>
                 </div>
@@ -117,7 +115,7 @@ export default function HiringBanner() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Apply for Job - 125+ job vacancies for freshers"
-                  className="group w-full md:w-auto inline-flex items-center justify-center gap-2.5 rounded-full bg-blueline px-7 py-4 text-base font-bold text-paper shadow-lg shadow-blueline/30 transition-all duration-300 hover:bg-blueline-soft hover:shadow-xl hover:shadow-blueline/40 hover:-translate-y-0.5 active:translate-y-0 whitespace-nowrap"
+                  className="clay-btn clay-btn-primary w-full md:w-auto px-8 py-4 text-base font-bold whitespace-nowrap"
                 >
                   Apply for Job
                   <ArrowUpRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -156,8 +154,8 @@ export default function HiringBanner() {
               transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
               className="fixed inset-x-4 bottom-6 sm:inset-auto sm:bottom-8 sm:right-8 sm:left-auto z-[81] w-auto sm:w-[380px] max-w-full"
             >
-              <div className="relative bg-white rounded-2xl shadow-[0_8px_40px_-8px_rgba(14,21,36,0.18),0_2px_12px_-4px_rgba(14,21,36,0.08)] overflow-hidden">
-                {/* Thin top accent stripe — only decorative element */}
+              <div className="relative clay-card bg-white p-0 overflow-hidden shadow-2xl">
+                {/* Thin top accent stripe */}
                 <div className="absolute top-0 inset-x-0 h-[3px] bg-gradient-to-r from-blueline via-blueline-soft to-blueline rounded-t-2xl" />
 
                 <div className="px-6 pt-7 pb-6">
@@ -165,7 +163,7 @@ export default function HiringBanner() {
                   <button
                     onClick={() => setShowPopup(false)}
                     aria-label="Close popup"
-                    className="absolute top-4 right-4 w-7 h-7 rounded-full flex items-center justify-center text-ink/35 hover:text-ink/70 hover:bg-ink/5 transition-all duration-150"
+                    className="absolute top-4 right-4 w-7 h-7 rounded-full flex items-center justify-center text-ink/40 hover:text-ink hover:bg-ink/5 transition-all duration-150"
                   >
                     <X className="w-4 h-4" />
                   </button>
@@ -182,16 +180,16 @@ export default function HiringBanner() {
                   <p className="font-display font-extrabold text-ink leading-none tracking-tight">
                     <span className="text-4xl sm:text-5xl">125</span>
                     <span className="text-4xl sm:text-5xl text-blueline">+</span>
-                    <span className="block text-base font-semibold text-ink/55 mt-1.5 tracking-normal font-sans">
+                    <span className="block text-base font-semibold text-slate mt-1.5 tracking-normal">
                       Vacancies Available
                     </span>
                   </p>
 
                   {/* Divider */}
-                  <div className="my-4 h-px bg-ink/8" />
+                  <div className="my-4 h-px bg-grid/60" />
 
                   {/* Supporting text */}
-                  <p className="text-sm text-ink/55 leading-relaxed">
+                  <p className="text-sm text-slate leading-relaxed">
                     Explore current job opportunities and apply for positions that match your skills.
                   </p>
 
@@ -201,7 +199,7 @@ export default function HiringBanner() {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => setShowPopup(false)}
-                    className="mt-5 group w-full inline-flex items-center justify-center gap-2 rounded-full bg-blueline px-6 py-3 text-sm font-bold text-white shadow-md shadow-blueline/25 transition-all duration-300 hover:bg-blueline-soft hover:shadow-lg hover:shadow-blueline/30 hover:-translate-y-0.5"
+                    className="mt-5 clay-btn clay-btn-primary w-full py-3 text-sm font-bold text-white shadow-md"
                   >
                     Apply for Job
                     <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />

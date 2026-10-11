@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { FEATURED_PROJECTS, ALL_PROJECTS, getCategoryMeta } from "@/lib/data/projects";
+import { EASE } from "@/components/ui/motion";
 
 export default function FeaturedProjects() {
   return (
@@ -23,14 +24,14 @@ export default function FeaturedProjects() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.5, ease: EASE }}
           className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12 sm:mb-16"
         >
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-blueline/30 bg-blueline/5 px-4 py-1.5 text-xs sm:text-sm font-mono tracking-widest text-blueline uppercase mb-3 font-bold">
+            <div className="clay-pill clay-pill-accent mb-3">
               🗂 Featured Products
             </div>
-            <h2 className="font-display text-section-heading font-bold text-ink tracking-tight text-balance">
+            <h2 className="font-display text-section-heading font-black text-ink tracking-tight text-balance">
               Enterprise Solutions{" "}
               <span className="text-blueline">We&apos;ve Built</span>
             </h2>
@@ -52,11 +53,11 @@ export default function FeaturedProjects() {
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.45, delay: i * 0.07, ease: "easeOut" }}
+                transition={{ duration: 0.45, delay: i * 0.07, ease: EASE }}
               >
                 <Link
                   href={`/projects/${project.slug}`}
-                  className="group relative flex flex-col rounded-2xl border border-grid bg-white shadow-sm hover:shadow-xl hover:border-blueline/40 transition-all duration-300 overflow-hidden h-full"
+                  className="group relative flex flex-col clay-card clay-card-hover p-0 overflow-hidden h-full"
                 >
                   {/* Accent top bar */}
                   <div className="h-1.5 shrink-0" style={{ backgroundColor: meta.color }} />

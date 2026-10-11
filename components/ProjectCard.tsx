@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, Clock } from "lucide-react";
 import type { Project } from "@/lib/data/projects";
 import { getCategoryMeta } from "@/lib/data/projects";
+import { EASE } from "@/components/ui/motion";
 
 interface ProjectCardProps {
   project: Project;
@@ -12,9 +13,9 @@ interface ProjectCardProps {
 }
 
 const STATUS_STYLES: Record<Project["status"], string> = {
-  Live: "bg-green-500/10 text-green-600 border-green-500/30",
-  Completed: "bg-blueline/10 text-blueline border-blueline/30",
-  "In Progress": "bg-brass/10 text-brass border-brass/30",
+  Live: "bg-green-500/15 text-green-700 border-green-500/40",
+  Completed: "bg-blueline/15 text-blueline border-blueline/40",
+  "In Progress": "bg-brass/15 text-brass border-brass/40",
 };
 
 const STATUS_DOT: Record<Project["status"], string> = {
@@ -31,9 +32,9 @@ export default function ProjectCard({ project, index = 0, onClick }: ProjectCard
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 20 }}
-      transition={{ duration: 0.35, delay: index * 0.05, ease: "easeOut" }}
+      transition={{ duration: 0.4, delay: index * 0.05, ease: EASE }}
       layout
-      className="group relative flex flex-col rounded-2xl border border-grid bg-white shadow-sm hover:shadow-xl hover:border-blueline/40 transition-all duration-300 overflow-hidden cursor-pointer"
+      className="group relative flex flex-col clay-card clay-card-hover p-0 overflow-hidden cursor-pointer"
       onClick={() => onClick(project)}
       tabIndex={0}
       role="button"
@@ -66,7 +67,7 @@ export default function ProjectCard({ project, index = 0, onClick }: ProjectCard
 
         {/* Status badge */}
         <div
-          className={`absolute top-3 right-3 inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-mono font-bold ${STATUS_STYLES[project.status]}`}
+          className={`absolute top-3 right-3 clay-pill ${STATUS_STYLES[project.status]}`}
         >
           <span className={`w-1.5 h-1.5 rounded-full ${STATUS_DOT[project.status]}`} />
           {project.status}
@@ -74,8 +75,8 @@ export default function ProjectCard({ project, index = 0, onClick }: ProjectCard
 
         {/* Category chip */}
         <div
-          className="absolute top-3 left-3 inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-mono font-semibold text-paper"
-          style={{ backgroundColor: categoryMeta.color }}
+          className="absolute top-3 left-3 clay-pill text-paper"
+          style={{ backgroundColor: categoryMeta.color, borderColor: "transparent" }}
         >
           <span>{categoryMeta.emoji}</span>
           <span>{categoryMeta.label}</span>
@@ -97,13 +98,13 @@ export default function ProjectCard({ project, index = 0, onClick }: ProjectCard
           {project.technologies.slice(0, 3).map((tech) => (
             <span
               key={tech}
-              className="rounded-full bg-paper-dim px-2.5 py-0.5 text-xs font-mono font-medium text-slate"
+              className="clay-pill text-[11px] py-0.5 px-2.5 font-mono text-slate bg-paper-dim"
             >
               {tech}
             </span>
           ))}
           {project.technologies.length > 3 && (
-            <span className="rounded-full bg-paper-dim px-2.5 py-0.5 text-xs font-mono font-medium text-slate">
+            <span className="clay-pill text-[11px] py-0.5 px-2.5 font-mono text-slate bg-paper-dim">
               +{project.technologies.length - 3}
             </span>
           )}

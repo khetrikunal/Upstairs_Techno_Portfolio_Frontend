@@ -26,10 +26,8 @@ export default function RegisterCompetitionButton({
   };
 
   const variantClasses = {
-    primary:
-      "bg-blueline text-paper shadow-lg shadow-blueline/25 hover:bg-blueline-soft hover:shadow-xl hover:shadow-blueline/35 hover:-translate-y-0.5 active:translate-y-0",
-    secondary:
-      "border border-paper/30 bg-paper/10 backdrop-blur-sm text-paper hover:border-paper/70 hover:bg-paper/20 hover:scale-[1.02]",
+    primary: "clay-btn-primary",
+    secondary: "clay-btn-ghost-dark",
   };
 
   return (
@@ -38,7 +36,7 @@ export default function RegisterCompetitionButton({
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Register for Coding Competition"
-      className={`group relative inline-flex items-center rounded-full font-bold transition-all duration-300 ${sizeClasses[size]} ${variantClasses[variant]} ${className}`}
+      className={`clay-btn group relative inline-flex items-center rounded-full font-bold ${sizeClasses[size]} ${variantClasses[variant]} ${className}`}
     >
       {showIcon && (
         <Trophy className="w-4 h-4 shrink-0 transition-transform duration-300 group-hover:scale-110" />

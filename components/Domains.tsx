@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { motion, useReducedMotion } from "framer-motion";
 import {
@@ -275,11 +275,11 @@ export default function Domains() {
           transition={{ duration: 0.5 }}
           className="text-center max-w-3xl mx-auto mb-12 sm:mb-16"
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-blueline/30 bg-blueline/5 px-4 py-1.5 text-xs sm:text-sm font-mono tracking-widest text-blueline uppercase mb-4 font-bold">
+          <div className="clay-pill clay-pill-accent mb-4">
             <Sparkles className="w-3.5 h-3.5 text-blueline" />
             Industry Expertise
           </div>
-          <h2 className="font-display text-section-heading font-bold text-ink tracking-tight text-balance">
+          <h2 className="font-display text-section-heading font-black text-ink tracking-tight text-balance">
             What Domains We Work In
           </h2>
           <p className="mt-4 text-base sm:text-lg md:text-xl text-slate leading-relaxed text-balance">
@@ -299,7 +299,7 @@ export default function Domains() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.4, delay: idx * 0.05 }}
-                className="group flex flex-col items-center gap-3 rounded-2xl border border-grid/70 bg-white p-4 sm:p-5 text-center shadow-sm hover:shadow-md hover:border-blueline/30 transition-all duration-300 cursor-default"
+                className="group flex flex-col items-center gap-3 clay-card clay-card-hover p-4 sm:p-5 text-center cursor-default"
                 style={
                   shouldReduceMotion
                     ? {}

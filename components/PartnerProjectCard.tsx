@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, ExternalLink, Package } from "lucide-react";
 import Image from "next/image";
 import type { PartnerProject } from "@/lib/data/partners";
+import { EASE } from "@/components/ui/motion";
 
 interface PartnerProjectCardProps {
   project: PartnerProject;
@@ -24,8 +25,8 @@ export default function PartnerProjectCard({
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.45, delay: index * 0.08, ease: "easeOut" }}
-      className="group relative flex flex-col rounded-2xl border border-grid bg-white shadow-sm hover:shadow-xl hover:border-blueline/40 transition-all duration-300 overflow-hidden"
+      transition={{ duration: 0.45, delay: index * 0.08, ease: EASE }}
+      className="group relative flex flex-col clay-card clay-card-hover p-0 overflow-hidden"
     >
       {/* Accent top bar */}
       <div className="h-1.5 shrink-0 bg-gradient-to-r from-blueline to-blueline-soft" />
