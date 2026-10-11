@@ -31,12 +31,16 @@ export const metadata: Metadata = {
     "Upstairs Techno designs and builds enterprise platforms for companies that can't afford to get it wrong: financial services, logistics, and healthcare systems at scale.",
   icons: {
     icon: [
-      { url: "/icon.png", type: "image/png", sizes: "32x32" },
-      { url: "/icon-48.png", type: "image/png", sizes: "48x48" },
+      { url: "/favicon/favicon.ico" },
+      { url: "/favicon/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon/favicon-32x32.png", sizes: "32x32", type: "image/png" },
     ],
-    shortcut: "/icon.png",
-    apple: "/apple-icon.png",
+    shortcut: "/favicon/favicon.ico",
+    apple: [
+      { url: "/favicon/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
   },
+  manifest: "/favicon/site.webmanifest",
   openGraph: {
     title: "Upstairs Techno — Enterprise Engineering",
     description: "Enterprise software engineering for financial services, logistics, and healthcare companies.",
