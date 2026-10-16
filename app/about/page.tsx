@@ -7,22 +7,99 @@ import {
   Building2,
   Check,
   Code2,
+  ExternalLink,
   GraduationCap,
   Globe,
   Handshake,
   Lightbulb,
+  Mail,
   Monitor,
   ShieldCheck,
   Sparkles,
   TrendingUp,
   Users,
 } from "lucide-react";
+import { aboutPageSchema } from "@/lib/schema";
 
 export const metadata = {
-  title: "About Us | Upstairs Techno",
+  title: "About Us & Corporate Leadership | Upstairs Techno Private Limited",
   description:
-    "Learn about Upstairs Techno, our technology solutions, leadership team, vision, mission, values, and commitment to empowering businesses and developing future technology professionals.",
+    "Explore Upstairs Techno Private Limited, our leadership team led by Chief Executive Officer (CEO) Kunal Gururaj Khetri and CTO Shreyash Chilweri, founded by Avinash Narute and Ganesh Kokare. Discover our enterprise engineering, AI solutions, and tech talent programs.",
+  keywords: [
+    "Kunal Gururaj Khetri",
+    "Kunal Khetri",
+    "CEO Upstairs Techno",
+    "Chief Executive Officer Upstairs Techno",
+    "Upstairs Techno Private Limited",
+    "Upstairs Techno CEO",
+    "Shreyash Chilweri",
+    "Avinash Narute",
+    "Ganesh Kokare",
+    "Upstairs Techno Leadership",
+    "Upstairs Techno Management",
+    "Upstairs Techno About Us",
+    "Enterprise Software Baramati Pune"
+  ],
+  alternates: {
+    canonical: "https://upstairstechno.com/about",
+  },
+  openGraph: {
+    title: "About Us & Corporate Leadership | Upstairs Techno Private Limited",
+    description:
+      "Official corporate directory of Upstairs Techno Private Limited. Led by Chief Executive Officer (CEO) Kunal Gururaj Khetri. Discover our leadership structure, mission, and enterprise technology services.",
+    url: "https://upstairstechno.com/about",
+    siteName: "Upstairs Techno Private Limited",
+    images: [
+      {
+        url: "/Upstairs_Logo.jpeg",
+        width: 800,
+        height: 600,
+        alt: "Upstairs Techno Private Limited Leadership",
+      },
+    ],
+    locale: "en_US",
+    type: "profile",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Corporate Leadership | Upstairs Techno Private Limited",
+    description:
+      "Meet Kunal Gururaj Khetri, CEO of Upstairs Techno Private Limited, and the leadership team driving enterprise software engineering.",
+    images: ["/Upstairs_Logo.jpeg"],
+  },
 };
+
+function LinkedInIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45c-.96 0-1.74.78-1.74 1.74s.78 1.74 1.74 1.74 1.74-.78 1.74-1.74-.78-1.74-1.74-1.74Z" />
+    </svg>
+  );
+}
+
+function GitHubIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+      aria-hidden="true"
+    >
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+      />
+    </svg>
+  );
+}
 
 const values = [
   { title: "Customer Success", description: "We measure our success by our clients' success.", icon: Handshake },
@@ -50,13 +127,65 @@ const ecosystem = [
 ];
 
 const leadership = [
-  { name: "Kunal Gururaj Khetri", role: "CEO", title: "Chief Executive Officer" },
-  { name: "Shreyash Chilweri", role: "CTO", title: "Chief Technology Officer" },
+  {
+    id: "kunal-gururaj-khetri",
+    name: "Kunal Gururaj Khetri",
+    role: "CEO",
+    title: "Chief Executive Officer (CEO)",
+    fullTitle: "Chief Executive Officer & Director",
+    company: "Upstairs Techno Private Limited",
+    bio: "Spearheads executive direction, corporate strategy, enterprise partnerships, and engineering innovation across global digital platforms at Upstairs Techno Private Limited.",
+    profiles: [
+      {
+        name: "LinkedIn",
+        url: "https://www.linkedin.com/in/kunal-khetri",
+        icon: LinkedInIcon,
+      },
+      {
+        name: "GitHub",
+        url: "https://github.com/kunal-khetri",
+        icon: GitHubIcon,
+      },
+      {
+        name: "Contact Email",
+        url: "mailto:khetrikunal24@gmail.com",
+        icon: Mail,
+      },
+    ],
+  },
+  {
+    id: "shreyash-chilweri",
+    name: "Shreyash Chilweri",
+    role: "CTO",
+    title: "Chief Technology Officer (CTO)",
+    fullTitle: "Chief Technology Officer",
+    company: "Upstairs Techno Private Limited",
+    bio: "Architects scalable systems, cloud infrastructure, AI solutions, and engineering excellence across our development portfolio.",
+    profiles: [
+      {
+        name: "LinkedIn",
+        url: "https://www.linkedin.com/in/shreyash-chilweri",
+        icon: LinkedInIcon,
+      },
+    ],
+  },
 ];
 
 const founders = [
-  { name: "Avinash Narute", role: "Founder", image: "/Founder.jpeg" },
-  { name: "Ganesh Kokare", role: "Co-Founder", image: "/Co-Founder.jpeg" },
+  {
+    name: "Avinash Narute",
+    role: "Founder",
+    image: "/Founder.jpeg",
+    company: "Upstairs Techno Private Limited",
+    bio: "Pioneered the founding philosophy and technology solutions framework at Upstairs Techno.",
+  },
+  {
+    name: "Ganesh Kokare",
+    role: "Co-Founder",
+    image: "/Co-Founder.jpeg",
+    company: "Upstairs Techno Private Limited",
+    bio: "Co-founded the organization focusing on operational expansion and talent development.",
+  },
 ];
 
 const journeySteps = ["Foundation", "Growth", "Technology Expansion", "Talent Development", "Global Vision"];
@@ -64,6 +193,12 @@ const journeySteps = ["Foundation", "Growth", "Technology Expansion", "Talent De
 export default function AboutPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(aboutPageSchema),
+        }}
+      />
       <Navbar />
       <main className="flex-1 pt-24 sm:pt-32 md:pt-36 pb-16 sm:pb-24 bg-paper">
         <section className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8 pt-6 sm:pt-10">
@@ -231,66 +366,142 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section id="leadership" className="mx-auto mt-12 max-w-7xl px-4 sm:px-6 md:px-8">
+        <section id="leadership" aria-labelledby="leadership-title" className="mx-auto mt-12 max-w-7xl px-4 sm:px-6 md:px-8">
           <div className="clay-card p-6 sm:p-10 lg:p-12">
             {/* Section header */}
-            <div className="text-center">
+            <header className="text-center">
               <div className="clay-pill clay-pill-accent mb-3">Meet Our Leadership</div>
-              <h2 className="mt-3 font-display text-2xl sm:text-3xl md:text-4xl font-black text-ink tracking-tight">The people driving Upstairs Techno forward.</h2>
+              <h2 id="leadership-title" className="mt-3 font-display text-2xl sm:text-3xl md:text-4xl font-black text-ink tracking-tight">
+                Corporate Leadership &amp; Executive Management
+              </h2>
               <p className="mx-auto mt-4 max-w-2xl text-[15px] sm:text-base leading-relaxed text-slate">
-                Experienced leaders united by a shared vision — empowering businesses through technology and developing the next generation of tech professionals.
+                Experienced leaders united by a shared vision — empowering businesses through technology and developing the next generation of tech professionals at <strong className="font-semibold text-ink">Upstairs Techno Private Limited</strong>.
               </p>
-            </div>
+            </header>
 
-            {/* ── Founders: Avinash Narute & Ganesh Kokare (Photo cards) ── */}
-            <div className="mt-12">
-              <p className="text-center font-mono text-[10px] uppercase tracking-[0.35em] text-slate/60 mb-6">Founders</p>
+            {/* ── Executive Leadership: CEO & CTO (Primary Entity Crawl Target) ── */}
+            <section aria-labelledby="executive-leadership-heading" className="mt-12">
+              <div className="text-center mb-8">
+                <p className="font-mono text-xs uppercase tracking-[0.35em] text-blueline font-bold">Board &amp; Executive Officers</p>
+                <h3 id="executive-leadership-heading" className="mt-2 font-display text-xl sm:text-2xl font-bold text-ink">
+                  Executive Leadership
+                </h3>
+              </div>
+
+              <div className="grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
+                {leadership.map((leader) => (
+                  <article
+                    key={leader.name}
+                    id={leader.id}
+                    itemScope
+                    itemType="https://schema.org/Person"
+                    className="group flex flex-col justify-between rounded-[2rem] border border-grid bg-paper p-8 sm:p-10 text-center transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_16px_40px_-10px_rgba(37,87,255,0.14)]"
+                  >
+                    <div>
+                      <div className="flex justify-center">
+                        <span
+                          itemProp="jobTitle"
+                          className="inline-block rounded-full bg-blueline/10 px-4 py-1.5 font-mono text-xs uppercase tracking-[0.25em] text-blueline font-bold"
+                        >
+                          {leader.role}
+                        </span>
+                      </div>
+
+                      <h4
+                        itemProp="name"
+                        className="mt-5 font-display text-2xl sm:text-3xl font-bold text-ink tracking-tight"
+                      >
+                        {leader.name}
+                      </h4>
+
+                      <p className="mt-2 font-mono text-xs uppercase tracking-[0.25em] text-slate font-medium">
+                        {leader.title}
+                      </p>
+
+                      <meta itemProp="worksFor" content={leader.company} />
+                      <meta itemProp="affiliation" content={leader.company} />
+
+                      <p
+                        itemProp="description"
+                        className="mt-4 text-sm sm:text-base leading-relaxed text-slate"
+                      >
+                        {leader.bio}
+                      </p>
+                    </div>
+
+                    {/* Professional Profiles */}
+                    <nav
+                      aria-label={`${leader.name} Professional Profiles`}
+                      className="mt-6 pt-6 border-t border-grid/60 flex items-center justify-center flex-wrap gap-2.5"
+                    >
+                      {leader.profiles.map((profile) => (
+                        <a
+                          key={profile.name}
+                          href={profile.url}
+                          target="_blank"
+                          rel="noopener noreferrer author"
+                          itemProp="sameAs"
+                          aria-label={`${leader.name} on ${profile.name}`}
+                          className="inline-flex items-center gap-2 rounded-full border border-grid bg-white px-4 py-2 text-xs font-semibold text-slate transition duration-200 hover:border-blueline hover:text-blueline hover:bg-blueline/5"
+                        >
+                          <profile.icon className="h-4 w-4" />
+                          <span>{profile.name}</span>
+                        </a>
+                      ))}
+                    </nav>
+                  </article>
+                ))}
+              </div>
+            </section>
+
+            {/* ── Founders ── */}
+            <section aria-labelledby="founders-heading" className="mt-14 pt-10 border-t border-grid">
+              <div className="text-center mb-8">
+                <p className="font-mono text-xs uppercase tracking-[0.35em] text-blueline font-bold">Company Origins</p>
+                <h3 id="founders-heading" className="mt-2 font-display text-xl sm:text-2xl font-bold text-ink">
+                  Founders
+                </h3>
+              </div>
+
               <div className="flex flex-col items-center gap-8 sm:flex-row sm:justify-center sm:gap-10 lg:gap-14">
                 {founders.map((founder) => (
-                  <div
+                  <article
                     key={founder.name}
+                    itemScope
+                    itemType="https://schema.org/Person"
                     className="group flex flex-col items-center clay-card clay-card-hover p-7 sm:p-8 text-center w-full max-w-xs"
                   >
                     <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden border-2 border-grid shadow-md">
                       <img
+                        itemProp="image"
                         src={founder.image}
-                        alt={`${founder.name} - ${founder.role}`}
+                        alt={`${founder.name} - ${founder.role} at Upstairs Techno Private Limited`}
                         className="w-full h-full object-cover object-top"
+                        loading="lazy"
+                        width={128}
+                        height={128}
                       />
                     </div>
-                    <span className="mt-5 inline-block rounded-full bg-blueline/10 px-4 py-1.5 font-mono text-xs uppercase tracking-[0.3em] text-blueline font-bold">
+                    <span
+                      itemProp="jobTitle"
+                      className="mt-5 inline-block rounded-full bg-blueline/10 px-4 py-1.5 font-mono text-xs uppercase tracking-[0.3em] text-blueline font-bold"
+                    >
                       {founder.role}
                     </span>
-                    <h3 className="mt-3 font-display text-xl sm:text-2xl font-bold text-ink tracking-tight">
+                    <h4
+                      itemProp="name"
+                      className="mt-3 font-display text-xl sm:text-2xl font-bold text-ink tracking-tight"
+                    >
                       {founder.name}
-                    </h3>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* ── Leadership: CEO & CTO (Text-only) ── */}
-            <div className="mt-10 pt-10 border-t border-grid">
-              <p className="text-center font-mono text-[10px] uppercase tracking-[0.35em] text-slate/60 mb-6">Executive Leadership</p>
-              <div className="flex flex-col items-center gap-8 sm:flex-row sm:justify-center sm:gap-10 lg:gap-14">
-                {leadership.map((leader) => (
-                  <div
-                    key={leader.name}
-                    className="group flex flex-col items-center rounded-[2rem] border border-grid bg-paper p-8 sm:p-10 text-center transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_16px_40px_-10px_rgba(37,87,255,0.14)] w-full max-w-sm"
-                  >
-                    <span className="inline-block rounded-full bg-blueline/10 px-4 py-1.5 font-mono text-xs uppercase tracking-[0.3em] text-blueline font-bold">
-                      {leader.role}
-                    </span>
-                    <h3 className="mt-5 font-display text-2xl sm:text-3xl font-bold text-ink tracking-tight">
-                      {leader.name}
-                    </h3>
-                    <p className="mt-2 font-mono text-xs uppercase tracking-[0.25em] text-slate font-medium">
-                      {leader.title}
+                    </h4>
+                    <meta itemProp="worksFor" content={founder.company} />
+                    <p itemProp="description" className="mt-2 text-xs text-slate">
+                      {founder.bio}
                     </p>
-                  </div>
+                  </article>
                 ))}
               </div>
-            </div>
+            </section>
           </div>
         </section>
 
