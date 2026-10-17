@@ -101,6 +101,26 @@ function GitHubIcon({ className }: { className?: string }) {
   );
 }
 
+function InstagramIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
 const values = [
   { title: "Customer Success", description: "We measure our success by our clients' success.", icon: Handshake },
   { title: "Innovation", description: "We embrace emerging technologies and continuous improvement.", icon: Lightbulb },
@@ -138,18 +158,23 @@ const leadership = [
     profiles: [
       {
         name: "LinkedIn",
-        url: "https://www.linkedin.com/in/kunal-khetri",
+        url: "https://www.linkedin.com/in/kunal-khetri-82410b31b",
         icon: LinkedInIcon,
       },
       {
         name: "GitHub",
-        url: "https://github.com/kunal-khetri",
+        url: "https://github.com/khetrikunal",
         icon: GitHubIcon,
       },
       {
-        name: "Contact Email",
-        url: "mailto:khetrikunal24@gmail.com",
+        name: "Email",
+        url: "mailto:ceo@upstairstechno.com",
         icon: Mail,
+      },
+      {
+        name: "Instagram",
+        url: "https://www.instagram.com/_kunal.khetri/",
+        icon: InstagramIcon,
       },
     ],
   },
@@ -434,20 +459,28 @@ export default function AboutPage() {
                       aria-label={`${leader.name} Professional Profiles`}
                       className="mt-6 pt-6 border-t border-grid/60 flex items-center justify-center flex-wrap gap-2.5"
                     >
-                      {leader.profiles.map((profile) => (
-                        <a
-                          key={profile.name}
-                          href={profile.url}
-                          target="_blank"
-                          rel="noopener noreferrer author"
-                          itemProp="sameAs"
-                          aria-label={`${leader.name} on ${profile.name}`}
-                          className="inline-flex items-center gap-2 rounded-full border border-grid bg-white px-4 py-2 text-xs font-semibold text-slate transition duration-200 hover:border-blueline hover:text-blueline hover:bg-blueline/5"
-                        >
-                          <profile.icon className="h-4 w-4" />
-                          <span>{profile.name}</span>
-                        </a>
-                      ))}
+                      {leader.profiles.map((profile) => {
+                        const isEmail = profile.url.startsWith("mailto:");
+                        return (
+                          <a
+                            key={profile.name}
+                            href={profile.url}
+                            target={isEmail ? undefined : "_blank"}
+                            rel={isEmail ? undefined : "noopener noreferrer"}
+                            itemProp="sameAs"
+                            title={`${profile.name} - ${leader.name}`}
+                            aria-label={
+                              isEmail
+                                ? `Email ${leader.name} at ${profile.url.replace("mailto:", "")}`
+                                : `${leader.name} on ${profile.name}`
+                            }
+                            className="inline-flex items-center gap-2 rounded-full border border-grid bg-white px-3.5 sm:px-4 py-2 text-xs font-semibold text-slate transition-all duration-200 hover:border-blueline hover:text-blueline hover:bg-blueline/5 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-blueline/30"
+                          >
+                            <profile.icon className="h-4 w-4" />
+                            <span>{profile.name}</span>
+                          </a>
+                        );
+                      })}
                     </nav>
                   </article>
                 ))}

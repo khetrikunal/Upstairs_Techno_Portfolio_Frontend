@@ -150,9 +150,10 @@ export const corporateOrganizationSchema = {
       },
       "url": "https://upstairstechno.com/about#kunal-gururaj-khetri",
       "sameAs": [
-        "https://www.linkedin.com/in/kunal-khetri",
-        "https://github.com/kunal-khetri",
-        "mailto:khetrikunal24@gmail.com"
+        "https://www.linkedin.com/in/kunal-khetri-82410b31b",
+        "https://github.com/khetrikunal",
+        "mailto:ceo@upstairstechno.com",
+        "https://www.instagram.com/_kunal.khetri/"
       ]
     },
     {
