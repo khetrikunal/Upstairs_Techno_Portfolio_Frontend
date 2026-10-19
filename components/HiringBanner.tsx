@@ -2,7 +2,14 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowUpRight, Sparkles, Users, X } from "lucide-react";
+import { ArrowUpRight, BrainCircuit, ChartColumn, Code, ShieldCheck, Sparkles, Users, X } from "lucide-react";
+
+const OPEN_ROLES = [
+  { title: "Full Stack Developer", icon: Code },
+  { title: "QA Tester", icon: ShieldCheck },
+  { title: "AI/ML Engineer", icon: BrainCircuit },
+  { title: "Data Analyst", icon: ChartColumn },
+];
 
 export default function HiringBanner() {
   const [showPopup, setShowPopup] = useState(false);
@@ -74,7 +81,7 @@ export default function HiringBanner() {
                     125<span className="text-blueline-soft">+</span>
                   </p>
                   <p className="font-mono text-xs sm:text-sm font-semibold uppercase tracking-[0.25em] text-paper/60 mt-1">
-                    Job Vacancies
+                    Job Vacancies Available
                   </p>
                 </div>
               </div>
@@ -106,12 +113,28 @@ export default function HiringBanner() {
                 <p className="mt-4 text-base sm:text-lg text-paper/75 leading-relaxed max-w-xl mx-auto md:mx-0">
                   Practical experience and career opportunities — all in one place.
                 </p>
+
+                {/* Open Job Roles */}
+                <div className="mt-5 flex flex-wrap items-center justify-center md:justify-start gap-2">
+                  {OPEN_ROLES.map((role) => {
+                    const Icon = role.icon;
+                    return (
+                      <span
+                        key={role.title}
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-paper/10 border border-paper/15 text-paper text-xs sm:text-sm font-semibold backdrop-blur-sm shadow-sm"
+                      >
+                        <Icon className="w-3.5 h-3.5 text-blueline-soft" />
+                        {role.title}
+                      </span>
+                    );
+                  })}
+                </div>
               </div>
 
               {/* Right: CTA */}
               <div className="flex flex-col items-center md:items-start shrink-0 w-full md:w-auto">
                 <a
-                  href="https://job.upstairstechno.com"
+                  href="https://jobs.upstairstechno.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Apply for Job - 125+ job vacancies for freshers"
@@ -152,7 +175,7 @@ export default function HiringBanner() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.94, y: 16 }}
               transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
-              className="fixed inset-x-4 bottom-6 sm:inset-auto sm:bottom-8 sm:right-8 sm:left-auto z-[81] w-auto sm:w-[380px] max-w-full"
+              className="fixed inset-x-4 bottom-6 sm:inset-auto sm:bottom-8 sm:right-8 sm:left-auto z-[81] w-auto sm:w-[390px] max-w-full"
             >
               <div className="relative clay-card bg-white p-0 overflow-hidden shadow-2xl">
                 {/* Thin top accent stripe */}
@@ -169,7 +192,7 @@ export default function HiringBanner() {
                   </button>
 
                   {/* Live badge */}
-                  <div className="inline-flex items-center gap-1.5 mb-4">
+                  <div className="inline-flex items-center gap-1.5 mb-3.5">
                     <span className="w-2 h-2 rounded-full bg-blueline animate-pulse" />
                     <span className="text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-blueline">
                       Hiring Open
@@ -181,25 +204,45 @@ export default function HiringBanner() {
                     <span className="text-4xl sm:text-5xl">125</span>
                     <span className="text-4xl sm:text-5xl text-blueline">+</span>
                     <span className="block text-base font-semibold text-slate mt-1.5 tracking-normal">
-                      Vacancies Available
+                      Job Vacancies Available
                     </span>
                   </p>
 
+                  {/* Open Job Roles Grid */}
+                  <div className="grid grid-cols-2 gap-2 mt-4 mb-3.5">
+                    {OPEN_ROLES.map((role) => {
+                      const Icon = role.icon;
+                      return (
+                        <div
+                          key={role.title}
+                          className="flex items-center gap-2 p-2 rounded-xl bg-paper/80 border border-grid/70 text-ink shadow-[0_1px_2px_rgba(0,0,0,0.03)]"
+                        >
+                          <div className="w-6 h-6 rounded-md bg-blueline/10 text-blueline flex items-center justify-center shrink-0">
+                            <Icon className="w-3.5 h-3.5" />
+                          </div>
+                          <span className="text-xs font-bold text-ink leading-snug">
+                            {role.title}
+                          </span>
+                        </div>
+                      );
+                    })}
+                  </div>
+
                   {/* Divider */}
-                  <div className="my-4 h-px bg-grid/60" />
+                  <div className="my-3.5 h-px bg-grid/60" />
 
                   {/* Supporting text */}
-                  <p className="text-sm text-slate leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate leading-relaxed">
                     Explore current job opportunities and apply for positions that match your skills.
                   </p>
 
                   {/* CTA */}
                   <a
-                    href="https://job.upstairstechno.com"
+                    href="https://jobs.upstairstechno.com"
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => setShowPopup(false)}
-                    className="mt-5 clay-btn clay-btn-primary w-full py-3 text-sm font-bold text-white shadow-md"
+                    className="mt-4 clay-btn clay-btn-primary w-full py-3 text-sm font-bold text-white shadow-md"
                   >
                     Apply for Job
                     <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -213,3 +256,4 @@ export default function HiringBanner() {
     </>
   );
 }
+

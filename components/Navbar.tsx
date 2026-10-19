@@ -256,7 +256,7 @@ export default function Navbar() {
         {/* Desktop CTA Button */}
         <div className="hidden lg:flex items-center shrink-0">
           <a
-            href="https://job.upstairstechno.com"
+            href="https://jobs.upstairstechno.com"
             target="_blank"
             rel="noopener noreferrer"
             className="clay-btn clay-btn-primary px-5 py-2.5 text-xs lg:text-sm font-bold"
@@ -358,7 +358,7 @@ export default function Navbar() {
             <div className="mt-8 pt-6 border-t border-grid flex flex-col gap-3">
               {/* Apply for Job */}
               <a
-                href="https://job.upstairstechno.com"
+                href="https://jobs.upstairstechno.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
