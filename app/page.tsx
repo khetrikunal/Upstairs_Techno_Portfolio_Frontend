@@ -9,6 +9,7 @@ import ProcessTimeline from "@/components/ProcessTimeline";
 import Technologies from "@/components/Technologies";
 import OfficeCollage from "@/components/OfficeCollage";
 import Footer from "@/components/Footer";
+import Contact from "@/components/Contact";
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
         <OfficeCollage />
         <ProcessTimeline />
         <Technologies />
+        <Contact />
       </main>
       <Footer />
     </>

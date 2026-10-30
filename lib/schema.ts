@@ -186,7 +186,7 @@ export const aboutPageSchema = {
       "url": "https://upstairstechno.com/about",
       "name": "About Us & Corporate Leadership | Upstairs Techno Private Limited",
       "description":
-        "Leadership directory and corporate background of Upstairs Techno Private Limited, led by Chief Executive Officer (CEO) Kunal Gururaj Khetri, CTO Shreyash Chilweri, and founders Avinash Narute and Ganesh Kokare.",
+        "Leadership directory and corporate background of Upstairs Techno Private Limited, led by Chief Executive Officer (CEO) Kunal Gururaj Khetri and founded by Avinash Narute and Ganesh Kokare.",
       "isPartOf": {
         "@id": "https://upstairstechno.com/#website"
       },

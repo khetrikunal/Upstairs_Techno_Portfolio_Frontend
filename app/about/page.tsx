@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import {
@@ -24,7 +25,7 @@ import { aboutPageSchema } from "@/lib/schema";
 export const metadata = {
   title: "About Us & Corporate Leadership | Upstairs Techno Private Limited",
   description:
-    "Explore Upstairs Techno Private Limited, our leadership team led by Chief Executive Officer (CEO) Kunal Gururaj Khetri and CTO Shreyash Chilweri, founded by Avinash Narute and Ganesh Kokare. Discover our enterprise engineering, AI solutions, and tech talent programs.",
+    "Explore Upstairs Techno Private Limited, led by Chief Executive Officer (CEO) Kunal Gururaj Khetri and founded by Avinash Narute and Ganesh Kokare. Discover our enterprise engineering, AI solutions, and tech talent programs.",
   keywords: [
     "Kunal Gururaj Khetri",
     "Kunal Khetri",
@@ -32,7 +33,6 @@ export const metadata = {
     "Chief Executive Officer Upstairs Techno",
     "Upstairs Techno Private Limited",
     "Upstairs Techno CEO",
-    "Shreyash Chilweri",
     "Avinash Narute",
     "Ganesh Kokare",
     "Upstairs Techno Leadership",
@@ -154,6 +154,7 @@ const leadership = [
     title: "Chief Executive Officer (CEO)",
     fullTitle: "Chief Executive Officer & Director",
     company: "Upstairs Techno Private Limited",
+    image: "/Ceo.jpeg",
     bio: "Spearheads executive direction, corporate strategy, enterprise partnerships, and engineering innovation across global digital platforms at Upstairs Techno Private Limited.",
     profiles: [
       {
@@ -176,21 +177,10 @@ const leadership = [
         url: "https://www.instagram.com/_kunal.khetri/",
         icon: InstagramIcon,
       },
-    ],
-  },
-  {
-    id: "shreyash-chilweri",
-    name: "Shreyash Chilweri",
-    role: "CTO",
-    title: "Chief Technology Officer (CTO)",
-    fullTitle: "Chief Technology Officer",
-    company: "Upstairs Techno Private Limited",
-    bio: "Architects scalable systems, cloud infrastructure, AI solutions, and engineering excellence across our development portfolio.",
-    profiles: [
       {
-        name: "LinkedIn",
-        url: "https://www.linkedin.com/in/shreyash-chilweri",
-        icon: LinkedInIcon,
+        name: "Official Portfolio",
+        url: "https://ceo.upstairstechno.com",
+        icon: ExternalLink,
       },
     ],
   },
@@ -404,7 +394,7 @@ export default function AboutPage() {
               </p>
             </header>
 
-            {/* ── Executive Leadership: CEO & CTO (Primary Entity Crawl Target) ── */}
+            {/* ── Executive Leadership ── */}
             <section aria-labelledby="executive-leadership-heading" className="mt-12">
               <div className="text-center mb-8">
                 <p className="font-mono text-xs uppercase tracking-[0.35em] text-blueline font-bold">Board &amp; Executive Officers</p>
@@ -413,7 +403,7 @@ export default function AboutPage() {
                 </h3>
               </div>
 
-              <div className="grid gap-8 md:grid-cols-2 max-w-4xl mx-auto">
+              <div className="grid gap-8 max-w-2xl mx-auto">
                 {leadership.map((leader) => (
                   <article
                     key={leader.name}
@@ -423,6 +413,17 @@ export default function AboutPage() {
                     className="group flex flex-col justify-between rounded-[2rem] border border-grid bg-paper p-8 sm:p-10 text-center transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_16px_40px_-10px_rgba(37,87,255,0.14)]"
                   >
                     <div>
+                      <div className="mx-auto mb-5 h-36 w-36 overflow-hidden rounded-full border-2 border-grid shadow-md sm:h-40 sm:w-40">
+                        <Image
+                          itemProp="image"
+                          src={leader.image}
+                          alt={`${leader.name} - ${leader.role} at Upstairs Techno Private Limited`}
+                          className="h-full w-full object-cover object-[center_30%]"
+                          width={160}
+                          height={160}
+                          sizes="(min-width: 640px) 160px, 144px"
+                        />
+                      </div>
                       <div className="flex justify-center">
                         <span
                           itemProp="jobTitle"

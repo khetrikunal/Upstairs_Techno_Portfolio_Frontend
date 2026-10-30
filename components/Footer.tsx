@@ -53,6 +53,14 @@ function InstagramIcon({ className }: { className?: string }) {
   );
 }
 
+function LinkedInIcon({ className }: { className?: string }) {
+  return <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45c-.96 0-1.74.78-1.74 1.74s.78 1.74 1.74 1.74 1.74-.78 1.74-1.74-.78-1.74-1.74-1.74Z" /></svg>;
+}
+
+function FacebookIcon({ className }: { className?: string }) {
+  return <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073c0 6.02 4.388 11.019 10.125 11.927v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.313 0 2.686.236 2.686.236v2.976h-1.513c-1.49 0-1.956.93-1.956 1.885v2.263h3.328l-.532 3.49h-2.796V24C19.612 23.092 24 18.093 24 12.073Z" /></svg>;
+}
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -158,15 +166,6 @@ export default function Footer() {
             <ul className="space-y-4">
               <li>
                 <a
-                  href="mailto:contact@upstairstechno.com"
-                  className="flex items-start gap-2.5 text-sm text-paper/60 hover:text-blueline-soft transition-colors duration-200 group"
-                >
-                  <Mail className="w-4 h-4 mt-0.5 shrink-0 text-blueline/60 group-hover:text-blueline" />
-                  <span>contact@upstairstechno.com</span>
-                </a>
-              </li>
-              <li>
-                <a
                   href="mailto:info@upstairstechno.com"
                   className="flex items-start gap-2.5 text-sm text-paper/60 hover:text-blueline-soft transition-colors duration-200 group"
                 >
@@ -187,8 +186,8 @@ export default function Footer() {
               </li>
             </ul>
 
-            {/* Instagram Icon below Contact */}
-            <div className="mt-5 pt-1">
+            {/* Social media icons */}
+            <nav aria-label="Upstairs Techno social media" className="mt-5 pt-1 flex items-center gap-2.5">
               <a
                 href="https://www.instagram.com/upstairstechno/"
                 target="_blank"
@@ -198,7 +197,13 @@ export default function Footer() {
               >
                 <InstagramIcon className="w-4 h-4" />
               </a>
-            </div>
+              <a href="https://www.linkedin.com/company/upstairs-techno" target="_blank" rel="noopener noreferrer" aria-label="Upstairs Techno on LinkedIn" className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-paper/15 text-paper/60 hover:border-blueline hover:text-blueline-soft hover:bg-blueline/10 transition-all duration-200">
+                <LinkedInIcon className="w-4 h-4" />
+              </a>
+              <a href="https://www.facebook.com/share/1ddAxoNp3L/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" aria-label="Upstairs Techno on Facebook" className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-paper/15 text-paper/60 hover:border-blueline hover:text-blueline-soft hover:bg-blueline/10 transition-all duration-200">
+                <FacebookIcon className="w-4 h-4" />
+              </a>
+            </nav>
           </div>
         </div>
 
