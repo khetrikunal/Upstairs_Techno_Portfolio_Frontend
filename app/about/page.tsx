@@ -154,7 +154,7 @@ const leadership = [
     title: "Chief Executive Officer (CEO)",
     fullTitle: "Chief Executive Officer & Director",
     company: "Upstairs Techno Private Limited",
-    image: "/Ceo.jpeg",
+    image: "/CEO.jpeg",
     bio: "Spearheads executive direction, corporate strategy, enterprise partnerships, and engineering innovation across global digital platforms at Upstairs Techno Private Limited.",
     profiles: [
       {
