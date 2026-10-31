@@ -394,6 +394,55 @@ export default function AboutPage() {
               </p>
             </header>
 
+            {/* ── Founders ── */}
+            <section aria-labelledby="founders-heading" className="mt-14 pt-10 border-t border-grid">
+              <div className="text-center mb-8">
+                <p className="font-mono text-xs uppercase tracking-[0.35em] text-blueline font-bold">Company Origins</p>
+                <h3 id="founders-heading" className="mt-2 font-display text-xl sm:text-2xl font-bold text-ink">
+                  Founders
+                </h3>
+              </div>
+
+              <div className="flex flex-col items-center gap-8 sm:flex-row sm:justify-center sm:gap-10 lg:gap-14">
+                {founders.map((founder) => (
+                  <article
+                    key={founder.name}
+                    itemScope
+                    itemType="https://schema.org/Person"
+                    className="group flex flex-col items-center clay-card clay-card-hover p-7 sm:p-8 text-center w-full max-w-xs"
+                  >
+                    <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden border-2 border-grid shadow-md">
+                      <img
+                        itemProp="image"
+                        src={founder.image}
+                        alt={`${founder.name} - ${founder.role} at Upstairs Techno Private Limited`}
+                        className="w-full h-full object-cover object-top"
+                        loading="lazy"
+                        width={128}
+                        height={128}
+                      />
+                    </div>
+                    <span
+                      itemProp="jobTitle"
+                      className="mt-5 inline-block rounded-full bg-blueline/10 px-4 py-1.5 font-mono text-xs uppercase tracking-[0.3em] text-blueline font-bold"
+                    >
+                      {founder.role}
+                    </span>
+                    <h4
+                      itemProp="name"
+                      className="mt-3 font-display text-xl sm:text-2xl font-bold text-ink tracking-tight"
+                    >
+                      {founder.name}
+                    </h4>
+                    <meta itemProp="worksFor" content={founder.company} />
+                    <p itemProp="description" className="mt-2 text-xs text-slate">
+                      {founder.bio}
+                    </p>
+                  </article>
+                ))}
+              </div>
+            </section>
+
             {/* ── Executive Leadership ── */}
             <section aria-labelledby="executive-leadership-heading" className="mt-12">
               <div className="text-center mb-8">
@@ -488,54 +537,7 @@ export default function AboutPage() {
               </div>
             </section>
 
-            {/* ── Founders ── */}
-            <section aria-labelledby="founders-heading" className="mt-14 pt-10 border-t border-grid">
-              <div className="text-center mb-8">
-                <p className="font-mono text-xs uppercase tracking-[0.35em] text-blueline font-bold">Company Origins</p>
-                <h3 id="founders-heading" className="mt-2 font-display text-xl sm:text-2xl font-bold text-ink">
-                  Founders
-                </h3>
-              </div>
 
-              <div className="flex flex-col items-center gap-8 sm:flex-row sm:justify-center sm:gap-10 lg:gap-14">
-                {founders.map((founder) => (
-                  <article
-                    key={founder.name}
-                    itemScope
-                    itemType="https://schema.org/Person"
-                    className="group flex flex-col items-center clay-card clay-card-hover p-7 sm:p-8 text-center w-full max-w-xs"
-                  >
-                    <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden border-2 border-grid shadow-md">
-                      <img
-                        itemProp="image"
-                        src={founder.image}
-                        alt={`${founder.name} - ${founder.role} at Upstairs Techno Private Limited`}
-                        className="w-full h-full object-cover object-top"
-                        loading="lazy"
-                        width={128}
-                        height={128}
-                      />
-                    </div>
-                    <span
-                      itemProp="jobTitle"
-                      className="mt-5 inline-block rounded-full bg-blueline/10 px-4 py-1.5 font-mono text-xs uppercase tracking-[0.3em] text-blueline font-bold"
-                    >
-                      {founder.role}
-                    </span>
-                    <h4
-                      itemProp="name"
-                      className="mt-3 font-display text-xl sm:text-2xl font-bold text-ink tracking-tight"
-                    >
-                      {founder.name}
-                    </h4>
-                    <meta itemProp="worksFor" content={founder.company} />
-                    <p itemProp="description" className="mt-2 text-xs text-slate">
-                      {founder.bio}
-                    </p>
-                  </article>
-                ))}
-              </div>
-            </section>
           </div>
         </section>
 
