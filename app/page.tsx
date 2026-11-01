@@ -8,6 +8,7 @@ import Partners from "@/components/Partners";
 import ProcessTimeline from "@/components/ProcessTimeline";
 import Technologies from "@/components/Technologies";
 import OfficeCollage from "@/components/OfficeCollage";
+import PublicEvents from "@/components/PublicEvents";
 import Footer from "@/components/Footer";
 import Contact from "@/components/Contact";
 
@@ -23,6 +24,7 @@ export default function Home() {
         <Domains />
         <Partners />
         <OfficeCollage />
+        <PublicEvents />
         <ProcessTimeline />
         <Technologies />
         <Contact />
