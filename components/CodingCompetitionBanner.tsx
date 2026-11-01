@@ -43,7 +43,7 @@ export default function CodingCompetitionBanner() {
           <div className="mt-5 inline-flex items-center gap-2.5 rounded-full border border-brass/50 bg-gradient-to-r from-brass/25 via-brass/15 to-brass/25 px-5 sm:px-7 py-2 sm:py-2.5 shadow-lg shadow-brass/20 backdrop-blur-md">
             <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-brass animate-pulse shrink-0" />
             <span className="font-display text-base sm:text-lg md:text-xl font-black tracking-tight text-paper">
-              Starting 1st November 2026
+              Date to Be Announced (TBA)
             </span>
           </div>
 
