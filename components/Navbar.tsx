@@ -12,6 +12,7 @@ const LINKS = [
   { name: "About Us", href: "/about" },
   { name: "Domains", href: "/#domains" },
   { name: "Code Nova", href: "/#coding-competition" },
+  { name: "Events", href: "/#public-events" },
   {
     name: "Career",
     href: "https://careers.upstairstechno.com/",
@@ -26,6 +27,7 @@ const MOBILE_LINKS = [
   { name: "About Us", href: "/about" },
   { name: "Domains", href: "/#domains" },
   { name: "Code Nova", href: "/#coding-competition" },
+  { name: "Events", href: "/#public-events" },
   {
     name: "Career",
     href: "https://careers.upstairstechno.com/",
