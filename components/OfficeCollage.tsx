@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Building2, X, ChevronLeft, ChevronRight, Maximize2 } from "lucide-react";
+import { Building2, X, ChevronLeft, ChevronRight, Maximize2, ChevronDown } from "lucide-react";
 
 export type OfficePhoto = {
   id: string;
@@ -88,6 +88,7 @@ export const OFFICE_PHOTOS: OfficePhoto[] = [
 
 export default function OfficeCollage() {
   const [activePhotoIndex, setActivePhotoIndex] = useState<number | null>(null);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   // Close lightbox on Escape and support keyboard arrow navigation
   useEffect(() => {
@@ -123,7 +124,7 @@ export default function OfficeCollage() {
   const activePhoto = activePhotoIndex !== null ? OFFICE_PHOTOS[activePhotoIndex] : null;
 
   return (
-    <section id="our-workspace" className="relative py-20 sm:py-28 bg-paper text-ink overflow-hidden border-t border-grid scroll-mt-24 sm:scroll-mt-28">
+    <section id="our-workspace" className="relative py-12 sm:py-16 bg-paper text-ink overflow-hidden border-t border-grid scroll-mt-24 sm:scroll-mt-28">
       {/* Anchors for backward compatibility */}
       <div id="workplace" className="absolute -top-24 pointer-events-none" aria-hidden="true" />
       <div id="workspace" className="absolute -top-24 pointer-events-none" aria-hidden="true" />
@@ -137,7 +138,7 @@ export default function OfficeCollage() {
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
         {/* Section Header */}
-        <div className="text-center mb-12 sm:mb-16">
+        <div className="text-center mb-8 sm:mb-10">
           <div className="clay-pill clay-pill-accent mb-4">
             <Building2 className="w-3.5 h-3.5" />
             Inside Upstairs Techno
@@ -157,7 +158,7 @@ export default function OfficeCollage() {
             {/* 1. Large Tall Exterior Building */}
             <div
               onClick={() => setActivePhotoIndex(0)}
-              className="lg:col-span-5 relative group overflow-hidden rounded-2xl sm:rounded-3xl clay-card clay-card-hover p-0 cursor-pointer h-80 sm:h-96 lg:h-[530px]"
+              className="lg:col-span-5 relative group overflow-hidden rounded-2xl sm:rounded-3xl clay-card clay-card-hover p-0 cursor-pointer h-64 sm:h-72 lg:h-[340px]"
             >
               <Image
                 src={OFFICE_PHOTOS[0].src}
@@ -175,7 +176,7 @@ export default function OfficeCollage() {
               {/* 2. Conference Room Strategy */}
               <div
                 onClick={() => setActivePhotoIndex(1)}
-                className="relative group overflow-hidden rounded-2xl sm:rounded-3xl clay-card clay-card-hover p-0 cursor-pointer h-64 sm:h-[253px]"
+                className={`relative group overflow-hidden rounded-2xl sm:rounded-3xl clay-card clay-card-hover p-0 cursor-pointer h-64 sm:h-72 lg:h-[340px] ${isExpanded ? "" : "sm:col-span-2 lg:col-span-2"}`}
               >
                 <Image
                   src={OFFICE_PHOTOS[1].src}
@@ -187,10 +188,11 @@ export default function OfficeCollage() {
                 <PhotoCardOverlay photo={OFFICE_PHOTOS[1]} />
               </div>
 
+              {isExpanded && <>
               {/* 3. Branded Main Entrance */}
               <div
                 onClick={() => setActivePhotoIndex(2)}
-                className="relative group overflow-hidden rounded-2xl sm:rounded-3xl border border-grid/80 bg-paper-dim shadow-sm hover:shadow-xl hover:border-blueline/50 transition-all duration-300 cursor-pointer h-64 sm:h-[253px]"
+                className="relative group overflow-hidden rounded-2xl sm:rounded-3xl border border-grid/80 bg-paper-dim shadow-sm hover:shadow-xl hover:border-blueline/50 transition-all duration-300 cursor-pointer h-64 sm:h-72"
               >
                 <Image
                   src={OFFICE_PHOTOS[2].src}
@@ -205,7 +207,7 @@ export default function OfficeCollage() {
               {/* 4. Full Engineering Workstation Bay */}
               <div
                 onClick={() => setActivePhotoIndex(3)}
-                className="sm:col-span-2 relative group overflow-hidden rounded-2xl sm:rounded-3xl border border-grid/80 bg-paper-dim shadow-sm hover:shadow-xl hover:border-blueline/50 transition-all duration-300 cursor-pointer h-64 sm:h-[253px]"
+                className="sm:col-span-2 relative group overflow-hidden rounded-2xl sm:rounded-3xl border border-grid/80 bg-paper-dim shadow-sm hover:shadow-xl hover:border-blueline/50 transition-all duration-300 cursor-pointer h-64 sm:h-72"
               >
                 <Image
                   src={OFFICE_PHOTOS[3].src}
@@ -216,18 +218,27 @@ export default function OfficeCollage() {
                 />
                 <PhotoCardOverlay photo={OFFICE_PHOTOS[3]} />
               </div>
+              </>}
             </div>
           </div>
 
           {/* Lower Grid (6 photos in balanced responsive columns) */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
+          <AnimatePresence initial={false}>
+          {isExpanded && <motion.div
+            key="more-workspace-photos"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+            className="overflow-hidden"
+          ><div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6 pt-4 sm:pt-5 lg:pt-6">
             {OFFICE_PHOTOS.slice(4).map((photo, idx) => {
               const globalIndex = idx + 4;
               return (
                 <div
                   key={photo.id}
                   onClick={() => setActivePhotoIndex(globalIndex)}
-                  className="relative group overflow-hidden rounded-2xl sm:rounded-3xl border border-grid/80 bg-paper-dim shadow-sm hover:shadow-xl hover:border-blueline/50 transition-all duration-300 cursor-pointer h-64 sm:h-72 lg:h-[285px]"
+                  className="relative group overflow-hidden rounded-2xl sm:rounded-3xl border border-grid/80 bg-paper-dim shadow-sm hover:shadow-xl hover:border-blueline/50 transition-all duration-300 cursor-pointer h-56 sm:h-64 lg:h-[260px]"
                 >
                   <Image
                     src={photo.src}
@@ -241,6 +252,20 @@ export default function OfficeCollage() {
               );
             })}
           </div>
+          </motion.div>}
+          </AnimatePresence>
+        </div>
+
+        <div className="mt-6 sm:mt-8 flex justify-center">
+          <button
+            type="button"
+            onClick={() => setIsExpanded((expanded) => !expanded)}
+            aria-expanded={isExpanded}
+            className="inline-flex min-h-11 items-center gap-2 rounded-full border border-blueline/30 bg-paper px-6 py-2.5 font-display text-sm font-bold text-blueline shadow-sm transition-all duration-200 hover:border-blueline hover:bg-blueline hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blueline focus-visible:ring-offset-2"
+          >
+            {isExpanded ? "View Less" : "View More"}
+            <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${isExpanded ? "rotate-180" : ""}`} />
+          </button>
         </div>
       </div>
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
+import { useState } from "react";
 import {
   HeartPulse,
   GraduationCap,
@@ -253,88 +254,111 @@ export const DOMAINS: DomainItem[] = [
 
 export default function Domains() {
   const shouldReduceMotion = useReducedMotion();
+  const [activeDomain, setActiveDomain] = useState<string | null>(null);
 
   return (
     <section
       id="domains"
-      className="relative py-20 sm:py-28 lg:py-32 bg-paper overflow-hidden scroll-mt-24 sm:scroll-mt-28"
+      className="relative py-12 sm:py-16 lg:py-20 bg-paper overflow-hidden scroll-mt-24 sm:scroll-mt-28"
     >
       {/* Blueprint grid background */}
-      <div className="absolute inset-0 blueprint-grid opacity-35 pointer-events-none" />
+      <div className="absolute inset-0 blueprint-grid opacity-15 pointer-events-none" />
 
       {/* Decorative gradient glow blobs */}
-      <div className="absolute -top-32 -left-32 w-96 h-96 bg-blueline/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-brass/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="domains-glow absolute -top-32 -left-32 w-80 h-80 bg-blueline/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="domains-glow domains-glow-delayed absolute -bottom-32 -right-32 w-80 h-80 bg-blueline/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center max-w-3xl mx-auto mb-12 sm:mb-16"
+          transition={{ duration: shouldReduceMotion ? 0 : 0.4 }}
+          className="text-center max-w-3xl mx-auto mb-7 sm:mb-9"
         >
-          <div className="clay-pill clay-pill-accent mb-4">
+          <div className="clay-pill clay-pill-accent mb-3">
             <Sparkles className="w-3.5 h-3.5 text-blueline" />
             Industry Expertise
           </div>
           <h2 className="font-display text-section-heading font-black text-ink tracking-tight text-balance">
             What Domains We Work In
           </h2>
-          <p className="mt-4 text-base sm:text-lg md:text-xl text-slate leading-relaxed text-balance">
+          <div className="mx-auto mt-2 h-1 w-16 rounded-full bg-gradient-to-r from-blueline/40 via-blueline to-blueline/40" />
+          <p className="mt-3 text-sm sm:text-base text-slate leading-relaxed text-balance">
             Tailored software solutions across key industries — built to streamline operations and accelerate digital growth.
           </p>
         </motion.div>
 
         {/* Domain Tags Grid — names only, no subcategories */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4">
-          {DOMAINS.map((domain, idx) => {
+        <motion.div
+          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2.5 sm:gap-3"
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: shouldReduceMotion ? 0 : 0.045 } },
+          }}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-24px" }}
+        >
+          {DOMAINS.map((domain) => {
             const Icon = domain.icon;
             return (
-              <motion.div
+              <motion.button
+                type="button"
                 key={domain.id}
                 id={domain.id}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.4, delay: idx * 0.05 }}
-                className="group flex flex-col items-center gap-3 clay-card clay-card-hover p-4 sm:p-5 text-center cursor-default"
-                style={
-                  shouldReduceMotion
-                    ? {}
-                    : {
-                        animation: `domainFloat ${2.8 + (idx % 4) * 0.35}s ${idx * 0.18}s ease-in-out infinite`,
-                      }
-                }
+                variants={{
+                  hidden: shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 12 },
+                  visible: { opacity: 1, y: 0 },
+                }}
+                transition={{ duration: shouldReduceMotion ? 0 : 0.28, ease: "easeOut" }}
+                whileHover={shouldReduceMotion ? undefined : { y: -3, scale: 1.015 }}
+                whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+                aria-label={`${domain.name}. ${domain.tagline}`}
+                aria-pressed={activeDomain === domain.id}
+                onClick={() => setActiveDomain((current) => current === domain.id ? null : domain.id)}
+                className="group relative flex min-h-28 sm:min-h-32 flex-col items-center justify-center gap-2 overflow-hidden rounded-xl border border-ink/10 bg-white/90 p-3 text-center shadow-[0_3px_14px_rgba(11,27,58,0.05)] transition-[border-color,box-shadow,background-color] duration-200 hover:border-blueline/60 hover:bg-white hover:shadow-[0_8px_24px_rgba(37,87,255,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blueline focus-visible:ring-offset-2"
               >
+                <span className="pointer-events-none absolute inset-0 bg-gradient-to-br from-blueline/[0.07] via-transparent to-blueline/[0.03] opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100" />
                 {/* Icon badge */}
                 <div
-                  className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0 transition-transform duration-300 group-hover:scale-110"
+                  className="relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3"
                   style={{
                     backgroundColor: `${domain.color}14`,
                     color: domain.color,
                     border: `1.5px solid ${domain.color}30`,
                   }}
                 >
-                  <Icon className="w-5 h-5" />
+                  <Icon className="h-[18px] w-[18px]" />
                 </div>
 
                 {/* Domain name only */}
-                <p className="font-display text-sm sm:text-base font-bold text-ink leading-snug">
+                <p className="relative z-10 font-display text-xs sm:text-sm font-bold text-ink leading-snug">
                   {domain.name}
                 </p>
-              </motion.div>
+                <span
+                  aria-hidden="true"
+                  className={`absolute inset-0 z-20 flex items-center justify-center rounded-xl bg-gradient-to-br from-ink via-[#102c62] to-blueline px-3 py-2 text-[11px] leading-snug text-white transition-all duration-[250ms] ${activeDomain === domain.id ? "opacity-100" : "pointer-events-none opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100"}`}
+                >
+                  {domain.tagline}
+                </span>
+              </motion.button>
             );
           })}
-        </div>
+        </motion.div>
       </div>
 
-      {/* Float keyframe */}
+      {/* Restrained ambient accent, disabled for reduced-motion preferences. */}
       <style>{`
-        @keyframes domainFloat {
-          0%, 100% { transform: translateY(0px); }
-          50%       { transform: translateY(-5px); }
+        @keyframes domainsGlowDrift {
+          0%, 100% { transform: translate(0, 0); }
+          50% { transform: translate(10px, -8px); }
+        }
+        .domains-glow { animation: domainsGlowDrift 12s ease-in-out infinite; }
+        .domains-glow-delayed { animation-delay: -6s; }
+        @media (prefers-reduced-motion: reduce) {
+          .domains-glow, .domains-glow-delayed { animation: none; }
         }
       `}</style>
     </section>
