@@ -259,14 +259,14 @@ export default function Domains() {
   return (
     <section
       id="domains"
-      className="relative py-12 sm:py-16 lg:py-20 bg-paper overflow-hidden scroll-mt-24 sm:scroll-mt-28"
+      className="relative py-9 sm:py-11 lg:py-12 bg-paper overflow-hidden scroll-mt-24 sm:scroll-mt-28"
     >
       {/* Blueprint grid background */}
       <div className="absolute inset-0 blueprint-grid opacity-15 pointer-events-none" />
 
       {/* Decorative gradient glow blobs */}
-      <div className="domains-glow absolute -top-32 -left-32 w-80 h-80 bg-blueline/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="domains-glow domains-glow-delayed absolute -bottom-32 -right-32 w-80 h-80 bg-blueline/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="domains-glow absolute -top-32 -left-32 w-72 h-72 bg-blueline/8 rounded-full blur-3xl pointer-events-none" />
+      <div className="domains-glow domains-glow-delayed absolute -bottom-32 -right-32 w-72 h-72 bg-blueline/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
         {/* Section Header */}
@@ -275,78 +275,51 @@ export default function Domains() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: shouldReduceMotion ? 0 : 0.4 }}
-          className="text-center max-w-3xl mx-auto mb-7 sm:mb-9"
+          className="text-center max-w-3xl mx-auto mb-5 sm:mb-6"
         >
-          <div className="clay-pill clay-pill-accent mb-3">
+          <div className="clay-pill clay-pill-accent mb-2">
             <Sparkles className="w-3.5 h-3.5 text-blueline" />
             Industry Expertise
           </div>
           <h2 className="font-display text-section-heading font-black text-ink tracking-tight text-balance">
             What Domains We Work In
           </h2>
-          <div className="mx-auto mt-2 h-1 w-16 rounded-full bg-gradient-to-r from-blueline/40 via-blueline to-blueline/40" />
-          <p className="mt-3 text-sm sm:text-base text-slate leading-relaxed text-balance">
+          <div className="mx-auto mt-1.5 h-1 w-14 rounded-full bg-gradient-to-r from-blueline/40 via-blueline to-blueline/40" />
+          <p className="mt-2 text-xs sm:text-sm text-slate leading-relaxed text-balance">
             Tailored software solutions across key industries — built to streamline operations and accelerate digital growth.
           </p>
         </motion.div>
 
-        {/* Domain Tags Grid — names only, no subcategories */}
-        <motion.div
-          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2.5 sm:gap-3"
-          variants={{
-            hidden: {},
-            visible: { transition: { staggerChildren: shouldReduceMotion ? 0 : 0.045 } },
-          }}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-24px" }}
+        {/* Compact vertical loop. The reduced-motion mode becomes manually scrollable. */}
+        <div
+          className={`domains-carousel mx-auto w-full max-w-md h-[10rem] sm:h-[17rem] overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_9%,black_91%,transparent)] ${activeDomain ? "is-paused" : ""}`}
+          aria-label="Industry domains"
+          tabIndex={0}
         >
-          {DOMAINS.map((domain) => {
-            const Icon = domain.icon;
-            return (
-              <motion.button
-                type="button"
-                key={domain.id}
-                id={domain.id}
-                variants={{
-                  hidden: shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 12 },
-                  visible: { opacity: 1, y: 0 },
-                }}
-                transition={{ duration: shouldReduceMotion ? 0 : 0.28, ease: "easeOut" }}
-                whileHover={shouldReduceMotion ? undefined : { y: -3, scale: 1.015 }}
-                whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
-                aria-label={`${domain.name}. ${domain.tagline}`}
-                aria-pressed={activeDomain === domain.id}
-                onClick={() => setActiveDomain((current) => current === domain.id ? null : domain.id)}
-                className="group relative flex min-h-28 sm:min-h-32 flex-col items-center justify-center gap-2 overflow-hidden rounded-xl border border-ink/10 bg-white/90 p-3 text-center shadow-[0_3px_14px_rgba(11,27,58,0.05)] transition-[border-color,box-shadow,background-color] duration-200 hover:border-blueline/60 hover:bg-white hover:shadow-[0_8px_24px_rgba(37,87,255,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blueline focus-visible:ring-offset-2"
-              >
-                <span className="pointer-events-none absolute inset-0 bg-gradient-to-br from-blueline/[0.07] via-transparent to-blueline/[0.03] opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100" />
-                {/* Icon badge */}
-                <div
-                  className="relative z-10 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3"
-                  style={{
-                    backgroundColor: `${domain.color}14`,
-                    color: domain.color,
-                    border: `1.5px solid ${domain.color}30`,
-                  }}
-                >
-                  <Icon className="h-[18px] w-[18px]" />
-                </div>
-
-                {/* Domain name only */}
-                <p className="relative z-10 font-display text-xs sm:text-sm font-bold text-ink leading-snug">
-                  {domain.name}
-                </p>
-                <span
-                  aria-hidden="true"
-                  className={`absolute inset-0 z-20 flex items-center justify-center rounded-xl bg-gradient-to-br from-ink via-[#102c62] to-blueline px-3 py-2 text-[11px] leading-snug text-white transition-all duration-[250ms] ${activeDomain === domain.id ? "opacity-100" : "pointer-events-none opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100"}`}
-                >
-                  {domain.tagline}
-                </span>
-              </motion.button>
-            );
-          })}
-        </motion.div>
+          <div className="domains-track">
+            <div className="domains-sequence" role="list" aria-label="All industry domains">
+              {DOMAINS.map((domain) => (
+                <DomainCard
+                  key={domain.id}
+                  domain={domain}
+                  active={activeDomain === domain.id}
+                  onToggle={() => setActiveDomain((current) => current === domain.id ? null : domain.id)}
+                />
+              ))}
+            </div>
+            <div className="domains-sequence" role="list" aria-hidden="true">
+              {DOMAINS.map((domain) => (
+                <DomainCard
+                  key={domain.id}
+                  domain={domain}
+                  active={activeDomain === domain.id}
+                  duplicate
+                  onToggle={() => setActiveDomain((current) => current === domain.id ? null : domain.id)}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Restrained ambient accent, disabled for reduced-motion preferences. */}
@@ -357,10 +330,73 @@ export default function Domains() {
         }
         .domains-glow { animation: domainsGlowDrift 12s ease-in-out infinite; }
         .domains-glow-delayed { animation-delay: -6s; }
+        .domains-carousel { --domain-card-gap: 0.5rem; }
+        .domains-track { animation: domainsScroll 32s linear infinite; will-change: transform; }
+        .domains-sequence { display: flex; flex-direction: column; gap: var(--domain-card-gap); padding-bottom: var(--domain-card-gap); }
+        .domains-carousel:hover .domains-track,
+        .domains-carousel:focus-within .domains-track,
+        .domains-carousel.is-paused .domains-track { animation-play-state: paused; }
+        @keyframes domainsScroll { to { transform: translateY(-50%); } }
+        @media (max-width: 639px) {
+          .domains-carousel { --domain-card-gap: 0.375rem; }
+          .domains-track { animation-duration: 26s; }
+        }
         @media (prefers-reduced-motion: reduce) {
           .domains-glow, .domains-glow-delayed { animation: none; }
+          .domains-carousel { overflow-y: auto; mask-image: none; }
+          .domains-track { animation: none; will-change: auto; }
+          .domains-sequence[aria-hidden="true"] { display: none; }
         }
       `}</style>
     </section>
+  );
+}
+
+function DomainCard({
+  domain,
+  active,
+  duplicate = false,
+  onToggle,
+}: {
+  domain: DomainItem;
+  active: boolean;
+  duplicate?: boolean;
+  onToggle: () => void;
+}) {
+  const Icon = domain.icon;
+
+  return (
+    <div role="listitem" className="h-14 sm:h-16 shrink-0">
+      <button
+        type="button"
+        id={duplicate ? undefined : domain.id}
+        tabIndex={duplicate ? -1 : undefined}
+        aria-label={`${domain.name}. ${domain.tagline}`}
+        aria-pressed={active}
+        onClick={onToggle}
+        className="group relative flex h-full w-full items-center gap-3 overflow-hidden rounded-xl border border-ink/10 bg-white/95 px-3 text-left shadow-[0_3px_14px_rgba(11,27,58,0.05)] transition-[border-color,box-shadow,background-color] duration-200 hover:border-blueline/60 hover:shadow-[0_8px_24px_rgba(37,87,255,0.12)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blueline focus-visible:ring-offset-2"
+      >
+        <span className="pointer-events-none absolute inset-0 bg-gradient-to-r from-blueline/[0.06] to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100" />
+        <span
+          className="relative z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg"
+          style={{
+            backgroundColor: `${domain.color}14`,
+            color: domain.color,
+            border: `1.5px solid ${domain.color}30`,
+          }}
+        >
+          <Icon className="h-4 w-4" />
+        </span>
+        <span className="relative z-10 line-clamp-2 font-display text-xs sm:text-sm font-bold leading-tight text-ink">
+          {domain.name}
+        </span>
+        <span
+          aria-hidden="true"
+          className={`absolute inset-0 z-20 flex items-center rounded-xl bg-gradient-to-r from-ink via-[#102c62] to-blueline px-3 py-2 text-[11px] leading-snug text-white transition-opacity duration-200 ${active ? "opacity-100" : "pointer-events-none opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100"}`}
+        >
+          {domain.tagline}
+        </span>
+      </button>
+    </div>
   );
 }

@@ -161,7 +161,7 @@ export default function Footer() {
           </div>
 
           {/* Contact column */}
-          <div>
+          <div id="contact" className="scroll-mt-28">
             <h3 className="text-xs font-mono uppercase tracking-[0.3em] text-paper/40 mb-4">Contact</h3>
             <ul className="space-y-4">
               <li>

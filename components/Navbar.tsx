@@ -11,7 +11,7 @@ const LINKS = [
   { name: "Services", href: "/#services" },
   { name: "About Us", href: "/about" },
   { name: "Domains", href: "/#domains" },
-  { name: "Code Nova", href: "/#coding-competition" },
+  { name: "Contact Us", href: "/#contact" },
   { name: "Events", href: "/#public-events" },
   {
     name: "Career",
@@ -26,7 +26,7 @@ const MOBILE_LINKS = [
   { name: "Services", href: "/#services" },
   { name: "About Us", href: "/about" },
   { name: "Domains", href: "/#domains" },
-  { name: "Code Nova", href: "/#coding-competition" },
+  { name: "Contact Us", href: "/#contact" },
   { name: "Events", href: "/#public-events" },
   {
     name: "Career",
@@ -34,7 +34,6 @@ const MOBILE_LINKS = [
     target: "_blank",
     rel: "noopener noreferrer",
   },
-  { name: "Contact Us", href: "/#contact" },
 ];
 
 export default function Navbar() {
@@ -368,13 +367,6 @@ export default function Navbar() {
               >
                 Apply for Job
                 <ArrowUpRight className="w-4 h-4" />
-              </a>
-              <a
-                href="/#contact"
-                onClick={(e) => handleNavClick(e, "/#contact")}
-                className="w-full flex items-center justify-center gap-2 rounded-full border border-grid bg-paper px-6 py-3 text-sm font-semibold text-ink hover:bg-paper-dim transition-colors min-h-[44px]"
-              >
-                Contact Us
               </a>
             </div>
           </motion.div>

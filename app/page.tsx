@@ -10,7 +10,6 @@ import Technologies from "@/components/Technologies";
 import OfficeCollage from "@/components/OfficeCollage";
 import PublicEvents from "@/components/PublicEvents";
 import Footer from "@/components/Footer";
-import Contact from "@/components/Contact";
 
 export default function Home() {
   return (
@@ -27,7 +26,6 @@ export default function Home() {
         <PublicEvents />
         <ProcessTimeline />
         <Technologies />
-        <Contact />
       </main>
       <Footer />
     </>
