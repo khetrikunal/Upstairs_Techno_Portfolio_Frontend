@@ -148,13 +148,13 @@ const ecosystem = [
 
 const leadership = [
   {
-    id: "kunal-gururaj-khetri",
-    name: "Kunal Gururaj Khetri",
+    id: "kunal-khetri",
+    name: "Kunal Khetri",
     role: "CEO",
     title: "Chief Executive Officer (CEO)",
     fullTitle: "Chief Executive Officer & Director",
     company: "Upstairs Techno Private Limited",
-    image: "/CEO.jpeg",
+    image: "/Kunal Khetri CEO.jpeg",
     bio: "Spearheads executive direction, corporate strategy, enterprise partnerships, and engineering innovation across global digital platforms at Upstairs Techno Private Limited.",
     profiles: [
       {
@@ -183,6 +183,28 @@ const leadership = [
         icon: ExternalLink,
       },
     ],
+  },
+  {
+    id: "shreyash-chilweri",
+    name: "Shreyash Chilweri",
+    role: "CTO",
+    title: "Chief Technology Officer (CTO)",
+    fullTitle: "Chief Technology Officer",
+    company: "Upstairs Techno Private Limited",
+    image: "/CTO.jpeg",
+    bio: "Leads technology strategy, engineering standards, and the development of scalable digital solutions at Upstairs Techno Private Limited.",
+    profiles: [],
+  },
+  {
+    id: "darshan-kshetri",
+    name: "Darshan Kshetri",
+    role: "COO",
+    title: "Chief Operating Officer (COO)",
+    fullTitle: "Chief Operating Officer",
+    company: "Upstairs Techno Private Limited",
+    image: "/COO.jpeg",
+    bio: "Oversees day-to-day operations, business processes, and coordinated execution across Upstairs Techno Private Limited.",
+    profiles: [],
   },
 ];
 
@@ -452,7 +474,7 @@ export default function AboutPage() {
                 </h3>
               </div>
 
-              <div className="grid gap-8 max-w-2xl mx-auto">
+              <div className="grid gap-8 max-w-6xl mx-auto md:grid-cols-2 xl:grid-cols-3">
                 {leadership.map((leader) => (
                   <article
                     key={leader.name}
