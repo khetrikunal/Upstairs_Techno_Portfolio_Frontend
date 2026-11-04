@@ -11,7 +11,7 @@ const LINKS = [
   { name: "Services", href: "/#services" },
   { name: "About Us", href: "/about" },
   { name: "Domains", href: "/#domains" },
-  { name: "Contact Us", href: "/#contact" },
+  { name: "Contact Us", href: "/contact" },
   { name: "Events", href: "/#public-events" },
   {
     name: "Career",
@@ -26,7 +26,7 @@ const MOBILE_LINKS = [
   { name: "Services", href: "/#services" },
   { name: "About Us", href: "/about" },
   { name: "Domains", href: "/#domains" },
-  { name: "Contact Us", href: "/#contact" },
+  { name: "Contact Us", href: "/contact" },
   { name: "Events", href: "/#public-events" },
   {
     name: "Career",
