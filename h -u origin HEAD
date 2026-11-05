@@ -1,0 +1,126 @@
+[33mcommit 8405b08cc22773ef9567d842457d0809a95e4c26[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: kunal <khetrikunal24@gmail.com>
+Date:   Mon Oct 19 14:24:56 2026 +0530
+
+    Jobs.upstairstechno.com updated/ job vacancy updated
+
+[33mcommit 6659dfe3ba5f484d8175069fbfd456ffce6aab98[m
+Author: kunal <khetrikunal24@gmail.com>
+Date:   Sat Oct 17 16:49:32 2026 +0530
+
+    feat: add about page and JSON-LD schema for corporate leadership and services
+
+[33mcommit 8562c4e7e958459f7b5aeac1bbdb6a3150b2eda4[m
+Author: kunal <khetrikunal24@gmail.com>
+Date:   Sat Oct 17 00:53:08 2026 +0530
+
+    feat: add root layout, about page, and organization schema definitions
+
+[33mcommit c59a643beaf4247ae13e52985012ccb80ae9e238[m
+Author: kunal <khetrikunal24@gmail.com>
+Date:   Sun Oct 11 17:43:37 2026 +0530
+
+    feat: add root layout with custom fonts, metadata, and site favicon assets
+
+[33mcommit 3920c0766d1016191b3efa2b499dc3132262c922[m
+Author: kunal <khetrikunal24@gmail.com>
+Date:   Sun Oct 11 16:47:39 2026 +0530
+
+    feat: add frontend components, pages, and design system files for portfolio website
+
+[33mcommit 2a185c5feb8f524205b01ae779ead1f548d80fd7[m
+Author: kunal <khertikunal24@gmail.com>
+Date:   Sat Oct 3 00:15:35 2026 +0530
+
+    feat: add new partner logos and office pictures
+
+[33mcommit 56ab7400bb463797b29c9e180636267645748d8a[m
+Author: kunal <khertikunal24@gmail.com>
+Date:   Fri Oct 2 13:33:02 2026 +0530
+
+    partners Logo Updated
+
+[33mcommit f221c653cbaf4988e0db87adc50fbee5b623a4ce[m
+Author: kunal <khertikunal24@gmail.com>
+Date:   Tue Sep 29 14:02:28 2026 +0530
+
+    Miner Changes Updated
+
+[33mcommit 265a873dac832e404ad1b2b442fd8d8680a3dae7[m
+Author: kunal <khertikunal24@gmail.com>
+Date:   Sun Sep 20 12:06:41 2026 +0530
+
+    favicon updated
+
+[33mcommit 6140c43b95949858e090381596c012f5c7874342[m
+Author: kunal <khertikunal24@gmail.com>
+Date:   Thu Sep 17 13:12:19 2026 +0530
+
+    careers.upstairstechno.com updated
+
+[33mcommit 286dbbe40d75aed4db4caa5069e14937b84799d5[m
+Author: kunal <khertikunal24@gmail.com>
+Date:   Wed Sep 16 00:09:41 2026 +0530
+
+    final chnages updated
+
+[33mcommit 43fc92eea7a9ed1af2553cef978a1e6f6979fcd4[m
+Author: kunal <khertikunal24@gmail.com>
+Date:   Sun Sep 13 17:11:04 2026 +0530
+
+    Founder Image updated
+
+[33mcommit b065bec768d1683e14b0933d7e053e6a94431fad[m
+Author: kunal <khertikunal24@gmail.com>
+Date:   Sat Sep 12 15:28:43 2026 +0530
+
+    sub domain link integrated
+
+[33mcommit 11c2272be8a3060e52bff267379400a7cb48566a[m
+Author: kunal <khertikunal24@gmail.com>
+Date:   Sat Sep 12 15:04:57 2026 +0530
+
+    Removed Schedule from the home page
+
+[33mcommit b31e4660dd6bb9200c7e6f56377ebd29e81800e9[m
+Author: kunal <khertikunal24@gmail.com>
+Date:   Sat Sep 12 14:26:55 2026 +0530
+
+    Products Details Added
+
+[33mcommit b0a9fe68cd1e6b8b599602cc84d11903a19f4804[m
+Author: kunal <khertikunal24@gmail.com>
+Date:   Sat Sep 12 12:00:21 2026 +0530
+
+    miner Chnages Applied
+
+[33mcommit 437289653b790ff5b27a17a76425b1de8eef0589[m
+Author: kunal <khertikunal24@gmail.com>
+Date:   Sat Sep 12 11:45:34 2026 +0530
+
+    Navabar changes Done
+
+[33mcommit 20aef2c70aba8179efce3b85a5464f42e4158361[m
+Author: kunal <khertikunal24@gmail.com>
+Date:   Fri Sep 11 20:30:00 2026 +0530
+
+    feat: initialize portfolio frontend with landing page, service modules, and contact forms
+
+[33mcommit 1458b66f14c64ddfb0da90bed381bf9f0a44c4bc[m
+Merge: 8fc00f5 c5c24fd
+Author: kunal <khertikunal24@gmail.com>
+Date:   Thu Sep 10 21:20:21 2026 +0530
+
+    Merge branch 'main' of https://github.com/khetrikunal/Upstairs_Techno_Portfolio_Frontend
+
+[33mcommit 8fc00f5876017e1287a0c02648b17622b2fe0519[m
+Author: kunal <khertikunal24@gmail.com>
+Date:   Thu Sep 10 21:17:10 2026 +0530
+
+    Intiial phase of upstairs
+
+[33mcommit c5c24fd512383238d2178bf765d069df9e65618e[m
+Author: Kunal Khetri <khetrikunal24@gmail.com>
+Date:   Thu Sep 10 21:15:04 2026 +0530
+
+    Initial commit

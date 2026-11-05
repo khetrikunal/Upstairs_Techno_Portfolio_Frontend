@@ -552,4 +552,99 @@ label {
   transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* Mobile refinements. These rules only apply below Tailwind's sm breakpoint,
+   leaving the established tablet and desktop composition untouched. */
+@media (max-width: 639px) {
+  html {
+    scroll-padding-top: 5rem;
+  }
+
+  img,
+  video,
+  canvas,
+  iframe {
+    max-width: 100%;
+  }
+
+  /* Let long labels, URLs, and flex/grid children wrap instead of widening
+     the document on narrow phones. */
+  main,
+  section,
+  article,
+  [class*="grid"],
+  [class*="flex"] {
+    min-width: 0;
+  }
+
+  p,
+  li,
+  a,
+  button,
+  label,
+  input,
+  textarea,
+  select {
+    overflow-wrap: anywhere;
+  }
+
+  .text-hero-heading {
+    font-size: clamp(2.125rem, 8.2vw, 2.75rem);
+    line-height: 1.08;
+  }
+
+  .text-hero-paragraph {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  .text-section-heading {
+    font-size: clamp(1.875rem, 7vw, 2.375rem);
+    line-height: 1.12;
+  }
+
+  .text-subheading {
+    font-size: 1.2rem;
+    line-height: 1.35;
+  }
+
+  /* Several route and content cards use the same desktop p-8/p-10 spacing.
+     Keep their visual style while reclaiming space on phones. */
+  [class~="p-8"],
+  [class~="p-10"] {
+    padding: 1.25rem;
+  }
+
+  [class~="px-8"],
+  [class~="px-9"],
+  [class~="px-10"] {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  [class~="py-20"],
+  [class~="py-24"],
+  [class~="py-28"] {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .clay-btn,
+  button,
+  input[type="button"],
+  input[type="submit"] {
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 359px) {
+  .text-hero-heading {
+    font-size: 2rem;
+  }
+
+  [class~="gap-8"],
+  [class~="gap-10"] {
+    gap: 1.25rem;
+  }
+}
+
 
