@@ -1,3 +1,5 @@
+import Image from "next/image";
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import {
@@ -13,12 +15,15 @@ import {
   Laptop,
   Award,
   Medal,
+  GraduationCap,
+  Globe2,
+  Building2,
 } from "lucide-react";
 
 export const metadata = {
   title: "Education Division | Upstairs Techno",
   description:
-    "Empowering students with future-ready technology skills through Code Nova monthly coding championships and practical AI courses.",
+    "Empowering students with future-ready technology skills through Code Nova coding competitions, nationwide Olympiad examinations, and practical AI courses.",
 };
 
 export default function EducationDivisionPage() {
@@ -39,7 +44,7 @@ export default function EducationDivisionPage() {
                 Empowering Students With Future-Ready Tech Skills
               </h1>
               <p className="mt-6 text-lg sm:text-xl text-paper/80 leading-relaxed">
-                The Education division of Upstairs Techno delivers practical technology education through our monthly nationwide <strong className="text-white">Code Nova</strong> skill championship and comprehensive <strong className="text-white">AI Courses</strong> designed for school students, college freshers, and aspiring developers.
+                The Education division of Upstairs Techno delivers practical technology education through our nationwide <strong className="text-white">CodeNova</strong> coding competition, the <strong className="text-white">Olympiad Examination</strong> (Standard 1st–12th), and comprehensive <strong className="text-white">AI Courses</strong>.
               </p>
 
               <div className="mt-10 flex flex-wrap items-center gap-4">
@@ -47,8 +52,16 @@ export default function EducationDivisionPage() {
                   href="/education/coding-competition"
                   className="inline-flex items-center gap-2.5 rounded-full bg-blueline px-7 py-3.5 text-base font-bold text-paper shadow-lg shadow-blueline/30 hover:bg-blueline-soft transition-all"
                 >
-                  <Trophy className="w-5 h-5" />
-                  <span>Code Nova Championship</span>
+                  <Code2 className="w-5 h-5" />
+                  <span>CodeNova Competition</span>
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+                <a
+                  href="/education/olympiad"
+                  className="inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 px-7 py-3.5 text-base font-bold text-white shadow-lg shadow-amber-500/30 transition-all"
+                >
+                  <GraduationCap className="w-5 h-5" />
+                  <span>Olympiad Examination</span>
                   <ArrowRight className="w-4 h-4" />
                 </a>
                 <a
@@ -58,7 +71,7 @@ export default function EducationDivisionPage() {
                   className="inline-flex items-center gap-2.5 rounded-full border border-amber-400/40 bg-amber-400/10 px-6 py-3.5 text-base font-semibold text-amber-300 hover:bg-amber-400/20 transition-colors"
                 >
                   <Sparkles className="w-4 h-4 text-amber-400" />
-                  <span>AI Course (Course Upcoming Soon)</span>
+                  <span>AI Courses (Upcoming)</span>
                   <ExternalLink className="w-4 h-4 opacity-75" />
                 </a>
               </div>
@@ -67,139 +80,191 @@ export default function EducationDivisionPage() {
         </section>
 
         <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8 mt-16 sm:mt-24 space-y-20 sm:space-y-28">
-          {/* Offering 1: Code Nova (Monthly Coding Competition) */}
+          {/* Offering 1: Code Nova (Coding Competition) */}
           <section id="offering-coding-competition" className="rounded-3xl bg-ink text-paper p-8 sm:p-12 lg:p-16 shadow-2xl relative overflow-hidden border border-blueline/30">
             <div className="absolute inset-0 blueprint-grid-dark opacity-60 pointer-events-none" />
             <div className="absolute -top-32 right-0 w-96 h-96 bg-blueline/15 rounded-full blur-3xl pointer-events-none" />
-            
-            <div className="relative z-10">
-              <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
-                <div className="flex items-center gap-3 font-mono text-xs font-bold uppercase tracking-wider text-blueline-soft">
-                  <Trophy className="w-5 h-5 text-blueline-soft" />
-                  <span>Offering 01 · Flagship Championship</span>
-                </div>
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-blueline/20 border border-blueline/40 text-blueline-soft px-3.5 py-1 text-xs font-mono font-bold uppercase tracking-wider">
-                  Monthly Event · All India
-                </span>
-              </div>
 
-              <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-paper tracking-tight mb-4">
-                Code Nova – Monthly Coding Competition
-              </h2>
-              <p className="text-paper/80 text-base sm:text-lg md:text-xl leading-relaxed max-w-3xl mb-8">
-                Code Nova is India&apos;s structured monthly online skill championship testing <span className="text-blueline-soft font-bold">aptitude</span>, <span className="text-blueline-soft font-bold">fundamental coding</span>, and <span className="text-blueline-soft font-bold">advanced algorithmic problem solving</span>. Designed by Senior Architects, competitors win medals, Claude subscriptions, exclusive kits, and fast-track paid remote internships.
-              </p>
-
-              {/* Quick stats strip */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10 p-5 rounded-2xl bg-paper/[0.04] border border-paper/10">
-                <div>
-                  <p className="font-display text-2xl sm:text-3xl font-black text-blueline-soft">3 Rounds</p>
-                  <p className="font-mono text-xs text-paper/60 uppercase tracking-wider mt-0.5">Progressive Difficulty</p>
-                </div>
-                <div>
-                  <p className="font-display text-2xl sm:text-3xl font-black text-[#F59E0B]">Medals &amp; Kits</p>
-                  <p className="font-mono text-xs text-paper/60 uppercase tracking-wider mt-0.5">Top 3 &amp; Qualified</p>
-                </div>
-                <div>
-                  <p className="font-display text-2xl sm:text-3xl font-black text-blueline-soft">Paid Internship</p>
-                  <p className="font-mono text-xs text-paper/60 uppercase tracking-wider mt-0.5">PPO Fast-Track</p>
-                </div>
-                <div>
-                  <p className="font-display text-2xl sm:text-3xl font-black text-blueline-soft">Monthly</p>
-                  <p className="font-mono text-xs text-paper/60 uppercase tracking-wider mt-0.5">Regular Schedule</p>
-                </div>
-              </div>
-
-              {/* 3 Rounds Breakdown */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-                {/* Round 1 */}
-                <div className="rounded-2xl border border-paper/15 bg-paper/[0.04] p-6 hover:border-blueline/50 transition-colors">
-                  <span className="font-mono text-xs font-bold text-blueline-soft uppercase bg-blueline/20 px-3 py-1 rounded-full">
-                    Round 1
-                  </span>
-                  <div className="flex items-center gap-2 mt-4 mb-2">
-                    <BrainCircuit className="w-6 h-6 text-blueline-soft" />
-                    <h3 className="font-display text-xl font-bold text-paper">Aptitude Test</h3>
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+              <div className="lg:col-span-8">
+                <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
+                  <div className="flex items-center gap-3 font-mono text-xs font-bold uppercase tracking-wider text-blueline-soft">
+                    <Trophy className="w-5 h-5 text-blueline-soft" />
+                    <span>Offering 01 · Coding Competition</span>
                   </div>
-                  <p className="text-sm text-paper/70 mb-4 leading-relaxed">
-                    Evaluates logical reasoning, quantitative aptitude, analytical thinking, and speed problem solving under timed constraints.
-                  </p>
-                  <ul className="text-xs font-mono text-paper/60 space-y-1.5 border-t border-paper/10 pt-3">
-                    <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-blueline-soft" /> Logical &amp; Quantitative</li>
-                    <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-blueline-soft" /> Speed Problem Solving</li>
-                    <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-blueline-soft" /> Timed Online Platform</li>
-                  </ul>
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-blueline/20 border border-blueline/40 text-blueline-soft px-3.5 py-1 text-xs font-mono font-bold uppercase tracking-wider">
+                    Coding Competition
+                  </span>
                 </div>
 
-                {/* Round 2 */}
-                <div className="rounded-2xl border border-paper/15 bg-paper/[0.04] p-6 hover:border-blueline/50 transition-colors">
-                  <span className="font-mono text-xs font-bold text-blueline-soft uppercase bg-blueline/20 px-3 py-1 rounded-full">
-                    Round 2
-                  </span>
-                  <div className="flex items-center gap-2 mt-4 mb-2">
-                    <Code2 className="w-6 h-6 text-blueline-soft" />
-                    <h3 className="font-display text-xl font-bold text-paper">Basic Coding</h3>
+                <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-paper tracking-tight mb-4">
+                  CodeNova – Coding Competition
+                </h2>
+                <p className="text-paper/85 text-base sm:text-lg md:text-xl leading-relaxed mb-6">
+                  CodeNova is a <strong className="text-white">Coding Competition</strong> organised by Upstairs Techno. It is a premier platform where participants can showcase their programming skills, logical thinking, and problem-solving abilities.
+                </p>
+
+                {/* Highlights */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-8">
+                  <div className="flex items-center gap-2.5 text-sm text-paper/85 bg-paper/5 border border-paper/10 rounded-xl p-3">
+                    <Code2 className="w-4 h-4 text-blueline-soft shrink-0" />
+                    <span>Programming skills in Python, Java, C++, JS/TS</span>
                   </div>
-                  <p className="text-sm text-paper/70 mb-4 leading-relaxed">
-                    Tests fundamental programming syntax, conditions, loops, functions, and arrays through timed coding challenges.
-                  </p>
-                  <ul className="text-xs font-mono text-paper/60 space-y-1.5 border-t border-paper/10 pt-3">
-                    <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-blueline-soft" /> Python, Java, C++, JS/TS</li>
-                    <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-blueline-soft" /> Automated Test Suite</li>
-                    <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-blueline-soft" /> Official T-Shirt for Qualifiers</li>
-                  </ul>
+                  <div className="flex items-center gap-2.5 text-sm text-paper/85 bg-paper/5 border border-paper/10 rounded-xl p-3">
+                    <BrainCircuit className="w-4 h-4 text-blueline-soft shrink-0" />
+                    <span>Logical thinking &amp; algorithmic problem solving</span>
+                  </div>
+                  <div className="flex items-center gap-2.5 text-sm text-paper/85 bg-paper/5 border border-paper/10 rounded-xl p-3">
+                    <Medal className="w-4 h-4 text-[#F59E0B] shrink-0" />
+                    <span>Medals, certificates &amp; Claude AI subscriptions</span>
+                  </div>
+                  <div className="flex items-center gap-2.5 text-sm text-paper/85 bg-paper/5 border border-paper/10 rounded-xl p-3">
+                    <Award className="w-4 h-4 text-emerald-400 shrink-0" />
+                    <span>Paid Remote Internship opportunities for top 10</span>
+                  </div>
                 </div>
 
-                {/* Round 3 */}
-                <div className="rounded-2xl border border-paper/15 bg-paper/[0.04] p-6 hover:border-blueline/50 transition-colors">
-                  <span className="font-mono text-xs font-bold text-blueline-soft uppercase bg-blueline/20 px-3 py-1 rounded-full">
-                    Round 3 · Finals
-                  </span>
-                  <div className="flex items-center gap-2 mt-4 mb-2">
-                    <Trophy className="w-6 h-6 text-blueline-soft" />
-                    <h3 className="font-display text-xl font-bold text-paper">Advanced Coding</h3>
-                  </div>
-                  <p className="text-sm text-paper/70 mb-4 leading-relaxed">
-                    Complex algorithmic challenges, data structure optimization, dynamic programming, and high-performance engineering.
-                  </p>
-                  <ul className="text-xs font-mono text-paper/60 space-y-1.5 border-t border-paper/10 pt-3">
-                    <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-blueline-soft" /> Trees, Graphs &amp; DP</li>
-                    <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-blueline-soft" /> Gold, Silver &amp; Bronze Medals</li>
-                    <li className="flex items-center gap-1.5"><CheckCircle2 className="w-3.5 h-3.5 text-blueline-soft" /> Paid Remote Internship Offers</li>
-                  </ul>
+                {/* CTAs for Code Nova */}
+                <div className="flex flex-wrap items-center gap-4 pt-2">
+                  <Link
+                    href="/education/coding-competition"
+                    className="inline-flex items-center gap-2.5 rounded-full bg-blueline px-8 py-4 text-base sm:text-lg font-extrabold text-paper shadow-xl shadow-blueline/40 hover:bg-blueline-soft hover:scale-105 transition-all"
+                  >
+                    <Trophy className="w-5 h-5" />
+                    <span>Go to CodeNova Page</span>
+                    <ArrowRight className="w-5 h-5" />
+                  </Link>
+                  <a
+                    href="https://codenova.upstairstechno.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-paper/20 bg-paper/10 px-7 py-4 text-base font-bold text-paper hover:bg-paper/20 transition-colors"
+                  >
+                    <span>Register on codenova.upstairstechno.com</span>
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
                 </div>
               </div>
 
-              {/* CTAs for Code Nova */}
-              <div className="flex flex-wrap items-center gap-4 pt-2">
-                <a
-                  href="/education/coding-competition"
-                  className="inline-flex items-center gap-2.5 rounded-full bg-blueline px-8 py-4 text-base sm:text-lg font-extrabold text-paper shadow-xl shadow-blueline/40 hover:bg-blueline-soft hover:scale-105 transition-all"
-                >
-                  <Trophy className="w-5 h-5" />
-                  <span>Go to Code Nova Page</span>
-                  <ArrowRight className="w-5 h-5" />
-                </a>
-                <a
-                  href="https://codenova.upstairstechno.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-paper/20 bg-paper/10 px-7 py-4 text-base font-bold text-paper hover:bg-paper/20 transition-colors"
-                >
-                  <span>Register on codenova.upstairstechno.com</span>
-                  <ExternalLink className="w-4 h-4" />
-                </a>
+              {/* CodeNova Logo Card */}
+              <div className="lg:col-span-4 flex justify-center">
+                <div className="relative w-full max-w-sm rounded-3xl border border-blueline/40 bg-gradient-to-b from-[#131d2e] to-[#090e18] p-6 shadow-2xl flex flex-col items-center">
+                  <div className="relative w-full aspect-square rounded-2xl overflow-hidden border border-paper/15 bg-gradient-to-b from-[#162238] to-[#0a101b] flex items-center justify-center p-4 shadow-inner mb-4">
+                    <Image
+                      src="/codenova-logo.png"
+                      alt="CodeNova Logo"
+                      fill
+                      sizes="(max-width: 768px) 260px, 320px"
+                      className="object-contain"
+                    />
+                  </div>
+                  <p className="font-display text-sm font-bold text-paper text-center">
+                    Official CodeNova Competition
+                  </p>
+                  <p className="font-mono text-xs text-blueline-soft text-center mt-1">
+                    Organised by Upstairs Techno
+                  </p>
+                </div>
               </div>
             </div>
           </section>
 
-          {/* Offering 2: AI Course */}
+          {/* Offering 2: Olympiad Examination */}
+          <section id="offering-olympiad" className="rounded-3xl bg-gradient-to-br from-[#1b1913] via-ink to-[#12100a] text-paper p-8 sm:p-12 lg:p-16 shadow-2xl relative overflow-hidden border border-amber-400/40">
+            <div className="absolute inset-0 blueprint-grid-dark opacity-50 pointer-events-none" />
+            <div className="absolute -top-32 right-0 w-96 h-96 bg-amber-500/15 rounded-full blur-3xl pointer-events-none" />
+
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+              <div className="lg:col-span-8">
+                <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
+                  <div className="flex items-center gap-3 font-mono text-xs font-bold uppercase tracking-wider text-amber-300">
+                    <GraduationCap className="w-5 h-5 text-amber-400" />
+                    <span>Offering 02 · Olympiad Examination</span>
+                  </div>
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-500/20 border border-amber-400/40 text-amber-300 px-3.5 py-1 text-xs font-mono font-bold uppercase tracking-wider">
+                    Standard 1st to 12th
+                  </span>
+                </div>
+
+                <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-paper tracking-tight mb-4">
+                  Olympiad Examination
+                </h2>
+                <p className="text-paper/85 text-base sm:text-lg md:text-xl leading-relaxed mb-6">
+                  Upstairs Future Genius Olympiad (UFGO) is a prestigious examination organised by Upstairs Techno for students studying in <strong className="text-white">Standard 1st to Standard 12th</strong>. It benchmarks conceptual clarity, science, mathematics, and logical reasoning.
+                </p>
+
+                {/* Examination Modes: Online & Offline */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                  <div className="rounded-2xl border border-blueline/40 bg-blueline/10 p-5">
+                    <div className="flex items-center gap-2 font-mono text-xs font-bold uppercase text-blueline-soft mb-1.5">
+                      <Globe2 className="w-4 h-4" />
+                      <span>Online Examination Mode</span>
+                    </div>
+                    <p className="text-xs sm:text-sm text-paper/80 leading-relaxed">
+                      Students can participate in the examination online from home or school computer labs via our secure proctored portal.
+                    </p>
+                  </div>
+
+                  <div className="rounded-2xl border border-emerald-400/40 bg-emerald-500/10 p-5">
+                    <div className="flex items-center gap-2 font-mono text-xs font-bold uppercase text-emerald-300 mb-1.5">
+                      <Building2 className="w-4 h-4" />
+                      <span>Offline Examination Mode</span>
+                    </div>
+                    <p className="text-xs sm:text-sm text-paper/80 leading-relaxed">
+                      Students can participate through offline examination arrangements organized in schools and affiliated exam centers.
+                    </p>
+                  </div>
+                </div>
+
+                {/* CTAs */}
+                <div className="flex flex-wrap items-center gap-4 pt-2">
+                  <Link
+                    href="/education/olympiad"
+                    className="inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 px-8 py-4 text-base sm:text-lg font-extrabold text-white shadow-xl shadow-amber-500/30 hover:scale-105 transition-all"
+                  >
+                    <GraduationCap className="w-5 h-5" />
+                    <span>Go to Olympiad Page</span>
+                    <ArrowRight className="w-5 h-5" />
+                  </Link>
+                  <Link
+                    href="/education/olympiad#register"
+                    className="inline-flex items-center gap-2 rounded-full border border-paper/20 bg-paper/10 px-7 py-4 text-base font-bold text-paper hover:bg-paper/20 transition-colors"
+                  >
+                    <span>Register / Enquire</span>
+                  </Link>
+                </div>
+              </div>
+
+              {/* Olympiad Logo Card */}
+              <div className="lg:col-span-4 flex justify-center">
+                <div className="relative w-full max-w-sm rounded-3xl border border-amber-400/40 bg-gradient-to-b from-[#1f1d16] to-[#0e0d0a] p-6 shadow-2xl flex flex-col items-center">
+                  <div className="relative w-full aspect-square rounded-2xl overflow-hidden border border-paper/15 bg-gradient-to-b from-[#242118] to-[#12110c] flex items-center justify-center p-4 shadow-inner mb-4">
+                    <Image
+                      src="/olympiad-logo.png"
+                      alt="Upstairs Future Genius Olympiad Exam Logo"
+                      fill
+                      sizes="(max-width: 768px) 260px, 320px"
+                      className="object-contain"
+                    />
+                  </div>
+                  <p className="font-display text-sm font-bold text-paper text-center">
+                    Official Olympiad Examination
+                  </p>
+                  <p className="font-mono text-xs text-amber-300 text-center mt-1">
+                    UFGO · Standard 1st to 12th
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Offering 3: AI Course */}
           <section id="offering-ai-courses" className="rounded-3xl border border-grid bg-white p-8 sm:p-12 lg:p-16 shadow-sm relative overflow-hidden">
             {/* Top Badge & Header */}
             <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
               <div className="flex items-center gap-3 font-mono text-xs font-bold uppercase tracking-wider text-blueline">
                 <Cpu className="w-5 h-5 text-blueline" />
-                <span>Offering 02 · Practical Curriculum</span>
+                <span>Offering 03 · Practical Curriculum</span>
               </div>
               <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-700 px-4 py-1.5 text-xs font-mono font-bold uppercase tracking-wider animate-pulse">
                 <Clock className="w-3.5 h-3.5 text-amber-600" />

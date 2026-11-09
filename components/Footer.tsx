@@ -10,7 +10,8 @@ const NAV_LINKS = [
   { name: "Services", href: "/#services" },
   { name: "About Us", href: "/about" },
   { name: "Domains", href: "/#domains" },
-  { name: "Code Nova", href: "/#coding-competition" },
+  { name: "Competitions", href: "/#coding-competition" },
+  { name: "Olympiad Exam", href: "/education/olympiad" },
   { name: "Career", href: "/#career" },
   { name: "Contact Us", href: "/contact" },
 ];

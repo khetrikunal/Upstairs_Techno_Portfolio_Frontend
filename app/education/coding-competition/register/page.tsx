@@ -152,13 +152,13 @@ export default function CodingCompetitionRegisterPage() {
                 <div className="absolute inset-0 blueprint-grid-dark opacity-70" />
                 <div className="relative">
                   <div className="inline-flex items-center gap-2 rounded-full border border-blueline/40 bg-blueline/10 px-3.5 py-1 text-xs font-mono text-blueline-soft mb-3 uppercase">
-                    <Trophy className="w-3.5 h-3.5" /> 3 Rounds • Monthly Contest
+                    <Trophy className="w-3.5 h-3.5" /> Coding Competition • Monthly Event
                   </div>
                   <h1 className="font-display text-3xl sm:text-4xl font-extrabold text-paper">
-                    Register for Coding Competition
+                    Register for CodeNova
                   </h1>
                   <p className="mt-2 text-sm sm:text-base text-paper/70">
-                    Fill out the registration details below to compete and claim your rewards.
+                    Showcase your programming skills, logical thinking, and problem-solving abilities.
                   </p>
                 </div>
               </div>

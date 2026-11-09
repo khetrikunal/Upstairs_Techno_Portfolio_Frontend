@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import {
   Trophy,
@@ -17,7 +19,6 @@ import {
   Medal,
   Gift,
   Shirt,
-  FileText,
   BrainCircuit,
   Code2,
   Lock,
@@ -26,6 +27,10 @@ import {
   Scale,
   AlertTriangle,
   BadgeCheck,
+  ExternalLink,
+  GraduationCap,
+  Globe2,
+  Building2,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -76,118 +81,82 @@ const REWARDS = [
   },
 ];
 
-const ROUNDS = [
-  {
-    step: 1,
-    label: "Registration",
-    icon: FileText,
-    color: "#2557FF",
-    title: "Sign Up & Register",
-    desc: "Complete your registration and secure your seat for the next monthly Code Nova event.",
-  },
-  {
-    step: 2,
-    label: "Round 1",
-    icon: BrainCircuit,
-    color: "#7C3AED",
-    title: "Aptitude & Reasoning",
-    desc: "Solve aptitude and logical reasoning questions testing your analytical speed and critical thinking.",
-  },
-  {
-    step: 3,
-    label: "Round 2",
-    icon: Code2,
-    color: "#059669",
-    title: "Advanced Coding Challenge",
-    desc: "Qualified participants tackle advanced algorithmic and data structure problems under timed conditions.",
-  },
-  {
-    step: 4,
-    label: "🏆 Final",
-    icon: Trophy,
-    color: "#F59E0B",
-    title: "Championship Final",
-    desc: "Top performers compete in the grand final. Top 3 are crowned Code Nova Champions.",
-  },
-];
-
 const FEATURES = [
   {
-    icon: Lock,
-    title: "Secure Online Examination",
-    desc: "AI-assisted anti-cheat monitoring ensures a fair playing field for all participants.",
+    icon: Code2,
+    title: "Showcase Programming Skills",
+    desc: "Demonstrate your coding proficiency in Python, Java, C++, JavaScript, and modern programming stacks.",
     color: "#2557FF",
+  },
+  {
+    icon: BrainCircuit,
+    title: "Logical & Algorithmic Thinking",
+    desc: "Solve challenges that test algorithmic efficiency, mathematical reasoning, and sharp problem solving.",
+    color: "#7C3AED",
   },
   {
     icon: BarChart3,
     title: "Live Leaderboard",
-    desc: "Track your ranking in real time and see where you stand against competitors across India.",
-    color: "#7C3AED",
+    desc: "Track your rank in real time and benchmark your abilities against competitors across India.",
+    color: "#059669",
   },
   {
     icon: Trophy,
-    title: "Certificates & Rewards",
-    desc: "Earn official certificates, medals, and exciting rewards for top performance.",
+    title: "Medals, Certificates & Career",
+    desc: "Win prestigious medals, verified credentials, Claude AI subscriptions, and paid internship opportunities.",
     color: "#F59E0B",
-  },
-  {
-    icon: User,
-    title: "Participant Dashboard",
-    desc: "Track your results, rankings, and competition history in your personal dashboard.",
-    color: "#059669",
   },
 ];
 
 const BENEFITS = [
-  "Compete with talented students across India",
-  "Structured 3-round skill-based competition",
-  "Aptitude & logical reasoning challenge in Round 1",
-  "Advanced coding challenge for Round 2 qualifiers",
-  "Live rankings and leaderboard",
-  "Digital participation certificate",
-  "Medals & winner certificates for Top 3",
-  "Claude One Month Subscription for Top 3",
-  "Official Code Nova T-Shirt for Top 3 & Round 2 qualifiers",
+  "Compete with talented coders and students across India",
+  "Showcase your programming skills and logical thinking",
+  "Demonstrate analytical speed and complex problem-solving abilities",
+  "Live rankings and real-time national leaderboard",
+  "Verified digital participation certificate for every registered coder",
+  "Medals & winner certificates for Top 3 Champions",
+  "Claude One Month Subscription for Top 3 Performers",
+  "Official Code Nova T-Shirt for top qualifiers and winners",
   "Exclusive Code Nova Kit (notebook, pen, stickers, badge, lanyard, collectibles) after 3 consecutive registrations",
   "Paid Remote Internship Opportunity for Top 10 across 3 consecutive months",
 ];
 
 const RULES_FAQ = [
   {
-    q: "Who can participate?",
-    a: "Students from school, college, recent graduates, and working professionals are all eligible to participate.",
+    q: "What is CodeNova?",
+    a: "CodeNova is a premier Coding Competition organised by Upstairs Techno where participants can showcase their programming skills, logical thinking, and problem-solving abilities.",
   },
   {
-    q: "Is this an individual competition?",
-    a: "Yes. Code Nova is an individual competition. One registration per participant per monthly event.",
+    q: "Who can participate in CodeNova?",
+    a: "School students, college students, fresh engineering graduates, and aspiring software professionals across India are all eligible to participate.",
   },
   {
-    q: "How is the examination conducted?",
-    a: "The online examination uses AI-assisted monitoring to ensure fair participation. All participants must follow the exam rules strictly.",
+    q: "Which programming languages are supported?",
+    a: "Participants can write and submit code in leading industry languages including Python 3, Java, C++, C, JavaScript, and TypeScript.",
   },
   {
-    q: "What happens if I qualify Round 1?",
-    a: "Participants who clear the Round 1 threshold advance to the Round 2 advanced coding challenge and receive an Official Code Nova T-Shirt.",
+    q: "How is the competition conducted?",
+    a: "CodeNova is hosted on an online examination platform equipped with automated test-case evaluation and secure proctoring to guarantee a fair playing field.",
   },
   {
     q: "How do I become eligible for the Paid Remote Internship?",
-    a: "Participants who secure a position in the Top 10 for three consecutive months will be eligible for a paid remote internship opportunity with our organization, rewarding consistent performance and dedication.",
+    a: "Participants who secure a position in the Top 10 for three consecutive months become eligible for a paid remote internship opportunity with Upstairs Techno, rewarding sustained excellence.",
   },
   {
     q: "What is the Exclusive Code Nova Kit?",
     a: "Participants who register for 3 consecutive monthly competitions unlock the exclusive Code Nova Kit (premium notebook, pen, stickers, badge, lanyard, and collectibles).",
   },
   {
-    q: "Is the competition registration refundable?",
+    q: "Is competition registration refundable?",
     a: "Competition registrations are non-refundable once confirmed.",
   },
   {
     q: "When is the competition held?",
-    a: "Code Nova is conducted every month. Competition date and schedule for each event will be announced upon registration.",
+    a: "CodeNova is conducted on scheduled dates announced upon registration. Registered participants receive detailed schedules and login credentials via email.",
   },
   {
     q: "What is the final decision authority?",
-    a: "The organizers' decision regarding scores, qualifications, and awards is final and binding.",
+    a: "The organizers' decision regarding scores, rankings, and awards is final and binding.",
   },
 ];
 
@@ -195,7 +164,15 @@ const RULES_FAQ = [
 // ANIMATION HELPERS
 // ─────────────────────────────────────────────────────────────────────────────
 
-function FadeInUp({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
+function FadeInUp({
+  children,
+  delay = 0,
+  className = "",
+}: {
+  children: React.ReactNode;
+  delay?: number;
+  className?: string;
+}) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
   return (
@@ -210,10 +187,6 @@ function FadeInUp({ children, delay = 0, className = "" }: { children: React.Rea
     </motion.div>
   );
 }
-
-// ─────────────────────────────────────────────────────────────────────────────
-// SUB-COMPONENTS
-// ─────────────────────────────────────────────────────────────────────────────
 
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
@@ -256,7 +229,7 @@ function RewardPreviewStrip() {
 
         <div className="px-5 sm:px-8 py-3.5 border-t border-paper/10 flex items-center justify-between flex-wrap gap-2">
           <p className="text-xs text-paper/60 font-mono">
-            Plus: Round 2 T-Shirt · 🎁 Code Nova Kit · 💼 Paid Remote Internship
+            Plus: Official Code Nova T-Shirt · 🎁 Code Nova Kit · 💼 Paid Remote Internship
           </p>
           <a
             href="#rewards"
@@ -285,11 +258,12 @@ function RewardCard({ reward, index }: { reward: (typeof REWARDS)[0]; index: num
       }`}
       style={{
         borderColor: reward.borderColor,
-        boxShadow: isFirst ? `0 0 60px ${reward.glowColor}, 0 20px 40px rgba(0,0,0,0.4)` : `0 0 30px ${reward.glowColor}, 0 10px 20px rgba(0,0,0,0.3)`,
+        boxShadow: isFirst
+          ? `0 0 60px ${reward.glowColor}, 0 20px 40px rgba(0,0,0,0.4)`
+          : `0 0 30px ${reward.glowColor}, 0 10px 20px rgba(0,0,0,0.3)`,
         background: "linear-gradient(135deg, #0e1524 0%, #161f33 100%)",
       }}
     >
-      {/* Champion badge */}
       {isFirst && (
         <div
           className="absolute -top-px left-1/2 -translate-x-1/2 px-5 py-1.5 rounded-b-xl font-mono text-xs font-bold uppercase tracking-wider text-ink"
@@ -299,14 +273,11 @@ function RewardCard({ reward, index }: { reward: (typeof REWARDS)[0]; index: num
         </div>
       )}
 
-      {/* Top gradient area */}
       <div
         className={`relative pt-${isFirst ? "12" : "8"} pb-8 px-6 sm:px-8 flex flex-col items-center text-center bg-gradient-to-b ${reward.bgGradient}`}
       >
-        {/* Blueprint grid subtle */}
         <div className="absolute inset-0 blueprint-grid-dark opacity-30 pointer-events-none" />
 
-        {/* Medal emoji */}
         <motion.div
           animate={isFirst ? { scale: [1, 1.06, 1], rotate: [0, 2, -2, 0] } : {}}
           transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
@@ -315,7 +286,6 @@ function RewardCard({ reward, index }: { reward: (typeof REWARDS)[0]; index: num
           {reward.emoji}
         </motion.div>
 
-        {/* Place number */}
         <div
           className="relative z-10 font-display font-black leading-none mb-2"
           style={{
@@ -327,7 +297,9 @@ function RewardCard({ reward, index }: { reward: (typeof REWARDS)[0]; index: num
           {reward.place === 1 ? "1st" : reward.place === 2 ? "2nd" : "3rd"}
         </div>
 
-        <p className="relative z-10 font-mono text-xs font-bold uppercase tracking-widest text-paper/50 mb-1">{reward.title}</p>
+        <p className="relative z-10 font-mono text-xs font-bold uppercase tracking-widest text-paper/50 mb-1">
+          {reward.title}
+        </p>
         <p
           className="relative z-10 font-display text-xl sm:text-2xl font-bold"
           style={{ color: reward.medalColor }}
@@ -336,7 +308,6 @@ function RewardCard({ reward, index }: { reward: (typeof REWARDS)[0]; index: num
         </p>
       </div>
 
-      {/* Prize list */}
       <div className="flex-1 px-6 sm:px-8 pb-7 pt-2 border-t border-paper/10 space-y-3">
         {reward.prizes.map((prize, i) => (
           <div key={i} className="flex items-center gap-3">
@@ -349,73 +320,14 @@ function RewardCard({ reward, index }: { reward: (typeof REWARDS)[0]; index: num
   );
 }
 
-function CompetitionTimeline() {
-  return (
-    <div className="relative">
-      {/* Connector line (desktop) */}
-      <div className="hidden lg:block absolute top-12 left-0 right-0 h-0.5 bg-gradient-to-r from-blueline/30 via-blueline to-[#F59E0B]/80 mx-32" />
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {ROUNDS.map((round, i) => {
-          const Icon = round.icon;
-          return (
-            <FadeInUp key={round.step} delay={i * 0.1}>
-              <div className="relative flex flex-col items-center text-center">
-                {/* Mobile connector */}
-                {i < ROUNDS.length - 1 && (
-                  <div
-                    className="lg:hidden absolute left-1/2 top-24 w-0.5 h-6 -translate-x-1/2"
-                    style={{ backgroundColor: round.color, opacity: 0.4 }}
-                  />
-                )}
-
-                {/* Step circle */}
-                <div
-                  className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full flex items-center justify-center mb-4 shadow-xl z-10"
-                  style={{
-                    backgroundColor: `${round.color}18`,
-                    border: `2px solid ${round.color}60`,
-                    boxShadow: `0 0 30px ${round.color}30`,
-                  }}
-                >
-                  <Icon className="w-8 h-8 sm:w-9 sm:h-9" style={{ color: round.color }} />
-
-                  {/* Step number badge */}
-                  <div
-                    className="absolute -top-2 -right-2 w-7 h-7 rounded-full flex items-center justify-center font-mono text-xs font-black text-paper shadow"
-                    style={{ backgroundColor: round.color }}
-                  >
-                    {round.step}
-                  </div>
-                </div>
-
-                <span
-                  className="font-mono text-xs font-bold uppercase tracking-widest mb-2"
-                  style={{ color: round.color }}
-                >
-                  {round.label}
-                </span>
-                <h3 className="font-display text-lg sm:text-xl font-bold text-paper mb-2">{round.title}</h3>
-                <p className="text-sm text-paper/65 leading-relaxed">{round.desc}</p>
-              </div>
-            </FadeInUp>
-          );
-        })}
-      </div>
-    </div>
-  );
-}
-
 function PaidInternshipReward() {
   return (
     <FadeInUp className="mb-14 sm:mb-16">
       <div className="relative rounded-3xl border-2 border-emerald-400/60 overflow-hidden bg-gradient-to-br from-[#0a1e24] via-ink to-[#071d18] p-7 sm:p-10 md:p-12 shadow-[0_0_60px_rgba(16,185,129,0.20),0_20px_40px_rgba(0,0,0,0.5)]">
-        {/* Ambient glow & blueprint grid */}
         <div className="absolute inset-0 blueprint-grid-dark opacity-35 pointer-events-none" />
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-emerald-500/15 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blueline/15 rounded-full blur-3xl pointer-events-none" />
 
-        {/* Top featured badge */}
         <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 mb-6">
           <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/50 bg-emerald-500/15 px-4 py-1.5 text-xs sm:text-sm font-mono tracking-widest text-emerald-300 uppercase font-bold shadow-sm">
             <Briefcase className="w-4 h-4 text-emerald-400" />
@@ -437,14 +349,13 @@ function PaidInternshipReward() {
             </div>
 
             <p className="text-base sm:text-lg text-paper/85 leading-relaxed mt-4">
-              Participants who secure a position in the <strong className="text-emerald-400 font-bold">Top 10 for three consecutive months</strong> will be eligible for a paid remote internship opportunity with our organization.
+              Participants who secure a position in the <strong className="text-emerald-400 font-bold">Top 10 for three consecutive months</strong> will be eligible for a paid remote internship opportunity with Upstairs Techno.
             </p>
 
             <p className="text-sm sm:text-base text-paper/65 leading-relaxed mt-2.5">
-              This recognition is designed to reward consistent performance, dedication, and excellence over an extended period.
+              This recognition is designed to reward consistent performance, dedication, and programming excellence over an extended period.
             </p>
 
-            {/* Clear Criteria Banner */}
             <div className="mt-6 rounded-2xl border-2 border-emerald-400/40 bg-emerald-500/10 p-4 sm:p-5 flex items-center gap-3.5 sm:gap-4 shadow-inner">
               <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-emerald-500/20 border border-emerald-400/40 flex items-center justify-center shrink-0 text-emerald-300">
                 <Sparkles className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -510,7 +421,6 @@ function LoyaltyReward() {
         <div className="absolute top-0 right-0 w-72 h-72 bg-brass/10 rounded-full blur-3xl pointer-events-none" />
 
         <div className="relative z-10">
-          {/* Header */}
           <div className="flex flex-wrap items-start gap-4 mb-8">
             <div className="w-14 h-14 rounded-2xl bg-brass/20 border border-brass/30 flex items-center justify-center text-3xl shrink-0">
               🎁
@@ -528,7 +438,6 @@ function LoyaltyReward() {
             </div>
           </div>
 
-          {/* Progress visual */}
           <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-8">
             {steps.map((step, i) => (
               <div key={step} className="flex items-center gap-2 sm:gap-3">
@@ -549,7 +458,6 @@ function LoyaltyReward() {
             ))}
           </div>
 
-          {/* Kit contents */}
           <div>
             <p className="font-mono text-xs font-bold uppercase tracking-widest text-brass mb-4">
               What&apos;s Inside the Exclusive Code Nova Kit
@@ -588,16 +496,8 @@ const TERMS_SECTIONS = [
     content: (
       <>
         <p className="text-slate leading-relaxed mb-4">
-          Code Nova is a monthly online competition platform on which students across India take part in skill-based challenges spanning:
+          CodeNova is a premier coding competition organised by Upstairs Techno where participants can showcase their programming skills, logical thinking, and problem-solving abilities.
         </p>
-        <ul className="space-y-2 mb-4">
-          {["Aptitude", "Coding", "Mathematics", "Logical Reasoning"].map((item) => (
-            <li key={item} className="flex items-center gap-2.5 text-slate">
-              <span className="w-1.5 h-1.5 rounded-full bg-blueline shrink-0" />
-              {item}
-            </li>
-          ))}
-        </ul>
         <p className="text-slate leading-relaxed text-sm bg-blueline/5 border border-blueline/20 rounded-xl px-4 py-3">
           <strong className="text-ink">Important:</strong> By registering for any Code Nova event, participants agree to be bound by these Terms &amp; Conditions and Competition Rules.
         </p>
@@ -611,11 +511,10 @@ const TERMS_SECTIONS = [
     content: (
       <ul className="space-y-3">
         {[
-          "Open to students across India who complete the registration process for a given monthly event.",
+          "Open to students and coders across India who complete the registration process for a given event.",
           "Only one registration is permitted per participant, per event.",
           "Duplicate or multiple entries by the same individual for a single event are not allowed.",
-          "Registration grants access to all competition rounds, subject to qualification in the preceding round.",
-          "Participants are responsible for providing accurate personal details during registration.",
+          "Participants are responsible for providing accurate personal and academic details during registration.",
           "Code Nova is not liable for issues arising from incorrect information supplied by the participant.",
         ].map((rule, i) => (
           <li key={i} className="flex items-start gap-3 text-slate leading-relaxed">
@@ -628,38 +527,27 @@ const TERMS_SECTIONS = [
   },
   {
     number: "03",
-    icon: "🏁",
-    title: "Competition Structure",
+    icon: "💻",
+    title: "Competition Format & Environment",
     content: (
-      <>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
-          {[
-            { step: "Stage 1", label: "Registration", desc: "Sign up to enter the competition.", color: "#2557FF" },
-            { step: "Round 1", label: "Aptitude & Logical Reasoning Test", desc: "Analytical and reasoning skills assessment.", color: "#7C3AED" },
-            { step: "Round 2", label: "Advanced Coding Challenge", desc: "Algorithmic and data structure problems.", color: "#059669" },
-            { step: "🏆 Final", label: "Championship Final Showdown", desc: "Top performers compete for the grand title.", color: "#F59E0B" },
-          ].map((stage) => (
-            <div
-              key={stage.step}
-              className="rounded-xl border p-4"
-              style={{ borderColor: `${stage.color}40`, background: `${stage.color}08` }}
-            >
-              <p className="font-mono text-xs font-bold uppercase tracking-wider mb-1" style={{ color: stage.color }}>{stage.step}</p>
-              <p className="font-display text-sm font-bold text-ink mb-1">{stage.label}</p>
-              <p className="text-xs text-slate leading-relaxed">{stage.desc}</p>
+      <div className="space-y-3">
+        <p className="text-slate leading-relaxed">
+          The competition features timed algorithmic challenges and programming problems designed to evaluate syntax mastery, logical thinking, data structures, and edge-case testing under timed constraints.
+        </p>
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+          {["Python 3", "Java", "C / C++", "JavaScript / TS"].map((lang) => (
+            <div key={lang} className="rounded-xl border border-grid bg-white p-3 text-center font-mono text-xs font-bold text-ink">
+              {lang}
             </div>
           ))}
         </div>
-        <p className="text-sm text-slate bg-paper/60 border border-grid rounded-xl px-4 py-3 leading-relaxed">
-          Advancement to each subsequent round is subject to qualification in the previous round, as determined by the organizers.
-        </p>
-      </>
+      </div>
     ),
   },
   {
     number: "04",
     icon: "📋",
-    title: "Competition Rules",
+    title: "Competition Rules & Integrity",
     content: (
       <>
         <div className="space-y-3 mb-5">
@@ -667,9 +555,9 @@ const TERMS_SECTIONS = [
             "Individual participation only — no team participation permitted.",
             "One registration per participant per event.",
             "No proxy participation of any kind.",
-            "All examinations are timed and conducted online under AI-based monitoring for security and integrity purposes.",
-            "Participants must complete each round within the allotted time window.",
-            "Late submissions may not be considered.",
+            "All examinations are timed and conducted online under automated monitoring for security and integrity purposes.",
+            "Participants must complete the challenge within the allotted time window.",
+            "Late submissions will not be considered.",
           ].map((rule, i) => (
             <div key={i} className="flex items-start gap-3 text-slate leading-relaxed text-sm">
               <ShieldCheck className="w-4 h-4 text-blueline shrink-0 mt-0.5" />
@@ -695,10 +583,7 @@ const TERMS_SECTIONS = [
 
         <div className="rounded-xl border border-blueline/30 bg-blueline/5 px-4 py-3 space-y-2">
           <p className="text-sm text-slate leading-relaxed">
-            <strong className="text-ink">Final Authority:</strong> The organizers&apos; decision on all competition matters, including qualification, scoring, disputes, and disqualification, is final and binding.
-          </p>
-          <p className="text-sm text-slate leading-relaxed">
-            Code Nova reserves the right to disqualify participants who violate the competition rules.
+            <strong className="text-ink">Final Authority:</strong> The organizers&apos; decision on all competition matters, including scoring, qualification, ranking, disputes, and disqualification, is final and binding.
           </p>
         </div>
       </>
@@ -707,15 +592,14 @@ const TERMS_SECTIONS = [
   {
     number: "05",
     icon: "🛡️",
-    title: "Fair Play, Monitoring & Technical Requirements",
+    title: "Technical Requirements",
     content: (
       <ul className="space-y-3">
         {[
-          "Examinations use AI-assisted anti-cheat monitoring to help ensure a fair and secure testing environment.",
-          "Participants are responsible for ensuring a stable internet connection.",
-          "Participants must use a compatible device for the duration of each round.",
-          "Code Nova is not responsible for connectivity issues, power outages, or device problems on the participant's side.",
-          "Participants are encouraged to report technical issues promptly to the organizers.",
+          "Examinations use secure online monitoring to ensure a fair playing field for all participants.",
+          "Participants are responsible for ensuring a stable internet connection and compatible browser.",
+          "Code Nova is not responsible for local connectivity issues, device battery failure, or interruptions on the participant side.",
+          "Participants are encouraged to report any system anomalies promptly to the support team.",
         ].map((rule, i) => (
           <li key={i} className="flex items-start gap-3 text-slate leading-relaxed text-sm">
             <BadgeCheck className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
@@ -728,15 +612,15 @@ const TERMS_SECTIONS = [
   {
     number: "06",
     icon: "🎁",
-    title: "Participant Benefits",
+    title: "Participant Benefits & Recognition",
     content: (
       <>
         <p className="text-sm font-semibold text-ink mb-3">Every registered participant receives:</p>
         <ul className="space-y-2 mb-6">
           {[
-            "Official Upstairs Techno T-shirt",
-            "Digital Certificate of Participation",
-            "Personal dashboard with results and rankings",
+            "Official Digital Certificate of Participation",
+            "Personal dashboard with performance report and rank",
+            "Eligibility for national prizes, medals, and internship offers",
           ].map((item) => (
             <li key={item} className="flex items-center gap-2.5 text-slate text-sm">
               <CheckCircle2 className="w-4 h-4 text-blueline shrink-0" />
@@ -757,23 +641,15 @@ const TERMS_SECTIONS = [
           </div>
         </div>
 
-        {/* Highlighted Internship Card */}
         <div className="relative rounded-2xl border-2 border-emerald-400/60 bg-gradient-to-br from-[#0a1e24] via-[#0e1524] to-[#071d18] p-5 sm:p-6 overflow-hidden shadow-[0_0_40px_rgba(16,185,129,0.15)]">
           <div className="absolute inset-0 blueprint-grid-dark opacity-25 pointer-events-none" />
-          <div className="absolute -top-10 -right-10 w-40 h-40 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none" />
           <div className="relative z-10">
             <div className="flex items-center gap-2 mb-3">
               <Briefcase className="w-5 h-5 text-emerald-400 shrink-0" />
               <p className="font-mono text-xs font-bold uppercase tracking-widest text-emerald-300">💼 Paid Remote Internship Opportunity</p>
             </div>
-            <div className="rounded-xl border border-emerald-400/40 bg-emerald-500/10 px-4 py-3 mb-3 flex items-center gap-3">
-              <Sparkles className="w-5 h-5 text-emerald-400 shrink-0" />
-              <p className="font-display text-sm sm:text-base font-extrabold text-paper">
-                Top 10 for 3 Consecutive Months → <span className="text-emerald-400">Paid Remote Internship</span>
-              </p>
-            </div>
             <p className="text-xs text-paper/70 leading-relaxed">
-              Participants who secure a position in the Top 10 for three consecutive months will be eligible for a paid remote internship opportunity with our organization. This recognition is designed to reward consistent performance, dedication, and excellence over an extended period.
+              Participants who secure a position in the Top 10 for three consecutive months will be eligible for a paid remote internship opportunity with Upstairs Techno.
             </p>
           </div>
         </div>
@@ -783,50 +659,31 @@ const TERMS_SECTIONS = [
   {
     number: "07",
     icon: "🏆",
-    title: "Rewards & Recognition",
+    title: "Rewards & Awards Distribution",
     content: (
-      <>
-        <div className="space-y-3 mb-5">
-          {[
-            { place: "1st Place", emoji: "🥇", color: "#F59E0B", items: ["Gold Medal", "Winner Certificate", "Claude One-Month Subscription", "T-shirt"] },
-            { place: "2nd Place", emoji: "🥈", color: "#94A3B8", items: ["Silver Medal", "Winner Certificate", "Claude One-Month Subscription", "T-shirt"] },
-            { place: "3rd Place", emoji: "🥉", color: "#CD7F32", items: ["Bronze Medal", "Winner Certificate", "Claude One-Month Subscription", "T-shirt"] },
-          ].map((r) => (
-            <div
-              key={r.place}
-              className="flex items-start gap-4 rounded-xl border p-4"
-              style={{ borderColor: `${r.color}50`, background: `${r.color}08` }}
-            >
-              <span className="text-3xl shrink-0">{r.emoji}</span>
-              <div className="flex-1">
-                <p className="font-display text-sm font-bold text-ink mb-2" style={{ color: r.color }}>{r.place}</p>
-                <div className="flex flex-wrap gap-2">
-                  {r.items.map((item) => (
-                    <span key={item} className="text-xs text-slate bg-white border border-grid px-2.5 py-1 rounded-full">{item}</span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="rounded-xl border border-grid bg-paper/60 p-4">
-          <div className="flex items-start gap-3 mb-3">
-            <span className="text-2xl">🎽</span>
-            <div>
-              <p className="font-display text-sm font-bold text-ink mb-1">All Round 2 Qualifiers</p>
+      <div className="space-y-3">
+        {[
+          { place: "1st Place", emoji: "🥇", color: "#F59E0B", items: ["Gold Medal", "Winner Certificate", "Claude One-Month Subscription", "T-shirt"] },
+          { place: "2nd Place", emoji: "🥈", color: "#94A3B8", items: ["Silver Medal", "Winner Certificate", "Claude One-Month Subscription", "T-shirt"] },
+          { place: "3rd Place", emoji: "🥉", color: "#CD7F32", items: ["Bronze Medal", "Winner Certificate", "Claude One-Month Subscription", "T-shirt"] },
+        ].map((r) => (
+          <div
+            key={r.place}
+            className="flex items-start gap-4 rounded-xl border p-4"
+            style={{ borderColor: `${r.color}50`, background: `${r.color}08` }}
+          >
+            <span className="text-3xl shrink-0">{r.emoji}</span>
+            <div className="flex-1">
+              <p className="font-display text-sm font-bold text-ink mb-2" style={{ color: r.color }}>{r.place}</p>
               <div className="flex flex-wrap gap-2">
-                {["Official T-shirt", "Digital Participation Certificate"].map((item) => (
+                {r.items.map((item) => (
                   <span key={item} className="text-xs text-slate bg-white border border-grid px-2.5 py-1 rounded-full">{item}</span>
                 ))}
               </div>
             </div>
           </div>
-          <p className="text-xs text-slate/80 border-t border-grid pt-3 leading-relaxed">
-            Only participants who qualify for Round 2 are eligible to receive the official T-shirt and digital participation certificate.
-          </p>
-        </div>
-      </>
+        ))}
+      </div>
     ),
   },
   {
@@ -836,53 +693,12 @@ const TERMS_SECTIONS = [
     content: (
       <ul className="space-y-3">
         {[
-          "Any applicable registration or payment requirements must be completed according to the competition registration process.",
-          "Fees, if applicable, are generally non-refundable once registration is confirmed, except where required by law or at the organizers' discretion.",
-          "Participants should confirm event dates and requirements before completing registration.",
+          "Any applicable registration requirements must be completed according to the competition process.",
+          "Fees, if applicable, are non-refundable once registration is confirmed.",
+          "Participants should confirm schedule availability before completing registration.",
         ].map((rule, i) => (
           <li key={i} className="flex items-start gap-3 text-slate leading-relaxed text-sm">
             <CheckCircle2 className="w-4 h-4 text-blueline shrink-0 mt-0.5" />
-            {rule}
-          </li>
-        ))}
-      </ul>
-    ),
-  },
-  {
-    number: "09",
-    icon: "🤝",
-    title: "Code of Conduct",
-    content: (
-      <ul className="space-y-3">
-        {[
-          "Participants must behave respectfully towards organizers, fellow participants, and Code Nova staff.",
-          "Harassment, abuse, or disruptive behavior may result in immediate disqualification.",
-          "Serious violations may result in a ban from future Code Nova events.",
-          "Participants must not share, publish, or distribute competition questions or materials before, during, or after the event unless officially permitted by the organizers.",
-        ].map((rule, i) => (
-          <li key={i} className="flex items-start gap-3 text-slate leading-relaxed text-sm">
-            <ShieldCheck className="w-4 h-4 text-blueline shrink-0 mt-0.5" />
-            {rule}
-          </li>
-        ))}
-      </ul>
-    ),
-  },
-  {
-    number: "10",
-    icon: "⚙️",
-    title: "Amendments & Organizer Rights",
-    content: (
-      <ul className="space-y-3">
-        {[
-          "Code Nova reserves the right to modify these Terms & Conditions.",
-          "Code Nova may modify the competition format, schedule, or rewards.",
-          "Reasonable notice will be provided to participants where possible.",
-          "Code Nova reserves the right to cancel, postpone, or reschedule an event due to unforeseen circumstances.",
-          "In all matters relating to interpretation of the rules, scoring, and disputes, the decision of the organizers is final.",
-        ].map((rule, i) => (
-          <li key={i} className="flex items-start gap-3 text-slate leading-relaxed text-sm">
-            <Scale className="w-4 h-4 text-blueline shrink-0 mt-0.5" />
             {rule}
           </li>
         ))}
@@ -957,22 +773,17 @@ function TermsSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section
-      id="terms"
-      className="relative py-20 sm:py-28 bg-paper overflow-hidden"
-    >
-      {/* Subtle background */}
+    <section id="terms" className="relative py-20 sm:py-28 bg-paper overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-0 w-72 h-72 bg-blueline/4 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#F59E0B]/4 rounded-full blur-3xl" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 md:px-8">
-        {/* Section Header */}
         <FadeInUp className="text-center mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2.5 rounded-full border border-blueline/40 bg-blueline/8 px-5 py-2 text-xs sm:text-sm font-mono tracking-widest text-blueline uppercase font-bold mb-5">
             <Scale className="w-4 h-4" />
-            Legal & Rules
+            Legal &amp; Rules
           </div>
           <h2
             className="font-display font-extrabold text-ink text-balance"
@@ -986,7 +797,6 @@ function TermsSection() {
           </p>
         </FadeInUp>
 
-        {/* Accordion Sections */}
         <FadeInUp>
           <div className="space-y-3">
             {TERMS_SECTIONS.map((section, i) => (
@@ -1001,14 +811,15 @@ function TermsSection() {
           </div>
         </FadeInUp>
 
-        {/* Expand all hint */}
         <FadeInUp className="mt-8 text-center">
           <p className="text-xs text-slate/70 font-mono">
             Click any section to expand &amp; read the full terms
           </p>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
             <a
-              href="/education/coding-competition/register"
+              href="https://codenova.upstairstechno.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full bg-blueline px-6 py-3 text-sm font-bold text-paper hover:bg-blueline-soft transition-colors shadow-lg shadow-blueline/20"
             >
               <Trophy className="w-4 h-4" />
@@ -1115,24 +926,22 @@ export default function CodeNovaPage() {
     <>
       <Navbar />
 
-      {/* ── HERO ──────────────────────────────────────────────────────────── */}
       <main className="flex-1 min-h-screen bg-paper text-ink overflow-x-hidden">
-        <section className="relative min-h-[90vh] sm:min-h-screen flex flex-col justify-center bg-ink text-paper pt-32 sm:pt-40 pb-24 sm:pb-32 overflow-hidden">
-          {/* Background video with scaling */}
+        {/* ── HERO ────────────────────────────────────────────────────────── */}
+        <section className="relative min-h-[90vh] sm:min-h-screen flex flex-col justify-center bg-ink text-paper pt-32 sm:pt-40 pb-20 sm:pb-28 overflow-hidden">
+          {/* Background video */}
           <video
             autoPlay
             muted
             loop
             playsInline
-            className="absolute inset-0 object-cover w-full h-full opacity-55 scale-105"
+            className="absolute inset-0 object-cover w-full h-full opacity-45 scale-105"
           >
             <source src="/CodeNovavideo.mp4" type="video/mp4" />
           </video>
 
-          {/* Dark overlay for optimal text contrast and readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-ink/85 via-ink/75 to-ink/90" />
-
-          {/* Blueprint grid subtle */}
+          {/* Dark overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-ink/90 via-ink/80 to-ink/95" />
           <div className="absolute inset-0 blueprint-grid-dark opacity-35 pointer-events-none" />
 
           {/* Gradient glows */}
@@ -1140,129 +949,174 @@ export default function CodeNovaPage() {
           <div className="absolute top-20 -right-32 w-96 h-96 bg-[#F59E0B]/10 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute bottom-10 -left-20 w-72 h-72 bg-blueline/15 rounded-full blur-3xl pointer-events-none" />
 
-          <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6 md:px-8 text-center">
-            {/* Label */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <div className="inline-flex items-center gap-2 rounded-full border border-blueline/40 bg-blueline/10 px-5 py-2 text-xs sm:text-sm font-mono tracking-widest text-blueline-soft uppercase font-bold mb-6">
-                <Trophy className="w-4 h-4" />
-                India&apos;s Monthly Online Skill Championship
+          <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 md:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+              {/* Left Column: Hero Text */}
+              <div className="lg:col-span-7 text-center lg:text-left">
+                <motion.div
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <div className="inline-flex items-center gap-2 rounded-full border border-blueline/40 bg-blueline/10 px-5 py-2 text-xs sm:text-sm font-mono tracking-widest text-blueline-soft uppercase font-bold mb-6">
+                    <Code2 className="w-4 h-4 text-blueline-soft" />
+                    <span>Coding Competition · Organised by Upstairs Techno</span>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 24 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.1 }}
+                >
+                  <h1 className="font-display font-black tracking-tight text-paper leading-tight text-4xl sm:text-5xl md:text-6xl mb-6">
+                    CodeNova <span className="text-blueline">Competition</span>
+                  </h1>
+                </motion.div>
+
+                {/* Simple Introduction - As Requested */}
+                <motion.p
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.25 }}
+                  className="text-base sm:text-lg md:text-xl text-paper/85 leading-relaxed max-w-2xl mx-auto lg:mx-0 mb-8"
+                >
+                  CodeNova is a <strong className="text-white">Coding Competition</strong> organised by <strong className="text-white">Upstairs Techno</strong>. It is a premier platform where participants can showcase their programming skills, logical thinking, and problem-solving abilities.
+                </motion.p>
+
+                {/* Key Pillars */}
+                <motion.div
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.35 }}
+                  className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-10"
+                >
+                  <span className="inline-flex items-center gap-2 rounded-xl border border-blueline/40 bg-blueline/15 px-4 py-2 font-mono text-xs sm:text-sm font-bold text-blueline-soft">
+                    <Code2 className="w-4 h-4" /> Programming Skills
+                  </span>
+                  <span className="inline-flex items-center gap-2 rounded-xl border border-purple-500/40 bg-purple-500/15 px-4 py-2 font-mono text-xs sm:text-sm font-bold text-purple-300">
+                    <BrainCircuit className="w-4 h-4" /> Logical Thinking
+                  </span>
+                  <span className="inline-flex items-center gap-2 rounded-xl border border-emerald-400/40 bg-emerald-500/15 px-4 py-2 font-mono text-xs sm:text-sm font-bold text-emerald-300">
+                    <Sparkles className="w-4 h-4" /> Problem Solving
+                  </span>
+                </motion.div>
+
+                {/* CTAs */}
+                <motion.div
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.45 }}
+                  className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4"
+                >
+                  <a
+                    href="https://codenova.upstairstechno.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-flex items-center gap-2.5 rounded-full bg-blueline px-8 py-4 text-base sm:text-lg font-extrabold text-paper shadow-2xl shadow-blueline/40 transition-all duration-300 hover:bg-blueline-soft hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(37,87,255,0.5)]"
+                  >
+                    <Trophy className="w-5 h-5" />
+                    <span>Register for CodeNova</span>
+                    <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                  </a>
+                  <a
+                    href="#rewards"
+                    className="group inline-flex items-center gap-2.5 rounded-full border border-[#F59E0B]/50 bg-[#F59E0B]/10 px-7 py-4 text-base font-bold text-[#F59E0B] hover:bg-[#F59E0B]/20 transition-all duration-300"
+                  >
+                    <span>View Rewards &amp; Prizes</span>
+                  </a>
+                </motion.div>
               </div>
-            </motion.div>
 
-            {/* Headline */}
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              <h1 className="font-display font-black tracking-tight text-paper leading-none mb-4">
-                <span
-                  className="block"
-                  style={{ fontSize: "clamp(3.5rem, 10vw, 7rem)", letterSpacing: "-0.04em" }}
+              {/* Right Column: Official CodeNova Logo Display */}
+              <div className="lg:col-span-5 flex justify-center">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.94 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.7, delay: 0.2 }}
+                  className="relative w-full max-w-md rounded-3xl border border-blueline/40 bg-gradient-to-b from-[#131d2e] via-[#0d1421] to-[#090e18] p-6 sm:p-8 shadow-2xl shadow-blueline/15"
                 >
-                  Code
-                  <span style={{ color: "#2557FF" }}>·</span>
-                  Nova
-                </span>
-                <span
-                  className="block text-paper/60 font-bold"
-                  style={{ fontSize: "clamp(1.1rem, 2.5vw, 1.75rem)", letterSpacing: "-0.01em", lineHeight: 1.4 }}
-                >
-                  Compete. Learn. Grow.
-                </span>
-              </h1>
-            </motion.div>
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-blueline text-paper text-[11px] font-mono font-black uppercase tracking-wider px-4 py-1 rounded-full shadow-md">
+                    Official Competition Insignia
+                  </div>
 
-            {/* Description */}
-            <motion.p
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.25 }}
-              className="text-base sm:text-lg md:text-xl text-paper/75 leading-relaxed max-w-2xl mx-auto mb-8"
-            >
-              Compete with talented students across India in a structured monthly skill championship designed to test aptitude, logical reasoning, and coding skills.
-            </motion.p>
+                  <div className="relative w-full aspect-square rounded-2xl overflow-hidden border border-paper/15 bg-gradient-to-b from-[#162238] to-[#0a101b] flex items-center justify-center p-4 shadow-inner">
+                    <Image
+                      src="/codenova-logo.png"
+                      alt="Official CodeNova Coding Competition Logo"
+                      fill
+                      priority
+                      sizes="(max-width: 768px) 320px, 420px"
+                      className="object-contain drop-shadow-2xl"
+                    />
+                  </div>
 
-            {/* Championship Feature badge */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.92 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.35 }}
-              className="inline-flex items-center gap-2 rounded-full border border-blueline-soft/40 bg-blueline/10 px-5 py-2 mb-8"
-            >
-              <span className="w-2 h-2 rounded-full bg-blueline-soft animate-pulse" />
-              <span className="text-paper/90 font-mono text-xs sm:text-sm font-semibold tracking-wide">
-                Monthly Championship · All 3 Rounds Included
-              </span>
-            </motion.div>
-
-            {/* CTAs */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.45 }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-4"
-            >
-              <a
-                href="https://codenova.upstairstechno.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2.5 rounded-full bg-blueline px-8 py-4.5 text-lg font-extrabold text-paper shadow-2xl shadow-blueline/40 transition-all duration-300 hover:bg-blueline-soft hover:-translate-y-1 hover:shadow-[0_0_40px_rgba(37,87,255,0.5)]"
-              >
-                <Trophy className="w-5 h-5" />
-                Register for Coding Competition
-                <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-              </a>
-              <a
-                href="#rewards"
-                className="group inline-flex items-center gap-2.5 rounded-full border border-[#F59E0B]/50 bg-[#F59E0B]/10 px-7 py-4.5 text-base font-bold text-[#F59E0B] hover:bg-[#F59E0B]/20 transition-all duration-300"
-              >
-                📋 View Rewards
-                <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </a>
-            </motion.div>
-
-            {/* Quick stats */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.7, duration: 0.5 }}
-              className="mt-14 pt-10 border-t border-paper/10 grid grid-cols-3 gap-6 max-w-lg mx-auto"
-            >
-              {[
-                { value: "3", label: "Rounds" },
-                { value: "Monthly", label: "Schedule" },
-                { value: "National", label: "Level" },
-              ].map((s) => (
-                <div key={s.label} className="text-center">
-                  <p className="font-display text-2xl sm:text-3xl font-black text-blueline-soft">{s.value}</p>
-                  <p className="font-mono text-xs text-paper/50 uppercase tracking-wider mt-0.5">{s.label}</p>
-                </div>
-              ))}
-            </motion.div>
+                  <div className="mt-5 text-center">
+                    <p className="font-display text-base font-bold text-paper">
+                      Upstairs CodeNova
+                    </p>
+                    <p className="font-mono text-xs text-blueline-soft mt-1">
+                      Coding Competition · Organised by Upstairs Techno
+                    </p>
+                  </div>
+                </motion.div>
+              </div>
+            </div>
           </div>
         </section>
 
         {/* ── REWARDS PREVIEW STRIP ───────────────────────────────────────── */}
         <RewardPreviewStrip />
 
-        {/* ── MAIN REWARDS SECTION ────────────────────────────────────────── */}
+        {/* ── WHY PARTICIPATE / INTRO SECTION ─────────────────────────────── */}
+        <section className="py-20 sm:py-28 mx-auto max-w-6xl px-4 sm:px-6 md:px-8">
+          <FadeInUp className="text-center mb-14">
+            <SectionLabel>🚀 Competition Highlights</SectionLabel>
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-extrabold text-ink tracking-tight">
+              Why Compete in <span className="text-blueline">CodeNova?</span>
+            </h2>
+            <p className="mt-4 text-slate text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+              Designed by Senior Software Engineers to recognize technical mastery, problem-solving agility, and logical thinking.
+            </p>
+          </FadeInUp>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {FEATURES.map((f, i) => {
+              const Icon = f.icon;
+              return (
+                <FadeInUp key={f.title} delay={i * 0.08}>
+                  <div className="group relative flex flex-col rounded-2xl border border-grid bg-white p-7 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full overflow-hidden">
+                    <div
+                      className="absolute top-0 left-0 right-0 h-1.5 rounded-t-2xl"
+                      style={{ backgroundColor: f.color }}
+                    />
+                    <div
+                      className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110"
+                      style={{ backgroundColor: `${f.color}15`, color: f.color }}
+                    >
+                      <Icon className="w-6 h-6" />
+                    </div>
+                    <h3 className="font-display text-lg font-bold text-ink mb-2">{f.title}</h3>
+                    <p className="text-sm text-slate leading-relaxed flex-1">{f.desc}</p>
+                  </div>
+                </FadeInUp>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* ── REWARDS & RECOGNITION SECTION ───────────────────────────────── */}
         <section
           id="rewards"
-          className="relative py-20 sm:py-28 bg-ink text-paper overflow-hidden mt-16 sm:mt-20"
+          className="relative py-20 sm:py-28 bg-ink text-paper overflow-hidden"
         >
           <div className="absolute inset-0 blueprint-grid-dark opacity-50" />
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-blueline/8 rounded-full blur-[120px] pointer-events-none" />
 
           <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 md:px-8">
-            {/* Header */}
             <FadeInUp className="text-center mb-12 sm:mb-16">
               <div className="inline-flex items-center gap-2 rounded-full border border-[#F59E0B]/40 bg-[#F59E0B]/10 px-5 py-2 text-xs sm:text-sm font-mono tracking-widest text-[#F59E0B] uppercase font-bold mb-5">
-                🏆 Rewards & Recognition
+                🏆 Rewards &amp; Recognition
               </div>
               <h2
                 className="font-display font-extrabold text-paper text-balance"
@@ -1277,24 +1131,24 @@ export default function CodeNovaPage() {
               </p>
             </FadeInUp>
 
-            {/* 🌟 HIGHLIGHTED REWARD: PAID REMOTE INTERNSHIP OPPORTUNITY 🌟 */}
+            {/* Paid Remote Internship Reward */}
             <PaidInternshipReward />
 
-            {/* 3 podium reward cards */}
+            {/* Podium Reward Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 items-start mb-16 sm:mb-20">
               {REWARDS.map((r, i) => (
                 <RewardCard key={r.place} reward={r} index={i} />
               ))}
             </div>
 
-            {/* Participant rewards */}
+            {/* Participant Rewards */}
             <FadeInUp>
               <div className="border-t border-paper/10 pt-14">
                 <div className="text-center mb-10">
                   <h3 className="font-display text-2xl sm:text-3xl font-bold text-paper mb-2">
-                    🎽 Every Qualified Round‑2 Participant Gets
+                    🎽 Every Participant Gets Recognition
                   </h3>
-                  <p className="text-paper/55 text-base">Recognition that you can showcase on your student or career profile.</p>
+                  <p className="text-paper/55 text-base">Verified credentials that you can showcase on LinkedIn and your resume.</p>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-2xl mx-auto">
@@ -1302,12 +1156,12 @@ export default function CodeNovaPage() {
                     {
                       icon: "👕",
                       title: "Official Code Nova T-Shirt",
-                      desc: "Participants who qualify for Round 2 receive the exclusive Code Nova T-shirt — wear it with pride.",
+                      desc: "Top qualifiers receive the exclusive official Code Nova T-shirt.",
                     },
                     {
                       icon: "📜",
                       title: "Digital Participation Certificate",
-                      desc: "Receive an official digital participation certificate to add to your academic and professional profile.",
+                      desc: "Receive an official verified digital certificate to add to your academic and professional profile.",
                     },
                   ].map((item) => (
                     <div
@@ -1338,133 +1192,93 @@ export default function CodeNovaPage() {
           <LoyaltyReward />
         </section>
 
-        {/* ── REGISTRATION + CTA ──────────────────────────────────────────── */}
-        <section
-          id="register"
-          className="relative py-20 sm:py-28 bg-ink text-paper overflow-hidden mx-4 sm:mx-6 lg:mx-auto lg:max-w-7xl rounded-3xl border border-blueline/30 shadow-2xl mb-16"
-        >
-          <div className="absolute inset-0 blueprint-grid-dark opacity-60" />
-          <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-blueline/15 rounded-full blur-[100px] pointer-events-none" />
-
-          <div className="relative z-10 mx-auto max-w-3xl px-4 sm:px-6 text-center">
-            <FadeInUp>
-              <SectionLabel>Register Now</SectionLabel>
-              <h2 className="font-display font-extrabold text-paper mb-3" style={{ fontSize: "clamp(2rem,5vw,3.5rem)", letterSpacing: "-0.025em" }}>
-                Register for Code Nova
-              </h2>
-
-              <p className="text-base sm:text-lg text-paper/75 max-w-xl mx-auto mb-8">
-                Join India&apos;s structured monthly skill championship. Access all 3 rounds (subject to qualification), earn certificates, medals, and career opportunities.
-              </p>
-
-              {/* Timeline: Registration → R1 → R2 → Final */}
-              <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
-                {["Registration", "Round 1", "Round 2", "🏆 Final"].map((s, i, arr) => (
-                  <div key={s} className="flex items-center gap-2">
-                    <span className="rounded-full px-4 py-2 font-mono text-xs font-bold border border-paper/20 bg-paper/5 text-paper/80">
-                      {s}
-                    </span>
-                    {i < arr.length - 1 && <ArrowRight className="w-3.5 h-3.5 text-paper/30" />}
-                  </div>
-                ))}
-              </div>
-
-              <a
-                href="https://codenova.upstairstechno.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center gap-3 rounded-full bg-blueline px-10 py-5 text-xl font-extrabold text-paper shadow-2xl shadow-blueline/40 transition-all duration-300 hover:bg-blueline-soft hover:-translate-y-1 hover:shadow-[0_0_50px_rgba(37,87,255,0.5)]"
-              >
-                <Trophy className="w-6 h-6" />
-                Register for Coding Competition
-                <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
-              </a>
-            </FadeInUp>
-          </div>
-        </section>
-
-        {/* ── COMPETITION STRUCTURE ───────────────────────────────────────── */}
-        <section className="py-16 sm:py-24 mx-auto max-w-6xl px-4 sm:px-6 md:px-8">
-          <FadeInUp className="text-center mb-14">
-            <SectionLabel>📋 Competition Structure</SectionLabel>
-            <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-ink mb-3" style={{ letterSpacing: "-0.02em" }}>
-              How Code Nova Works
-            </h2>
-            <p className="text-slate text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-              Every Code Nova event follows a structured, multi-round format designed to progressively challenge participants and identify skilled competitors across India.
-            </p>
-          </FadeInUp>
-          <CompetitionTimeline />
-        </section>
-
-        {/* ── WHY PARTICIPATE ─────────────────────────────────────────────── */}
-        <section className="py-16 sm:py-24 bg-paper-dim/50">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6 md:px-8">
+        {/* ── WHAT YOU GET / BENEFITS ─────────────────────────────────────── */}
+        <section className="py-16 sm:py-24 bg-paper-dim/50 border-y border-grid">
+          <div className="mx-auto max-w-5xl px-4 sm:px-6 md:px-8">
             <FadeInUp className="text-center mb-12">
-              <SectionLabel>🚀 Platform Features</SectionLabel>
+              <SectionLabel>🌟 Key Benefits</SectionLabel>
               <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-ink" style={{ letterSpacing: "-0.02em" }}>
-                Why Participate in Code Nova?
+                Everything Included in One Registration
               </h2>
             </FadeInUp>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-              {FEATURES.map((f, i) => {
-                const Icon = f.icon;
-                return (
-                  <FadeInUp key={f.title} delay={i * 0.08}>
-                    <div
-                      className="group relative flex flex-col rounded-2xl border border-grid bg-white p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 h-full overflow-hidden"
-                    >
-                      <div
-                        className="absolute top-0 left-0 right-0 h-1 rounded-t-2xl"
-                        style={{ backgroundColor: f.color }}
-                      />
-                      <div
-                        className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-colors duration-300"
-                        style={{ backgroundColor: `${f.color}15` }}
-                      >
-                        <Icon className="w-6 h-6" style={{ color: f.color }} />
-                      </div>
-                      <h3 className="font-display text-lg font-bold text-ink mb-2">{f.title}</h3>
-                      <p className="text-sm text-slate leading-relaxed flex-1">{f.desc}</p>
+            <FadeInUp>
+              <div className="rounded-2xl sm:rounded-3xl border border-grid bg-white p-8 sm:p-10 shadow-sm">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-4">
+                  {BENEFITS.map((benefit, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-blueline shrink-0 mt-0.5" />
+                      <span className="text-base text-ink leading-snug">{benefit}</span>
                     </div>
-                  </FadeInUp>
-                );
-              })}
+                  ))}
+                </div>
+              </div>
+            </FadeInUp>
+          </div>
+        </section>
+
+        {/* ── ALSO EXPLORE OLYMPIAD EXAMINATION SECTION ───────────────────── */}
+        <section className="py-16 sm:py-24 mx-auto max-w-6xl px-4 sm:px-6 md:px-8">
+          <div className="rounded-3xl border border-amber-400/40 bg-gradient-to-br from-[#1c1a14] via-ink to-[#14120c] text-paper p-8 sm:p-12 relative overflow-hidden shadow-2xl">
+            <div className="absolute inset-0 blueprint-grid-dark opacity-40 pointer-events-none" />
+            <div className="absolute top-0 right-0 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
+
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              <div className="lg:col-span-8">
+                <span className="inline-flex items-center gap-2 rounded-full border border-amber-400/40 bg-amber-500/15 px-3.5 py-1 text-xs font-mono font-bold uppercase tracking-wider text-amber-300 mb-4">
+                  <GraduationCap className="w-4 h-4" />
+                  New Competition · Standard 1st to 12th
+                </span>
+                <h3 className="font-display text-2xl sm:text-3xl md:text-4xl font-extrabold text-paper mb-3">
+                  Also Explore the <span className="text-amber-400">Olympiad Examination</span>
+                </h3>
+                <p className="text-paper/80 text-sm sm:text-base leading-relaxed max-w-2xl mb-6">
+                  Upstairs Future Genius Olympiad (UFGO) is open for students from Standard 1st to 12th across India, available in both <strong className="text-white">Online</strong> and <strong className="text-white">Offline</strong> examination modes.
+                </p>
+
+                <div className="flex flex-wrap items-center gap-3 font-mono text-xs text-paper/80 mb-6">
+                  <span className="inline-flex items-center gap-1.5 rounded-lg bg-paper/10 px-3 py-1.5">
+                    <Globe2 className="w-3.5 h-3.5 text-blueline-soft" /> Online Mode
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 rounded-lg bg-paper/10 px-3 py-1.5">
+                    <Building2 className="w-3.5 h-3.5 text-emerald-400" /> Offline Mode
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 rounded-lg bg-paper/10 px-3 py-1.5">
+                    <GraduationCap className="w-3.5 h-3.5 text-amber-400" /> Standard 1st–12th
+                  </span>
+                </div>
+
+                <Link
+                  href="/education/olympiad"
+                  className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 px-6 py-3.5 text-sm sm:text-base font-bold text-white shadow-lg shadow-amber-500/30 transition-all"
+                >
+                  <span>Explore Olympiad Examination</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+
+              <div className="lg:col-span-4 flex justify-center">
+                <div className="relative w-48 h-48 sm:w-56 sm:h-56 rounded-2xl overflow-hidden border border-paper/20 bg-paper/5 p-3 flex items-center justify-center">
+                  <Image
+                    src="/olympiad-logo.png"
+                    alt="Upstairs Future Genius Olympiad Logo"
+                    fill
+                    sizes="(max-width: 640px) 192px, 224px"
+                    className="object-contain p-2"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* ── PARTICIPANT BENEFITS ─────────────────────────────────────────── */}
-        <section className="py-16 sm:py-24 mx-auto max-w-5xl px-4 sm:px-6 md:px-8">
-          <FadeInUp className="text-center mb-12">
-            <SectionLabel>🌟 What You Get</SectionLabel>
-            <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-ink" style={{ letterSpacing: "-0.02em" }}>
-              Everything Included in One Registration
-            </h2>
-          </FadeInUp>
-
-          <FadeInUp>
-            <div className="rounded-2xl sm:rounded-3xl border border-grid bg-white p-8 sm:p-10 shadow-sm">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-4">
-                {BENEFITS.map((benefit, i) => (
-                  <div key={i} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-blueline shrink-0 mt-0.5" />
-                    <span className="text-base text-ink leading-snug">{benefit}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </FadeInUp>
-        </section>
-
-        {/* ── COMPETITION RULES FAQ ───────────────────────────────────────── */}
+        {/* ── FAQ ─────────────────────────────────────────────────────────── */}
         <section className="py-16 sm:py-24 bg-paper-dim/50">
           <div className="mx-auto max-w-3xl px-4 sm:px-6 md:px-8">
             <FadeInUp className="text-center mb-10">
-              <SectionLabel>📜 Competition Rules</SectionLabel>
+              <SectionLabel>📜 Rules &amp; FAQs</SectionLabel>
               <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-ink" style={{ letterSpacing: "-0.02em" }}>
-                Rules &amp; FAQs
+                Frequently Asked Questions
               </h2>
             </FadeInUp>
             <FAQAccordion />
@@ -1492,7 +1306,7 @@ export default function CodeNovaPage() {
 
           <FadeInUp className="relative z-10 mx-auto max-w-3xl px-4 sm:px-6 text-center">
             <p className="font-mono text-xs sm:text-sm uppercase tracking-[0.3em] text-blueline-soft mb-4 font-bold">
-              Code Nova · Monthly Skill Championship
+              CodeNova · Coding Competition
             </p>
             <h2
               className="font-display font-extrabold text-paper text-balance mb-5"
@@ -1501,9 +1315,9 @@ export default function CodeNovaPage() {
               Ready to Compete?
             </h2>
             <p className="text-base sm:text-xl text-paper/70 mb-10 leading-relaxed">
-              Prove your skills. Climb the leaderboard. Earn recognition.
+              Showcase your programming skills, logical thinking, and problem-solving abilities.
               <br />
-              <strong className="text-paper/90">India&apos;s Monthly Online Skill Championship — Code Nova.</strong>
+              <strong className="text-paper/90">Organised by Upstairs Techno.</strong>
             </p>
 
             <a
@@ -1516,10 +1330,6 @@ export default function CodeNovaPage() {
               Register for Coding Competition
               <Sparkles className="w-5 h-5" />
             </a>
-
-            <p className="mt-5 font-mono text-sm text-paper/50">
-              Monthly Skill Championship · All Rounds & Recognition Included
-            </p>
           </FadeInUp>
         </section>
       </main>

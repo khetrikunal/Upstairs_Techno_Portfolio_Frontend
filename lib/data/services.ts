@@ -206,17 +206,18 @@ export const services: Service[] = [
     ],
     icon: GraduationCap,
     subServices: [
-      { title: "Code Nova (Coding Competition)", description: "Monthly 3-round online coding contest (Aptitude, Basic Coding, Advanced Coding) with prizes and internship opportunities." },
-      { title: "AI Courses", description: "Beginner-friendly AI and programming courses for school and college students, launching soon." },
+      { title: "CodeNova (Coding Competition)", description: "Premier coding competition where participants showcase programming skills, logical thinking, and problem-solving abilities." },
+      { title: "Olympiad Examination", description: "Nationwide UFGO Olympiad Examination for Standard 1st to 12th in Online and Offline modes." },
+      { title: "AI Courses", description: "Practical AI and programming learning paths for school and college student cohorts, launching soon." },
     ],
     process: ["Assess Requirements", "Curate Curriculum", "Hands-on Training", "Real Projects", "Evaluate & Certify"],
     technologies: ["Python", "Generative AI", "PyTorch", "C++", "Java", "Next.js", "Docker", "Cloud & DevOps"],
     projects: [
       {
-        title: "Monthly Coding Championship",
-        industry: "Education & Competitive Coding",
-        description: "National-level 3-round monthly competition testing aptitude, fundamental coding, and advanced algorithmic optimization.",
-        technologies: ["Aptitude", "Data Structures", "Algorithms"],
+        title: "National Competitions & Olympiad",
+        industry: "Education & Talent Assessment",
+        description: "National-level CodeNova coding competitions and Olympiad Examinations benchmarking problem solving and academic brilliance.",
+        technologies: ["Competitive Programming", "Algorithms", "Logical Reasoning"],
       },
       {
         title: "GenAI Academy for Universities",
@@ -231,13 +232,13 @@ export const services: Service[] = [
       "Practical AI knowledge for students and aspiring developers.",
     ],
     differentiators: [
-      { title: "3-Round Monthly Competition", description: "Structured aptitude and coding challenges every month with verified rewards.", icon: Sparkles },
+      { title: "National Competitions & Olympiad", description: "Premier CodeNova coding contests and nationwide Olympiad Examinations with verified rewards and medals.", icon: Sparkles },
       { title: "Industry-aligned AI Courses", description: "Tailored AI learning paths for school and college student cohorts.", icon: BookOpen },
       { title: "Direct Enterprise Pathway", description: "Top performers get direct entry to internships and full-time hiring pools.", icon: LayoutGrid },
     ],
     faqs: [
-      { question: "What offerings are included in the Education division?", answer: "The Education division includes AI Courses and Monthly Coding Competitions designed to build practical technology skills." },
-      { question: "How often is the Coding Competition conducted?", answer: "The Coding Competition is conducted every month in 3 distinct rounds (Aptitude, Basic Coding, Advanced Coding)." },
+      { question: "What offerings are included in the Education division?", answer: "The Education division includes CodeNova Coding Competition, Olympiad Examination (for Standard 1st to 12th in Online & Offline modes), and AI Courses." },
+      { question: "How often is the Coding Competition conducted?", answer: "CodeNova is conducted regularly where participants showcase their programming skills, logical thinking, and problem-solving abilities." },
       { question: "Who can join the AI courses?", answer: "Our AI courses are designed for school students, college students, and freshers who want to learn practical AI concepts, tools, and applications." },
     ],
   },
