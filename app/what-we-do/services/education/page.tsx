@@ -21,9 +21,10 @@ import {
 } from "lucide-react";
 
 export const metadata = {
-  title: "Education Division | Upstairs Techno",
+  title: "Education Division",
   description:
     "Empowering students with future-ready technology skills through Code Nova coding competitions, nationwide Olympiad examinations, and practical AI courses.",
+  alternates: { canonical: "/education" },
 };
 
 export default function EducationDivisionPage() {

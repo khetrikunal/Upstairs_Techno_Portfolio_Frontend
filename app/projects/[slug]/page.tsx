@@ -28,8 +28,9 @@ export async function generateMetadata({
   const project = getProjectBySlug(slug);
   if (!project) return {};
   return {
-    title: `${project.name} | Upstairs Techno`,
-    description: project.shortDescription,
+    title: project.name.slice(0, 40),
+    description: project.shortDescription.slice(0, 157),
+    alternates: { canonical: `/projects/${slug}` },
   };
 }
 

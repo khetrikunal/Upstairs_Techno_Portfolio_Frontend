@@ -8,7 +8,8 @@ import { PARTNERS } from "@/lib/data/partners";
 export const metadata: Metadata = {
   title: "Our Partners | Upstairs Techno",
   description:
-    "Companies and businesses that Upstairs Techno has built enterprise software for — from manufacturing ERP systems to full-stack web platforms.",
+    "Meet the companies and businesses for which Upstairs Techno has built software, ERP systems, and digital platforms.",
+  alternates: { canonical: "/partners" },
 };
 
 export default function PartnersPage() {

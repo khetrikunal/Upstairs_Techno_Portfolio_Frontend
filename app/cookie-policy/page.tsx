@@ -3,9 +3,10 @@ import Link from "next/link";
 import InformationPage from "@/components/InformationPage";
 
 export const metadata: Metadata = {
-	title: "Cookie Policy | Upstairs Techno Pvt. Ltd.",
+	title: "Cookie Policy",
 	description:
-		"Read the Cookie Policy of Upstairs Techno Pvt. Ltd. to understand how cookies and similar technologies are used on our website and digital platforms.",
+		"Learn how Upstairs Techno uses cookies and similar technologies on its website and digital platforms.",
+	alternates: { canonical: "/cookie-policy" },
 };
 
 const sectionClassName = "space-y-4";

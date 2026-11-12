@@ -10,6 +10,13 @@ import Technologies from "@/components/Technologies";
 import OfficeCollage from "@/components/OfficeCollage";
 import PublicEvents from "@/components/PublicEvents";
 import Footer from "@/components/Footer";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Enterprise Software & AI Solutions",
+  description: "Upstairs Techno builds enterprise software, AI solutions, and digital platforms for businesses in India and beyond.",
+  alternates: { canonical: "/" },
+};
 
 export default function Home() {
   return (

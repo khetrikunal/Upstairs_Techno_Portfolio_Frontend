@@ -8,7 +8,8 @@ import { ArrowUpRight } from "lucide-react";
 export const metadata: Metadata = {
   title: "Our Products | Upstairs Techno",
   description:
-    "Explore Upstairs Techno's portfolio of enterprise software products — from healthcare management and ERP systems to e-commerce platforms and procurement software.",
+    "Explore enterprise software projects by Upstairs Techno, including healthcare, ERP, e-commerce, and procurement platforms.",
+  alternates: { canonical: "/projects" },
 };
 
 export default function ProjectsPage() {

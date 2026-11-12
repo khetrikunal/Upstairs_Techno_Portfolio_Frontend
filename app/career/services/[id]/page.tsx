@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import type { Metadata } from "next";
 import { getCareerService, listCareerServices } from "@/lib/data/repository";
 import { notFound } from "next/navigation";
 import {
@@ -25,11 +26,12 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const service = await getCareerService(id);
-  if (!service) return { title: "Career Service | Upstairs Techno" };
+  if (!service) return { title: "Career Service", description: "Explore career and skills programs from Upstairs Techno." };
 
   return {
-    title: `${service.title} | Career & Skill Accelerator | Upstairs Techno`,
-    description: service.shortDescription,
+    title: `${service.title} Careers`.slice(0, 35),
+    description: service.shortDescription.slice(0, 157),
+    alternates: { canonical: `/career/services/${id}` },
   };
 }
 

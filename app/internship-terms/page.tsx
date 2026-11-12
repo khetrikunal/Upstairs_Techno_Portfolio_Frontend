@@ -3,9 +3,10 @@ import Link from "next/link";
 import InformationPage from "@/components/InformationPage";
 
 export const metadata: Metadata = {
-	title: "Internship Terms & Conditions | Upstairs Techno Pvt. Ltd.",
+	title: "Internship Terms & Conditions",
 	description:
-		"Read the Internship Terms & Conditions of Upstairs Techno Pvt. Ltd. covering internship eligibility, selection, responsibilities, projects, certificates, confidentiality, intellectual property, conduct, termination, and other internship requirements.",
+		"Review internship eligibility, selection, responsibilities, projects, certificates, confidentiality, conduct, and other program terms.",
+	alternates: { canonical: "/internship-terms" },
 };
 
 const sectionClassName = "space-y-4";

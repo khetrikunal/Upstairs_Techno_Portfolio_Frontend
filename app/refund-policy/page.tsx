@@ -3,9 +3,10 @@ import Link from "next/link";
 import InformationPage from "@/components/InformationPage";
 
 export const metadata: Metadata = {
-	title: "Refund & Cancellation Policy | Upstairs Techno Pvt. Ltd.",
+	title: "Refund & Cancellation Policy",
 	description:
-		"Read the Refund & Cancellation Policy of Upstairs Techno Pvt. Ltd. covering cancellations, refunds, payments, training programs, internships, OJT, assessments, career services, digital services, and other paid services.",
+		"Review cancellation and refund terms for Upstairs Techno payments, training programs, internships, assessments, and other paid services.",
+	alternates: { canonical: "/refund-policy" },
 };
 
 const sectionClassName = "space-y-4";

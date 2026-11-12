@@ -21,8 +21,9 @@ export async function generateMetadata({ params }: ServiceDetailPageProps) {
   }
 
   return {
-    title: `${service.title} | What We Do | Upstairs Techno`,
-    description: service.shortDescription,
+    title: service.title,
+    description: service.shortDescription.slice(0, 157),
+    alternates: { canonical: `/services/${slug}` },
   };
 }
 

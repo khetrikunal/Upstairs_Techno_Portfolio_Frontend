@@ -3,9 +3,10 @@ import Link from "next/link";
 import InformationPage from "@/components/InformationPage";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Upstairs Techno Pvt. Ltd.",
+  title: "Privacy Policy",
   description:
-    "Read the Privacy Policy of Upstairs Techno Pvt. Ltd. to understand how we collect, use, protect, and process personal information across our website, services, recruitment, training, and digital platforms.",
+    "Learn how Upstairs Techno collects, uses, and protects personal information across its website, services, recruitment, and training.",
+  alternates: { canonical: "/privacy-policy" },
 };
 
 const sectionClassName = "space-y-4";

@@ -4,6 +4,18 @@ import { ArrowLeft, Check } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { getCaseStudy } from "@/lib/data/repository";
+import type { Metadata } from "next";
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const study = await getCaseStudy(slug);
+  if (!study) return { title: "Case Study Not Found", description: "This Upstairs Techno case study is unavailable." };
+  return {
+    title: study.title.slice(0, 40),
+    description: study.summary.slice(0, 157),
+    alternates: { canonical: `/case-studies/${slug}` },
+  };
+}
 
 export default async function CaseStudyPage({
   params,

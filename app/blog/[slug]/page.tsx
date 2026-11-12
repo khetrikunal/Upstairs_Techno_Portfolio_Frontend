@@ -4,6 +4,18 @@ import { ArrowLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { getBlogPost } from "@/lib/data/repository";
+import type { Metadata } from "next";
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const post = await getBlogPost(slug);
+  if (!post) return { title: "Insight Not Found", description: "This Upstairs Techno insight is unavailable." };
+  return {
+    title: post.title.slice(0, 40),
+    description: post.summary.slice(0, 157),
+    alternates: { canonical: `/blog/${slug}` },
+  };
+}
 
 export default async function BlogPostPage({
   params,

@@ -5,8 +5,9 @@ import { services } from "@/lib/data/services";
 import { ArrowRight } from "lucide-react";
 
 export const metadata = {
-  title: "Services | Upstairs Techno",
+  title: "Services",
   description: "Explore Upstairs Techno’s IT consulting, custom software development, BTDS talent development, and technical education offerings.",
+  alternates: { canonical: "/services" },
 };
 
 export default function ServicesPage() {

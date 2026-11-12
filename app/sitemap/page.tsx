@@ -29,9 +29,9 @@ export default async function SitemapPage() {
     ["What we do", services.map(({ title, slug }) => ({ label: title, href: `/what-we-do/${slug}` })).concat([{ label: "Education services", href: "/what-we-do/services/education" }])],
     ["Projects", ALL_PROJECTS.map(({ name, slug }) => ({ label: name, href: `/projects/${slug}` }))],
     ["Partners", PARTNERS.map(({ name, slug }) => ({ label: name, href: `/partners/${slug}` }))],
+    ["Case studies", [{ label: "All case studies", href: "/case-studies" }, ...studies.map(({ title, slug }) => ({ label: title, href: `/case-studies/${slug}` }))]],
     ["Career services", careerServices.map(({ title, id }) => ({ label: title, href: `/career/services/${id}` }))],
     ["Education", educationPages.map((slug) => ({ label: slug.replaceAll("-", " ").replace(/\b\w/g, (c) => c.toUpperCase()), href: `/education/${slug}` }))],
-    ["Case studies", studies.map(({ title, slug }) => ({ label: title, href: `/case-studies/${slug}` }))],
     ["Insights", posts.map(({ title, slug }) => ({ label: title, href: `/blog/${slug}` }))],
     ["Policies", policyPages.map((slug) => ({ label: slug.replaceAll("-", " ").replace(/\b\w/g, (c) => c.toUpperCase()), href: `/${slug}` }))],
   ];

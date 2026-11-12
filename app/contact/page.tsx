@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import ContactUsExperience from "@/components/ContactUsExperience";
 
 export const metadata: Metadata = {
-  title: "Contact Upstairs Techno",
+  title: "Contact Us",
   description: "Contact Upstairs Techno about software development, IT consulting, AI and automation, careers, training, and partnerships.",
   alternates: { canonical: "/contact" },
   openGraph: {

@@ -18,9 +18,10 @@ import {
 } from "lucide-react";
 
 export const metadata = {
-  title: "Career & Job Opportunities | Upstairs Techno",
+  title: "Careers & Jobs",
   description:
-    "Build your future with Upstairs Techno. Explore BTDS talent pipeline, real-world engineering internships, and full-time software engineering roles.",
+    "Explore technology internships, talent development programs, and job opportunities at Upstairs Techno.",
+  alternates: { canonical: "/career" },
 };
 
 const serviceIcons: Record<string, typeof Code2> = {

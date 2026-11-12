@@ -3,6 +3,13 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ServiceCard from "@/components/ServiceCard";
 import { services } from "@/lib/data/services";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "What We Do",
+  description: "Explore Upstairs Techno's software engineering, consulting, AI, education, and talent development services.",
+  alternates: { canonical: "/what-we-do" },
+};
 
 export default function WhatWeDoPage() {
   return (

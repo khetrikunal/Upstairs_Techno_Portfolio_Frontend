@@ -17,7 +17,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const pages: MetadataRoute.Sitemap = [
     ["", "weekly", 1], ["about", "monthly", 0.8], ["services", "monthly", 0.9],
     ["what-we-do", "monthly", 0.8], ["projects", "monthly", 0.9],
-    ["partners", "monthly", 0.7], ["career", "monthly", 0.7],
+    ["partners", "monthly", 0.7], ["case-studies", "monthly", 0.7], ["career", "monthly", 0.7],
     ["contact", "monthly", 0.8], ["education", "monthly", 0.7],
     ["education/ai-courses", "monthly", 0.6], ["education/coding-competition", "monthly", 0.6],
     ["education/olympiad", "monthly", 0.6],

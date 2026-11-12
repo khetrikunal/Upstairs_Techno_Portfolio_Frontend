@@ -30,13 +30,15 @@ export async function generateMetadata({
 
   if (!partner) {
     return {
-      title: "Partner Not Found | Upstairs Techno",
+      title: "Partner Not Found",
+      description: "This partner page is unavailable.",
     };
   }
 
   return {
-    title: `${partner.name} Projects | Upstairs Techno`,
-    description: `Explore the ${partner.projects.length} project${partner.projects.length !== 1 ? "s" : ""} Upstairs Techno has delivered for ${partner.name}${partner.industry ? ` — ${partner.industry}` : ""}.`,
+    title: `${partner.name} Projects`.slice(0, 35),
+    description: `Explore projects Upstairs Techno has delivered for ${partner.name}${partner.industry ? ` in ${partner.industry}` : ""}.`.slice(0, 157),
+    alternates: { canonical: `/partners/${slug}` },
   };
 }
 

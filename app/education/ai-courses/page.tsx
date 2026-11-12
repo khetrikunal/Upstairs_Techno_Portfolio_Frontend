@@ -3,9 +3,10 @@ import Footer from "@/components/Footer";
 import { ArrowRight, CheckCircle2, Cpu, Sparkles, BookOpen, GraduationCap, Code, Clock } from "lucide-react";
 
 export const metadata = {
-  title: "AI Courses | Upstairs Techno Education",
+  title: "AI Courses",
   description:
-    "Explore AI-focused courses designed for School & College students. Learn Artificial Intelligence, Generative AI, PyTorch, RAG Pipelines, and real-world ML engineering.",
+    "Explore AI courses for school and college students, covering generative AI, PyTorch, RAG pipelines, and practical machine learning.",
+  alternates: { canonical: "/education/ai-courses" },
 };
 
 export default function AICoursesPage() {
