@@ -29,7 +29,7 @@
 
   /* Typography: Nunito headings & DM Sans body */
   --font-heading: var(--font-heading, "Nunito", sans-serif);
-  --font-body: var(--font-body, "DM Sans", sans-serif);
+  --font-body: var(--font-dm-sans, var(--font-body, "DM Sans", sans-serif));
   --font-sans: var(--font-body);
   --font-display: var(--font-heading);
   --font-mono: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace;

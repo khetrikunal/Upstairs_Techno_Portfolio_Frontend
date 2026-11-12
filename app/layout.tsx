@@ -14,9 +14,9 @@ const nunito = Nunito({
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
-  variable: "--font-body",
-  display: "swap",
   weight: ["400", "500", "600", "700"],
+  display: "swap",
+  variable: "--font-dm-sans",
 });
 
 const inter = Inter({

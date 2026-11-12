@@ -26,6 +26,7 @@ const SERVICE_LINKS = [
 ];
 
 const LEGAL_LINKS = [
+  { name: "Sitemap", href: "/sitemap" },
   { name: "Privacy Policy", href: "/privacy-policy" },
   { name: "Terms & Conditions", href: "/terms-and-conditions" },
   { name: "Refund & Cancellation Policy", href: "/refund-policy" },
