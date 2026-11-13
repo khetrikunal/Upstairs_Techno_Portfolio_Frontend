@@ -24,7 +24,7 @@ export default function PublicEvents() {
 
         <div className="mx-auto max-w-3xl overflow-hidden rounded-2xl border border-grid bg-white p-2 shadow-xl shadow-ink/10 sm:rounded-3xl sm:p-3">
           <Image
-            src="/Research distinction event.jpeg"
+            src="/Research Distinction Awards New Poster.png"
             alt="Research Distinction Awards event announcement"
             width={1024}
             height={1536}
