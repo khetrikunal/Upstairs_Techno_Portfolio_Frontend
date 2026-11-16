@@ -106,9 +106,6 @@ export default function PublicEvents() {
           </div>
         </article>
 
-        <p className="mt-8 text-center font-display text-xs font-black tracking-[0.2em] text-blueline sm:mt-10 sm:text-sm sm:tracking-[0.28em]">
-          MORE UPDATES SOON
-        </p>
       </div>
 
       <AnimatePresence>
