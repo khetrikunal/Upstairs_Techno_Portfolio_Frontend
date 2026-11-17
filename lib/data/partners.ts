@@ -175,7 +175,7 @@ export const PARTNERS: Partner[] = [
   {
     slug: "malegaon-municipal-corporation",
     name: "Malegaon Municipal Corporation (MMC)",
-    logo: "/Partners/Malegaon Municipal Corporation (MMC).png",
+    logo: "/Partners/Malegaon.jpeg",
     industry: "Government & Civic Administration",
     shortDescription: "Civic administration and municipal public digital services for Malegaon city.",
     projects: [
